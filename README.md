@@ -12,6 +12,7 @@ For more information:
 
 You can peruse the API reference documentation as:
 * [Swagger](https://vippsas.github.io/vipps-merchant-management-api/)
+* [ReDoc](https://vippsas.github.io/vipps-merchant-management-api/redoc.html)
 
 # Questions?
 
