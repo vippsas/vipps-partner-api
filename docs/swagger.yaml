@@ -79,8 +79,9 @@ paths:
           $ref: '#/responses/500'
       tags:
         - Merchants
-      description: 'DRAFT:This method will not be implemented in the initial phase. Creating of new merchants is done on portal.vipps.no.'
-  '/merchants/{organizationNumber}':
+        - NotImplemented
+      description: 'DRAFT: This method will not be implemented in the initial phase. Creating of new merchants is done on portal.vipps.no.'
+  '/v1/merchants/{organizationNumber}':
     parameters:
       - type: string
         name: organizationNumber
@@ -93,7 +94,7 @@ paths:
       responses: {}
       operationId: getMerchantByOrgno
       description: Get details for merchant by organization number.
-  '/merchants/{organizationNumber}/saleunits':
+  '/v1/merchants/{organizationNumber}/saleunits':
     parameters:
       - type: string
         name: organizationNumber
