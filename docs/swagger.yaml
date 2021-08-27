@@ -40,17 +40,18 @@ paths:
       summary: Get all merchants (LATER)
       responses:
         '200':
-          description: OK
+          $ref: '#/responses/404'
+        '201':
+          description: Created
           schema:
-            $ref: '#/definitions/GetMerchantsResponse'
+            type: object
+            properties: {}
         '400':
           $ref: '#/responses/400'
         '401':
           $ref: '#/responses/401'
         '403':
           $ref: '#/responses/403'
-        '405':
-          $ref: '#/responses/405'
         '500':
           $ref: '#/responses/500'
       tags:
@@ -100,7 +101,15 @@ paths:
       summary: Get merchant details
       tags:
         - Merchants
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Merchant'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
       operationId: getMerchantDetails
       description: Get details for merchant by organization number. Returns HTTP 404 if the merchant is not connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
   '/v1/merchants/{orgno}/saleunits':
@@ -113,7 +122,21 @@ paths:
       summary: Get merchant's sale units
       tags:
         - Saleunits
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                '':
+                  $ref: '#/definitions/SaleUnit'
+        '404':
+          description: Not Found
+          schema:
+            type: object
+            properties: {}
       operationId: getMerchantSaleunits
       description: |
         Get all sale units for this merchant that is connected to this partner. Returns HTTP 404 if there are no sale units connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
@@ -131,7 +154,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Merchant'
+            $ref: '#/definitions/SaleUnit'
         '400':
           $ref: '#/responses/400'
         '401':
