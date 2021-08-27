@@ -37,7 +37,7 @@ paths:
       - $ref: '#/parameters/apimKey'
     get:
       operationId: getMerchants
-      summary: Get all merchants
+      summary: Get all merchants (LATER)
       responses:
         '200':
           description: OK
@@ -61,7 +61,7 @@ paths:
         Get all merchants that this partner has access to. Returns HTTP 404 if there are noe merchants connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
     post:
       operationId: createMerchant
-      summary: Create a new merchant
+      summary: Create a new merchant (LATER)
       parameters:
         - $ref: '#/parameters/idempotency'
         - name: merchant
@@ -147,7 +147,7 @@ paths:
       description: Get details for a sale unit. Returns HTTP 404 if the sale unit is not connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
     patch:
       operationId: updateMerchant
-      summary: Update a merchant
+      summary: Update a merchant (LATER)
       parameters:
         - name: merchant
           in: body
