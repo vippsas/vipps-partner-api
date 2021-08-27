@@ -48,7 +48,7 @@ paths:
           $ref: '#/responses/500'
       tags:
         - Merchants
-      description: Get all merchants that this partner has access to.
+      description: Get all merchants that this partner has access to. Returns HTTP 404 if there are noe merchants for this partner.
     post:
       operationId: addMerchant
       summary: Create a new merchant
@@ -79,6 +79,7 @@ paths:
           $ref: '#/responses/500'
       tags:
         - Merchants
+      description: 'DRAFT:This method will not be implemented in the initial phase. Creating of new merchants is done on portal.vipps.no.'
   '/merchants/{organizationNumber}':
     parameters:
       - type: string
@@ -92,10 +93,10 @@ paths:
       responses: {}
       operationId: getMerchantByOrgno
       description: Get details for merchant by organization number.
-  '/merchants/{orgsnizationNumber}/saleunits':
+  '/merchants/{organizationNumber}/saleunits':
     parameters:
       - type: string
-        name: orgsnizationNumber
+        name: organizationNumber
         in: path
         required: true
     get:
@@ -104,6 +105,7 @@ paths:
         - Saleunits
       responses: {}
       operationId: getSaleUnits
+      description: Get all sale units for this mercfhant that has this partner. Returns HTTP 404 if there are noe sale units for this partner.
   '/v1/merchants/{organizationNumber}/saleunits/{merchantSerialNumber}':
     parameters:
       - $ref: '#/parameters/auth'
@@ -161,7 +163,7 @@ paths:
           $ref: '#/responses/500'
       tags:
         - Saleunits
-      description: ''
+      description: 'DRAFT: This method will not be implemented in the initial phase. Management ofsale units is done on portal.vipps.no.'
 responses:
   '400':
     description: 'Invalid request, check request parameters'
@@ -219,7 +221,7 @@ parameters:
     type: string
 definitions:
   Merchant:
-    description: Details of a merchant
+    description: 'Details of a merchant. '
     type: object
     properties:
       organizationNumber:
