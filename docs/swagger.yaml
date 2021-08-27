@@ -1,11 +1,11 @@
 swagger: '2.0'
 info:
   title: Vipps Merchant Management API
-  version: 0.0.1
+  version: 0.0.2
   description: |
     The Vipps Merchant Management API lets partners, banks and large corporations manage their merchants and sale units.
 
-    In the in itial phase it will only be possible to make simple queries, replacing the manual work done over email, phone and Slack. 
+    In the in itial phase it will only be possible to make simple queries, replacing the manual work done over email, phone and Slack.
 
     It is only possible to "look up" merchants and sale units connected to the partner making the API call: It is not possible for one partner to retrieve information about a merchant or sale unit connected to a different partner.
 
@@ -55,7 +55,7 @@ paths:
       tags:
         - Merchants
       description: |
-        DRAFT: This method will not be implemented in the initial phase. Use "/v1/merchants/{organizationNumber}".
+        DRAFT: This method will not be implemented in the initial phase. Use "/v1/merchants/{orgno}".
 
         Get all merchants that this partner has access to. Returns HTTP 404 if there are noe merchants connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
     post:
@@ -89,10 +89,10 @@ paths:
       tags:
         - Merchants
       description: 'DRAFT: This method will not be implemented in the initial phase. Creating of new merchants is done on portal.vipps.no.'
-  '/v1/merchants/{organizationNumber}':
+  '/v1/merchants/{orgno}':
     parameters:
       - type: string
-        name: organizationNumber
+        name: orgno
         in: path
         required: true
     get:
@@ -102,10 +102,10 @@ paths:
       responses: {}
       operationId: getMerchantByOrgno
       description: Get details for merchant by organization number. Returns HTTP 404 if there are noe merchants connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
-  '/v1/merchants/{organizationNumber}/saleunits':
+  '/v1/merchants/{orgno}/saleunits':
     parameters:
       - type: string
-        name: organizationNumber
+        name: orgno
         in: path
         required: true
     get:
@@ -116,11 +116,11 @@ paths:
       operationId: getSaleUnits
       description: |
         Get all sale units for this merchant that is connected to this partner. Returns HTTP 404 if there are noe sale units connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
-  '/v1/merchants/{organizationNumber}/saleunits/{merchantSerialNumber}':
+  '/v1/merchants/{orgno}/saleunits/{msn}':
     parameters:
       - $ref: '#/parameters/auth'
       - $ref: '#/parameters/apimKey'
-      - $ref: '#/parameters/merchantSerialNumber'
+      - $ref: '#/parameters/msn'
     get:
       operationId: getSaleUnitsByMsn
       summary: Get sale unit by orgno and MSN
@@ -202,8 +202,8 @@ responses:
     schema:
       $ref: '#/definitions/Error'
 parameters:
-  merchantSerialNumber:
-    name: merchantSerialNumber
+  msn:
+    name: msn
     type: string
     in: path
     required: true
@@ -234,7 +234,7 @@ definitions:
     description: 'Details of a merchant. '
     type: object
     properties:
-      organizationNumber:
+      orgno:
         type: string
         pattern: '^\d{9}$'
         minLength: 9
@@ -254,7 +254,7 @@ definitions:
         example: user@example.com
         description: The merchant's email address
         format: email
-      merchantSerialNumber:
+      msn:
         type: string
         description: Vipps merchant serial number
         minLength: 5
@@ -321,10 +321,10 @@ definitions:
         x-order: 12
         example: '2019-01-01T00:00:00Z'
     required:
-      - organizationNumber
+      - orgno
       - companyName
       - companyEmail
-      - merchantSerialNumber
+      - msn
       - name
       - mcc
       - logo
@@ -349,7 +349,7 @@ definitions:
     description: Request for addMerchant operation
     type: object
     properties:
-      organizationNumber:
+      orgno:
         type: string
         pattern: '^\d{9}$'
         minLength: 9
@@ -467,15 +467,33 @@ definitions:
   CreateMerchantResponse:
     description: Response of successful addMerchant operation
     required:
-      - merchantSerialNumber
+      - msn
     properties:
-      merchantSerialNumber:
+      msn:
         type: string
         description: The Vipps saleunit's merchant serial number
         minLength: 5
         maxLength: 6
         pattern: '^\d{5,6}$'
     title: ''
+  SaleUnit:
+    title: Saleunit
+    type: object
+    properties:
+      msn:
+        type: string
+        description: The Vipps saleunit's merchant serial number
+        minLength: 5
+        maxLength: 6
+        pattern: '^\d{5,6}$'
+      name:
+        type: string
+        description: The sale unit's name
+        example: Acme AS
+      account:
+        type: string
+        description: Bank account number (BBAN)
+        example: 86011117947
   Address:
     type: object
     description: The merchant's address
