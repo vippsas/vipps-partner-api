@@ -4,6 +4,12 @@ info:
   version: 0.0.1
   description: |
     The Vipps Merchant Management API lets partners, banks and large corporations manage their merchants and sale units.
+
+    In the in itial phase it will only be possible to make simple queries, replacing the manual work done over email, phone and Slack. 
+
+    It is only possible to "look up" merchants and sale units connected to the partner making the API call: It is not possible for one partner to retrieve information about a merchant or sale unit connected to a different partner.
+
+    IMOPORTANT: This API specification contains endpoints and methods that have not been implemented, and that are meant as reference for discussions.
   contact:
     name: Vipps AS
     email: integration@vipps.no
@@ -48,7 +54,10 @@ paths:
           $ref: '#/responses/500'
       tags:
         - Merchants
-      description: Get all merchants that this partner has access to. Returns HTTP 404 if there are noe merchants for this partner.
+      description: |
+        DRAFT: This method will not be implemented in the initial phase. Use "/v1/merchants/{organizationNumber}".
+
+        Get all merchants that this partner has access to. Returns HTTP 404 if there are noe merchants connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
     post:
       operationId: addMerchant
       summary: Create a new merchant
@@ -79,7 +88,6 @@ paths:
           $ref: '#/responses/500'
       tags:
         - Merchants
-        - NotImplemented
       description: 'DRAFT: This method will not be implemented in the initial phase. Creating of new merchants is done on portal.vipps.no.'
   '/v1/merchants/{organizationNumber}':
     parameters:
@@ -93,7 +101,7 @@ paths:
         - Merchants
       responses: {}
       operationId: getMerchantByOrgno
-      description: Get details for merchant by organization number.
+      description: Get details for merchant by organization number. Returns HTTP 404 if there are noe merchants connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
   '/v1/merchants/{organizationNumber}/saleunits':
     parameters:
       - type: string
@@ -106,7 +114,8 @@ paths:
         - Saleunits
       responses: {}
       operationId: getSaleUnits
-      description: Get all sale units for this mercfhant that has this partner. Returns HTTP 404 if there are noe sale units for this partner.
+      description: |
+        Get all sale units for this merchant that is connected to this partner. Returns HTTP 404 if there are noe sale units connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
   '/v1/merchants/{organizationNumber}/saleunits/{merchantSerialNumber}':
     parameters:
       - $ref: '#/parameters/auth'
@@ -134,7 +143,7 @@ paths:
           $ref: '#/responses/405'
         '500':
           $ref: '#/responses/500'
-      description: Get details for a sale unit.
+      description: Get details for a sale unit. Returns HTTP 404 if the sale unit is not connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
     patch:
       operationId: patchMerchant
       summary: Update a sale unit
