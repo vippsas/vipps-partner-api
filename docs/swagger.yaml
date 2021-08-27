@@ -392,21 +392,6 @@ definitions:
         example: user@example.com
         description: The merchant's email address
         minLength: 3
-      pricePackageId:
-        type: string
-        example: '123'
-        minLength: 1
-        maxLength: 4
-      captureType:
-        type: string
-        enum:
-          - reserve
-          - direct
-        example: reserve
-        default: reserve
-      skipLandingPage:
-        type: boolean
-        default: false
     required:
       - logo
   UpdateMerchantRequest:
@@ -475,6 +460,21 @@ definitions:
       mcc:
         type: string
         description: 'Four-digit number listed in ISO 18245 for retail financial services, used to classify a business by the types of goods or services it provides'
+      pricePackageId:
+        type: string
+        example: '123'
+        minLength: 1
+        maxLength: 4
+      captureType:
+        type: string
+        enum:
+          - reserve
+          - direct
+        example: reserve
+        default: reserve
+      skipLandingPage:
+        type: boolean
+        default: false
   Address:
     type: object
     description: The merchant's address
