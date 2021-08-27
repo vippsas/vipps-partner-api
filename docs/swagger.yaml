@@ -52,8 +52,6 @@ paths:
     post:
       operationId: addMerchant
       summary: Create a new merchant
-      tags:
-        - Merchant
       parameters:
         - $ref: '#/parameters/idempotency'
         - name: merchant
@@ -79,6 +77,8 @@ paths:
           $ref: '#/responses/415'
         '500':
           $ref: '#/responses/500'
+      tags:
+        - Merchants
   '/merchants/{organizationNumber}':
     parameters:
       - type: string
@@ -134,9 +134,7 @@ paths:
       description: Get details for a sale unit.
     patch:
       operationId: patchMerchant
-      summary: Update a merchant
-      tags:
-        - Merchant
+      summary: Update a sale unit
       parameters:
         - name: merchant
           in: body
@@ -161,6 +159,9 @@ paths:
           $ref: '#/responses/415'
         '500':
           $ref: '#/responses/500'
+      tags:
+        - Saleunits
+      description: ''
 responses:
   '400':
     description: 'Invalid request, check request parameters'
