@@ -31,8 +31,6 @@ paths:
     get:
       operationId: getMerchants
       summary: Get all merchants
-      tags:
-        - Merchant
       responses:
         '200':
           description: OK
@@ -48,6 +46,9 @@ paths:
           $ref: '#/responses/405'
         '500':
           $ref: '#/responses/500'
+      tags:
+        - Merchants
+      description: Get all merchants that this partner has access to.
     post:
       operationId: addMerchant
       summary: Create a new merchant
@@ -78,13 +79,38 @@ paths:
           $ref: '#/responses/415'
         '500':
           $ref: '#/responses/500'
+  '/merchants/{organizationNumber}':
+    parameters:
+      - type: string
+        name: organizationNumber
+        in: path
+        required: true
+    get:
+      summary: Get merchant details
+      tags:
+        - Merchants
+      responses: {}
+      operationId: getMerchantByOrgno
+      description: Get details for merchant by organization number.
+  '/merchants/{orgsnizationNumber}/saleunits':
+    parameters:
+      - type: string
+        name: orgsnizationNumber
+        in: path
+        required: true
+    get:
+      summary: Get merchant's sale units
+      tags:
+        - Saleunits
+      responses: {}
+      operationId: getSaleUnits
   '/v1/merchants/{organizationNumber}/saleunits/{merchantSerialNumber}':
     parameters:
       - $ref: '#/parameters/auth'
       - $ref: '#/parameters/apimKey'
       - $ref: '#/parameters/merchantSerialNumber'
     get:
-      operationId: getMerchant
+      operationId: getSaleUnitsByMsn
       summary: Get sale unit by orgno and MSN
       tags:
         - Saleunits
@@ -105,6 +131,7 @@ paths:
           $ref: '#/responses/405'
         '500':
           $ref: '#/responses/500'
+      description: Get details for a sale unit.
     patch:
       operationId: patchMerchant
       summary: Update a merchant
@@ -134,29 +161,6 @@ paths:
           $ref: '#/responses/415'
         '500':
           $ref: '#/responses/500'
-  '/merchants/{organizationNumber}':
-    parameters:
-      - type: string
-        name: organizationNumber
-        in: path
-        required: true
-    get:
-      summary: Get merchant details
-      tags:
-        - Merchants
-      responses: {}
-      operationId: get-merchants-organizationNumber
-  '/merchants/{orgsnizationNumber}/saleunits':
-    parameters:
-      - type: string
-        name: orgsnizationNumber
-        in: path
-        required: true
-    get:
-      summary: Get merchant's sale units
-      tags: []
-      responses: {}
-      operationId: get-merchants-orgsnizationNumber-saleunits
 responses:
   '400':
     description: 'Invalid request, check request parameters'
@@ -313,6 +317,8 @@ definitions:
       - logo
       - address
       - status
+    x-tags:
+      - Merchants
   GetMerchantsResponse:
     type: object
     description: Response of successful getMerchants operation
@@ -324,6 +330,8 @@ definitions:
         description: List of Merchants
         items:
           $ref: '#/definitions/Merchant'
+    x-tags:
+      - Merchants
   CreateMerchantRequest:
     description: Request for addMerchant operation
     type: object
@@ -401,6 +409,8 @@ definitions:
     required:
       - logo
     title: ''
+    x-tags:
+      - Merchants
   UpdateMerchantRequest:
     description: Request for patchMerchant operation. Atleast one of the properties is required
     properties:
@@ -440,6 +450,7 @@ definitions:
       address:
         description: The merchant's address
         $ref: '#/definitions/Address'
+    title: ''
   CreateMerchantResponse:
     description: Response of successful addMerchant operation
     required:
@@ -451,6 +462,7 @@ definitions:
         minLength: 5
         maxLength: 6
         pattern: '^\d{5,6}$'
+    title: ''
   Address:
     type: object
     description: The merchant's address
@@ -500,6 +512,7 @@ definitions:
         enum:
           - 'NO'
         x-order: 5
+    title: ''
   Error:
     type: object
     description: Problem details of HTTP APIs based on RFC 7807
@@ -541,3 +554,5 @@ definitions:
           "A URI reference that identifies the specific occurrence of the problem"
         example: 'https://example.net/validation-error/postcode'
         x-order: 5
+    x-tags:
+      - General
