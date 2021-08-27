@@ -134,6 +134,29 @@ paths:
           $ref: '#/responses/415'
         '500':
           $ref: '#/responses/500'
+  '/merchants/{organizationNumber}':
+    parameters:
+      - type: string
+        name: organizationNumber
+        in: path
+        required: true
+    get:
+      summary: Get merchant details
+      tags:
+        - Merchants
+      responses: {}
+      operationId: get-merchants-organizationNumber
+  '/merchants/{orgsnizationNumber}/saleunits':
+    parameters:
+      - type: string
+        name: orgsnizationNumber
+        in: path
+        required: true
+    get:
+      summary: Get merchant's sale units
+      tags: []
+      responses: {}
+      operationId: get-merchants-orgsnizationNumber-saleunits
 responses:
   '400':
     description: 'Invalid request, check request parameters'
