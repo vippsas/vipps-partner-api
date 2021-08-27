@@ -10,7 +10,7 @@ info:
     It is only possible to "look up" merchants and sale units connected to the partner making the API call:
     It is not possible for one partner to retrieve information about a merchant or sale unit connected to a different partner.
 
-    IMOPORTANT: This API specification contains endpoints and methods that have not been implemented, and that are meant as reference for discussions.
+    IMPORTANT: This API specification contains endpoints and methods that have not been implemented, and that are meant as reference for discussions.
   contact:
     name: Vipps AS
     email: integration@vipps.no
