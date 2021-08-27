@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   title: Vipps Merchant Management API
-  version: 0.0.2
+  version: 0.0.3
   description: |
     The Vipps Merchant Management API lets partners, banks and large corporations manage their merchants and sale units.
 
@@ -58,7 +58,7 @@ paths:
       description: |
         DRAFT: This method will not be implemented in the initial phase. Use "/v1/merchants/{orgno}".
 
-        Get all merchants that this partner has access to. Returns HTTP 404 if there are noe merchants connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
+        Get all merchants that this partner has access to. Returns HTTP 404 if there are no merchants connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
     post:
       operationId: createMerchant
       summary: Create a new merchant (LATER)
@@ -102,7 +102,7 @@ paths:
         - Merchants
       responses: {}
       operationId: getMerchantDetails
-      description: Get details for merchant by organization number. Returns HTTP 404 if there are noe merchants connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
+      description: Get details for merchant by organization number. Returns HTTP 404 if the merchant is not connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
   '/v1/merchants/{orgno}/saleunits':
     parameters:
       - type: string
@@ -116,7 +116,7 @@ paths:
       responses: {}
       operationId: getMerchantSaleunits
       description: |
-        Get all sale units for this merchant that is connected to this partner. Returns HTTP 404 if there are noe sale units connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
+        Get all sale units for this merchant that is connected to this partner. Returns HTTP 404 if there are no sale units connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
   '/v1/merchants/{orgno}/saleunits/{msn}':
     parameters:
       - $ref: '#/parameters/auth'
