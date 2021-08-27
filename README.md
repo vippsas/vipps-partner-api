@@ -1,10 +1,12 @@
-# Merchant Management API
+# Vipps Merchant Management API
 
 💥 DRAFT! Unfinished work in progress. Useless except for internal discussions in Vipps. 💥
 
 See: https://vippsas.atlassian.net/wiki/spaces/TIM/pages/2891776066/Partners+Merchant+onboarding
 
 This repository contains developer resources for the Vipps Merchant Management API.
+
+* [Vipps Merchant Management API guide](vipps-merchant-management-api.md): Developer guide for Vipps Merchant Management API.
 
 For more information:
 * [Vipps Developers](https://github.com/vippsas/vipps-developers): The starting point for Vipps developers.
