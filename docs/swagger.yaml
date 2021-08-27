@@ -7,7 +7,8 @@ info:
 
     In the in itial phase it will only be possible to make simple queries, replacing the manual work done over email, phone and Slack.
 
-    It is only possible to "look up" merchants and sale units connected to the partner making the API call: It is not possible for one partner to retrieve information about a merchant or sale unit connected to a different partner.
+    It is only possible to "look up" merchants and sale units connected to the partner making the API call:
+    It is not possible for one partner to retrieve information about a merchant or sale unit connected to a different partner.
 
     IMOPORTANT: This API specification contains endpoints and methods that have not been implemented, and that are meant as reference for discussions.
   contact:
@@ -59,7 +60,7 @@ paths:
 
         Get all merchants that this partner has access to. Returns HTTP 404 if there are noe merchants connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
     post:
-      operationId: addMerchant
+      operationId: createMerchant
       summary: Create a new merchant
       parameters:
         - $ref: '#/parameters/idempotency'
@@ -100,7 +101,7 @@ paths:
       tags:
         - Merchants
       responses: {}
-      operationId: getMerchantByOrgno
+      operationId: getMerchantDetails
       description: Get details for merchant by organization number. Returns HTTP 404 if there are noe merchants connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
   '/v1/merchants/{orgno}/saleunits':
     parameters:
@@ -113,7 +114,7 @@ paths:
       tags:
         - Saleunits
       responses: {}
-      operationId: getSaleUnits
+      operationId: getMerchantSaleunits
       description: |
         Get all sale units for this merchant that is connected to this partner. Returns HTTP 404 if there are noe sale units connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
   '/v1/merchants/{orgno}/saleunits/{msn}':
@@ -123,7 +124,7 @@ paths:
       - $ref: '#/parameters/msn'
     get:
       operationId: getSaleUnitsByMsn
-      summary: Get sale unit by orgno and MSN
+      summary: Get sale unit details
       tags:
         - Saleunits
       responses:
@@ -145,8 +146,8 @@ paths:
           $ref: '#/responses/500'
       description: Get details for a sale unit. Returns HTTP 404 if the sale unit is not connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
     patch:
-      operationId: patchMerchant
-      summary: Update a sale unit
+      operationId: updateMerchant
+      summary: Update a merchant
       parameters:
         - name: merchant
           in: body
