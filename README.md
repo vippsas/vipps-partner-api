@@ -9,7 +9,7 @@ for both partners, banks and large corporations. The current list of priorities 
 1. Functionality to retrieve data about a partner's merchants
    ([`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-merchant-management-api/#/Merchants/getMerchantDetails))
    and the merchants' sale units
-   (([`GET:/merchants/{orgno}/saleunits/{msn}`](https://vippsas.github.io/vipps-merchant-management-api/#/Saleunits/getSaleUnitsByMsn)).
+   ([`GET:/merchants/{orgno}/saleunits/{msn}`](https://vippsas.github.io/vipps-merchant-management-api/#/Saleunits/getSaleUnitsByMsn)).
    This will eliminate all the manual emails, Slack message and calls to Partnerbestilling just to ask for info.
 2. Functionality to update a sale unit.
    Changes to a merchant requires BankID login to portal.vipps.no, but a partner should be
