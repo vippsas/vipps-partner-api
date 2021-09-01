@@ -4,9 +4,16 @@
 
 **Background:** There are many things that could and should have been improved in the
 [Signup API](https://github.com/vippsas/vipps-signup-api).
-Since the API's feature set is rather small, we are planning a new API (this one)
-for both partners, banks and large corporations. The current list of priorities are:
-1. Functionality to retrieve data about a partner's merchants
+Since the Signup API's feature set is rather small, we are planning a new API (this one)
+for both partners, banks and large corporations. 
+
+The current list of priorities are:
+1. All partners should use
+   [partner keys](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#partner-keys).
+   Partner keys lets a partner make API calls on behalf of a merchant,
+   with the same API keys for all the partner's merchant.
+   There is no need to use each merchant's API keys, and this eliminates the main reason for using the Signup API.
+3. Functionality to retrieve data about a partner's merchants
    ([`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-merchant-management-api/#/Merchants/getMerchantDetails))
    and the merchants' sale units
    ([`GET:/merchants/{orgno}/saleunits/{msn}`](https://vippsas.github.io/vipps-merchant-management-api/#/Saleunits/getSaleUnitsByMsn)).
