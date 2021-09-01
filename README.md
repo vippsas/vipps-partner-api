@@ -2,6 +2,8 @@
 
 💥 DRAFT! Unfinished work in progress. Useless except for discussions in and with Vipps. 💥
 
+----------
+
 **Background:** There are many things that could and should have been improved in the
 [Signup API](https://github.com/vippsas/vipps-signup-api).
 Since the Signup API's feature set is rather small, we are planning a new API (this one)
@@ -26,8 +28,7 @@ The current list of priorities are:
    comlicate making an API for this. Our opinion is that the current signup functionality on
    portal.vipps.no is simple and "good enough" that this functionality can have a lower priority.
 
-
-----
+----------
 
 This repository contains developer resources for the Vipps Merchant Management API.
 
