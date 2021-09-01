@@ -13,19 +13,19 @@ The current list of priorities are:
 1. All partners should use
    [partner keys](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#partner-keys).
    Partner keys lets a partner make API calls on behalf of a merchant,
-   with the same API keys for all the partner's merchant.
-   There is no need to use each merchant's API keys, and this eliminates the main reason for using the Signup API.
+   using the same API keys for all the partner's merchants and sale units.
+   There is no need to use separate API keys for each merchant or sale unit, and this eliminates the main reason for using the Signup API: Key exchange.
 3. Functionality to retrieve data about a partner's merchants
    ([`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-merchant-management-api/#/Merchants/getMerchantDetails))
    and the merchants' sale units
    ([`GET:/merchants/{orgno}/saleunits/{msn}`](https://vippsas.github.io/vipps-merchant-management-api/#/Saleunits/getSaleUnitsByMsn)).
    This will eliminate all the manual emails, Slack message and calls to Partnerbestilling just to ask for info.
 2. Functionality to update a sale unit.
-   Changes to a merchant requires BankID login to portal.vipps.no, but a partner should be
-   able to make changes to the sale units connected to the partner: Name, capture type, etc.
+   Changes to a sale unit currently requires BankID login to portal.vipps.no, but a partner should be
+   able to make changes to the sale units connected to the partner: Name, capture type, skip landing page, etc.
 3. Functionality to sign up a new merchant and create a new sale unit.
    This requires BankID login to portal.vipps.no, as there are regulatory requirements that
-   comlicate making an API for this. Our opinion is that the current signup functionality on
+   complicate making an API for this. Our opinion is that the current signup functionality on
    portal.vipps.no is simple and "good enough" that this functionality can have a lower priority.
 
 ----------
