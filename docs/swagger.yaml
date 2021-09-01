@@ -255,7 +255,7 @@ parameters:
     type: string
 definitions:
   Merchant:
-    description: 'Details of a merchant. '
+    description: Details of a merchant. Must be updated to fit internal data model.
     type: object
     x-tags:
       - Merchants
@@ -268,44 +268,24 @@ definitions:
         x-order: 1
         example: '123456789'
         description: Norwegian organization number of the merchant
-      companyName:
+      name:
         type: string
         x-order: 2
         example: Example AS
         description: 'The legal name of the organization. This may be different from `name`, which is displayed in the Vipps app.'
-      companyEmail:
+      email:
         type: string
         x-isisnullable: true
         x-order: 3
         example: user@example.com
         description: The merchant's email address
         format: email
-      msn:
-        type: string
-        description: Vipps merchant serial number
-        minLength: 5
-        maxLength: 6
-        pattern: '^\d{5,6}$'
-        x-order: 4
-        example: '123456'
-      name:
-        type: string
-        description: The merchant's name. This name will be displayed in the Vipps app. This may be different from the legal name in `companyName`.
-        x-order: 5
-        example: Example AS
       logo:
         type: string
         format: byte
         description: 'Base64 encoded string of the logo of the merchant. The logo will be displayed in the Vipps app. Resolution is recommended to be a square, approx 192x192 pixels'
         x-isnullable: true
         x-order: 8
-      email:
-        type: string
-        description: Contact email for the merchant. Can be the same as `companyEmail`.
-        format: email
-        x-isnullable: true
-        x-order: 9
-        example: user@example.com
       website:
         type: string
         description: The URL for the merchant's website
@@ -313,8 +293,6 @@ definitions:
         x-isnullable: true
         x-order: 10
         example: 'https://example.com'
-      address:
-        $ref: '#/definitions/Address'
       status:
         type: string
         description: Status of the merchant in Vipps
@@ -324,29 +302,24 @@ definitions:
           - PENDING
         default: PENDING
         x-order: 7
-      createdAt:
-        type: string
-        description: Date-time when the merchant was created in Vipps
-        format: date-time
-        x-isnullable: true
-        x-order: 11
-        example: '2019-01-01T00:00:00Z'
-      updatedAt:
-        type: string
-        description: Date-time when the merchant was last updated in Vipps
-        format: date-time
-        x-isnullable: true
-        x-order: 12
-        example: '2019-01-01T00:00:00Z'
+      address:
+        $ref: '#/definitions/Address'
+      contactPerson:
+        $ref: '#/definitions/Person'
+      changelog:
+        type:
+          - string
+          - array
+        items:
+          $ref: '#/definitions/ChangelogItem'
     required:
       - orgno
-      - companyName
-      - companyEmail
-      - msn
       - name
+      - email
       - logo
-      - address
       - status
+      - address
+      - contactPerson
   GetMerchantsResponse:
     type: object
     description: Response of successful getMerchants operation
@@ -483,6 +456,7 @@ definitions:
       mcc:
         type: string
         description: 'Four-digit number listed in ISO 18245 for retail financial services, used to classify a business by the types of goods or services it provides'
+        example: '1000'
       pricePackageId:
         type: string
         example: '123'
@@ -498,6 +472,28 @@ definitions:
       skipLandingPage:
         type: boolean
         default: false
+      client_id:
+        type: string
+        description: ''
+        example: fb492b5e-7907-4d83-ba20-c7fb60ca35de
+      client_secret:
+        type: string
+        description: 'Must be kept secre. Can be sent to a partner that is connected to this sale unit, and has the required credmntials to retrieve data.'
+        example: Y8Kteew6GE2ZmeycEt6egg==
+      vipps-subscription-key:
+        type: string
+        description: 'The human-friendly name for "Ocp-Apim-Subscription-Key". '
+        example: 0f14ebcab0ec4b29ae0cb90d91b4a84a
+      changelog:
+        type: array
+        items:
+          $ref: '#/definitions/ChangelogItem'
+    required:
+      - msn
+      - name
+      - captureType
+      - skipLandingPage
+    description: Sale unit. Must be updated to fit internal data model.
   Address:
     type: object
     description: The merchant's address
@@ -591,3 +587,38 @@ definitions:
         x-order: 5
     x-tags:
       - General
+  ChangelogItem:
+    title: ChangelogItem
+    type: object
+    properties:
+      timestamp:
+        type: string
+        description: When was the change made?
+      desccription:
+        type: string
+        description: What was the change? Human-readable description.
+      changedBy:
+        type: string
+        description: Who made the change?
+    required:
+      - timestamp
+      - desccription
+      - changedBy
+  Person:
+    title: Person
+    type: object
+    properties:
+      nin:
+        type: string
+      name:
+        type: string
+      phoneNumber:
+        type: string
+      email:
+        type: string
+      other stuff:
+        type: string
+    required:
+      - nin
+      - name
+      - phoneNumber
