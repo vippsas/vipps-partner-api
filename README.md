@@ -22,7 +22,7 @@ The current list of priorities are:
    This will eliminate all the emails, Slack messages and phone calls to Partnerbestilling just to ask for info.
 2. Functionality to update a sale unit.
    Changes to a sale unit currently requires BankID login to portal.vipps.no, but a partner should be
-   able to make changes to the sale units connected to the partner: Name, capture type, skip landing page, etc.
+   able to make changes to the sale units connected to the partner: Status, name, capture type, skip landing page, etc.
    This will eliminate more emails, Slack messages and phone calls to Partnerbestilling just to aks for a configuration change.
 3. Functionality to sign up a new merchant and create a new sale unit.
    This requires BankID login to portal.vipps.no, as there are regulatory requirements that
