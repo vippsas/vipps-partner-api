@@ -1,4 +1,4 @@
-swagger: '2.0'
+swagger: '3.0'
 info:
   title: Vipps Merchant Management API
   version: 0.0.3
@@ -20,6 +20,8 @@ tags:
     description: Merchants
   - name: Saleunits
     description: Sale units
+  - name: External
+    description: Required on the merchant side
 servers:
   - url: 'https://apitest.vipps.no'
   - url: 'https://api.vipps.no'
@@ -140,6 +142,11 @@ paths:
       operationId: getMerchantSaleunits
       description: |
         Get all sale units for this merchant that is connected to this partner. Returns HTTP 404 if there are no sale units connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
+      parameters:
+      - type: string
+        name: orgno
+        in: path
+        required: true
   '/v1/merchants/{orgno}/saleunits/{msn}':
     parameters:
       - $ref: '#/parameters/auth'
@@ -168,6 +175,11 @@ paths:
         '500':
           $ref: '#/responses/500'
       description: Get details for a sale unit. Returns HTTP 404 if the sale unit is not connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
+      parameters:
+        - type: string
+          name: orgno
+          in: path
+          required: true
     patch:
       operationId: updateMerchant
       summary: Update a merchant (LATER)
@@ -178,6 +190,10 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/UpdateMerchantRequest'
+        - name: orgno
+          type: string
+          in: path
+          required: true
       responses:
         '200':
           description: OK
@@ -224,13 +240,12 @@ paths:
             items:
               $ref: '#/definitions/SaleUnit'
           description: ''
+        - in: path
+          type: string
+          name: orgno
+          required: true
       tags:
         - External
-    parameters:
-      - type: string
-        name: orgno
-        in: path
-        required: true
 responses:
   '400':
     description: 'Invalid request, check request parameters'
@@ -340,11 +355,8 @@ definitions:
       contactPerson:
         $ref: '#/definitions/Person'
       changelog:
-        type:
-          - string
-          - array
-        items:
-          $ref: '#/definitions/ChangelogItem'
+        type: string
+        description: Log of all changes
     required:
       - orgno
       - name
