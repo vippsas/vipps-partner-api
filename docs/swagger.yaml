@@ -198,6 +198,39 @@ paths:
       tags:
         - Saleunits
       description: 'DRAFT: This method will not be implemented in the initial phase. Management ofsale units is done on portal.vipps.no.'
+  '/partner-endpoints/v1/merchants/{orgno}/saleunits':
+    post:
+      summary: ''
+      operationId: post-partner-endpoints-v1-merchants
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/SaleUnit'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+      description: Vipps can make a callback to the partner when a new sale unit has been created.
+      parameters:
+        - in: body
+          name: body
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SaleUnit'
+          description: ''
+      tags:
+        - External
+    parameters:
+      - type: string
+        name: orgno
+        in: path
+        required: true
 responses:
   '400':
     description: 'Invalid request, check request parameters'
