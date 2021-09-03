@@ -7,7 +7,7 @@
 **Background:** There are many things that could and should have been improved in the
 [Signup API](https://github.com/vippsas/vipps-signup-api).
 Since the Signup API's feature set is rather small, we are planning a new API (this one)
-for both partners, banks and large corporations. 
+for both partners, banks and large corporations.
 
 The current list of priorities are:
 1. All partners should use
@@ -28,6 +28,10 @@ The current list of priorities are:
    This requires BankID login to portal.vipps.no, as there are regulatory requirements that
    complicate making an API for this. Our opinion is that the current signup functionality on
    portal.vipps.no is simple and "good enough" that this functionality can have a lower priority.
+
+**Important:** The properties of `Merchant`, `Sale unit`, `Person` _and other data objects_
+will change. They depend on the underlying data model in Vipps.
+Think of the current ones as a mix between placeholders and examples.
 
 ----------
 
