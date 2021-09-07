@@ -1,9 +1,11 @@
 swagger: "2.0"
 info:
   title: Vipps Merchant Management API
-  version: 0.0.3
+  version: 0.0.4
   description: |
     The Vipps Merchant Management API lets partners, banks and large corporations manage their merchants and sale units.
+
+    More information: https://github.com/vippsas/vipps-merchant-management-api
 
     In the in itial phase it will only be possible to make simple queries, replacing the manual work done over email, phone and Slack.
 
@@ -132,7 +134,7 @@ paths:
             items:
               type: object
               properties:
-                '':
+                'List of saleunits':
                   $ref: '#/definitions/SaleUnit'
         '404':
           description: Not Found
@@ -478,6 +480,7 @@ definitions:
         description: The Vipps saleunit's merchant serial number
         minLength: 5
         maxLength: 6
+        example: 123456
         pattern: '^\d{5,6}$'
     title: ''
   SaleUnit:
@@ -489,6 +492,7 @@ definitions:
         description: The Vipps saleunit's merchant serial number
         minLength: 5
         maxLength: 6
+        example: 123456
         pattern: '^\d{5,6}$'
       name:
         type: string
@@ -531,6 +535,7 @@ definitions:
         example: 0f14ebcab0ec4b29ae0cb90d91b4a84a
       changelog:
         type: array
+        description: Changelog
         items:
           $ref: '#/definitions/ChangelogItem'
     required:
@@ -639,15 +644,18 @@ definitions:
       timestamp:
         type: string
         description: When was the change made?
-      desccription:
+        example: 2019-01-01T00:00:00Z
+      description:
         type: string
         description: What was the change? Human-readable description.
+        example: Updated sale unit name
       changedBy:
         type: string
         description: Who made the change?
+        example: Vipps Brreg batch update service
     required:
       - timestamp
-      - desccription
+      - description
       - changedBy
   Person:
     title: Person
