@@ -33,6 +33,10 @@ The current list of priorities are:
 will change. They depend on the underlying data model in Vipps.
 Think of the current ones as a mix between placeholders and examples.
 
+See also:
+[Vipps partners](https://github.com/vippsas/vipps-partner)
+for more information for partners.
+
 ----------
 
 This repository contains developer resources for the Vipps Merchant Management API.
