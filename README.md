@@ -1,4 +1,4 @@
-# Vipps Merchant Management API
+# Vipps Partner API
 
 💥 DRAFT! Unfinished work in progress. Useless except for discussions in and with Vipps. 💥
 
