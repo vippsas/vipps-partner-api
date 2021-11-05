@@ -1,4 +1,4 @@
-# Vipps Partner API
+# Vipps Partner API PoC
 
 💥 DRAFT! Unfinished work in progress. Useless except for discussions in and with Vipps. 💥
 
@@ -6,7 +6,7 @@
 
 **Background:** There are many things that could and should have been improved in the
 [Signup API](https://github.com/vippsas/vipps-signup-api).
-Since the Signup API's feature set is rather small, we are planning a new API (this one)
+Since the Signup API's feature set is rather small, we are looking into a new API (this one)
 for both partners, banks and large corporations.
 
 The current list of priorities are:
@@ -15,11 +15,11 @@ The current list of priorities are:
    Partner keys lets a partner make API calls on behalf of a merchant,
    using the same API keys for all the partner's merchants and sale units.
    There is no need to use separate API keys for each merchant or sale unit, and this eliminates the main reason for using the Signup API: Key exchange.
-3. Functionality to retrieve data about a partner's merchants
+3. Functionality to retrieve active MSNs for a partner's merchant
    ([`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-merchant-management-api/#/Merchants/getMerchantDetails))
-   and the merchants' sale units
-   ([`GET:/merchants/{orgno}/saleunits/{msn}`](https://vippsas.github.io/vipps-merchant-management-api/#/Saleunits/getSaleUnitsByMsn)).
-   This will eliminate all the emails, Slack messages and phone calls to Partnerbestilling just to ask for info.
+   and the merchants' active sale units based on MSN
+   ([`GET:/merchants/{orgno}/salesunits/{msn}`](https://vippsas.github.io/vipps-merchant-management-api/#/Saleunits/getSaleUnitsByMsn)).
+   This will hopefully, with time and extended functionality eliminate most emails, Slack messages and phone calls to Partnerbestilling just to ask for info.
 2. Functionality to update a sale unit.
    Changes to a sale unit currently requires BankID login to portal.vipps.no, but a partner should be
    able to make changes to the sale units connected to the partner: Status, name, capture type, skip landing page, etc.
@@ -39,17 +39,17 @@ for more information for partners.
 
 ----------
 
-This repository contains developer resources for the Vipps Merchant Management API.
+This repository contains developer resources for the Vipps Partner API PoC.
 
-* [Vipps Merchant Management API guide](vipps-merchant-management-api.md): Developer guide for Vipps Merchant Management API.
+* [Vipps Partner API PoC guide](vvipps-partner-api-poc.md): Developer guide for Vipps Partne API PoC.
 
 For more information:
 * [Vipps Developers](https://github.com/vippsas/vipps-developers): The starting point for Vipps developers.
 * [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md): Information about API keys, product activation.
 
 You can peruse the API reference documentation as:
-* [Swagger UI](https://vippsas.github.io/vipps-merchant-management-api/)
-* [ReDoc](https://vippsas.github.io/vipps-merchant-management-api/redoc.html)
+* [Swagger UI](https://vippsas.github.io/vipps-partner-api-poc/)
+* [ReDoc](https://vippsas.github.io/vipps-partner-api-poc/redoc.html)
 
 # Questions?
 
