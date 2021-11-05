@@ -1,4 +1,4 @@
-# Vipps Vipps Merchant Management API v1
+# Vipps Parnter API PoC v1
 
 💥 DRAFT: This is unfinished work and subject to change. 💥
 
