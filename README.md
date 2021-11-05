@@ -15,16 +15,18 @@ The current list of priorities are:
    Partner keys lets a partner make API calls on behalf of a merchant,
    using the same API keys for all the partner's merchants and sale units.
    There is no need to use separate API keys for each merchant or sale unit, and this eliminates the main reason for using the Signup API: Key exchange.
-3. Functionality to retrieve active MSNs for a partner's merchant
+2. Functionality to retrieve active MSNs for a partner's merchant
    ([`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-merchant-management-api/#/Merchants/getMerchantDetails))
    and the merchants' active sale units based on MSN
    ([`GET:/merchants/{orgno}/salesunits/{msn}`](https://vippsas.github.io/vipps-merchant-management-api/#/Saleunits/getSaleUnitsByMsn)).
    This will hopefully, with time and extended functionality eliminate most emails, Slack messages and phone calls to Partnerbestilling just to ask for info.
-2. Functionality to update a sale unit.
+
+Down the line:
+1. Functionality to update a sale unit.
    Changes to a sale unit currently requires BankID login to portal.vipps.no, but a partner should be
    able to make changes to the sale units connected to the partner: Status, name, capture type, skip landing page, etc.
    This will eliminate more emails, Slack messages and phone calls to Partnerbestilling just to aks for a configuration change.
-3. Functionality to sign up a new merchant and create a new sale unit.
+2. Functionality to sign up a new merchant and create a new sale unit.
    This requires BankID login to portal.vipps.no, as there are regulatory requirements that
    complicate making an API for this. Our opinion is that the current signup functionality on
    portal.vipps.no is simple and "good enough" that this functionality can have a lower priority.
@@ -41,7 +43,7 @@ for more information for partners.
 
 This repository contains developer resources for the Vipps Partner API PoC.
 
-* [Vipps Partner API PoC guide](vvipps-partner-api-poc.md): Developer guide for Vipps Partne API PoC.
+* [Vipps Partner API PoC guide](vipps-partner-api.md): Developer guide for Vipps Partne API PoC.
 
 For more information:
 * [Vipps Developers](https://github.com/vippsas/vipps-developers): The starting point for Vipps developers.
