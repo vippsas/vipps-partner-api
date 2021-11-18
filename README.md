@@ -9,9 +9,9 @@
 Since the Signup API's feature set is rather small, we are planning a new API (this one)
 for both partners, banks and large corporations.
 
-The current list of priorities are:
+The current list of priorities, which may change at any time, is:
 1. All partners should use
-   [partner keys](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api.md#partner-keys).
+   [partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
    Partner keys lets a partner make API calls on behalf of a merchant,
    using the same API keys for all the partner's merchants and sale units.
    There is no need to use separate API keys for each merchant or sale unit, and this eliminates the main reason for using the Signup API: Key exchange.
@@ -38,6 +38,8 @@ See also:
 for more information for partners.
 
 ----------
+
+TODO: Rename/rewrite:
 
 This repository contains developer resources for the Vipps Merchant Management API.
 
