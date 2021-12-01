@@ -1,11 +1,11 @@
 swagger: '2.0'
 info:
-  title: Vipps Merchant Management API
+  title: Vipps Partner API PoC
   version: 0.0.4
   description: |
-    The Vipps Merchant Management API lets partners, banks and large corporations manage their merchants and sale units.
+    The Vipps Partner API PoC lets partners, banks and large corporations manage their merchants and sale units.
 
-    More information: https://github.com/vippsas/vipps-merchant-management-api
+    More information: https://github.com/vippsas/vipps-partner-api
 
     In the in itial phase it will only be possible to make simple queries, replacing the manual work done over email, phone and Slack.
 
