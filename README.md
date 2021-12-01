@@ -50,8 +50,8 @@ For more information:
 * [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md): Information about API keys, product activation.
 
 You can peruse the API reference documentation as:
-* [Swagger UI](https://vippsas.github.io/vipps-partner-api-poc/)
-* [ReDoc](https://vippsas.github.io/vipps-partner-api-poc/redoc.html)
+* [Swagger UI](https://vippsas.github.io/vipps-partner-api/)
+* [ReDoc](https://vippsas.github.io/vipps-partner-api/redoc.html)
 
 # Questions?
 
