@@ -109,7 +109,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/PocMerchant'
+            $ref: '#/definitions/Merchant'
         '404':
           description: Not Found
           schema:
@@ -309,69 +309,6 @@ definitions:
     type: object
     x-tags:
       - Merchants
-    properties:
-      orgno:
-        type: string
-        pattern: '^\d{9}$'
-        minLength: 9
-        maxLength: 9
-        x-order: 1
-        example: '123456789'
-        description: Norwegian organization number of the merchant
-      name:
-        type: string
-        x-order: 2
-        example: Example AS
-        description: 'The legal name of the organization. This may be different from `name`, which is displayed in the Vipps app.'
-      email:
-        type: string
-        x-isisnullable: true
-        x-order: 3
-        example: user@example.com
-        description: The merchant's email address
-        format: email
-      logo:
-        type: string
-        format: byte
-        description: 'Base64 encoded string of the logo of the merchant. The logo will be displayed in the Vipps app. Resolution is recommended to be a square, approx 192x192 pixels'
-        x-isnullable: true
-        x-order: 8
-      website:
-        type: string
-        description: The URL for the merchant's website
-        format: uri
-        x-isnullable: true
-        x-order: 10
-        example: 'https://example.com'
-      status:
-        type: string
-        description: Status of the merchant in Vipps
-        enum:
-          - ACTIVE
-          - DEACTIVATED
-          - PENDING
-        default: PENDING
-        x-order: 7
-      address:
-        $ref: '#/definitions/Address'
-      contactPerson:
-        $ref: '#/definitions/Person'
-      changelog:
-        description: Log of all changes
-        type: array
-        items:
-          $ref: '#/definitions/ChangelogItem'
-    required:
-      - orgno
-      - name
-      - email
-      - logo
-      - status
-      - address
-      - contactPerson
-  PocMerchant:
-    type: object
-    description: Response
     properties:
       msn:
         description: List of merchant serial numbers
