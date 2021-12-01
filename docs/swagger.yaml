@@ -109,13 +109,13 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Merchant'
+            $ref: '#/definitions/PocMerchant'
         '404':
           description: Not Found
           schema:
             $ref: '#/definitions/Error'
       operationId: getMerchantDetails
-      description: Get details for merchant by organization number. Returns HTTP 404 if the merchant is not connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
+      description: Get details for active merchant by organization number. Returns HTTP 404 if the merchant has no active connected sales units to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
   '/v1/merchants/{orgno}/saleunits':
     parameters:
       - type: string
@@ -123,7 +123,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Get merchant's sale units
+      summary: Get merchant's sale units (LATER)
       tags:
         - Saleunits
       responses:
@@ -233,7 +233,7 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/Error'
-      description: Vipps can make a callback to the partner when a new sale unit has been created.
+      description: (LATER) Vipps can make a callback to the partner when a new sale unit has been created.
       parameters:
         - in: body
           name: body
@@ -369,6 +369,15 @@ definitions:
       - status
       - address
       - contactPerson
+  PocMerchant:
+    type: object
+    description: Response
+    properties:
+      msn:
+        description: List of merchant serial numbers
+        type: array
+        items:
+          type: string
   GetMerchantsResponse:
     type: object
     description: Response of successful getMerchants operation
@@ -501,18 +510,6 @@ definitions:
         type: string
         description: The sale unit's name
         example: Acme AS
-      captureType:
-        type: string
-        enum:
-          - reserve
-          - direct
-        example: reserve
-        default: reserve
-      skipLandingPage:
-        type: boolean
-        default: false
-      details:
-        $ref: '#/definitions/SaleUnitDetails'
     required:
       - msn
       - name
