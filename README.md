@@ -47,7 +47,7 @@ for more information for partners.
 
 This repository contains developer resources for the Vipps Partner API PoC.
 
-* [Vipps Partner API PoC guide](vipps-partner-api-poc.md): Developer guide for Vipps Partne API PoC.
+* [Vipps Partner API PoC guide](vipps-partner-api-poc.md): Developer guide for Vipps Partner API PoC.
 
 For more information:
 * [Vipps Developers](https://github.com/vippsas/vipps-developers): The starting point for Vipps developers.
