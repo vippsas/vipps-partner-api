@@ -115,7 +115,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       operationId: getMerchantDetails
-      description: Get details for merchant by organization number. Returns HTTP 404 if the merchant is not connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
+      description: Get details for active merchant by organization number. Returns HTTP 404 if the merchant has no active connected sales units to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
   '/v1/merchants/{orgno}/saleunits':
     parameters:
       - type: string
@@ -123,7 +123,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Get merchant's sale units
+      summary: Get merchant's sale units (LATER)
       tags:
         - Saleunits
       responses:
@@ -233,7 +233,7 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/Error'
-      description: Vipps can make a callback to the partner when a new sale unit has been created.
+      description: (LATER) Vipps can make a callback to the partner when a new sale unit has been created.
       parameters:
         - in: body
           name: body
@@ -310,65 +310,11 @@ definitions:
     x-tags:
       - Merchants
     properties:
-      orgno:
-        type: string
-        pattern: '^\d{9}$'
-        minLength: 9
-        maxLength: 9
-        x-order: 1
-        example: '123456789'
-        description: Norwegian organization number of the merchant
-      name:
-        type: string
-        x-order: 2
-        example: Example AS
-        description: 'The legal name of the organization. This may be different from `name`, which is displayed in the Vipps app.'
-      email:
-        type: string
-        x-isisnullable: true
-        x-order: 3
-        example: user@example.com
-        description: The merchant's email address
-        format: email
-      logo:
-        type: string
-        format: byte
-        description: 'Base64 encoded string of the logo of the merchant. The logo will be displayed in the Vipps app. Resolution is recommended to be a square, approx 192x192 pixels'
-        x-isnullable: true
-        x-order: 8
-      website:
-        type: string
-        description: The URL for the merchant's website
-        format: uri
-        x-isnullable: true
-        x-order: 10
-        example: 'https://example.com'
-      status:
-        type: string
-        description: Status of the merchant in Vipps
-        enum:
-          - ACTIVE
-          - DEACTIVATED
-          - PENDING
-        default: PENDING
-        x-order: 7
-      address:
-        $ref: '#/definitions/Address'
-      contactPerson:
-        $ref: '#/definitions/Person'
-      changelog:
-        description: Log of all changes
+      msn:
+        description: List of merchant serial numbers
         type: array
         items:
-          $ref: '#/definitions/ChangelogItem'
-    required:
-      - orgno
-      - name
-      - email
-      - logo
-      - status
-      - address
-      - contactPerson
+          type: string
   GetMerchantsResponse:
     type: object
     description: Response of successful getMerchants operation
@@ -501,18 +447,6 @@ definitions:
         type: string
         description: The sale unit's name
         example: Acme AS
-      captureType:
-        type: string
-        enum:
-          - reserve
-          - direct
-        example: reserve
-        default: reserve
-      skipLandingPage:
-        type: boolean
-        default: false
-      details:
-        $ref: '#/definitions/SaleUnitDetails'
     required:
       - msn
       - name

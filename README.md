@@ -17,11 +17,12 @@ The current list of priorities, which may change at any time, is:
    There is no need to use separate API keys for each merchant or sale unit,
    and this eliminates the main reason for using the Signup API: Key exchange.
 2. Functionality to retrieve active MSNs for a partner's merchant
-   ([`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-merchant-management-api/#/Merchants/getMerchantDetails))
+   ([`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchantDetails))
    and the merchants' active sale units based on MSN
-   ([`GET:/merchants/{orgno}/salesunits/{msn}`](https://vippsas.github.io/vipps-merchant-management-api/#/Saleunits/getSaleUnitsByMsn)).
+   ([`GET:/merchants/{orgno}/salesunits/{msn}`](https://vippsas.github.io/vipps-partner-api/#/Saleunits/getSaleUnitsByMsn)).
    This will hopefully, with time and extended functionality, eliminate most emails,
    Slack messages and phone calls to Partnerbestilling just to ask for info.
+
 
 Down the line:
 1. Functionality to update a sale unit.
