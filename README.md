@@ -14,18 +14,22 @@ The current list of priorities, which may change at any time, is:
    [partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
    Partner keys lets a partner make API calls on behalf of a merchant,
    using the same API keys for all the partner's merchants and sale units.
-   There is no need to use separate API keys for each merchant or sale unit, and this eliminates the main reason for using the Signup API: Key exchange.
+   There is no need to use separate API keys for each merchant or sale unit,
+   and this eliminates the main reason for using the Signup API: Key exchange.
 2. Functionality to retrieve active MSNs for a partner's merchant
    ([`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-merchant-management-api/#/Merchants/getMerchantDetails))
    and the merchants' active sale units based on MSN
    ([`GET:/merchants/{orgno}/salesunits/{msn}`](https://vippsas.github.io/vipps-merchant-management-api/#/Saleunits/getSaleUnitsByMsn)).
-   This will hopefully, with time and extended functionality eliminate most emails, Slack messages and phone calls to Partnerbestilling just to ask for info.
+   This will hopefully, with time and extended functionality, eliminate most emails,
+   Slack messages and phone calls to Partnerbestilling just to ask for info.
 
 Down the line:
 1. Functionality to update a sale unit.
-   Changes to a sale unit currently requires BankID login to portal.vipps.no, but a partner should be
-   able to make changes to the sale units connected to the partner: Status, name, capture type, skip landing page, etc.
-   This will eliminate more emails, Slack messages and phone calls to Partnerbestilling just to aks for a configuration change.
+   Changes to a sale unit currently requires BankID login to portal.vipps.no,
+   but a partner should be able to make changes to the sale units connected to
+   the partner: Status, name, capture type, skip landing page, etc.
+   This will eliminate more emails, Slack messages and phone calls to
+   Partnerbestilling just to aks for a configuration change.
 2. Functionality to sign up a new merchant and create a new sale unit.
    This requires BankID login to portal.vipps.no, as there are regulatory requirements that
    complicate making an API for this. Our opinion is that the current signup functionality on
