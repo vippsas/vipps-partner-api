@@ -294,7 +294,7 @@ parameters:
   apimKey:
     name: Ocp-Apim-Subscription-Key
     in: header
-    description: Subscription key for the Merchant Management API
+    description: Subscription key.
     required: true
     type: string
   idempotency:
@@ -512,14 +512,22 @@ definitions:
     properties:
       nin:
         type: string
+        description: National identity number
+        example: 09057517287
       name:
         type: string
+        example: Alan Turing
       phoneNumber:
         type: string
+        description: Phone number in MSISDN format.
+        example: 4791234567
       email:
         type: string
+        description: Email address
+        example: user@example.com
       other stuff:
         type: string
+        example: Optional notes about this person, perhaps job title.
     required:
       - nin
       - name
