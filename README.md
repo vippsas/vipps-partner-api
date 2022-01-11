@@ -43,7 +43,7 @@ The current list of priorities, which may change at any time, is:
      See the eCom FAQ:
      [How can I check if I have skipLandingPage activated?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-skiplandingpage-activated)
    * Which price is the MSN set up with?
-   * Which Vipps products does the4 MSN have access to?
+   * Which Vipps products does the4 MSN have access to? 
      See:
      [Getting started: API products](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#api-products)
 
