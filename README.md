@@ -1,19 +1,25 @@
 # Vipps Partner API PoC
 
-💥 DRAFT! Unfinished work in progress. Useless except for discussions in and with Vipps. 💥
+💥 DRAFT! Unfinished work in progress. Close to useless except for discussions in and with Vipps. 💥
 
 ----------
 
 ## Background
+
+Vipps want to provide more self-service for partners.
 
 There are many things that could and should have been improved in the
 [Signup API](https://github.com/vippsas/vipps-signup-api).
 Since the Signup API's feature set is rather small, we are looking into a new API (this one)
 for both partners, banks and large corporations.
 
+See the main page for partners:
+[Vipps partner](https://github.com/vippsas/vipps-partner).
+
+The current list of priorities, which may change at any time, is as described below.
+
 ## Priorities: Now
 
-The current list of priorities, which may change at any time, is:
 1. All partners should use
    [partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
    Partner keys lets a partner make API calls on behalf of a merchant,
