@@ -1,6 +1,11 @@
 # Vipps Partner API PoC
 
-💥 DRAFT! Unfinished work in progress. Close to useless except for discussions in and with Vipps. 💥
+💥 
+DRAFT!
+Unfinished work in progress.
+Close to useless except for discussions in and with Vipps.
+Initial release planned for April 2022.
+💥
 
 ----------
 
