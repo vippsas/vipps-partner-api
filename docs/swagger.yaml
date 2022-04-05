@@ -1,17 +1,13 @@
 swagger: '2.0'
 info:
   title: Vipps Partner API PoC
-  version: 0.0.4
+  version: 0.0.5
   description: |
     The Vipps Partner API PoC lets partners, banks and large corporations manage their merchants and sale units.
-
     More information: https://github.com/vippsas/vipps-partner-api
-
     In the in itial phase it will only be possible to make simple queries, replacing the manual work done over email, phone and Slack.
-
     It is only possible to "look up" merchants and sale units connected to the partner making the API call:
     It is not possible for one partner to retrieve information about a merchant or sale unit connected to a different partner.
-
     IMPORTANT: This API specification contains endpoints and methods that have not been implemented, and that are meant as reference for discussions.
   contact:
     name: Vipps AS
@@ -20,262 +16,117 @@ info:
 tags:
   - name: Merchants
     description: Merchants
-  - name: Saleunits
-    description: Sale units
-  - name: External
-    description: Required on the merchant side
-servers:
-  - url: 'https://apitest.vipps.no'
-  - url: 'https://api.vipps.no'
-basePath: /merchants/
+  - name: Salesunits
+    description: Salesunits
+host: api.vipps.no
+basePath: /partner-api
 schemes:
-  - https
+  - "https"
 consumes:
   - application/json
 produces:
   - application/json;charset=UTF-8
 paths:
-  /v1/merchants:
+  /v0/merchants/{orgno}:
     parameters:
-      - $ref: '#/parameters/auth'
-      - $ref: '#/parameters/apimKey'
+      - $ref: "#/parameters/auth"
+      - $ref: "#/parameters/apimKey"
+      - $ref: "#/parameters/orgno"
     get:
-      operationId: getMerchants
-      summary: Get all merchants (LATER)
-      responses:
-        '200':
-          $ref: '#/responses/404'
-        '201':
-          description: Created
-          schema:
-            type: object
-            properties: {}
-        '400':
-          $ref: '#/responses/400'
-        '401':
-          $ref: '#/responses/401'
-        '403':
-          $ref: '#/responses/403'
-        '500':
-          $ref: '#/responses/500'
-      tags:
-        - Merchants
-      description: |
-        DRAFT: This method will not be implemented in the initial phase. Use "/v1/merchants/{orgno}".
-
-        Get all merchants that this partner has access to. Returns HTTP 404 if there are no merchants connected to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
-    post:
-      operationId: createMerchant
-      summary: Create a new merchant (LATER)
-      parameters:
-        - $ref: '#/parameters/idempotency'
-        - name: merchant
-          in: body
-          description: merchant
-          required: true
-          schema:
-            $ref: '#/definitions/CreateMerchantRequest'
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/CreateMerchantResponse'
-        '400':
-          $ref: '#/responses/400'
-        '401':
-          $ref: '#/responses/401'
-        '403':
-          $ref: '#/responses/403'
-        '405':
-          $ref: '#/responses/405'
-        '415':
-          $ref: '#/responses/415'
-        '500':
-          $ref: '#/responses/500'
-      tags:
-        - Merchants
-      description: 'DRAFT: This method will not be implemented in the initial phase. Creating of new merchants is done on portal.vipps.no.'
-  '/v1/merchants/{orgno}':
-    parameters:
-      - type: string
-        name: orgno
-        in: path
-        required: true
-    get:
-      summary: Get merchant details
-      tags:
-        - Merchants
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Merchant'
-        '404':
-          description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
-      operationId: getMerchantDetails
       description: Get details for active merchant by organization number. Returns HTTP 404 if the merchant has no active connected sales units to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
-  '/v1/merchants/{orgno}/saleunits':
-    parameters:
-      - type: string
-        name: orgno
-        in: path
-        required: true
-    get:
-      summary: Get merchant's sale units (LATER)
+      operationId: getMerchant
+      summary: Get merchant by Id
       tags:
-        - Saleunits
+        - Merchants
       responses:
-        '200':
+        "200":
           description: OK
           schema:
-            type: array
-            items:
-              type: object
-              properties:
-                List of saleunits:
-                  $ref: '#/definitions/SaleUnit'
-        '404':
-          description: Not Found
-          schema:
-            type: object
-            properties: {}
-      operationId: getMerchantSaleunits
+            $ref: "#/definitions/GetOrg"
+        "400":
+          $ref: "#/responses/400"
+        "401":
+          $ref: "#/responses/401"
+        "403":
+          $ref: "#/responses/403"
+        "404":
+          $ref: "#/responses/404"
+        "405":
+          $ref: "#/responses/405"
+        "500":
+          $ref: "#/responses/500"
+  /v0/salesunits/{msn}:
+    parameters:
+      - $ref: "#/parameters/auth"
+      - $ref: "#/parameters/apimKey"
+      - $ref: "#/parameters/msn"
+    get:
       description: |
         Get all sale units for this merchant that is connected to this partner. Returns HTTP 404 if there are no sale units connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
-      parameters:
-        - type: string
-          name: orgno
-          in: path
-          required: true
-  '/v1/merchants/{orgno}/saleunits/{msn}':
-    parameters:
-      - $ref: '#/parameters/auth'
-      - $ref: '#/parameters/apimKey'
-      - $ref: '#/parameters/msn'
-    get:
-      operationId: getSaleUnitsByMsn
-      summary: Get sale unit details
+      operationId: getMSN
+      summary: Get info based on msn
       tags:
-        - Saleunits
+        - Salesunits
       responses:
-        '200':
+        "200":
           description: OK
           schema:
-            $ref: '#/definitions/SaleUnit'
-        '400':
-          $ref: '#/responses/400'
-        '401':
-          $ref: '#/responses/401'
-        '403':
-          $ref: '#/responses/403'
-        '404':
-          $ref: '#/responses/404'
-        '405':
-          $ref: '#/responses/405'
-        '500':
-          $ref: '#/responses/500'
-      description: Get details for a sale unit. Returns HTTP 404 if the sale unit is not connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
-      parameters:
-        - type: string
-          name: orgno
-          in: path
-          required: true
-    patch:
-      operationId: updateMerchant
-      summary: Update a merchant (LATER)
-      parameters:
-        - name: merchant
-          in: body
-          description: merchant
-          required: true
-          schema:
-            $ref: '#/definitions/UpdateMerchantRequest'
-        - name: orgno
-          type: string
-          in: path
-          required: true
-      responses:
-        '200':
-          description: OK
-        '400':
-          $ref: '#/responses/400'
-        '401':
-          $ref: '#/responses/401'
-        '403':
-          $ref: '#/responses/403'
-        '404':
-          $ref: '#/responses/404'
-        '405':
-          $ref: '#/responses/405'
-        '415':
-          $ref: '#/responses/415'
-        '500':
-          $ref: '#/responses/500'
-      tags:
-        - Saleunits
-      description: 'DRAFT: This method will not be implemented in the initial phase. Management ofsale units is done on portal.vipps.no.'
-  '/partner-endpoints/v1/merchants/{orgno}/saleunits':
-    post:
-      summary: ''
-      operationId: post-partner-endpoints-v1-merchants
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/SaleUnit'
-        '404':
-          description: Not Found
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
-      description: (LATER) Vipps can make a callback to the partner when a new sale unit has been created.
-      parameters:
-        - in: body
-          name: body
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/SaleUnit'
-          description: ''
-        - in: path
-          type: string
-          name: orgno
-          required: true
-      tags:
-        - External
+            $ref: "#/definitions/SalesUnit"
+        "400":
+          $ref: "#/responses/400"
+        "401":
+          $ref: "#/responses/401"
+        "403":
+          $ref: "#/responses/403"
+        "404":
+          $ref: "#/responses/404"
+        "405":
+          $ref: "#/responses/405"
+        "500":
+          $ref: "#/responses/500"
 responses:
-  '400':
-    description: 'Invalid request, check request parameters'
+  "400":
+    description: Invalid request, check request parameters
     schema:
-      $ref: '#/definitions/Error'
-  '401':
+      $ref: "#/definitions/Error"
+  "401":
     description: Unauthorized
-  '403':
+    schema:
+      $ref: "#/definitions/MiddlewareError"
+  "403":
     description: Forbidden
     schema:
-      $ref: '#/definitions/Error'
-  '404':
+      $ref: "#/definitions/Error"
+  "404":
     description: Item does not exist
     schema:
-      $ref: '#/definitions/Error'
-  '405':
+      $ref: "#/definitions/Error"
+  "405":
     description: Request method not supported
     schema:
-      $ref: '#/definitions/Error'
-  '415':
-    description: Unsupported media type
+      $ref: "#/definitions/Error"
+  "409":
+    description: Idempotent conflict
     schema:
-      $ref: '#/definitions/Error'
-  '500':
+      $ref: "#/definitions/Error"
+  "422":
+    description: Unprocessable Entity
+    schema:
+      $ref: "#/definitions/Error"
+  "500":
     description: Internal server error
     schema:
-      $ref: '#/definitions/Error'
+      $ref: "#/definitions/Error"
 parameters:
+  orgno:
+    name: orgno
+    type: string
+    in: path
+    required: true
+    description: The Organization number for the merchant
+    minLength: 9
+    maxLength: 9
+    pattern: '^\d{9}$'
   msn:
     name: msn
     type: string
@@ -284,7 +135,7 @@ parameters:
     description: The Vipps merchant serial number
     minLength: 5
     maxLength: 6
-    pattern: '^\d{5-6}$'
+    pattern: '^\d{5,6}$'
   auth:
     name: Authorization
     in: header
@@ -294,294 +145,54 @@ parameters:
   apimKey:
     name: Ocp-Apim-Subscription-Key
     in: header
-    description: Subscription key.
-    required: true
-    type: string
-  idempotency:
-    name: Idempotency-Key
-    in: header
-    description: Unique key for idempotent operation
+    description: Subscription key for the PSP Signup API
     required: true
     type: string
 definitions:
-  Merchant:
-    description: Details of a merchant. Must be updated to fit internal data model.
+  SalesUnit:
     type: object
-    x-tags:
-      - Merchants
+    description: Details of a salesunit
+    required:
+      - msn
+      - name
+      - orgno
     properties:
       msn:
-        description: List of merchant serial numbers
-        type: array
-        items:
-          type: string
-  GetMerchantsResponse:
-    type: object
-    description: Response of successful getMerchants operation
-    required:
-      - merchants
-    properties:
-      merchants:
-        type: array
-        description: List of Merchants
-        items:
-          $ref: '#/definitions/Merchant'
-    x-tags:
-      - Merchants
-  CreateMerchantRequest:
-    description: Request for addMerchant operation
-    type: object
-    title: ''
-    x-tags:
-      - Merchants
-    properties:
+        type: string
+        description: Vipps merchant serial number
+        minLength: 5
+        maxLength: 6
+        pattern: '^\d{5,6}$'
+        x-order: 4
+        example: "123456"
+      name:
+        type: string
+        description: "The sale unit's name"
+        x-order: 5
+        example: "Example AS"
       orgno:
         type: string
-        pattern: '^\d{9}$'
+        description: The Organization number for the merchant
         minLength: 9
         maxLength: 9
-        example: '123456789'
-        description: Norwegian organization number of the merchant
-      name:
-        type: string
-        maxLength: 200
-        pattern: '^[A-Za-z0-9 ]+$'
-        description: The merchant's name. This name will be displayed in the Vipps app. This may be different from the legal name in `companyName`.
-        example: Example AS
-        minLength: 1
-      logo:
-        type: string
-        description: 'Base64 encoded string of the logo of the merchant. The logo will be displayed in the Vipps app. Resolution is recommended to be a square, approx 192x192 pixels'
-      email:
-        type: string
-        description: Contact email for the merchant. Can be same as companyEmail
-        format: email
-        pattern: '^[a-zA-Z0-9.!#$%&*+\/=?^_{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$'
-        maxLength: 255
-        example: user@example.com
-      website:
-        type: string
-        description: The URL for the merchant's website
-        pattern: '^[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)*$'
-        format: uri
-        maxLength: 255
-        example: 'https://example.com'
-      address:
-        $ref: '#/definitions/Address'
-      companyName:
-        type: string
-        maxLength: 255
-        pattern: '^[A-Za-z0-9 ]+$'
-        example: Example AS
-        description: 'The legal name of the organization. This may be different from `name`, which is displayed in the Vipps app.'
-        minLength: 1
-      companyEmail:
-        type: string
-        format: email
-        pattern: '^[a-zA-Z0-9.!#$%&*+\/=?^_{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$'
-        maxLength: 255
-        example: user@example.com
-        description: The merchant's email address
-        minLength: 3
-    required:
-      - logo
-  UpdateMerchantRequest:
-    description: Request for patchMerchant operation. Atleast one of the properties is required
-    title: ''
+        pattern: '^\d{9}$'
+  GetOrg:
     type: object
-    properties:
-      deactivate:
-        type: boolean
-        description: Set as true in order to deactivate a merchant. Already deactivated merchant cannot be activated or updated through the API
-      name:
-        type: string
-        maxLength: 200
-        pattern: '^[A-Za-z0-9 ]+$'
-        description: The merchant's name. This name will be displayed in the Vipps app. This may be different from the legal name in `companyName`.
-        example: Example AS
-      logo:
-        type: string
-        description: Base64 encoded string of the logo of the merchant. The logo will be displayed in the Vipps app.
-      email:
-        type: string
-        description: Contact email for the merchant. Can be same as companyEmail
-        format: email
-        pattern: '^[a-zA-Z0-9.!#$%&*+\/=?^_{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$'
-        maxLength: 255
-        example: user@example.com
-      website:
-        type: string
-        description: The URL for the merchant's website
-        format: uri
-        pattern: '^[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)*$'
-        maxLength: 255
-        example: 'https://example.com'
-      address:
-        $ref: '#/definitions/Address'
-  CreateMerchantResponse:
-    description: Response of successful addMerchant operation
+    description: Response of successful getSalesUnits operation
     required:
       - msn
     properties:
       msn:
-        type: string
-        description: The Vipps saleunit's merchant serial number
-        minLength: 5
-        maxLength: 6
-        example: 123456
-        pattern: '^\d{5,6}$'
-    title: ''
-  SaleUnit:
-    title: Saleunit
-    type: object
-    description: Sale unit details. Must be updated to fit internal data model.
-    properties:
-      msn:
-        type: string
-        description: The Vipps saleunit's merchant serial number
-        minLength: 5
-        maxLength: 6
-        example: 123456
-        pattern: '^\d{5,6}$'
-      name:
-        type: string
-        description: The sale unit's name
-        example: Acme AS
-    required:
-      - msn
-      - name
-      - captureType
-      - skipLandingPage
-  SaleUnitDetails:
-    title: Saleunit details
-    type: object
-    properties:
-      account:
-        type: string
-        description: Bank account number (BBAN)
-        example: 86011117947
-      mcc:
-        type: string
-        description: 'Four-digit number listed in ISO 18245 for retail financial services, used to classify a business by the types of goods or services it provides'
-        example: '1000'
-      pricePackageId:
-        type: string
-        example: '123'
-        minLength: 1
-        maxLength: 4
-      client_id:
-        type: string
-        description: ''
-        example: fb492b5e-7907-4d83-ba20-c7fb60ca35de
-      client_secret:
-        type: string
-        description: 'Must be kept secre. Can be sent to a partner that is connected to this sale unit, and has the required credmntials to retrieve data.'
-        example: Y8Kteew6GE2ZmeycEt6egg==
-      vipps-subscription-key:
-        type: string
-        description: 'The human-friendly name for "Ocp-Apim-Subscription-Key". '
-        example: 0f14ebcab0ec4b29ae0cb90d91b4a84a
-      changelog:
         type: array
-        description: Changelog
+        description: List of Vipps merchant serial numbers
         items:
-          $ref: '#/definitions/ChangelogItem'
-  ChangelogItem:
-    title: ChangelogItem
-    type: object
-    properties:
-      timestamp:
-        type: string
-        description: When was the change made?
-        example: '2019-01-01T00:00:00Z'
-      description:
-        type: string
-        description: What was the change? Human-readable description.
-        example: Updated sale unit name
-      changedBy:
-        type: string
-        description: Who made the change?
-        example: Vipps Brreg batch update service
-    required:
-      - timestamp
-      - description
-      - changedBy
-  Person:
-    title: Person
-    type: object
-    properties:
-      nin:
-        type: string
-        description: National identity number
-        example: 09057517287
-      name:
-        type: string
-        example: Alan Turing
-      phoneNumber:
-        type: string
-        description: Phone number in MSISDN format.
-        example: 4791234567
-      email:
-        type: string
-        description: Email address
-        example: user@example.com
-      other stuff:
-        type: string
-        example: Optional notes about this person, perhaps job title.
-    required:
-      - nin
-      - name
-      - phoneNumber
-  Address:
-    type: object
-    description: The merchant's address
-    required:
-      - addressLine1
-      - city
-      - country
-      - postCode
-    properties:
-      addressLine1:
-        type: string
-        description: Address Line 1
-        example: Robert Levins gate 5
-        maxLength: 255
-        pattern: '^[A-Za-z0-9 ]+$'
-        x-order: 1
-      addressLine2:
-        type: string
-        description: Address Line 2
-        example: 'Att: Rune Garborg'
-        maxLength: 255
-        pattern: '^[A-Za-z0-9 ]+$'
-        x-isnullable: true
-        x-order: 2
-      city:
-        type: string
-        description: City
-        example: Oslo
-        maxLength: 255
-        x-order: 3
-      postCode:
-        type: string
-        description: Postcode
-        pattern: '^\d{4}$'
-        minLength: 4
-        maxLength: 4
-        example: '0154'
-        x-order: 4
-      country:
-        type: string
-        description: Two letter country code based on ISO 3166
-        pattern: '^\w{2}$'
-        minLength: 2
-        maxLength: 2
-        example: 'NO'
-        default: 'NO'
-        enum:
-          - 'NO'
-        x-order: 5
-    title: ''
+          type: string
+          description: Vipps merchant serial number
+          minLength: 5
+          maxLength: 6
+          pattern: '^\d{5,6}$'
+          x-order: 4
+          example: "123456"
   Error:
     type: object
     description: Problem details of HTTP APIs based on RFC 7807
@@ -592,36 +203,50 @@ definitions:
       - instance
     properties:
       type:
-        type: string
+        type: "string"
         description: |
           "A URI reference that identifies the problem type"
-        example: 'https://example.net/validation-error'
+        example: "https://example.net/validation-error"
         x-order: 1
       title:
-        type: string
+        type: "string"
         description: |
           "A short, human-readable summary of the problem type"
-        example: Postcode validation error
+        example: "Postcode validation error"
         x-order: 2
       status:
-        type: number
+        type: "integer"
         description: |
-          "The HTTP status code generated by the origin server for this occurrence of the problem"
+          "The code generated by the origin server for this occurrence of the problem"
         example: 400
         x-order: 3
       detail:
-        type: string
+        type: "string"
         description: |
           "A human-readable explanation specific to this occurrence of the problem.
           The detail member, if present, ought to focus on helping the client correct the problem,
           rather than giving debugging information."
-        example: Postcode must be four digits
+        example: "MSN must be 5 or 6 digits"
         x-order: 4
       instance:
-        type: string
+        type: "string"
         description: |
-          "A URI reference that identifies the specific occurrence of the problem"
-        example: 'https://example.net/validation-error/postcode'
+          "Unique ID for the request which can be used to find related events (logs)"
+        example: "https://example.net/validation-error/postcode"
         x-order: 5
-    x-tags:
-      - General
+  MiddlewareError:
+    type: object
+    description: Problem details
+    properties:
+      code:
+        type: "integer"
+        description: |
+          "The status code generated by the origin server for this occurrence of the problem"
+        example: 401
+        x-order: 1
+      message:
+        type: "string"
+        description: |
+          "A human-readable explanation specific to this occurrence of the problem."
+        example: "Unauthorized"
+        x-order: 2
