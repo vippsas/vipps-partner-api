@@ -20,7 +20,17 @@ Document version 0.0.1
 
 ## Table of contents
 
-(Nothing yet)
+* [When will it be possible to create a new merchant?](#when-will-it-be-possible-to-create-a-new-merchant)
+* [When will it be possible to change an existing sale unit?](#when-will-it-be-possible-to-change-an-existing-sale-unit)
+* [Questions?](#questions)
+
+## When will it be possible to create a new merchant?
+
+We know this is a very important feature, but don't have a date, month, quarter or year, sorry.
+
+## When will it be possible to change an existing sale unit?
+
+We know this is a very important feature, but don't have a date, month, quarter or year, sorry.
 
 ## Questions?
 

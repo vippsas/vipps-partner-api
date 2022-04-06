@@ -19,13 +19,13 @@ This repository contains developer resources for the Vipps Partner API PoC.
 
 * [Vipps Partner API guide](vipps-partner-api.md): Developer guide for Vipps Partner API.
 
-For more information:
-* [Vipps Developers](https://github.com/vippsas/vipps-developers): The starting point for Vipps developers.
-* [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md): Information about API keys, product activation.
-
 You can peruse the API reference documentation as:
 * [Swagger UI](https://vippsas.github.io/vipps-partner-api/)
 * [ReDoc](https://vippsas.github.io/vipps-partner-api/redoc.html)
+
+For more information:
+* [Vipps Developers](https://github.com/vippsas/vipps-developers): The starting point for Vipps developers.
+* [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md): Information about API keys, product activation.
 
 # Questions?
 
