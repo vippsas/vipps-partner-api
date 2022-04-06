@@ -8,10 +8,15 @@ API version: 0.0.1.
 Document version 0.0.1
 
 ## Table of contents
+* [Table of contents](#table-of-contents)
 * [Information for Vipps partners](#information-for-vipps-partners)
 * [Partner keys](#partner-keys)
 * [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
+  * [Future improvements](#future-improvements)
+  * [In the meantime](#in-the-meantime)
 * [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
+  * [Future improvements](#future-improvements)
+  * [In the meantime](#in-the-meantime)
 * [Questions?](#questions)
 
 ## Information for Vipps partners
@@ -41,6 +46,8 @@ connected to the partner making the API request.
 }
 ```
 
+### Future improvements
+
 Future versions of the API will probably_ return more information, such as:
 * Company address
 * Contact information for the main person
@@ -53,6 +60,19 @@ This is an endpoint for getting information about the _merchant_, not all the
 merchant's MSNs.
 See:
 [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn).
+
+### In the meantime
+
+All merchants can retrieve their information on
+[portal.vipps.no](https://portal.vipps.no).
+
+Merchants can create a user for their parter on
+[portal.vipps.no](https://portal.vipps.no),
+so the partner can do this directly
+as described here:
+[Partner keys](https://github.com/vippsas/vipps-partner#partner-keys)
+and
+[How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
 
 ## Get information about a sale unit based on MSN
 
@@ -70,6 +90,8 @@ In the current version of the API this only returns basic information:
 }
 ```
 
+### Future improvements
+
 Future versions of the API will probably_ return more information, such as:
 * Vipps products: Which Vipps products are available for this sale unit (eCom, Recurring, Login, etc)
 * Capture type: Direct capture or reserve capture. See:
@@ -81,6 +103,21 @@ Future versions of the API will probably_ return more information, such as:
 * Settlement type: gross or net
 * Transaction cost (price package)
 * Status: Active or deactivated
+
+### In the meantime
+
+Until more functionality is available in this API, there are some workarounds:
+
+* Is the MSN set up with "reserve capture" or "direct capture"?  
+  See:
+  [How can I check if I have "reserve capture" or "direct capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+* Is the MSN set up with `skipLandingPage`?  
+  See:
+  [How can I check if I have skipLandingPage activated?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-skiplandingpage-activated)
+* Which price is the MSN set up with?
+* Which Vipps products does the MSN have access to?  
+  See:
+  [Getting started: API products](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md#api-products)
 
 ## Questions?
 
