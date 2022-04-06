@@ -1,12 +1,17 @@
 # Vipps Partner API PoC
 
-💥
+💥💥💥💥💥💥💥💥💥💥
 This is the very first version.
 It will be available in a few days, and will require partner keys.
 Seet the
 [API guide](vipps-partner-api.md).
-Feedback is welcome! See "Questions?" at the end.
-💥
+
+Feedback is welcome!
+Please try to use GitHub's
+[issue](https://github.com/vippsas/vipps-partner-api/issues),
+so we can avoid multiple parallell discussions in various cvhannels.
+
+💥💥💥💥💥💥💥💥💥💥
 
 This repository contains developer resources for the Vipps Partner API PoC.
 
@@ -23,8 +28,8 @@ You can peruse the API reference documentation as:
 # Questions?
 
 We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-ecom-api/issues),
-a [pull request](https://github.com/vippsas/vipps-ecom-api/pulls),
+Please create an [issue](https://github.com/vippsas/vipps-partner-api/issues),
+a [pull request](https://github.com/vippsas/vipps-partner-api/pulls),
 or [contact us](https://github.com/vippsas/vipps-developers/blob/master/contact.md).
 
 Sign up for our [Technical newsletter for developers](https://github.com/vippsas/vipps-developers/tree/master/newsletters).
