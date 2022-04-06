@@ -41,7 +41,11 @@ connected to the partner making the API request.
 }
 ```
 
-Future versions of the API will _probably_ return more information.
+Future versions of the API will probably_ return more information, such as:
+* Company address
+* Contact information for the main person
+* Contact information for the technical person
+* A list of people with admin rights on portal.vipps.no
 
 Since the response only contains a list of MSNs, an additional API request is
 required to get more details about the sale unit.
@@ -71,7 +75,11 @@ Future versions of the API will probably_ return more information, such as:
   [eCom FAQ: What is the difference between "Reserve Capture" and "Direct Capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#what-is-the-difference-between-reserve-capture-and-direct-capture)
 * Is `skipLandingPage` available? See:
   [eCom FAQ: Is it possible to skip the landing page?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#is-it-possible-to-skip-the-landing-page)
-* Which price package is this sale unit configured with?
+* Bank account for settlements
+* Settlement frequency
+* Settlement type: gross or net
+* Transaction cost (price package)
+
 
 ## Questions?
 
