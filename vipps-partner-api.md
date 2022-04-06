@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.1.
 
-Document version 0.0.3.
+Document version 0.0.4.
 
 ## Table of contents
 
@@ -122,7 +122,7 @@ connected to the partner making the API request.
 
 ### Future improvements
 
-Future versions of the API will probably_ return more information, such as:
+Future versions of the API will _probably_ return more information, such as:
 * Company address
 * Contact information for the main person
 * Contact information for the technical person
@@ -166,7 +166,7 @@ In the current version of the API this only returns basic information:
 
 ### Future improvements
 
-Future versions of the API will probably_ return more information, such as:
+Future versions of the API will _probably_ return more information, such as:
 * Vipps products: Which Vipps products are available for this sale unit (eCom, Recurring, Login, etc)
 * Capture type: Direct capture or reserve capture. See:
   [eCom FAQ: What is the difference between "Reserve Capture" and "Direct Capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#what-is-the-difference-between-reserve-capture-and-direct-capture)
