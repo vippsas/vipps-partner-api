@@ -18,6 +18,7 @@ functionality, so we can avoid multiple parallell discussions in various channel
 This repository contains developer resources for the Vipps Partner API PoC.
 
 * [Vipps Partner API guide](vipps-partner-api.md): Developer guide for Vipps Partner API.
+* [Vipps Partner API FAQ](vipps-partner-api-faq.md): Questions and answers.
 
 You can peruse the API reference documentation as:
 * [Swagger UI](https://vippsas.github.io/vipps-partner-api/)
