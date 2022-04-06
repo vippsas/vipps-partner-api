@@ -4,8 +4,10 @@
 
 **IMPORTANT!**
 
-This is the very first version.
-It will be available in a few days, and will require partner keys.
+This is the very first version, and `v0` means version zero, and that
+it is not the final release version.
+
+This will be available in a few days, and will require partner keys.
 See the
 [API guide](vipps-partner-api.md).
 
