@@ -46,18 +46,12 @@ Vipps want to provide more self-service for partners.
 2. Functionality to retrieve active MSNs for merchant connected to this partner:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchantDetails)
 
-   Functionality for retrieving details about one sale unit based on MSN:
+3.   Functionality for retrieving details about one sale unit based on MSN:
    [`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-partner-api/#/Salesunits/getMSN)
-
-   This will hopefully eliminate most emails, Slack messages and phone calls to
-   Vipps just to ask for information.
-
-   See:
-   [How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
 
 ### Priorities: Later
 
-3. Functionality to retrieve more information for an active MSNs for a partner's
+4. Functionality to retrieve more information for an active MSNs for a partner's
    merchant. This is not as trivial as it sounds, as there are dependencies
    of underlying systems and data that also need work.
 
@@ -65,7 +59,7 @@ Vipps want to provide more self-service for partners.
 
 ### Priorities: At some point
 
-4. Functionality to update an existing sale unit.
+5. Functionality to update an existing sale unit.
 
    Changes to a sale unit currently requires BankID login to
    [portal.vipps.no](https://portal.vipps.no)
@@ -88,7 +82,7 @@ Vipps want to provide more self-service for partners.
    and
    [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
 
-5. Functionality to sign up a new merchant and create a new sale unit.
+6. Functionality to sign up a new merchant and create a new sale unit.
 
    This requires BankID login to
    [portal.vipps.no](https://portal.vipps.no),
@@ -101,6 +95,9 @@ Vipps want to provide more self-service for partners.
    Our opinion is that the current signup functionality on
    [portal.vipps.no](https://portal.vipps.no)
    is simple and "good enough" that this functionality can have a lower priority.
+
+   See:
+   [How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
 
 ## Partner keys
 
