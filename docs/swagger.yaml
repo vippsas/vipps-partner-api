@@ -1,14 +1,10 @@
 swagger: '2.0'
 info:
   title: Vipps Partner API PoC
-  version: 0.0.5
+  version: 0.0.6
   description: |
     The Vipps Partner API PoC lets partners, banks and large corporations manage their merchants and sale units.
     More information: https://github.com/vippsas/vipps-partner-api
-    In the in itial phase it will only be possible to make simple queries, replacing the manual work done over email, phone and Slack.
-    It is only possible to "look up" merchants and sale units connected to the partner making the API call:
-    It is not possible for one partner to retrieve information about a merchant or sale unit connected to a different partner.
-    IMPORTANT: This API specification contains endpoints and methods that have not been implemented, and that are meant as reference for discussions.
   contact:
     name: Vipps AS
     email: integration@vipps.no
@@ -33,9 +29,13 @@ paths:
       - $ref: "#/parameters/apimKey"
       - $ref: "#/parameters/orgno"
     get:
-      description: Get details for active merchant by organization number. Returns HTTP 404 if the merchant has no active connected sales units to the partner making the request (even if the merchant is a Vipps customer independently of this partner).
+      description: |
+         Get details for an active merchant by organization number.
+         Returns HTTP 404 if the merchant has no active connected sales units
+         to the partner making the request (even if the merchant is a Vipps
+         customer independently of this partner).
       operationId: getMerchant
-      summary: Get merchant by Id
+      summary: Get information about a merchant based on orgno
       tags:
         - Merchants
       responses:
@@ -62,9 +62,12 @@ paths:
       - $ref: "#/parameters/msn"
     get:
       description: |
-        Get all sale units for this merchant that is connected to this partner. Returns HTTP 404 if there are no sale units connected to the partner making the request (even if the sale unit exists and the merchant is a Vipps customer independently of this partner).
+        Get all sale units for this merchant that is connected to this partner.
+        Returns HTTP 404 if there are no sale units connected to the partner
+        making the request (even if the sale unit exists and the merchant is a
+        Vipps customer independently of this partner).
       operationId: getMSN
-      summary: Get info based on msn
+      summary: Get information for one MSN
       tags:
         - Salesunits
       responses:
@@ -132,7 +135,7 @@ parameters:
     type: string
     in: path
     required: true
-    description: The Vipps merchant serial number
+    description: The Vipps MSN (merchant serial number)
     minLength: 5
     maxLength: 6
     pattern: '^\d{5,6}$'
@@ -145,7 +148,7 @@ parameters:
   apimKey:
     name: Ocp-Apim-Subscription-Key
     in: header
-    description: Partner-API Subscription key
+    description: Partner-API subscription key
     required: true
     type: string
 definitions:
@@ -159,7 +162,7 @@ definitions:
     properties:
       msn:
         type: string
-        description: Vipps merchant serial number
+        description: The Vipps MSN (merchant serial number)
         minLength: 5
         maxLength: 6
         pattern: '^\d{5,6}$'
@@ -172,22 +175,23 @@ definitions:
         example: "Example AS"
       orgno:
         type: string
-        description: The Organization number for the merchant
+        description: The organization number for the merchant
         minLength: 9
         maxLength: 9
         pattern: '^\d{9}$'
+        example: "912345678"
   GetOrg:
     type: object
-    description: Response of successful getSalesUnits operation
+    description: Response of a successful getSalesUnits operation
     required:
       - msn
     properties:
       msn:
         type: array
-        description: List of Vipps merchant serial numbers
+        description: List of Vipps MSNs (merchant serial numbers)
         items:
           type: string
-          description: Vipps merchant serial number
+          description: The Vipps MSN (merchant serial number)
           minLength: 5
           maxLength: 6
           pattern: '^\d{5,6}$'
@@ -212,7 +216,7 @@ definitions:
         type: "string"
         description: |
           "A short, human-readable summary of the problem type"
-        example: "Postcode validation error"
+        example: "Invalid MSN"
         x-order: 2
       status:
         type: "integer"
@@ -232,7 +236,7 @@ definitions:
         type: "string"
         description: |
           "Unique ID for the request which can be used to find related events (logs)"
-        example: "https://example.net/validation-error/postcode"
+        example: "https://example.net/validation-error/msn"
         x-order: 5
   MiddlewareError:
     type: object
