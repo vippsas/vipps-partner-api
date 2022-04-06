@@ -71,6 +71,7 @@ In the current version of the API this only returns basic information:
 ```
 
 Future versions of the API will probably_ return more information, such as:
+* Vipps products: Which Vipps products are available for this sale unit (eCom, Recurring, Login, etc)
 * Capture type: Direct capture or reserve capture. See:
   [eCom FAQ: What is the difference between "Reserve Capture" and "Direct Capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#what-is-the-difference-between-reserve-capture-and-direct-capture)
 * Is `skipLandingPage` available? See:
@@ -79,7 +80,7 @@ Future versions of the API will probably_ return more information, such as:
 * Settlement frequency
 * Settlement type: gross or net
 * Transaction cost (price package)
-
+* Status: Active or deactivated
 
 ## Questions?
 
