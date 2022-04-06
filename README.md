@@ -1,10 +1,11 @@
 # Vipps Partner API PoC
 
 💥 
-DRAFT!
-Unfinished work in progress.
-Close to useless except for discussions in and with Vipps.
-Initial release planned for April 2022.
+This is the very first version.
+It will be available in a few days, and will require partner keys.
+Seet the
+[API guide](vipps-partner-api.md).
+Feedback is welcome! See "Questions?" at the end.
 💥
 
 ----------
@@ -35,17 +36,20 @@ The current list of priorities, which may change at any time, is as described be
 
 2. Functionality to retrieve active MSNs for a partner's merchant
    ([`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchantDetails)).
+   
+   And: functionality for retrieving details about one sale unit based on MSN:
+   [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
 
    This will hopefully, with time and extended functionality, eliminate most emails,
    Slack messages and phone calls to Partnerbestilling just to ask for info.
 
    See:
    [How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
-
+  
 
 ## Priorities: Later
 
-3. Functionality to retrieve information for an active MSNs for a partner's
+3. Functionality to retrieve more information for an active MSNs for a partner's
    merchant. This is not as trivial as it sounds, as there are dependencies
    of underlying systems and data that also need work.
 
