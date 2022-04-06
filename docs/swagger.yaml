@@ -62,8 +62,8 @@ paths:
       - $ref: "#/parameters/msn"
     get:
       description: |
-        Get all sale units for this merchant that is connected to this partner.
-        Returns HTTP 404 if there are no sale units connected to the partner
+        Get one specific sale unit by MSN.
+        Returns HTTP 404 if the specified MSN is not connected to the partner
         making the request (even if the sale unit exists and the merchant is a
         Vipps customer independently of this partner).
       operationId: getMSN
