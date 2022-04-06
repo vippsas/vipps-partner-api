@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.1.
 
-Document version 0.0.4.
+Document version 0.0.5.
 
 ## Table of contents
 
@@ -109,7 +109,7 @@ This API requires
 [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchant)
 
 This endpoint is for retrieving information about the merchant.
-In the current version of the Partner API this only returns a list of MSNs
+In the current version of the Partner API only returns a list of MSNs
 connected to the partner making the API request.
 
 ```
@@ -154,7 +154,7 @@ and
 
 This endpoint is for retrieving details about one sale unit.
 
-In the current version of the API this only returns basic information:
+In the current version of the API only returns basic information:
 
 ```
 {
