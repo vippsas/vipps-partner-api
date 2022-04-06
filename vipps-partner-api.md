@@ -43,10 +43,10 @@ Vipps want to provide more self-service for partners.
    Partner keys lets a partner make API calls on behalf of a merchant,
    using the same API keys for all the partner's merchants and sale units.
 
-2. Functionality to retrieve active MSNs for a partner's merchant
-   ([`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchantDetails)).
+2. Functionality to retrieve active MSNs for merchant connected to this partner:
+   [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchantDetails)
 
-   And: functionality for retrieving details about one sale unit based on MSN:
+   Functionality for retrieving details about one sale unit based on MSN:
    [`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-partner-api/#/Salesunits/getMSN)
 
    This will hopefully eliminate most emails, Slack messages and phone calls to
@@ -61,7 +61,7 @@ Vipps want to provide more self-service for partners.
    merchant. This is not as trivial as it sounds, as there are dependencies
    of underlying systems and data that also need work.
 
-   See the "Future improvements" ections.
+   See the "Future improvements" sections.
 
 ### Priorities: At some point
 
