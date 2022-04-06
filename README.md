@@ -6,13 +6,13 @@
 
 This is the very first version.
 It will be available in a few days, and will require partner keys.
-Seet the
+See the
 [API guide](vipps-partner-api.md).
 
 Feedback is welcome!
 Please try to use GitHub's
-[issue](https://github.com/vippsas/vipps-partner-api/issues),
-so we can avoid multiple parallell discussions in various cvhannels.
+[issue](https://github.com/vippsas/vipps-partner-api/issues)
+functionality, so we can avoid multiple parallell discussions in various channels.
 
 💥💥💥💥💥💥💥💥💥💥
 
