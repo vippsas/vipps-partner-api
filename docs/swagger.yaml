@@ -145,7 +145,7 @@ parameters:
   apimKey:
     name: Ocp-Apim-Subscription-Key
     in: header
-    description: Subscription key for the PSP Signup API
+    description: Partner-API Subscription key
     required: true
     type: string
 definitions:
