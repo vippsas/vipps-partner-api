@@ -16,7 +16,7 @@ guide.
 
 API version: 0.0.1.
 
-Document version 0.0.1
+Document version 0.0.2.
 
 ## Table of contents
 
@@ -26,10 +26,12 @@ Document version 0.0.1
 
 ## When will it be possible to create a new merchant?
 
+We are working on this now, as fast as we can!
 We know this is a very important feature, but don't have a date, month, quarter or year, sorry.
 
 ## When will it be possible to change an existing sale unit?
 
+We are working on this now, as fast as we can!
 We know this is a very important feature, but don't have a date, month, quarter or year, sorry.
 
 ## Questions?
