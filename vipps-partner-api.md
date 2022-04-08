@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.1.
 
-Document version 0.0.6.
+Document version 0.0.7.
 
 ## Table of contents
 
@@ -120,6 +120,13 @@ connected to the partner making the API request.
 }
 ```
 
+Since the response only contains a list of MSNs, an additional API request is
+required to get more details about the sale unit.
+This is an endpoint for getting information about the _merchant_, not all the
+merchant's MSNs.
+See:
+[Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn).
+
 ### Future improvements
 
 Future versions of the API will _probably_ return more information,
@@ -129,13 +136,6 @@ Some candidates:
 * Contact information for the main person
 * Contact information for the technical person
 * A list of people with admin rights on portal.vipps.no
-
-Since the response only contains a list of MSNs, an additional API request is
-required to get more details about the sale unit.
-This is an endpoint for getting information about the _merchant_, not all the
-merchant's MSNs.
-See:
-[Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn).
 
 ### In the meantime
 
