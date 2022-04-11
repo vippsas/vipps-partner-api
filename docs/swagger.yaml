@@ -1,256 +1,722 @@
-swagger: '2.0'
+openapi: 3.0.0
 info:
-  title: Vipps Partner API PoC
-  version: 0.0.6
+  title: Vipps Partner API
+  version: '0.9'
   description: |
-    The Vipps Partner API PoC lets partners, banks and large corporations manage their merchants and sale units.
+    The Vipps Partner API PoC lets partners, banks and large corporations manage their merchants (for example, submit product orders on behalf of their merchants) and sales units.
     More information: https://github.com/vippsas/vipps-partner-api
   contact:
     name: Vipps AS
     email: integration@vipps.no
     url: 'https://vipps.no/'
+servers:
+  - url: 'https://api.vipps.no/partner-api'
+    description: Vipps partner api
 tags:
+  - name: Vipps Product Orders
+    description: Submit product orders on behalf of their merchants
   - name: Merchants
-    description: Merchants
-  - name: Salesunits
-    description: Salesunits
-host: api.vipps.no
-basePath: /partner-api
-schemes:
-  - "https"
-consumes:
-  - application/json
-produces:
-  - application/json;charset=UTF-8
+    description: Manage merchants
+  - name: Sales units
+    description: Manage sales units
 paths:
+  /v0/products/orders:
+    parameters: []
+    post:
+      summary: Order products on behalf of merchants
+      operationId: order-product
+      description: Order products on behalf of merchants.
+      tags:
+        - Vipps Product Orders
+      parameters:
+        - $ref: '#/components/parameters/Ocp-APIM-Subscription-Key'
+        - $ref: '#/components/parameters/Idempotency-Key'
+      security:
+        - Bearer-Authorization: []
+      requestBody:
+        description: Product order for a merchant request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductOrderRequest'
+            examples:
+              example-1:
+                value:
+                  orgno: '987654321'
+                  salesUnitName: My point of sale
+                  salesUnitLogo: VGhlIGltYWdlIGdvZXMgaGVyZQ==
+                  settlementAccountNumber: '86011117947'
+                  pricePackageKey: posstandard
+                  productType: VIPPS_PA_NETT
+                  mcc: '5200'
+                  annualTurnover: '100000'
+                  intendedPurpose: Membership fee for gym
+                  website:
+                    url: 'https://example.com'
+                    termsUrl: 'https://example.com/terms-and-conditions'
+                    testWebSiteUrl: 'https://test.example.com'
+                    testWebsiteUsername: test-user
+                    testWebsitePassword: test-password
+                  complianceData:
+                    giftCard:
+                      salesPercentage: TEN_OR_MORE
+                      turnoverShare: about 25%
+                      validityDuration: 3 years
+                    membership:
+                      turnoverShare: about 25%
+                      validFor: YEAR
+                      periodDistribution: 50% yearly 20% monthly
+                    subscription:
+                      turnoverShare: about 25%
+                      periodDistribution: 50% yearly 20% monthly
+                    course:
+                      turnoverShare: about 25%
+                      timeBeforeOrder: 10 days
+                      period: once every 6 week
+                      online: 'YES'
+                      onlineAccessableTime: for 3 months
+                    ticket:
+                      turnoverShare: about 25%
+                      prepurchaseTime: 10 weeks
+                    rent:
+                      turnoverShare: about 25%
+                      prepurchaseTime: 15 days
+                      averageRentalDuration: 3 weeks
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductOrderResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '401':
+          description: Unauthorized
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /v0/merchants/{orgno}:
-    parameters:
-      - $ref: "#/parameters/auth"
-      - $ref: "#/parameters/apimKey"
-      - $ref: "#/parameters/orgno"
     get:
-      description: |
-         Get details for an active merchant by organization number.
-         Returns HTTP 404 if the merchant has no active connected sales units
-         to the partner making the request (even if the merchant is a Vipps
-         customer independently of this partner).
+      tags:
+        - Sales units
+      security:
+        - Bearer-Authorization: [ ]
+      summary: Get merchant by organization number
       operationId: getMerchant
-      summary: Get information about a merchant based on orgno
+      parameters:
+        - $ref: '#/components/parameters/Ocp-APIM-Subscription-Key'
+        - name: orgno
+          in: path
+          description: The Organization number for the merchant
+          required: true
+          schema:
+            maxLength: 9
+            minLength: 9
+            pattern: ^\d{9}$
+            type: string
+            example: 987654321
+      responses:
+        200:
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/GetOrg'
+        400:
+          description: Invalid request, check request parameters
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MiddlewareError'
+        403:
+          description: Forbidden
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Item does not exist
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+        405:
+          description: Request method not supported
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal server error
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /v0/salesunits/{msn}:
+    get:
       tags:
         - Merchants
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: "#/definitions/GetOrg"
-        "400":
-          $ref: "#/responses/400"
-        "401":
-          $ref: "#/responses/401"
-        "403":
-          $ref: "#/responses/403"
-        "404":
-          $ref: "#/responses/404"
-        "405":
-          $ref: "#/responses/405"
-        "500":
-          $ref: "#/responses/500"
-  /v0/salesunits/{msn}:
-    parameters:
-      - $ref: "#/parameters/auth"
-      - $ref: "#/parameters/apimKey"
-      - $ref: "#/parameters/msn"
-    get:
-      description: |
-        Get one specific sale unit by MSN.
-        Returns HTTP 404 if the specified MSN is not connected to the partner
-        making the request (even if the sale unit exists and the merchant is a
-        Vipps customer independently of this partner).
+      security:
+        - Bearer-Authorization: [ ]
+      summary: Get sale unit details based on MSN
       operationId: getMSN
-      summary: Get information for one MSN
-      tags:
-        - Salesunits
-      responses:
-        "200":
-          description: OK
+      parameters:
+        - $ref: '#/components/parameters/Ocp-APIM-Subscription-Key'
+        - name: msn
+          in: path
+          description: The Vipps merchant serial number
+          required: true
           schema:
-            $ref: "#/definitions/SalesUnit"
-        "400":
-          $ref: "#/responses/400"
-        "401":
-          $ref: "#/responses/401"
-        "403":
-          $ref: "#/responses/403"
-        "404":
-          $ref: "#/responses/404"
-        "405":
-          $ref: "#/responses/405"
-        "500":
-          $ref: "#/responses/500"
-responses:
-  "400":
-    description: Invalid request, check request parameters
-    schema:
-      $ref: "#/definitions/Error"
-  "401":
-    description: Unauthorized
-    schema:
-      $ref: "#/definitions/MiddlewareError"
-  "403":
-    description: Forbidden
-    schema:
-      $ref: "#/definitions/Error"
-  "404":
-    description: Item does not exist
-    schema:
-      $ref: "#/definitions/Error"
-  "405":
-    description: Request method not supported
-    schema:
-      $ref: "#/definitions/Error"
-  "409":
-    description: Idempotent conflict
-    schema:
-      $ref: "#/definitions/Error"
-  "422":
-    description: Unprocessable Entity
-    schema:
-      $ref: "#/definitions/Error"
-  "500":
-    description: Internal server error
-    schema:
-      $ref: "#/definitions/Error"
-parameters:
-  orgno:
-    name: orgno
-    type: string
-    in: path
-    required: true
-    description: The Organization number for the merchant
-    minLength: 9
-    maxLength: 9
-    pattern: '^\d{9}$'
-  msn:
-    name: msn
-    type: string
-    in: path
-    required: true
-    description: The Vipps MSN (merchant serial number)
-    minLength: 5
-    maxLength: 6
-    pattern: '^\d{5,6}$'
-  auth:
-    name: Authorization
-    in: header
-    required: true
-    description: Bearer 'auth token'
-    type: string
-  apimKey:
-    name: Ocp-Apim-Subscription-Key
-    in: header
-    description: Partner-API subscription key
-    required: true
-    type: string
-definitions:
-  SalesUnit:
-    type: object
-    description: Details of a salesunit
-    required:
-      - msn
-      - name
-      - orgno
-    properties:
-      msn:
-        type: string
-        description: The Vipps MSN (merchant serial number)
-        minLength: 5
-        maxLength: 6
-        pattern: '^\d{5,6}$'
-        x-order: 4
-        example: "123456"
-      name:
-        type: string
-        description: "The sale unit's name"
-        x-order: 5
-        example: "Example AS"
-      orgno:
-        type: string
-        description: The organization number for the merchant
-        minLength: 9
-        maxLength: 9
-        pattern: '^\d{9}$'
-        example: "912345678"
-  GetOrg:
-    type: object
-    description: Response of a successful getSalesUnits operation
-    required:
-      - msn
-    properties:
-      msn:
-        type: array
-        description: List of Vipps MSNs (merchant serial numbers)
-        items:
+            maxLength: 6
+            minLength: 5
+            pattern: ^\d{5,6}$
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SalesUnit'
+        400:
+          description: Invalid request, check request parameters
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+        401:
+          description: Unauthorized
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MiddlewareError'
+        403:
+          description: Forbidden
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Item does not exist
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+        405:
+          description: Request method not supported
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal server error
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Problem:
+      title: Problem
+      type: object
+      properties:
+        type:
           type: string
-          description: The Vipps MSN (merchant serial number)
-          minLength: 5
+          format: uri
+          example: 'https://example.com/problem/unauthorized'
+          description: A URI reference that identifies the problem type.
+        title:
+          type: string
+          example: 'Not authorized to create a product order'
+          description: 'A short, human-readable summary of the problem type.  It will not change from occurrence to occurrence of the problem.'
+        status:
+          type: integer
+          description: The HTTP response code
+          example: 401
+        detail:
+          type: string
+          example: 'Not authorized to create a product order. Check whether Authorization token and Ocp-Apim-Subscription-Key are correct.'
+          description: A human-readable explanation specific to this occurrence of the problem.
+        instance:
+          type: string
+          example: '/products/orders'
+          description: A URI reference that identifies the specific occurrence of the problem
+        traceId:
+          type: string
+          example: '81b83246-5c19-7b94-875b-ea6d1114f099'
+          description: An id that can be used to facilitate in tracing the error.
+        extraDetails:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/ExtraDetails'
+    ExtraDetails:
+      type: object
+      properties:
+        key:
+          type: string
+          example: 'CustomErrorCode'
+          description: Key
+        value:
+          type: string
+          example: '9000'
+          description: Value
+    ProductOrderRequest:
+      title: Product Order Request for a merchant
+      required:
+        - orgno
+        - salesUnitName
+        - settlementAccountNumber
+        - pricePackageKey
+        - productType
+        - mcc
+        - annualTurnover
+        - intendedPurpose
+      properties:
+        orgno:
+          type: string
+          pattern: '^[0-9]{9,9}$'
+          minLength: 9
+          maxLength: 9
+          example: '987654321'
+          description: Organisation number of the merchant for whom the partner is submitting the product order.
+        salesUnitName:
+          type: string
+          pattern: '^[a-zA-Z0-9- ]{1,30}$'
+          minLength: 1
+          maxLength: 30
+          example: My point of sale
+          description: The name of the point of sale that will be shown to the users in Vipps app or Vipps landing page.
+        salesUnitLogo:
+          type: string
+          format: byte
+          example: 'VGhlIGltYWdlIGdvZXMgaGVyZQ=='
+          description: |
+            Base64 encoded string of the logo of the merchant.
+            The logo will be displayed in the Vipps app, both when paying and on receipts and also in Vipps landing page.
+            The logo must be in PNG (Portable Network Graphics) format.
+            Square images are recommended.
+            The longest side can not be more than 1000 pixels.
+            The minimum size is 100 x 100 pixels.
+            Images not matching the above criteria will not be shown to the merchant in the merchant portal.
+        settlementAccountNumber:
+          type: string
+          pattern: '^[0-9]{11,11}$'
+          minLength: 11
+          maxLength: 11
+          example: '86011117947'
+          description: The bank account number belonging to the organisation that will be used for settlement.
+        pricePackageKey:
+          type: string
+          pattern: '^[a-zA-Z0-9-]{1,15}$'
+          minLength: 1
+          maxLength: 255
+          example: posstandard
+          description: One of the price package that is registered for the partner in Vipps system.
+        productType:
+          type: string
+          enum:
+            - VIPPS_BEDRIFT
+            - VIPPS_PA_NETT
+            - VIPPS_LOGGINN
+            - VIPPS_FAKTURA
+            - VIPPS_CHECKOUT
+            - VIPPS_SENERE
+            - VIPPS_I_KASSA
+          example: VIPPS_PA_NETT
+          description: The type of product ordered for the merchant
+        mcc:
+          type: string
+          description: Merchant category code. See https://www.iso.org/standard/33365.html
+          pattern: '^[0-9]{4}$'
+          minLength: 4
+          maxLength: 4
+          example: '5200'
+        annualTurnover:
+          type: string
+          pattern: '^[0-9]{1,15}$'
+          description: Anual turnover for the merchant in NOK
+          example: '100000'
+        intendedPurpose:
+          type: string
+          description: Description of the product or products that will be sold
+          example: Membership fee for gym
+        website:
+          type: object
+          required:
+            - url
+            - termsUrl
+          properties:
+            url:
+              type: string
+              format: URL
+              pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
+              description: The URL to the merchant's website
+              example: 'https://example.com'
+            termsUrl:
+              type: string
+              format: URL
+              pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
+              description: The URL that points to the merchants sales terms
+              example: 'https://example.com/terms-and-conditions'
+            testWebSiteUrl:
+              type: string
+              format: URL
+              pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
+              description: The URL to the merchants test webiste
+              example: 'https://test.example.com'
+            testWebsiteUsername:
+              type: string
+              description: Username to log in on the test website
+              example: test-user
+            testWebsitePassword:
+              type: string
+              description: Password to log in on the test website
+              example: test-password
+        complianceData:
+          type: object
+          properties:
+            giftCard:
+              type: object
+              properties:
+                salesPercentage:
+                  type: string
+                  enum:
+                    - UNDER_TEN
+                    - TEN_OR_MORE
+                  description: How much percentage giftcard sales consits of
+                  example: TEN_OR_MORE
+                turnoverShare:
+                  type: string
+                  description: Estimated turnover share of giftcard sales in percentage
+                  example: about 25%
+                validityDuration:
+                  type: string
+                  description: For how long is the gift card valid after purchase
+                  example: 3 years
+            membership:
+              type: object
+              required:
+                - turnoverShare
+                - validFor
+                - periodDistribution
+              properties:
+                turnoverShare:
+                  type: string
+                  description: Estimated turnover share of membership sales in percentage
+                  example: about 25%
+                validFor:
+                  type: string
+                  enum:
+                    - YEAR
+                    - CALENDER_YEAR
+                  description: |
+                    How long is the membership valid for
+                     - YEAR: The membership is valid for 1 year from the day of payment.
+                     - CALENDER_YEAR: The membership is valid until end of this year.
+                  example: YEAR
+                periodDistribution:
+                  type: string
+                  description: Distribution of memberships in different periods that is beeing sold
+                  example: 50% yearly 20% monthly
+            subscription:
+              type: object
+              required:
+                - turnoverShare
+                - periodDistribution
+              properties:
+                turnoverShare:
+                  type: string
+                  description: Estimated turnover share of subscription sales in percentage
+                  example: about 25%
+                periodDistribution:
+                  type: string
+                  description: Distribution of subscriptions in different periods that is beeing sold
+                  example: 50% yearly 20% monthly
+            course:
+              type: object
+              required:
+                - turnoverShare
+                - timeBeforeOrder
+                - period
+                - online
+              properties:
+                turnoverShare:
+                  type: string
+                  description: Estimated turnover share of course sales in percentage
+                  example: about 25%
+                timeBeforeOrder:
+                  type: string
+                  description: How long in advance it is common to order and pay for a course
+                  example: 10 days
+                period:
+                  type: string
+                  description: How long the duration of a course usually is
+                  example: once every 6. week
+                online:
+                  type: string
+                  enum:
+                    - 'YES'
+                    - 'NO'
+                  description: YES if there are online courses offered
+                  example: 'YES'
+                onlineAccessableTime:
+                  type: string
+                  description: How long after purchase does a user have access to the course
+                  example: for 3 months
+            ticket:
+              type: object
+              required:
+                - turnoverShare
+                - timeBeforeOrder
+              properties:
+                turnoverShare:
+                  type: string
+                  description: Estimated turnover share of ticket sales in percentage
+                  example: about 25%
+                prepurchaseTime:
+                  type: string
+                  description: How long in advance of an event it is common to order and pay for a ticket
+                  example: 10 weeks
+            rent:
+              type: object
+              required:
+                - turnoverShare
+                - prepurchaseTime
+                - averageRentalDuration
+              properties:
+                turnoverShare:
+                  type: string
+                  description: Estimated turnover share of rent sales in percentage
+                  example: about 25%
+                prepurchaseTime:
+                  type: string
+                  description: How long in advance of the rental period it is common to order and pay
+                  example: 15 days
+                averageRentalDuration:
+                  type: string
+                  description: How long the average rental period is
+                  example: 3 weeks
+    ProductOrderResponse:
+      title: Product Order Response
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+          description: A UUID reference that identifies the product order request submitted by the partner.
+          example: 81b83246-5c19-7b94-875b-ea6d1114f099
+        returnUrl:
+          type: string
+          format: uri
+          description: A URL for the merchant to complete the signup.
+          example: 'https://portal.vipps.no/signup/vippspanett/?r=81b83246-5c19-7b94-875b-ea6d1114f099'
+    SalesUnit:
+      required:
+        - msn
+        - name
+        - orgno
+      type: object
+      properties:
+        msn:
           maxLength: 6
-          pattern: '^\d{5,6}$'
-          x-order: 4
+          minLength: 5
+          pattern: ^\d{5,6}$
+          type: string
+          description: Vipps MSN (merchant serial number)
           example: "123456"
-  Error:
-    type: object
-    description: Problem details of HTTP APIs based on RFC 7807
-    required:
-      - status
-      - title
-      - detail
-      - instance
-    properties:
-      type:
-        type: "string"
-        description: |
-          "A URI reference that identifies the problem type"
-        example: "https://example.net/validation-error"
-        x-order: 1
-      title:
-        type: "string"
-        description: |
-          "A short, human-readable summary of the problem type"
-        example: "Invalid MSN"
-        x-order: 2
-      status:
-        type: "integer"
-        description: |
-          "The code generated by the origin server for this occurrence of the problem"
-        example: 400
-        x-order: 3
-      detail:
-        type: "string"
-        description: |
-          "A human-readable explanation specific to this occurrence of the problem.
-          The detail member, if present, ought to focus on helping the client correct the problem,
-          rather than giving debugging information."
-        example: "MSN must be 5 or 6 digits"
-        x-order: 4
-      instance:
-        type: "string"
-        description: |
-          "Unique ID for the request which can be used to find related events (logs)"
-        example: "https://example.net/validation-error/msn"
-        x-order: 5
-  MiddlewareError:
-    type: object
-    description: Problem details
-    properties:
-      code:
-        type: "integer"
-        description: |
-          "The status code generated by the origin server for this occurrence of the problem"
-        example: 401
-        x-order: 1
-      message:
-        type: "string"
-        description: |
-          "A human-readable explanation specific to this occurrence of the problem."
-        example: "Unauthorized"
-        x-order: 2
+          x-order: 4
+        name:
+          type: string
+          description: "The sale unit's name"
+          example: Example AS
+          x-order: 5
+        orgno:
+          type: string
+          description: The organization number for the merchant
+          minLength: 9
+          maxLength: 9
+          pattern: '^\d{9}$'
+          example: 987654321
+      description: Details of a sale unit
+    GetOrg:
+      required:
+        - msn
+      type: object
+      properties:
+        msn:
+          type: array
+          description: List of Vipps MSNs (merchant serial numbers)
+          items:
+            maxLength: 6
+            minLength: 5
+            pattern: ^\d{5,6}$
+            type: string
+            description: Vipps MSN (merchant serial number)
+            example: "123456"
+            x-order: 4
+      description: Response of successful getSalesUnits operation
+    Error:
+      required:
+        - detail
+        - instance
+        - status
+        - title
+      type: object
+      properties:
+        type:
+          type: string
+          description: |
+            "A URI reference that identifies the problem type"
+          example: https://example.net/validation-error
+          x-order: 1
+        title:
+          type: string
+          description: |
+            "A short, human-readable summary of the problem type"
+          example: Postcode validation error
+          x-order: 2
+        status:
+          type: integer
+          description: |
+            "The code generated by the origin server for this occurrence of the problem"
+          example: 400
+          x-order: 3
+        detail:
+          type: string
+          description: |
+            "A human-readable explanation specific to this occurrence of the problem.
+            The detail member, if present, ought to focus on helping the client correct the problem,
+            rather than giving debugging information."
+          example: MSN must be 5 or 6 digits
+          x-order: 4
+        instance:
+          type: string
+          description: |
+            "Unique ID for the request which can be used to find related events (logs)"
+          example: https://example.net/validation-error/msn
+          x-order: 5
+      description: Problem details of HTTP APIs based on RFC 7807
+    MiddlewareError:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: |
+            "The status code generated by the origin server for this occurrence of the problem"
+          example: 400
+          x-order: 1
+        message:
+          type: string
+          description: |
+            "A human-readable explanation specific to this occurrence of the problem."
+          example: Postcode must be four digits
+          x-order: 2
+      description: Problem details
+  responses:
+    400:
+      description: Invalid request, check request parameters
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/Error'
+    401:
+      description: Unauthorized
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/MiddlewareError'
+    403:
+      description: Forbidden
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/Error'
+    404:
+      description: Item does not exist
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/Error'
+    405:
+      description: Request method not supported
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/Error'
+    409:
+      description: Idempotent conflict
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/Error'
+    422:
+      description: Unprocessable Entity
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/Error'
+    500:
+      description: Internal server error
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    Bearer-Authorization:
+      name: Authorization
+      type: apiKey
+      in: header
+      description: Access bearer token
+  parameters:
+    Idempotency-Key:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema:
+        type: string
+        example: 81b83246-5c19-7b94-875b-ea6d1114f099
+      description: 'Idempotency key for the request, ensures idempotent actions.'
+    Ocp-APIM-Subscription-Key:
+      name: Ocp-Apim-Subscription-Key
+      in: header
+      required: true
+      schema:
+        type: string
+        example: da7d5b0e18a84aeda961c0c31b75c2a9
+      description: APIM Subscription Key
+    orgno:
+      name: orgno
+      in: path
+      description: The organization number for the merchant
+      required: true
+      schema:
+        maxLength: 9
+        minLength: 9
+        pattern: ^\d{9}$
+        type: string
+        example: 987654321
+    msn:
+      name: msn
+      in: path
+      description: The Vipps MSN (merchant serial number)
+      required: true
+      schema:
+        maxLength: 6
+        minLength: 5
+        pattern: ^\d{5,6}$
+        type: string
+        example: 123456
