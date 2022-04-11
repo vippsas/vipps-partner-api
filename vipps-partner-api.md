@@ -46,16 +46,24 @@ Vipps want to provide more self-service for partners.
 2. Functionality to retrieve active MSNs for merchant connected to this partner:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchantDetails)
 
-3.   Functionality for retrieving details about one sale unit based on MSN:
-   [`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-partner-api/#/Salesunits/getMSN)
+3. Functionality for retrieving details about one sale unit based on MSN:
+   [`GET:/salesunits/{msn}`](https://vippsas.github.io/vipps-partner-api/#/Salesunits/getMSN)
 
-### Priorities: Later
+4. Functionality to sign up a new merchant and create a new sale unit.
 
-4. Functionality to retrieve more information for an active MSNs for a partner's
-   merchant. This is not as trivial as it sounds, as there are dependencies
-   of underlying systems and data that also need work.
+    This requires BankID login to  [portal.vipps.no](https://portal.vipps.no),
+as there are regulatory requirements that prevent us from making an API for this.
 
-   See the "Future improvements" sections.
+    Our goal is to let partners "pre-fill" as much as possible for the merchant [`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product),
+but the merchant will have to verify the information and sign with BankID on
+[portal.vipps.no](https://portal.vipps.no).
+
+    Our opinion is that the current signup functionality on
+[portal.vipps.no](https://portal.vipps.no)
+is simple and "good enough" that this functionality can have a lower priority.
+
+    See:
+[How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
 
 ### Priorities: At some point
 
@@ -81,23 +89,6 @@ Vipps want to provide more self-service for partners.
    [Partner keys](https://github.com/vippsas/vipps-partner#partner-keys)
    and
    [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
-
-6. Functionality to sign up a new merchant and create a new sale unit.
-
-   This requires BankID login to
-   [portal.vipps.no](https://portal.vipps.no),
-   as there are regulatory requirements that prevent us from making an API for this.
-
-   Our goal is to let partners "pre-fill" as much as possible for the merchant,
-   but the merchant will have to verify the information and sign with BankID on
-   [portal.vipps.no](https://portal.vipps.no).
-
-   Our opinion is that the current signup functionality on
-   [portal.vipps.no](https://portal.vipps.no)
-   is simple and "good enough" that this functionality can have a lower priority.
-
-   See:
-   [How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
 
 ## Partner keys
 
