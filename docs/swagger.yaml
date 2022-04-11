@@ -5,6 +5,10 @@ info:
   description: |
     The Vipps Partner API PoC lets partners, banks and large corporations manage their merchants (for example, submit product orders on behalf of their merchants) and sales units.
     More information: https://github.com/vippsas/vipps-partner-api
+  contact:
+    name: Vipps AS
+    email: integration@vipps.no
+    url: 'https://vipps.no/'
 servers:
   - url: 'https://api.vipps.no/partner-api'
     description: Vipps partner api
