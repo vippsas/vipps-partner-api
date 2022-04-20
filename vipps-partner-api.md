@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.1.
 
-Document version 0.0.7.
+Document version 0.0.8.
 
 ## Table of contents
 
@@ -124,9 +124,9 @@ Future versions of the API will _probably_ return more information,
 and we will work with our partners to find out what is useful and possible.
 Some candidates:
 * Company address
-* Contact information for the main person
-* Contact information for the technical person
-* A list of people with admin rights on portal.vipps.no
+* Contact information for the main person (depends on GDPR, etc)
+* Contact information for the technical person (depends on GDPR, etc)
+* A list of people with admin rights on portal.vipps.no (depends on GDPR, etc)
 
 ### In the meantime
 
@@ -168,9 +168,8 @@ Some candidates:
   [eCom FAQ: What is the difference between "Reserve Capture" and "Direct Capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#what-is-the-difference-between-reserve-capture-and-direct-capture)
 * Is `skipLandingPage` available? See:
   [eCom FAQ: Is it possible to skip the landing page?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#is-it-possible-to-skip-the-landing-page)
-* Bank account for settlements
-* Settlement frequency
-* Settlement type: gross or net
+* Is this a "Login API only" MSN, without access to the payment APIs?
+* Recurring: Does this MSN have access to the Recurring API?
 * Transaction cost (price package)
 * Status: Active or deactivated
 
