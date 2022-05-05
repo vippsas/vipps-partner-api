@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.1.
 
-Document version 0.0.9.
+Document version 0.0.10.
 
 ## Table of contents
 
@@ -22,6 +22,7 @@ Document version 0.0.9.
 * [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
   * [Future improvements](#future-improvements)
   * [In the meantime](#in-the-meantime)
+* [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)  
 * [Questions?](#questions)
 
 ## Information for Vipps partners
