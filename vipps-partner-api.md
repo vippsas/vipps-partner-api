@@ -134,6 +134,7 @@ Some candidates:
 
 All merchants can retrieve their information on
 [portal.vipps.no](https://portal.vipps.no).
+Merchants can also see which partner (or PSP) a sale unit is connected to, if any.
 
 Merchants can create a user for their parter on
 [portal.vipps.no](https://portal.vipps.no),
