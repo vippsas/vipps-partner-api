@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.1.
 
-Document version 0.0.8.
+Document version 0.0.9.
 
 ## Table of contents
 
@@ -179,6 +179,40 @@ Until more functionality is available in this API, there are some workarounds:
 
 * [How can I check if I have "reserve capture" or "direct capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
 * [How can I check if I have skipLandingPage activated?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-skiplandingpage-activated)
+
+## Submit a product order for a merchant
+
+[`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product)
+
+This endpoint lets a partner "pre-fill" the product order form on
+portal.vipps.no](https://portal.vipps.no)
+on behalf of a merchant, so the merchant can log in, check the data, and submit
+the product order.
+
+This is some of the information the partner can send (see the API specification
+for more):
+
+```
+"orgno": "987654321",
+"salesUnitName": "My point of sale",
+"salesUnitLogo": "VGhlIGltYWdlIGdvZXMgaGVyZQ==",
+"settlementAccountNumber": "86011117947",
+"pricePackageKey": "posstandard",
+"productType": "VIPPS_PA_NETT",
+"mcc": "5200",
+"annualTurnover": "100000",
+"intendedPurpose": "Membership fee for gym",
+"website": {
+  "url": "https://example.com",
+  "termsUrl": "https://example.com/terms-and-conditions",
+  "testWebSiteUrl": "https://test.example.com",
+  "testWebsiteUsername": "test-user",
+  "testWebsitePassword": "test-password"
+```
+
+The merchant can not change the information provided by the partner, so if
+something needs to be corrected, the merchant must contact the partner to have
+the partner submit a new product order with the correct details.
 
 ## Questions?
 
