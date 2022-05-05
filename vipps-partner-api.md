@@ -20,9 +20,10 @@ Document version 0.0.10.
   * [Future improvements](#future-improvements)
   * [In the meantime](#in-the-meantime)
 * [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
-  * [Future improvements](#future-improvements)
+  * [Future improvements](#future-improvements-1)
   * [In the meantime](#in-the-meantime)
 * [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)  
+  * [Future improvements](#future-improvements-2)
 * [Questions?](#questions)
 
 ## Information for Vipps partners
@@ -214,6 +215,12 @@ for more):
 The merchant can not change the information provided by the partner, so if
 something needs to be corrected, the merchant must contact the partner to have
 the partner submit a new product order with the correct details.
+
+### Future improvements
+
+We may allow the merchant to change some of the data pre-filled by the
+partner, but this is not trivial. The updated data must also be made available
+for the partner.
 
 ## Questions?
 
