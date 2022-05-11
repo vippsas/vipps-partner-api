@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.1.
 
-Document version 0.0.8.
+Document version 0.0.10.
 
 ## Table of contents
 
@@ -20,8 +20,10 @@ Document version 0.0.8.
   * [Future improvements](#future-improvements)
   * [In the meantime](#in-the-meantime)
 * [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
-  * [Future improvements](#future-improvements)
+  * [Future improvements](#future-improvements-1)
   * [In the meantime](#in-the-meantime)
+* [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)  
+  * [Future improvements](#future-improvements-2)
 * [Questions?](#questions)
 
 ## Information for Vipps partners
@@ -132,6 +134,7 @@ Some candidates:
 
 All merchants can retrieve their information on
 [portal.vipps.no](https://portal.vipps.no).
+Merchants can also see which partner (or PSP) a sale unit is connected to, if any.
 
 Merchants can create a user for their parter on
 [portal.vipps.no](https://portal.vipps.no),
@@ -179,6 +182,46 @@ Until more functionality is available in this API, there are some workarounds:
 
 * [How can I check if I have "reserve capture" or "direct capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
 * [How can I check if I have skipLandingPage activated?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-skiplandingpage-activated)
+
+## Submit a product order for a merchant
+
+[`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product)
+
+This endpoint lets a partner "pre-fill" the product order form on
+portal.vipps.no](https://portal.vipps.no)
+on behalf of a merchant, so the merchant can log in, check the data, and submit
+the product order.
+
+This is some of the information the partner can send (see the API specification
+for more):
+
+```
+"orgno": "987654321",
+"salesUnitName": "My point of sale",
+"salesUnitLogo": "VGhlIGltYWdlIGdvZXMgaGVyZQ==",
+"settlementAccountNumber": "86011117947",
+"pricePackageKey": "posstandard",
+"productType": "VIPPS_PA_NETT",
+"mcc": "5200",
+"annualTurnover": "100000",
+"intendedPurpose": "Membership fee for gym",
+"website": {
+  "url": "https://example.com",
+  "termsUrl": "https://example.com/terms-and-conditions",
+  "testWebSiteUrl": "https://test.example.com",
+  "testWebsiteUsername": "test-user",
+  "testWebsitePassword": "test-password"
+```
+
+The merchant can not change the information provided by the partner, so if
+something needs to be corrected, the merchant must contact the partner to have
+the partner submit a new product order with the correct details.
+
+### Future improvements
+
+We may allow the merchant to change some of the data pre-filled by the
+partner, but this is not trivial. The updated data must also be made available
+for the partner.
 
 ## Questions?
 
