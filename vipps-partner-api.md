@@ -3,9 +3,9 @@
 The Vipps Partner API lets partners use their partner keys to retrieve information
 about their merchants and their sale units.
 
-API version: 0.0.1.
+API version: 0.0.2.
 
-Document version 0.0.10.
+Document version 1.0.0.
 
 ## Table of contents
 
@@ -188,7 +188,7 @@ Until more functionality is available in this API, there are some workarounds:
 [`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product)
 
 This endpoint lets a partner "pre-fill" the product order form on
-portal.vipps.no](https://portal.vipps.no)
+[portal.vipps.no](https://portal.vipps.no)
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
 
