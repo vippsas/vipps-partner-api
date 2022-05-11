@@ -331,7 +331,7 @@ components:
           enum:
             - VIPPS_BEDRIFT
             - VIPPS_PA_NETT
-            - VIPPS_LOGGINN
+            - VIPPS_LOGIN
             - VIPPS_FAKTURA
             - VIPPS_CHECKOUT
             - VIPPS_SENERE
