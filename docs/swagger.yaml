@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: '0.9.1'
+  version: '0.9.2'
   description: |
     The Vipps Partner API PoC lets partners, banks and large corporations manage their merchants (for example, submit product orders on behalf of their merchants) and sales units.
     More information: https://github.com/vippsas/vipps-partner-api
@@ -331,7 +331,7 @@ components:
           enum:
             - VIPPS_BEDRIFT
             - VIPPS_PA_NETT
-            - VIPPS_LOGGINN
+            - VIPPS_LOGG_INN
             - VIPPS_FAKTURA
             - VIPPS_CHECKOUT
             - VIPPS_SENERE
