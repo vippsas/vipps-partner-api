@@ -3,7 +3,9 @@ info:
   title: Vipps Partner API
   version: '0.9.2'
   description: |
-    The Vipps Partner API PoC lets partners, banks and large corporations manage their merchants (for example, submit product orders on behalf of their merchants) and sales units.
+    The Vipps Partner API lets partners, banks and large corporations manage
+    their merchants (for example, submit product orders on behalf of their
+    merchants) and sales units.
     More information: https://github.com/vippsas/vipps-partner-api
   contact:
     name: Vipps AS
@@ -11,7 +13,7 @@ info:
     url: 'https://vipps.no/'
 servers:
   - url: 'https://api.vipps.no/partner-api'
-    description: Vipps partner api
+    description: Vipps Partner API
 tags:
   - name: Vipps Product Orders
     description: Submit product orders on behalf of their merchants
@@ -25,7 +27,10 @@ paths:
     post:
       summary: Order products on behalf of merchants
       operationId: orderProduct
-      description: Order products on behalf of merchants.
+      description: |
+        Order products on behalf of merchants:
+        Partners can submit data that pre-fills the order form, so the merchant
+        can review the information and submit the product order on portal.vipps.no.
       tags:
         - Vipps Product Orders
       parameters:
@@ -44,14 +49,14 @@ paths:
               example-1:
                 value:
                   orgno: '987654321'
-                  salesUnitName: My point of sale
+                  salesUnitName: ACME Fantastic Fitness
                   salesUnitLogo: VGhlIGltYWdlIGdvZXMgaGVyZQ==
                   settlementAccountNumber: '86011117947'
                   pricePackageKey: posstandard
                   productType: VIPPS_PA_NETT
                   mcc: '5200'
                   annualTurnover: '100000'
-                  intendedPurpose: Membership fee for gym
+                  intendedPurpose: Gym membership
                   website:
                     url: 'https://example.com'
                     termsUrl: 'https://example.com/terms-and-conditions'
@@ -177,7 +182,7 @@ paths:
         - $ref: '#/components/parameters/Ocp-APIM-Subscription-Key'
         - name: msn
           in: path
-          description: The Vipps merchant serial number
+          description: The Vipps MSN (merchant serial number) for the sale unit.
           required: true
           schema:
             maxLength: 6
@@ -298,7 +303,7 @@ components:
           pattern: '^[a-zA-Z0-9- ]{1,30}$'
           minLength: 1
           maxLength: 30
-          example: My point of sale
+          example: ACME Fantastic Fitness
           description: The name of the point of sale that will be shown to the users in Vipps app or Vipps landing page.
         salesUnitLogo:
           type: string
@@ -348,12 +353,12 @@ components:
         annualTurnover:
           type: string
           pattern: '^[0-9]{1,15}$'
-          description: Anual turnover for the merchant in NOK
+          description: Anual turnover for the merchant in NOK (whithout øre).
           example: '100000'
         intendedPurpose:
           type: string
           description: Description of the product or products that will be sold
-          example: Membership fee for gym
+          example: Gym membership
         website:
           type: object
           required:
@@ -425,7 +430,7 @@ components:
                     - CALENDER_YEAR
                   description: |
                     How long is the membership valid for
-                     - YEAR: The membership is valid for 1 year from the day of payment.
+                     - YEAR: The membership is valid for 1 year (ca. 365 days) from the day of payment.
                      - CALENDER_YEAR: The membership is valid until end of this year.
                   example: YEAR
                 periodDistribution:
@@ -479,6 +484,7 @@ components:
                   example: for 3 months
             ticket:
               type: object
+              description: Only required if the sale unit will sell tickets.
               required:
                 - turnoverShare
                 - timeBeforeOrder
@@ -493,6 +499,7 @@ components:
                   example: 10 weeks
             rent:
               type: object
+              description: Only required if the sale unit will do rentals.
               required:
                 - turnoverShare
                 - prepurchaseTime
@@ -542,7 +549,7 @@ components:
         name:
           type: string
           description: "The sale unit's name"
-          example: Example AS
+          example: 'ACME Fantastic Fitness'
           x-order: 5
         orgno:
           type: string
@@ -554,7 +561,7 @@ components:
         additionalDetails:
           type: object
           description: "Additional details that might or might not be available. In the case that any of these are not provided, it doesn't mean that those details don't apply."
-          properties: 
+          properties:
             skipLandingPage:
               type: boolean
               description: "If the merchant has access to sending skipLandingPage for eCommerce requests"
@@ -615,7 +622,7 @@ components:
           type: string
           description: |
             "A short, human-readable summary of the problem type"
-          example: Postcode validation error
+          example: MSN validation error
           x-order: 2
         status:
           type: integer
@@ -651,7 +658,7 @@ components:
           type: string
           description: |
             "A human-readable explanation specific to this occurrence of the problem."
-          example: Postcode must be four digits
+          example: MSN must be at least five digits
           x-order: 2
       description: Problem details
   responses:
@@ -708,7 +715,7 @@ components:
       name: Authorization
       type: apiKey
       in: header
-      description: Access bearer token
+      description: Access bearer token (JWT)
   parameters:
     Idempotency-Key:
       name: Idempotency-Key
@@ -717,7 +724,7 @@ components:
       schema:
         type: string
         example: 81b83246-5c19-7b94-875b-ea6d1114f099
-      description: 'Idempotency key for the request, ensures idempotent actions.'
+      description: 'Idempotency key for the request, ensures idempotent actions. Not required, but recommended.'
     Ocp-APIM-Subscription-Key:
       name: Ocp-Apim-Subscription-Key
       in: header
@@ -725,7 +732,7 @@ components:
       schema:
         type: string
         example: da7d5b0e18a84aeda961c0c31b75c2a9
-      description: APIM Subscription Key
+      description: Vipps Subscription Key
     orgno:
       name: orgno
       in: path
