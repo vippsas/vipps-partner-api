@@ -24,7 +24,7 @@ paths:
     parameters: []
     post:
       summary: Order products on behalf of merchants
-      operationId: order-product
+      operationId: orderProduct
       description: Order products on behalf of merchants.
       tags:
         - Vipps Product Orders
@@ -168,7 +168,7 @@ paths:
   /v0/salesunits/{msn}:
     get:
       tags:
-        - Sales units 
+        - Sales units
       security:
         - Bearer-Authorization: [ ]
       summary: Get sale unit details based on MSN
@@ -551,6 +551,34 @@ components:
           maxLength: 9
           pattern: '^\d{9}$'
           example: 987654321
+        additionalDetails:
+          type: object
+          description: "Additional details that might or might not be available. In the case that any of these are not provided, it doesn't mean that those details don't apply."
+          properties: 
+            skipLandingPage:
+              type: boolean
+              description: "If the merchant has access to sending skipLandingPage for eCommerce requests"
+              default: false
+              example: false
+            isPureLogin:
+              type: boolean
+              description: "If the sales unit is only approved for Vipps-Login use"
+              default: false
+              example: false
+            captureType:
+              type: string
+              description: "The capture type of the sales unit"
+              enum:
+                - "ReserveCapture"
+                - "DirectCapture"
+                - "NotApplicable"
+              default: "ReserveCapture"
+              example: "ReserveCapture"
+            recurring:
+              type: boolean
+              description: "If the sales unit has access to vipps-reccuring-api"
+              default: true
+              example: false
       description: Details of a sale unit
     GetOrg:
       required:
