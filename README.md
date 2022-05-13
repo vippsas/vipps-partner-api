@@ -6,7 +6,9 @@
 
 This is the very first version, and `v0` means version zero, and that
 it is not the final release version.
-This will be available in a few days, and will require partner keys.
+
+The API is available on request until officially released.
+Contsct your partner manager in Vipps to request access.
 
 Feedback is welcome!
 Please try to use GitHub's
