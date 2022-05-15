@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.2.
 
-Document version 1.0.4.
+Document version 1.0.5.
 
 ## Table of contents
 
@@ -29,14 +29,14 @@ Document version 1.0.4.
 ## Information for Vipps partners
 
 Please see:
-* [Vipps Partners](https://github.com/vippsas/vipps-partner): Technical information for Vipps partners.
 * [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
+* [Vipps Partners](https://github.com/vippsas/vipps-partner): Technical information for Vipps partners.
 
 ## About this API: Background and priorities
 
 ### Background
 
-Vipps want to provide more self-service for partners.
+Vipps wants to provide more self-service for partners.
 
 ### Priorities: Now
 
@@ -87,8 +87,8 @@ This API requires
 
 If you are using partner keys you have access to the Partner API.
 
-**Please note:** Some partners may need an internal update of their API product package
-to get acces. Contact your partner manager if you get errors indicating this.
+**Please note:** Some partners may need an internal Vipps update of their API product package
+to get access. Contact your partner manager if you get errors indicating this.
 
 ## Get information about a merchant based on organization number
 
@@ -106,10 +106,10 @@ connected to the partner making the API request, but we _may_ extend this later.
 }
 ```
 
-Since the response only contains a list of MSNs, an additional API request is
-required to get more details about the sale unit.
 This is an endpoint for getting information about the _merchant_, not all the
 merchant's MSNs.
+Since the response only contains a list of MSNs, an additional API request is
+required to get more details about the sale unit.
 See:
 [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn).
 
