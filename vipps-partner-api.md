@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.2.
 
-Document version 1.0.3.
+Document version 1.0.4.
 
 ## Table of contents
 
@@ -47,12 +47,10 @@ Vipps want to provide more self-service for partners.
    [`GET:/salesunits/{msn}`](https://vippsas.github.io/vipps-partner-api/#/Salesunits/getMSN)
 
 3. Functionality to sign up a new merchant and create a new sale unit.
-
    Partners can "pre-fill" as much as possible for the merchant
    [`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product),
    but the merchant will have to verify the information and sign with BankID on
    [portal.vipps.no](https://portal.vipps.no).
-
    See:
    [How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
 
@@ -86,6 +84,11 @@ Vipps want to provide more self-service for partners.
 
 This API requires
 [partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
+
+If you are using partner keys you have access to the Partner API.
+
+**Please note:** Some partners may need an internal update of their API product package
+to get acces. Contact your partner manager if you get errors indicating this.
 
 ## Get information about a merchant based on organization number
 
@@ -140,7 +143,7 @@ and
 
 This endpoint is for retrieving details about one sale unit (MSN).
 
-In the current version of the API only returns basic information:
+The current version of the API returns the following information (see the Swagger spec for details):
 
 ```
 {
