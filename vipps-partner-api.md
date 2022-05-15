@@ -165,12 +165,6 @@ and we will work with our partners to find out what is useful and possible.
 Some candidates:
 
 * Vipps products: Which Vipps products and APIs are available for this MSN ("eCom API", "Recurring API", "Login API", etc).
-* Capture type: Direct capture or reserve capture. See:
-  [eCom FAQ: What is the difference between "Reserve Capture" and "Direct Capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#what-is-the-difference-between-reserve-capture-and-direct-capture)
-* Is `skipLandingPage` available? See:
-  [eCom FAQ: Is it possible to skip the landing page?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#is-it-possible-to-skip-the-landing-page)
-* Is this a "Login API only" MSN, without access to the payment APIs?
-* Recurring: Does this MSN have access to the Recurring API?
 * Transaction cost (price package)
 * Status: Active or deactivated
 
