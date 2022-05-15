@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.2.
 
-Document version 1.0.2.
+Document version 1.0.3.
 
 ## Table of contents
 
@@ -145,8 +145,14 @@ In the current version of the API only returns basic information:
 ```
 {
   "msn": "123456",
-  "name": "Example AS",
-  "orgno": "912345678"
+  "name": "ACME Fantastic Fitness",
+  "orgno": "987654321",
+  "additionalDetails": {
+    "skipLandingPage": false,
+    "isPureLogin": false,
+    "captureType": "ReserveCapture",
+    "recurring": false
+  }
 }
 ```
 
