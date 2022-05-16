@@ -1,0 +1,39 @@
+{
+	"id": "c4c3427b-fd37-4431-b4fb-a175cfba74ff",
+	"name": "Vipps Partner API - Environment",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "https://apitest.vipps.no",
+			"enabled": true
+		},
+		{
+			"key": "client_id",
+			"value": "<Use the partner keys you have received>",
+			"enabled": true
+		},
+		{
+			"key": "client_secret",
+			"value": "<Use the partner keys you have received>",
+			"enabled": true
+		},
+		{
+			"key": "Ocp-Apim-Subscription-Key",
+			"value": "<Use the partner keys you have received>",
+			"enabled": true
+		},
+		{
+			"key": "access_token",
+			"value": "<This value will be overwritten when you call the Get Access Token API when having selected eCommerce v2 - MTE environment>",
+			"enabled": true
+		},
+		{
+			"key": "merchantSerialNumber",
+			"value": "<Go To Vipps Portal->Select the Developer tab->Select Test or Production Keys->Copy the Merchant Serial Number from the Sale Unit you copied the keys from>",
+			"enabled": true
+		},
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2022-05-16T10:09:54+0200",
+	"_postman_exported_using": "Postman/9.16.0"
+}
