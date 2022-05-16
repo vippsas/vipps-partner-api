@@ -4,7 +4,7 @@
 	"values": [
 		{
 			"key": "base_url",
-			"value": "https://apitest.vipps.no",
+			"value": "https://api.vipps.no",
 			"enabled": true
 		},
 		{
