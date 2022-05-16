@@ -1,21 +1,19 @@
 # Vipps Partner API
 
-💥💥💥💥💥💥💥💥💥💥
+💥 **IMPORTANT!** 💥
 
-**IMPORTANT!**
+This is the very first version, and `v0` means version zero,
+and that there may be some (minor) changes before the first _official_ `v1` version.
 
-This is the very first version, and `v0` means version zero, and that
-it is not the final release version.
-
-The API is available on request until officially released.
-Contact your partner manager in Vipps to request access.
+The API is available for all partners using
+[partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
 
 Feedback is welcome!
 Please try to use GitHub's
 [issue](https://github.com/vippsas/vipps-partner-api/issues)
 functionality, so we can avoid multiple parallell discussions in various channels.
 
-💥💥💥💥💥💥💥💥💥💥
+----------
 
 This repository contains developer resources for the Vipps Partner API PoC.
 
