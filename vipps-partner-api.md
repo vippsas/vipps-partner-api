@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.2.
 
-Document version 1.0.5.
+Document version 1.1.0.
 
 ## Table of contents
 
@@ -79,6 +79,16 @@ Vipps wants to provide more self-service for partners.
    [Partner keys](https://github.com/vippsas/vipps-partner#partner-keys)
    and
    [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
+
+### Integrating with this API
+
+Integration should be straight-forward.
+Use the partner keys.
+See the Postman collection and environment, and the
+[Postman guide](vipps-partner-postman.md).
+
+The Postman collection can also be used to manually make API calls,
+even without an integration in place.
 
 ## Partner keys
 
