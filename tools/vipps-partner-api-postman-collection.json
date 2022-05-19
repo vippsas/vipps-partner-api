@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "3edfeee0-97e3-4ead-9d15-dab245b48500",
-		"name": "Vipps Partner API",
+		"_postman_id": "a414f93d-4517-4087-ba09-5c54329fec42",
+		"name": "Vipps Partner API - Collection",
 		"description": "The Vipps Partner API lets partners, banks and large corporations manage\ntheir merchants (for example, submit product orders on behalf of their\nmerchants) and sales units.\nMore information: https://github.com/vippsas/vipps-partner-api\n\n\nContact Support:\n Name: Vipps AS\n Email: integration@vipps.no",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,23 +11,24 @@
 			"item": [
 				{
 					"name": "Order products on behalf of merchants",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
-							"type": "apikey",
-							"apikey": [
+							"type": "bearer",
+							"bearer": [
 								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								},
-								{
-									"key": "value",
-									"value": "<API Key>",
-									"type": "string"
-								},
-								{
-									"key": "in",
-									"value": "header",
+									"key": "token",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -37,34 +38,12 @@
 							{
 								"description": "(Required) Vipps Subscription Key",
 								"key": "Ocp-Apim-Subscription-Key",
-								"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+								"value": "{{Ocp-Apim-Subscription-Key}}"
 							},
 							{
 								"description": "(Required) Idempotency key for the request, ensures idempotent actions. Not required, but recommended.",
 								"key": "Idempotency-Key",
-								"value": "81b83246-5c19-7b94-875b-ea6d1114f099"
-							},
-							{
-								"key": "Vipps-System-Name",
-								"value": "{{vipps_system_name}}",
-								"type": "text"
-							},
-							{
-								"key": "Vipps-System-Version",
-								"value": "{{collection_version}}",
-								"type": "text"
-							},
-							{
-								"key": "Vipps-System-Plugin-Name",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "Vipps-System-Plugin-Version",
-								"value": "",
-								"type": "text",
-								"disabled": true
+								"value": "{{$guid}}"
 							},
 							{
 								"key": "Content-Type",
@@ -77,7 +56,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"orgno\": \"987654321\",\n  \"salesUnitName\": \"ACME Fantastic Fitness\",\n  \"salesUnitLogo\": \"VGhlIGltYWdlIGdvZXMgaGVyZQ==\",\n  \"settlementAccountNumber\": \"86011117947\",\n  \"pricePackageKey\": \"posstandard\",\n  \"productType\": \"VIPPS_PA_NETT\",\n  \"mcc\": \"5200\",\n  \"annualTurnover\": \"100000\",\n  \"intendedPurpose\": \"Gym membership\",\n  \"website\": {\n    \"url\": \"https://example.com\",\n    \"termsUrl\": \"https://example.com/terms-and-conditions\",\n    \"testWebSiteUrl\": \"https://test.example.com\",\n    \"testWebsiteUsername\": \"test-user\",\n    \"testWebsitePassword\": \"test-password\"\n  },\n  \"complianceData\": {\n    \"giftCard\": {\n      \"salesPercentage\": \"TEN_OR_MORE\",\n      \"turnoverShare\": \"about 25%\",\n      \"validityDuration\": \"3 years\"\n    },\n    \"membership\": {\n      \"turnoverShare\": \"about 25%\",\n      \"validFor\": \"YEAR\",\n      \"periodDistribution\": \"50% yearly 20% monthly\"\n    },\n    \"subscription\": {\n      \"turnoverShare\": \"about 25%\",\n      \"periodDistribution\": \"50% yearly 20% monthly\"\n    },\n    \"course\": {\n      \"turnoverShare\": \"about 25%\",\n      \"timeBeforeOrder\": \"10 days\",\n      \"period\": \"once every 6 week\",\n      \"online\": \"YES\",\n      \"onlineAccessableTime\": \"for 3 months\"\n    },\n    \"ticket\": {\n      \"turnoverShare\": \"about 25%\",\n      \"prepurchaseTime\": \"10 weeks\"\n    },\n    \"rent\": {\n      \"turnoverShare\": \"about 25%\",\n      \"prepurchaseTime\": \"15 days\",\n      \"averageRentalDuration\": \"3 weeks\"\n    }\n  }\n}",
+							"raw": "{\n  \"orgno\": \"{{orgno}}\",\n  \"salesUnitName\": \"ACME Fantastic Fitness\",\n  \"salesUnitLogo\": \"VGhlIGltYWdlIGdvZXMgaGVyZQ==\",\n  \"settlementAccountNumber\": \"86011117947\",\n  \"pricePackageKey\": \"posstandard\",\n  \"productType\": \"VIPPS_PA_NETT\",\n  \"mcc\": \"5200\",\n  \"annualTurnover\": \"100000\",\n  \"intendedPurpose\": \"Gym membership\",\n  \"website\": {\n    \"url\": \"https://example.com\",\n    \"termsUrl\": \"https://example.com/terms-and-conditions\",\n    \"testWebSiteUrl\": \"https://test.example.com\",\n    \"testWebsiteUsername\": \"test-user\",\n    \"testWebsitePassword\": \"test-password\"\n  },\n  \"complianceData\": {\n    \"giftCard\": {\n      \"salesPercentage\": \"TEN_OR_MORE\",\n      \"turnoverShare\": \"about 25%\",\n      \"validityDuration\": \"3 years\"\n    },\n    \"membership\": {\n      \"turnoverShare\": \"about 25%\",\n      \"validFor\": \"YEAR\",\n      \"periodDistribution\": \"50% yearly 20% monthly\"\n    },\n    \"subscription\": {\n      \"turnoverShare\": \"about 25%\",\n      \"periodDistribution\": \"50% yearly 20% monthly\"\n    },\n    \"course\": {\n      \"turnoverShare\": \"about 25%\",\n      \"timeBeforeOrder\": \"10 days\",\n      \"period\": \"once every 6 week\",\n      \"online\": \"YES\",\n      \"onlineAccessableTime\": \"for 3 months\"\n    },\n    \"ticket\": {\n      \"turnoverShare\": \"about 25%\",\n      \"prepurchaseTime\": \"10 weeks\"\n    },\n    \"rent\": {\n      \"turnoverShare\": \"about 25%\",\n      \"prepurchaseTime\": \"15 days\",\n      \"averageRentalDuration\": \"3 weeks\"\n    }\n  }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -85,11 +64,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/v0/products/orders",
+							"raw": "{{base_url}}/partner-api/v0/products/orders",
 							"host": [
-								"{{baseUrl}}"
+								"{{base_url}}"
 							],
 							"path": [
+								"partner-api",
 								"v0",
 								"products",
 								"orders"
@@ -117,29 +97,7 @@
 										"description": "(Required) Idempotency key for the request, ensures idempotent actions. Not required, but recommended.",
 										"key": "Idempotency-Key",
 										"value": "81b83246-5c19-7b94-875b-ea6d1114f099"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"body": {
 									"mode": "raw",
@@ -193,29 +151,7 @@
 										"description": "(Required) Idempotency key for the request, ensures idempotent actions. Not required, but recommended.",
 										"key": "Idempotency-Key",
 										"value": "81b83246-5c19-7b94-875b-ea6d1114f099"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"body": {
 									"mode": "raw",
@@ -269,29 +205,7 @@
 										"description": "(Required) Idempotency key for the request, ensures idempotent actions. Not required, but recommended.",
 										"key": "Idempotency-Key",
 										"value": "81b83246-5c19-7b94-875b-ea6d1114f099"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"body": {
 									"mode": "raw",
@@ -332,21 +246,11 @@
 					"name": "Get merchant by organization number",
 					"request": {
 						"auth": {
-							"type": "apikey",
-							"apikey": [
+							"type": "bearer",
+							"bearer": [
 								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								},
-								{
-									"key": "value",
-									"value": "<API Key>",
-									"type": "string"
-								},
-								{
-									"key": "in",
-									"value": "header",
+									"key": "token",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -356,41 +260,20 @@
 							{
 								"description": "(Required) Vipps Subscription Key",
 								"key": "Ocp-Apim-Subscription-Key",
-								"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+								"value": "{{Ocp-Apim-Subscription-Key}}"
 							},
 							{
 								"key": "Accept",
 								"value": "application/json;charset=UTF-8"
-							},
-							{
-								"key": "Vipps-System-Name",
-								"value": "{{vipps_system_name}}",
-								"type": "text"
-							},
-							{
-								"key": "Vipps-System-Version",
-								"value": "{{collection_version}}",
-								"type": "text"
-							},
-							{
-								"key": "Vipps-System-Plugin-Name",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "Vipps-System-Plugin-Version",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							},
+							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/v0/merchants/:orgno",
+							"raw": "{{base_url}}/partner-api/v0/merchants/:orgno",
 							"host": [
-								"{{baseUrl}}"
+								"{{base_url}}"
 							],
 							"path": [
+								"partner-api",
 								"v0",
 								"merchants",
 								":orgno"
@@ -398,7 +281,7 @@
 							"variable": [
 								{
 									"key": "orgno",
-									"value": "451049545",
+									"value": "{{orgno}}",
 									"description": "(Required) The Organization number for the merchant"
 								}
 							]
@@ -419,29 +302,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/merchants/:orgno",
@@ -456,7 +317,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "451049545",
+											"value": "401884297",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -488,29 +349,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/merchants/:orgno",
@@ -525,7 +364,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "451049545",
+											"value": "401884297",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -557,29 +396,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/merchants/:orgno",
@@ -594,7 +411,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "451049545",
+											"value": "401884297",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -626,29 +443,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/merchants/:orgno",
@@ -663,7 +458,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "451049545",
+											"value": "401884297",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -695,29 +490,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/merchants/:orgno",
@@ -732,7 +505,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "451049545",
+											"value": "401884297",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -764,29 +537,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/merchants/:orgno",
@@ -801,7 +552,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "451049545",
+											"value": "401884297",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -833,29 +584,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/merchants/:orgno",
@@ -870,7 +599,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "451049545",
+											"value": "401884297",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -894,21 +623,11 @@
 					"name": "Get sale unit details based on MSN",
 					"request": {
 						"auth": {
-							"type": "apikey",
-							"apikey": [
+							"type": "bearer",
+							"bearer": [
 								{
-									"key": "key",
-									"value": "Authorization",
-									"type": "string"
-								},
-								{
-									"key": "value",
-									"value": "<API Key>",
-									"type": "string"
-								},
-								{
-									"key": "in",
-									"value": "header",
+									"key": "token",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -918,41 +637,20 @@
 							{
 								"description": "(Required) Vipps Subscription Key",
 								"key": "Ocp-Apim-Subscription-Key",
-								"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+								"value": "{{Ocp-Apim-Subscription-Key}}"
 							},
 							{
 								"key": "Accept",
 								"value": "application/json;charset=UTF-8"
-							},
-							{
-								"key": "Vipps-System-Name",
-								"value": "{{vipps_system_name}}",
-								"type": "text"
-							},
-							{
-								"key": "Vipps-System-Version",
-								"value": "{{collection_version}}",
-								"type": "text"
-							},
-							{
-								"key": "Vipps-System-Plugin-Name",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							},
-							{
-								"key": "Vipps-System-Plugin-Version",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							},
+							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/v0/salesunits/:msn",
+							"raw": "{{base_url}}/partner-api/v0/salesunits/:msn",
 							"host": [
-								"{{baseUrl}}"
+								"{{base_url}}"
 							],
 							"path": [
+								"partner-api",
 								"v0",
 								"salesunits",
 								":msn"
@@ -960,7 +658,7 @@
 							"variable": [
 								{
 									"key": "msn",
-									"value": "60781",
+									"value": "{{merchantSerialNumber}}",
 									"description": "(Required) The Vipps MSN (merchant serial number) for the sale unit."
 								}
 							]
@@ -981,29 +679,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/salesunits/:msn",
@@ -1018,7 +694,7 @@
 									"variable": [
 										{
 											"key": "msn",
-											"value": "60781",
+											"value": "89015",
 											"description": "(Required) The Vipps MSN (merchant serial number) for the sale unit."
 										}
 									]
@@ -1034,7 +710,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"msn\": \"123456\",\n  \"name\": \"ACME Fantastic Fitness\",\n  \"orgno\": \"725970181\",\n  \"additionalDetails\": {\n    \"skipLandingPage\": false,\n    \"isPureLogin\": false,\n    \"captureType\": \"ReserveCapture\",\n    \"recurring\": false\n  }\n}"
+							"body": "{\n  \"msn\": \"123456\",\n  \"name\": \"ACME Fantastic Fitness\",\n  \"orgno\": \"670916295\",\n  \"additionalDetails\": {\n    \"skipLandingPage\": false,\n    \"isPureLogin\": false,\n    \"captureType\": \"ReserveCapture\",\n    \"recurring\": false\n  }\n}"
 						},
 						{
 							"name": "Invalid request, check request parameters",
@@ -1050,29 +726,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/salesunits/:msn",
@@ -1087,7 +741,7 @@
 									"variable": [
 										{
 											"key": "msn",
-											"value": "60781",
+											"value": "89015",
 											"description": "(Required) The Vipps MSN (merchant serial number) for the sale unit."
 										}
 									]
@@ -1119,29 +773,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/salesunits/:msn",
@@ -1156,7 +788,7 @@
 									"variable": [
 										{
 											"key": "msn",
-											"value": "60781",
+											"value": "89015",
 											"description": "(Required) The Vipps MSN (merchant serial number) for the sale unit."
 										}
 									]
@@ -1188,29 +820,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/salesunits/:msn",
@@ -1225,7 +835,7 @@
 									"variable": [
 										{
 											"key": "msn",
-											"value": "60781",
+											"value": "89015",
 											"description": "(Required) The Vipps MSN (merchant serial number) for the sale unit."
 										}
 									]
@@ -1257,29 +867,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/salesunits/:msn",
@@ -1294,7 +882,7 @@
 									"variable": [
 										{
 											"key": "msn",
-											"value": "60781",
+											"value": "89015",
 											"description": "(Required) The Vipps MSN (merchant serial number) for the sale unit."
 										}
 									]
@@ -1326,29 +914,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/salesunits/:msn",
@@ -1363,7 +929,7 @@
 									"variable": [
 										{
 											"key": "msn",
-											"value": "60781",
+											"value": "89015",
 											"description": "(Required) The Vipps MSN (merchant serial number) for the sale unit."
 										}
 									]
@@ -1395,29 +961,7 @@
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
 										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
-									},
-									{
-										"key": "Vipps-System-Name",
-										"value": "{{vipps_system_name}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Version",
-										"value": "{{collection_version}}",
-										"type": "text"
-									},
-									{
-										"key": "Vipps-System-Plugin-Name",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
-									{
-										"key": "Vipps-System-Plugin-Version",
-										"value": "",
-										"type": "text",
-										"disabled": true
-									},
+									}
 								],
 								"url": {
 									"raw": "{{baseUrl}}/v0/salesunits/:msn",
@@ -1432,7 +976,7 @@
 									"variable": [
 										{
 											"key": "msn",
-											"value": "60781",
+											"value": "89015",
 											"description": "(Required) The Vipps MSN (merchant serial number) for the sale unit."
 										}
 									]
@@ -1453,6 +997,52 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Get Access Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"access_token\", pm.response.json().access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "{{client_id}}"
+					},
+					{
+						"key": "client_secret",
+						"value": "{{client_secret}}"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{Ocp-Apim-Subscription-Key}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/accessToken/get",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"accessToken",
+						"get"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
