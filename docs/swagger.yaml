@@ -353,7 +353,7 @@ components:
         annualTurnover:
           type: string
           pattern: '^[0-9]{1,15}$'
-          description: Anual turnover for the merchant in NOK (whithout øre).
+          description: Annual turnover for the merchant in NOK (without øre).
           example: '100000'
         intendedPurpose:
           type: string
@@ -381,7 +381,7 @@ components:
               type: string
               format: URL
               pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
-              description: The URL to the merchants test webiste
+              description: The URL to the merchants test website
               example: 'https://test.example.com'
             testWebsiteUsername:
               type: string
@@ -402,11 +402,11 @@ components:
                   enum:
                     - UNDER_TEN
                     - TEN_OR_MORE
-                  description: How much percentage giftcard sales consits of
+                  description: How much percentage gift card sales consists of
                   example: TEN_OR_MORE
                 turnoverShare:
                   type: string
-                  description: Estimated turnover share of giftcard sales in percentage
+                  description: Estimated turnover share of gift card sales in percentage
                   example: about 25%
                 validityDuration:
                   type: string
@@ -435,7 +435,7 @@ components:
                   example: YEAR
                 periodDistribution:
                   type: string
-                  description: Distribution of memberships in different periods that is beeing sold
+                  description: Distribution of memberships in different periods that is being sold
                   example: 50% yearly 20% monthly
             subscription:
               type: object
@@ -449,7 +449,7 @@ components:
                   example: about 25%
                 periodDistribution:
                   type: string
-                  description: Distribution of subscriptions in different periods that is beeing sold
+                  description: Distribution of subscriptions in different periods that is being sold
                   example: 50% yearly 20% monthly
             course:
               type: object
@@ -583,7 +583,7 @@ components:
               example: "ReserveCapture"
             recurring:
               type: boolean
-              description: "If the sales unit has access to vipps-reccuring-api"
+              description: "If the sales unit has access to vipps-recurring-api"
               default: true
               example: false
       description: Details of a sale unit
