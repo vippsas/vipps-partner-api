@@ -11,7 +11,7 @@ The API is available for all partners using
 Feedback is welcome!
 Please try to use GitHub's
 [issue](https://github.com/vippsas/vipps-partner-api/issues)
-functionality, so we can avoid multiple parallell discussions in various channels.
+functionality, so we can avoid multiple parallel discussions in various channels.
 
 ----------
 
