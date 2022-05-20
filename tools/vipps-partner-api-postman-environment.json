@@ -4,23 +4,23 @@
 	"values": [
 		{
 			"key": "client_id",
-			"value": "<Use the partner keys you have received>",
+			"value": "<Go To Vipps Portal->Select the Developer tab->Select Test or Production Keys->Select 'Show keys'->copy the Client Id here>",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "client_secret",
-			"value": "<Use the partner keys you have received>",
+			"value": "<Go To Vipps Portal->Select the Developer tab->Select Test or Production Keys->Select 'Show keys'->copy the Client secret here>",
 			"enabled": true
 		},
 		{
 			"key": "Ocp-Apim-Subscription-Key",
-			"value": "<Use the partner keys you have received>",
+			"value": "<Go To Vipps Portal->Select the Developer tab->Select Test or Production Keys->Select 'Show keys'->copy the Vipps-Subscription-Key>",
 			"enabled": true
 		},
 		{
 			"key": "merchantSerialNumber",
-			"value": "<Use the merchantSerialNumber from getMerchan or from registered sales unit>",
+			"value": "<Go To Vipps Portal->Select the Developer tab->Select Test or Production Keys->Copy the Merchant Serial Number from the Sale Unit you copied the keys from>",
 			"enabled": true
 		},
 		{
@@ -35,7 +35,31 @@
 		},
 		{
 			"key": "access_token",
-			"value": "<This value will be overwritten when you call the Get Access Token API>",
+			"value": "<This value will be overwritten when you call the Get Access Token API when having selected eCommerce v2 - MTE environment>",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "vipps_system_name",
+			"value": "postman",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "vipps_system_version",
+			"value": "2.0",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "vipps_system_plugin_name",
+			"value": "vipps-postman",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "vipps_system_plugin_version",
+			"value": "2.0",
 			"type": "default",
 			"enabled": true
 		}
