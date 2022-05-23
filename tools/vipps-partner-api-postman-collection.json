@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a414f93d-4517-4087-ba09-5c54329fec42",
+		"_postman_id": "23c1939e-aaac-4f27-b882-b4361ab68535",
 		"name": "Vipps Partner API - Collection",
 		"description": "The Vipps Partner API lets partners, banks and large corporations manage\ntheir merchants (for example, submit product orders on behalf of their\nmerchants) and sales units.\nMore information: https://github.com/vippsas/vipps-partner-api\n\n\nContact Support:\n Name: Vipps AS\n Email: integration@vipps.no",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -91,12 +91,32 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
 									},
 									{
 										"description": "(Required) Idempotency key for the request, ensures idempotent actions. Not required, but recommended.",
 										"key": "Idempotency-Key",
 										"value": "81b83246-5c19-7b94-875b-ea6d1114f099"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"body": {
@@ -145,12 +165,32 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
 									},
 									{
 										"description": "(Required) Idempotency key for the request, ensures idempotent actions. Not required, but recommended.",
 										"key": "Idempotency-Key",
 										"value": "81b83246-5c19-7b94-875b-ea6d1114f099"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"body": {
@@ -199,12 +239,32 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
 									},
 									{
 										"description": "(Required) Idempotency key for the request, ensures idempotent actions. Not required, but recommended.",
 										"key": "Idempotency-Key",
 										"value": "81b83246-5c19-7b94-875b-ea6d1114f099"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"body": {
@@ -301,7 +361,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -317,7 +397,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "401884297",
+											"value": "{{orgno}}",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -348,7 +428,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -364,7 +464,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "401884297",
+											"value": "{{orgno}}",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -395,7 +495,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -411,7 +531,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "401884297",
+											"value": "{{orgno}}",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -442,7 +562,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -458,7 +598,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "401884297",
+											"value": "{{orgno}}",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -489,7 +629,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -505,7 +665,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "401884297",
+											"value": "{{orgno}}",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -536,7 +696,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -552,7 +732,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "401884297",
+											"value": "{{orgno}}",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -583,7 +763,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -599,7 +799,7 @@
 									"variable": [
 										{
 											"key": "orgno",
-											"value": "401884297",
+											"value": "{{orgno}}",
 											"description": "(Required) The Organization number for the merchant"
 										}
 									]
@@ -678,7 +878,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -725,7 +945,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -772,7 +1012,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -819,7 +1079,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -866,7 +1146,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -913,7 +1213,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -960,7 +1280,27 @@
 									{
 										"description": "(Required) Vipps Subscription Key",
 										"key": "Ocp-Apim-Subscription-Key",
-										"value": "da7d5b0e18a84aeda961c0c31b75c2a9"
+										"value": "{{Ocp-Apim-Subscription-Key}}"
+									},
+									{
+										"key": "Vipps-System-Name",
+										"value": "{{vipps_system_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Version",
+										"value": "{{vipps_system_version}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Name",
+										"value": "{{vipps_system_plugin_name}}",
+										"type": "default"
+									},
+									{
+										"key": "Vipps-System-Plugin-Version",
+										"value": "{{vipps_system_plugin_version}}",
+										"type": "default"
 									}
 								],
 								"url": {
@@ -1025,6 +1365,26 @@
 					{
 						"key": "Ocp-Apim-Subscription-Key",
 						"value": "{{Ocp-Apim-Subscription-Key}}"
+					},
+					{
+						"key": "Vipps-System-Name",
+						"value": "{{vipps_system_name}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Version",
+						"value": "{{vipps_system_version}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Plugin-Name",
+						"value": "{{vipps_system_plugin_name}}",
+						"type": "default"
+					},
+					{
+						"key": "Vipps-System-Plugin-Version",
+						"value": "{{vipps_system_plugin_version}}",
+						"type": "default"
 					}
 				],
 				"body": {
