@@ -4,13 +4,13 @@
 	"values": [
 		{
 			"key": "client_id",
-			"value": "<Go To Vipps Portal->Select the Developer tab->Select Test or Production Keys->Select 'Show keys'->copy the Client Id here>",
+			"value": "<Use the partner keys you have received>",
 			"type": "default",
 			"enabled": true
 		},
 		{
 			"key": "client_secret",
-			"value": "<Go To Vipps Portal->Select the Developer tab->Select Test or Production Keys->Select 'Show keys'->copy the Client secret here>",
+			"value": "<Use the partner keys you have received>",
 			"enabled": true
 		},
 		{
@@ -20,7 +20,7 @@
 		},
 		{
 			"key": "merchantSerialNumber",
-			"value": "<Use the merchantSerialNumber from getMerchan or from registered sales unit>",
+			"value": "<Use the merchant's MSN (merchant serial number)>",
 			"enabled": true
 		},
 		{
