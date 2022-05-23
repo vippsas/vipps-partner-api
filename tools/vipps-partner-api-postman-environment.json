@@ -15,12 +15,12 @@
 		},
 		{
 			"key": "Ocp-Apim-Subscription-Key",
-			"value": "<Go To Vipps Portal->Select the Developer tab->Select Test or Production Keys->Select 'Show keys'->copy the Vipps-Subscription-Key>",
+			"value": "<Use the partner keys you have received>",
 			"enabled": true
 		},
 		{
 			"key": "merchantSerialNumber",
-			"value": "<Go To Vipps Portal->Select the Developer tab->Select Test or Production Keys->Copy the Merchant Serial Number from the Sale Unit you copied the keys from>",
+			"value": "<Use the merchantSerialNumber from getMerchan or from registered sales unit>",
 			"enabled": true
 		},
 		{
@@ -35,7 +35,7 @@
 		},
 		{
 			"key": "access_token",
-			"value": "<This value will be overwritten when you call the Get Access Token API when having selected eCommerce v2 - MTE environment>",
+			"value": "<This value will be overwritten when you call the Get Access Token API>",
 			"type": "default",
 			"enabled": true
 		},
