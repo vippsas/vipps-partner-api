@@ -65,12 +65,10 @@ paths:
                     testWebsitePassword: test-password
                   complianceData:
                     giftCard:
-                      salesPercentage: TEN_OR_MORE
-                      turnoverShare: about 25%
+                      salesPercentage: GTE_10
                       validityDuration: 3 years
                     membership:
                       turnoverShare: about 25%
-                      validFor: YEAR
                       periodDistribution: 50% yearly 20% monthly
                     subscription:
                       turnoverShare: about 25%
@@ -88,6 +86,11 @@ paths:
                       turnoverShare: about 25%
                       prepurchaseTime: 15 days
                       averageRentalDuration: 3 weeks
+                    prepaidServices:
+                      turnoverShare: about 25%
+                      prepurchaseTime: 10 weeks
+                    donation:
+                      acceptsDonations: 'YES'                      
       responses:
         '200':
           description: OK
@@ -396,18 +399,17 @@ components:
           properties:
             giftCard:
               type: object
+              required:
+                - salesPercentage
+                - validityDuration              
               properties:
                 salesPercentage:
                   type: string
                   enum:
-                    - UNDER_TEN
-                    - TEN_OR_MORE
+                    - LT_10
+                    - GTE_10
                   description: How much percentage gift card sales consists of
-                  example: TEN_OR_MORE
-                turnoverShare:
-                  type: string
-                  description: Estimated turnover share of gift card sales in percentage
-                  example: about 25%
+                  example: GTE_10
                 validityDuration:
                   type: string
                   description: For how long is the gift card valid after purchase
@@ -416,23 +418,12 @@ components:
               type: object
               required:
                 - turnoverShare
-                - validFor
                 - periodDistribution
               properties:
                 turnoverShare:
                   type: string
                   description: Estimated turnover share of membership sales in percentage
                   example: about 25%
-                validFor:
-                  type: string
-                  enum:
-                    - YEAR
-                    - CALENDER_YEAR
-                  description: |
-                    How long is the membership valid for
-                     - YEAR: The membership is valid for 1 year (ca. 365 days) from the day of payment.
-                     - CALENDER_YEAR: The membership is valid until end of this year.
-                  example: YEAR
                 periodDistribution:
                   type: string
                   description: Distribution of memberships in different periods that is being sold
@@ -517,6 +508,37 @@ components:
                   type: string
                   description: How long the average rental period is
                   example: 3 weeks
+            prepaidServices:
+              type: object
+              description: Only required if the sale unit will do prepaid services
+              required:
+                - turnoverShare
+                - prepurchaseTime
+              properties:
+                turnoverShare:
+                  type: string
+                  description: Estimated turnover share of prepaid services sales in percentage
+                  example: about 25%
+                prepurchaseTime:
+                  type: string
+                  description: How long in advance of a service it is common to order and pay
+                  example: 10 weeks
+            donation:
+              type: object
+              description: Only required if the sale unit will receive donations
+              required:
+                - acceptsDonations   
+              properties:
+                acceptsDonations:
+                  type: string
+                  enum:
+                    - 'YES'
+                    - 'NO'
+                  x-enum-varnames:
+                    - 'YES'
+                    - 'NO'
+                  description: YES if merchant will receive donations through Vipps
+                  example: 'YES'                   
     ProductOrderResponse:
       title: Product Order Response
       type: object
