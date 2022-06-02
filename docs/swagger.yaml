@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: '0.9.4'
+  version: '0.9.5'
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -78,7 +78,7 @@ paths:
                       timeBeforeOrder: 10 days
                       period: once every 6 week
                       isOnlineCourseOffered: true
-                      onlineAccessableTime: for 3 months
+                      onlineAccessibleTime: for 3 months
                     ticket:
                       turnoverShare: about 25%
                       prepurchaseTime: 10 weeks
@@ -465,7 +465,7 @@ components:
                   description: True if there are online courses offered
                   default: false
                   example: false
-                onlineAccessableTime:
+                onlineAccessibleTime:
                   type: string
                   description: How long after purchase does a user have access to the course
                   example: for 3 months
