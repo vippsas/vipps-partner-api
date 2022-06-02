@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: '0.9.3'
+  version: '0.9.4'
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -395,13 +395,9 @@ components:
               description: Password to log in on the test website
               example: test-password
         complianceData:
-          x-nullable: true
-          nullable: true
           type: object
           properties:
             giftCard:
-              x-nullable: true
-              nullable: true
               type: object
               required:
                 - isSalesPercentageLessThanTen
@@ -417,8 +413,6 @@ components:
                   description: For how long is the gift card valid after purchase
                   example: 3 years
             membership:
-              x-nullable: true
-              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -430,11 +424,9 @@ components:
                   example: about 25%
                 periodDistribution:
                   type: string
-                  description: Distribution of memberships in different periods that is beeing sold
+                  description: Distribution of memberships in different periods that is being sold
                   example: 50% yearly 20% monthly
             subscription:
-              x-nullable: true
-              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -446,11 +438,9 @@ components:
                   example: about 25%
                 periodDistribution:
                   type: string
-                  description: Distribution of subscriptions in different periods that is beeing sold
+                  description: Distribution of subscriptions in different periods that is being sold
                   example: 50% yearly 20% monthly
             course:
-              x-nullable: true
-              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -476,13 +466,10 @@ components:
                   default: false
                   example: false
                 onlineAccessableTime:
-                  x-nullable: true
                   type: string
                   description: How long after purchase does a user have access to the course
                   example: for 3 months
             ticket:
-              x-nullable: true
-              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -497,8 +484,6 @@ components:
                   description: How long in advance of an event it is common to order and pay for a ticket
                   example: 10 weeks
             rent:
-              x-nullable: true
-              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -518,8 +503,6 @@ components:
                   description: How long the average rental period is
                   example: 3 weeks
             prepaidServices:
-              x-nullable: true
-              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -534,8 +517,6 @@ components:
                   description: How long in advance of a service it is common to order and pay
                   example: 10 weeks
             donation:
-              x-nullable: true
-              nullable: true
               type: object
               required:
                 - acceptsDonation
