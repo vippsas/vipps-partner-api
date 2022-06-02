@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.2.
 
-Document version 1.1.0.
+Document version 1.1.1.
 
 ## Table of contents
 
@@ -189,6 +189,8 @@ Until more functionality is available in this API, there are some workarounds:
 * [How can I check if I have skipLandingPage activated?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-skiplandingpage-activated)
 
 ## Submit a product order for a merchant
+
+**Important:** This endpoint is not yet available. This notice will be removed when it is.
 
 [`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product)
 
