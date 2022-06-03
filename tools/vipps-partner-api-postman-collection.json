@@ -75,7 +75,7 @@
 								"orders"
 							]
 						},
-						"description": "Order products on behalf of merchants:\nPartners can submit data that pre-fills the order form, so the merchant\ncan review the information and submit the product order on portal.vipps.no.\n"
+						"description": "IMPORTANT: This endpoint is not yet available. This notice will be removed when it is. Order products on behalf of merchants:\nPartners can submit data that pre-fills the order form, so the merchant\ncan review the information and submit the product order on portal.vipps.no.\n"
 					},
 					"response": [
 						{
