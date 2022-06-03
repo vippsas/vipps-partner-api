@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: '0.9.2'
+  version: '0.9.5'
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -65,12 +65,10 @@ paths:
                     testWebsitePassword: test-password
                   complianceData:
                     giftCard:
-                      salesPercentage: TEN_OR_MORE
-                      turnoverShare: about 25%
+                      isSalesPercentageLessThanTen: false
                       validityDuration: 3 years
                     membership:
                       turnoverShare: about 25%
-                      validFor: YEAR
                       periodDistribution: 50% yearly 20% monthly
                     subscription:
                       turnoverShare: about 25%
@@ -79,8 +77,8 @@ paths:
                       turnoverShare: about 25%
                       timeBeforeOrder: 10 days
                       period: once every 6 week
-                      online: 'YES'
-                      onlineAccessableTime: for 3 months
+                      isOnlineCourseOffered: true
+                      onlineAccessibleTime: for 3 months
                     ticket:
                       turnoverShare: about 25%
                       prepurchaseTime: 10 weeks
@@ -88,6 +86,11 @@ paths:
                       turnoverShare: about 25%
                       prepurchaseTime: 15 days
                       averageRentalDuration: 3 weeks
+                    prepaidServices:
+                      turnoverShare: about 25%
+                      prepurchaseTime: 10 weeks
+                    donation:
+                      acceptDonations: true                      
       responses:
         '200':
           description: OK
@@ -396,18 +399,15 @@ components:
           properties:
             giftCard:
               type: object
+              required:
+                - isSalesPercentageLessThanTen
+                - validityDuration
               properties:
-                salesPercentage:
-                  type: string
-                  enum:
-                    - UNDER_TEN
-                    - TEN_OR_MORE
-                  description: How much percentage gift card sales consists of
-                  example: TEN_OR_MORE
-                turnoverShare:
-                  type: string
-                  description: Estimated turnover share of gift card sales in percentage
-                  example: about 25%
+                isSalesPercentageLessThanTen:
+                  type: boolean
+                  default: false
+                  description: How much percentage giftcard sales consits of. Either Less than 10% or 10% and more
+                  example: false
                 validityDuration:
                   type: string
                   description: For how long is the gift card valid after purchase
@@ -416,23 +416,12 @@ components:
               type: object
               required:
                 - turnoverShare
-                - validFor
                 - periodDistribution
               properties:
                 turnoverShare:
                   type: string
                   description: Estimated turnover share of membership sales in percentage
                   example: about 25%
-                validFor:
-                  type: string
-                  enum:
-                    - YEAR
-                    - CALENDER_YEAR
-                  description: |
-                    How long is the membership valid for
-                     - YEAR: The membership is valid for 1 year (ca. 365 days) from the day of payment.
-                     - CALENDER_YEAR: The membership is valid until end of this year.
-                  example: YEAR
                 periodDistribution:
                   type: string
                   description: Distribution of memberships in different periods that is being sold
@@ -471,23 +460,20 @@ components:
                   type: string
                   description: How long the duration of a course usually is
                   example: once every 6. week
-                online:
-                  type: string
-                  enum:
-                    - 'YES'
-                    - 'NO'
-                  description: YES if there are online courses offered
-                  example: 'YES'
-                onlineAccessableTime:
+                isOnlineCourseOffered:
+                  type: boolean
+                  description: True if there are online courses offered
+                  default: false
+                  example: false
+                onlineAccessibleTime:
                   type: string
                   description: How long after purchase does a user have access to the course
                   example: for 3 months
             ticket:
               type: object
-              description: Only required if the sale unit will sell tickets.
               required:
                 - turnoverShare
-                - timeBeforeOrder
+                - prepurchaseTime
               properties:
                 turnoverShare:
                   type: string
@@ -499,7 +485,6 @@ components:
                   example: 10 weeks
             rent:
               type: object
-              description: Only required if the sale unit will do rentals.
               required:
                 - turnoverShare
                 - prepurchaseTime
@@ -517,6 +502,30 @@ components:
                   type: string
                   description: How long the average rental period is
                   example: 3 weeks
+            prepaidServices:
+              type: object
+              required:
+                - turnoverShare
+                - prepurchaseTime
+              properties:
+                turnoverShare:
+                  type: string
+                  description: Estimated turnover share of prepaid services sales in percentage
+                  example: about 25%
+                prepurchaseTime:
+                  type: string
+                  description: How long in advance of a service it is common to order and pay
+                  example: 10 weeks
+            donation:
+              type: object
+              required:
+                - acceptsDonation
+              properties:
+                acceptsDonation:
+                  type: boolean
+                  description: true if merchant will receive donation through Vipps
+                  default: false
+                  example: false                   
     ProductOrderResponse:
       title: Product Order Response
       type: object
