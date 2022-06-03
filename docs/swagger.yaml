@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: '0.9.5'
+  version: '0.9.6'
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -28,6 +28,7 @@ paths:
       summary: Order products on behalf of merchants
       operationId: orderProduct
       description: |
+        IMPORTANT: This endpoint is not yet available. This notice will be removed when it is.
         Order products on behalf of merchants:
         Partners can submit data that pre-fills the order form, so the merchant
         can review the information and submit the product order on portal.vipps.no.
@@ -90,7 +91,7 @@ paths:
                       turnoverShare: about 25%
                       prepurchaseTime: 10 weeks
                     donation:
-                      acceptDonations: true                      
+                      acceptDonations: true
       responses:
         '200':
           description: OK
@@ -525,7 +526,7 @@ components:
                   type: boolean
                   description: true if merchant will receive donation through Vipps
                   default: false
-                  example: false                   
+                  example: false
     ProductOrderResponse:
       title: Product Order Response
       type: object
