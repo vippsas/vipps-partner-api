@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.2.
 
-Document version 1.1.1.
+Document version 1.1.2.
 
 ## Table of contents
 
@@ -190,7 +190,10 @@ Until more functionality is available in this API, there are some workarounds:
 
 ## Submit a product order for a merchant
 
-**Important:** This endpoint is not yet available. This notice will be removed when it is.
+**Important:** This endpoint is not yet available.
+This notice will be removed when it is.
+The plan is to make this endpoint available mid June, pending some final tweaks,
+security testing, etc.
 
 [`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product)
 
