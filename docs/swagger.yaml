@@ -540,7 +540,7 @@ components:
           type: string
           format: uri
           description: A URL for the merchant to complete the signup.
-          example: 'https://portal.vipps.no/signup/vippspanett/?r=81b83246-5c19-7b94-875b-ea6d1114f099'
+          example: 'https://portal.vipps.no/products/vippspanett/81b83246-5c19-7b94-875b-ea6d1114f099'
     SalesUnit:
       required:
         - msn
