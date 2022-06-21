@@ -56,7 +56,7 @@ paths:
                   pricePackageKey: posstandard
                   productType: VIPPS_PA_NETT
                   mcc: '5200'
-                  annualTurnover: '100000'
+                  annualTurnover: 100000
                   intendedPurpose: Gym membership
                   website:
                     url: 'https://example.com'
@@ -355,10 +355,11 @@ components:
           maxLength: 4
           example: '5200'
         annualTurnover:
-          type: string
-          pattern: '^[0-9]{1,15}$'
+          type: integer
+          minimum: 0
+          format: int64
           description: Annual turnover for the merchant in NOK (without øre).
-          example: '100000'
+          example: 100000
         intendedPurpose:
           type: string
           description: Description of the product or products that will be sold
