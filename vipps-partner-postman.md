@@ -15,22 +15,35 @@ We also have a short [getting started guide to Postman](https://github.com/vipps
 
 Import the collection by following the steps below:
 
-1. Click `Import` in the upper left corner.
+1. Click `Import` in the upper-left corner.
 2. Import the [vipps-partner-api-postman-collection.json](https://raw.githubusercontent.com/vippsas/vipps-partner-api/master/tools/vipps-partner-api-postman-collection.json) file.
 
 ### Step 2: Import the Postman Environment
 
-1. Click `Import` in the upper left corner.
+1. Click `Import` in the upper-left corner.
 2. Import the [vipps-partner-api-postman-environment.json](https://raw.githubusercontent.com/vippsas/vipps-partner-api/master/tools/vipps-partner-api-postman-environment.json) file.
 
 ### Step 3: Setup Postman Environment
 
-1. Click the "eye" icon in the top right corner.
-2. In the dropdown window, click `Edit` in the top right corner.
+1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
+2. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
 3. Fill in the `Current Value` for the following fields to get started.
    - `client-id`
    - `client-secret`
+   - `merchantSerialNumber`
    - `Ocp-Apim-Subscription-Key`
+   - `orgno`
+
+  The Partner API only works in the production environment, so `base_url` is set to `api.vipps.no`.
+
+### Step 4: Run Tests
+
+Be aware that these are running on the production server.
+
+1. Send request `Get Access Token`. This provides you with access to the API.
+2. Send request `Get sale unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment.
+3. Send `Get merchant by organization number` for details about the transaction.
+4. Open `Order products on behalf of merchants` to see an example of ordering products. Since this is running on the production server, you might not want to run it.
 
 ## Questions?
 

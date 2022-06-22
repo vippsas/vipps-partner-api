@@ -18,7 +18,7 @@ functionality, so we can avoid multiple parallel discussions in various channels
 This repository contains developer resources for the Vipps Partner API PoC.
 
 * [Vipps Partner API guide](vipps-partner-api.md): Developer guide for Vipps Partner API.
-* [Postman collection](vipps-partner-postman.md): Make API calls without the partner-side integration.
+* [Postman guide](vipps-partner-postman.md): Make API calls without the partner-side integration.
 * [Vipps Partner API FAQ](vipps-partner-api-faq.md): Questions and answers.
 
 You can peruse the API reference documentation as:
