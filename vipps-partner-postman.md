@@ -43,8 +43,8 @@ Here is a proposed order of steps, but you can send most of these requests indep
 
 1. Send request `Get Access Token`. This provides you with access to the API.
 2. Send request `Get sale unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment.
-3. Send `Get merchant by organization number` for details about the transaction.
-4. Open `Order products on behalf of merchants` to see an example of ordering products. Since this is running on the production server, you might not want to run it.
+3. Send request `Get merchant by organization number` for details about the transaction.
+4. Review the `Order products on behalf of merchants` to see an example of ordering products. Since this is running on the production server, you might not want to run it.
 
 ## Questions?
 
