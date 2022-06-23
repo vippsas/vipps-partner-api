@@ -28,11 +28,11 @@ Import the collection by following the steps below:
 1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
 2. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
 3. Fill in the `Current Value` for the following fields to get started.
-   - `client-id`
-   - `client-secret`
-   - `Ocp-Apim-Subscription-Key`
-   - `merchantSerialNumber` - only needed for `Get sale unit details based on MSN`
-   - `orgno` - only needed for `Get merchant by organization number`
+   - `client-id` - Partner key is required for getting the access token.
+   - `client-secret` - Partner key is required for getting the access token.
+   - `Ocp-Apim-Subscription-Key` - Partner subscription key is required for all requests.
+   - `merchantSerialNumber` - Merchant ID is only required for `Get sale unit details based on MSN`, but can be included in all headers.
+   - `orgno` -The Organization number is only needed for `Get merchant by organization number`.
 
   The Partner API only works in the production environment, so `base_url` is set to `api.vipps.no`.
 
@@ -42,9 +42,9 @@ Be aware that these are running on the production server.
 Here is a proposed order of steps, but you can send most of these requests independently of each other.
 
 1. Send request `Get Access Token`. This provides you with access to the API.
-2. Send request `Get sale unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment.
-3. Send request `Get merchant by organization number` for details about the transaction.
-4. Review the `Order products on behalf of merchants` to see an example of ordering products. Since this is running on the production server, you might not want to run it.
+2. Send request `Get sale unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment. See [`GET:v0/salesunits/:msn/`](https://vippsas.github.io/vipps-partner-api/#/Sales%20units/getMSN).
+3. Send request `Get merchant by organization number` for details about the transaction. See [`GET:v0/merchants/:orgno`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchant).
+4. Review the `Order products on behalf of merchants` to see an example of ordering products. Since this is running on the production server, you might not want to run it.  See [`POST:v0/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/orderProduct).
 
 ## Questions?
 
