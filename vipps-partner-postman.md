@@ -30,15 +30,16 @@ Import the collection by following the steps below:
 3. Fill in the `Current Value` for the following fields to get started.
    - `client-id`
    - `client-secret`
-   - `merchantSerialNumber`
    - `Ocp-Apim-Subscription-Key`
-   - `orgno`
+   - `merchantSerialNumber` - only needed for `Get sale unit details based on MSN`
+   - `orgno` - only needed for `Get merchant by organization number`
 
   The Partner API only works in the production environment, so `base_url` is set to `api.vipps.no`.
 
 ### Step 4: Run Tests
 
 Be aware that these are running on the production server.
+Here is a proposed order of steps, but you can send most of these requests independently of each other.
 
 1. Send request `Get Access Token`. This provides you with access to the API.
 2. Send request `Get sale unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment.
