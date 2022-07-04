@@ -2,10 +2,7 @@
 
 💥 **IMPORTANT!** 💥
 
-This is the very first version, and `v0` means version zero,
-and that there may be some (minor) changes before the first _official_ `v1` version.
-
-Feedback is welcome!
+This is a new API, so: Feedback is welcome!
 Please try to use GitHub's
 [issue](https://github.com/vippsas/vipps-partner-api/issues)
 functionality, so we can avoid multiple parallel discussions in various channels.
