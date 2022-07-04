@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.2.
 
-Document version 1.2.1.
+Document version 1.3.0.
 
 ## Table of contents
 
@@ -38,7 +38,7 @@ Please see:
 
 Vipps wants to provide more self-service for partners.
 
-### Priorities: Now
+### Priorities: Done!
 
 1. Functionality to retrieve active MSNs for merchant connected to this partner:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchantDetails)
@@ -54,7 +54,7 @@ Vipps wants to provide more self-service for partners.
    See:
    [How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
 
-### Priorities: At some point
+### Priorities: Later some time
 
 4. Functionality to update an existing sale unit.
 
@@ -90,15 +90,30 @@ See the Postman collection and environment, and the
 The Postman collection can also be used to manually make API calls,
 even without an integration in place.
 
+**Please note:** Vipps has limited capacity to handle partners' requests to
+"just check something", even though it may be trivial. We therefore recommend
+the following priority:
+1. Integrate with the Partner API, so the functionality is made available
+   in the partner's own admin interface.
+2. Use the Partner API manually with the Postman collection provided by Vipps.
+3. Ask the merchant to create a user for the partner on portal.vipps.no,
+   so the partner can check on behalf of the merchant:
+   [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).  
+4. See the eCom FAQ for how to check if a sale unit
+  [has skipLandingPage](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+  or
+  [which capture type it has](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-do-i-turn-direct-capture-on-or-off).
+
 ## Partner keys
 
-This API requires
+All partners can use their
 [partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
+to use the Partner API. If you have partner keys, you have access to the
+Partner API.
 
-If you are using partner keys you have access to the Partner API.
-
-**Please note:** Some partners may need an internal Vipps update of their API product package
-to get access. Contact your partner manager if you get errors indicating this.
+**Please note:** Some partners may need an internal Vipps update of their API
+product package to get access. Contact your partner manager if you get errors
+indicating this. Please double check your partner keys first, though.
 
 ## Get information about a merchant based on organization number
 
@@ -169,7 +184,8 @@ The current version of the API returns the following information (see the Swagge
 }
 ```
 
-The `orgno` is included to make it posible to find out which merchant a MSN belongs to.
+The `orgno` is included to make it possible to find out which merchant a MSN
+belongs to, which is useful if only the MSN is known.
 
 ### Future improvements
 
@@ -190,11 +206,12 @@ Until more functionality is available in this API, there are some workarounds:
 
 ## Submit a product order for a merchant
 
-**Important:** This endpoint is now available for all partners in the
+**Important:** This endpoint is available for all partners in the
 production environment, _but there may be some minor changes. We will do our
 utmost to avoid breaking changes, but we can not guarantee it.
-As mentioned in the `README`:
-This is a new API, so: Feedback is welcome!
+As mentioned in the
+[README](https://github.com/vippsas/vipps-partner-api/blob/main/README.md):
+This is a new API, so feedback is welcome!
 Please try to use GitHub's
 [issue](https://github.com/vippsas/vipps-partner-api/issues)
 functionality, so we can avoid multiple parallel discussions in various channels.
@@ -237,8 +254,9 @@ the partner submit a new product order with the correct details.
 ### Future improvements
 
 We may allow the merchant to change some of the data pre-filled by the
-partner, but this is not trivial. The updated data must also be made available
-for the partner.
+partner, but this is not trivial. If the merchant changes any data, the
+partner must be notified and also get the updated data - then merge&sync that
+with the "old" data that was sent in the first place.
 
 ## Questions?
 
