@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.2.
 
-Document version 1.1.2.
+Document version 1.2.1.
 
 ## Table of contents
 
@@ -190,10 +190,14 @@ Until more functionality is available in this API, there are some workarounds:
 
 ## Submit a product order for a merchant
 
-**Important:** This endpoint is not yet available.
-This notice will be removed when it is.
-The plan is to make this endpoint available mid June, pending some final tweaks,
-security testing, etc.
+**Important:** This endpoint is now available for all partners in the
+production environment, _but there may be some minor changes. We will do our
+utmost to avoid breaking changes, but we can not guarantee it.
+As mentioned in the `README`:
+This is a new API, so: Feedback is welcome!
+Please try to use GitHub's
+[issue](https://github.com/vippsas/vipps-partner-api/issues)
+functionality, so we can avoid multiple parallel discussions in various channels.
 
 [`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product)
 
@@ -202,25 +206,28 @@ This endpoint lets a partner "pre-fill" the product order form on
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
 
-This is some of the information the partner can send (see the API specification
-for more):
+Here is a sample request, but as this API is new: Always refer to the
+API specification for the details.
 
 ```
-"orgno": "987654321",
-"salesUnitName": "My point of sale",
-"salesUnitLogo": "VGhlIGltYWdlIGdvZXMgaGVyZQ==",
-"settlementAccountNumber": "86011117947",
-"pricePackageKey": "posstandard",
-"productType": "VIPPS_PA_NETT",
-"mcc": "5200",
-"annualTurnover": "100000",
-"intendedPurpose": "Membership fee for gym",
-"website": {
-  "url": "https://example.com",
-  "termsUrl": "https://example.com/terms-and-conditions",
-  "testWebSiteUrl": "https://test.example.com",
-  "testWebsiteUsername": "test-user",
-  "testWebsitePassword": "test-password"
+{
+  "orgno": "987654321",
+  "salesUnitName": "ACME Fantastic Fitness",
+  "salesUnitLogo": "VGhlIGltYWdlIGdvZXMgaGVyZQ==",
+  "settlementAccountNumber": "86011117947",
+  "pricePackageKey": "posstandard",
+  "productType": "VIPPS_PA_NETT",
+  "mcc": "5200",
+  "annualTurnover": "100000",
+  "intendedPurpose": "Gym membership",
+  "website": {
+    "url": "https://example.com",
+    "termsUrl": "https://example.com/terms-and-conditions",
+    "testWebSiteUrl": "https://test.example.com",
+    "testWebsiteUsername": "test-user",
+    "testWebsitePassword": "test-password"
+  },
+}
 ```
 
 The merchant can not change the information provided by the partner, so if
