@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: '0.9.6'
+  version: '0.9.8'
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -22,16 +22,18 @@ tags:
   - name: Sales units
     description: Manage sales units
 paths:
-  /v0/products/orders:
+  /v1/products/orders:
     parameters: []
     post:
       summary: Order products on behalf of merchants
       operationId: orderProduct
       description: |
-        IMPORTANT: This endpoint is not yet available. This notice will be removed when it is.
         Order products on behalf of merchants:
         Partners can submit data that pre-fills the order form, so the merchant
         can review the information and submit the product order on portal.vipps.no.
+        Please note complianceData and website information are required for VIPPS_PA_NETT product type.
+        Partners can still submit the product orders without them but the merchant will have to fill 
+        website and complaince data information manually in the merchant portal product order form and submit.
       tags:
         - Vipps Product Orders
       parameters:
@@ -56,12 +58,12 @@ paths:
                   pricePackageKey: posstandard
                   productType: VIPPS_PA_NETT
                   mcc: '5200'
-                  annualTurnover: '100000'
+                  annualTurnover: 100000
                   intendedPurpose: Gym membership
                   website:
                     url: 'https://example.com'
                     termsUrl: 'https://example.com/terms-and-conditions'
-                    testWebSiteUrl: 'https://test.example.com'
+                    testWebsiteUrl: 'https://test.example.com'
                     testWebsiteUsername: test-user
                     testWebsitePassword: test-password
                   complianceData:
@@ -341,7 +343,6 @@ components:
             - VIPPS_BEDRIFT
             - VIPPS_PA_NETT
             - VIPPS_LOGG_INN
-            - VIPPS_FAKTURA
             - VIPPS_CHECKOUT
             - VIPPS_SENERE
             - VIPPS_I_KASSA
@@ -355,10 +356,12 @@ components:
           maxLength: 4
           example: '5200'
         annualTurnover:
-          type: string
-          pattern: '^[0-9]{1,15}$'
+          type: integer
+          minimum: 0
+          maximum: 9223372036854775807
+          format: int64
           description: Annual turnover for the merchant in NOK (without øre).
-          example: '100000'
+          example: 100000
         intendedPurpose:
           type: string
           description: Description of the product or products that will be sold
@@ -381,7 +384,7 @@ components:
               pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
               description: The URL that points to the merchants sales terms
               example: 'https://example.com/terms-and-conditions'
-            testWebSiteUrl:
+            testWebsiteUrl:
               type: string
               format: URL
               pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
@@ -531,7 +534,7 @@ components:
       title: Product Order Response
       type: object
       properties:
-        requestId:
+        prefilledOrderId:
           type: string
           format: uuid
           description: A UUID reference that identifies the product order request submitted by the partner.
@@ -540,7 +543,7 @@ components:
           type: string
           format: uri
           description: A URL for the merchant to complete the signup.
-          example: 'https://portal.vipps.no/products/vippspanett/81b83246-5c19-7b94-875b-ea6d1114f099'
+          example: 'https://portal.vipps.no/register/vippspanett/81b83246-5c19-7b94-875b-ea6d1114f099'
     SalesUnit:
       required:
         - msn
@@ -734,7 +737,7 @@ components:
       schema:
         type: string
         example: 81b83246-5c19-7b94-875b-ea6d1114f099
-      description: 'Idempotency key for the request, ensures idempotent actions. Not required, but recommended.'
+      description: 'Idempotency key for the request, ensures idempotent actions'
     Ocp-APIM-Subscription-Key:
       name: Ocp-Apim-Subscription-Key
       in: header

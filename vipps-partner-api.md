@@ -53,6 +53,7 @@ Vipps wants to provide more self-service for partners.
    [portal.vipps.no](https://portal.vipps.no).
    See:
    [How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
+   The `returnUrl` as part of the response can be shared with merchants. When they log in to the merchant portal using this url, they will be taken directly to the prefilled product order page.
 
 ### Priorities: At some point
 
