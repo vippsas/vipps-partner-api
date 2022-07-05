@@ -24,14 +24,14 @@ Document version 1.5.0.
 
 ## Information for Vipps partners
 
-Please see:
 * [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
 * [Vipps Partners](https://github.com/vippsas/vipps-partner): Technical information for Vipps partners.
 
 ### Integrating with this API
 
 Integration should be straight-forward.
-Use the partner keys.
+Use the
+[partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
 See the Postman collection and environment, and the
 [Postman guide](vipps-partner-postman.md).
 
@@ -182,7 +182,8 @@ on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
 
 Sequence diagram:
-![Submit a product order for a merchant](images/sequence-diagram-get-prefill.png)
+
+![Submit a product order for a merchant](images/sequence-diagram-prefill.png)
 
 Here is a sample request, but as this API is new: Always refer to the
 API specification for the details.
