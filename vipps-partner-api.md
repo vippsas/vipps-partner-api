@@ -167,7 +167,7 @@ Until more functionality is available in this API, there are some workarounds:
 ## Submit a product order for a merchant
 
 **Important:** This endpoint is available for all partners in the
-production environment, _but there may be some minor changes. We will do our
+production environment, but there may be some minor changes. We will do our
 utmost to avoid breaking changes, but we can not guarantee it.
 As mentioned in the
 [README](https://github.com/vippsas/vipps-partner-api/blob/main/README.md):
@@ -182,6 +182,10 @@ This endpoint lets a partner "pre-fill" the product order form on
 [portal.vipps.no](https://portal.vipps.no)
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
+
+When the submitted order has been processed, Vipps sends an email to both the
+merchant and the partner, as described on
+[Vipps Partners](https://github.com/vippsas/vipps-partner).
 
 Sequence diagram:
 
