@@ -5,16 +5,12 @@ about their merchants and their sale units.
 
 API version: 0.0.2.
 
-Document version 1.3.0.
+Document version 1.4.0.
 
 ## Table of contents
 
 * [Information for Vipps partners](#information-for-vipps-partners)
 * [About this API: Background and priorities](#about-this-api-background-and-priorities)
-  * [Background](#background)
-  * [Priorities: Now](#priorities-now)
-  * [Priorities: Later](#priorities-later)
-  * [Priorities: At some point](#priorities-at-some-point)
 * [Partner keys](#partner-keys)
 * [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
   * [Future improvements](#future-improvements)
@@ -32,13 +28,11 @@ Please see:
 * [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
 * [Vipps Partners](https://github.com/vippsas/vipps-partner): Technical information for Vipps partners.
 
-## About this API: Background and priorities
-
-### Background
+## About this API
 
 Vipps wants to provide more self-service for partners.
 
-### Priorities: Done!
+### Current functionality
 
 1. Functionality to retrieve active MSNs for merchant connected to this partner:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchantDetails)
@@ -54,7 +48,7 @@ Vipps wants to provide more self-service for partners.
    See:
    [How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
 
-### Priorities: Later some time
+### Future plans
 
 4. Functionality to update an existing sale unit.
 
@@ -120,8 +114,14 @@ indicating this. Please double check your partner keys first, though.
 [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchant)
 
 This endpoint is for retrieving information about the merchant.
+
+Sequence diagram:
+![Get information about a merchant based on organization number](images/sequence-diagram-get-orgno.png)
+
 In the current version of the Partner API only returns a list of MSNs
 connected to the partner making the API request, but we _may_ extend this later.
+
+The response (see the Swagger spec for details):
 
 ```
 {
@@ -168,7 +168,10 @@ and
 
 This endpoint is for retrieving details about one sale unit (MSN).
 
-The current version of the API returns the following information (see the Swagger spec for details):
+Sequence diagram:
+![Get information about a sale unit based on MSN](images/sequence-diagram-get-msn.png)
+
+The response (see the Swagger spec for details):
 
 ```
 {
@@ -222,6 +225,9 @@ This endpoint lets a partner "pre-fill" the product order form on
 [portal.vipps.no](https://portal.vipps.no)
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
+
+Sequence diagram:
+![Submit a product order for a merchant](images/sequence-diagram-get-prefill.png)
 
 Here is a sample request, but as this API is new: Always refer to the
 API specification for the details.
