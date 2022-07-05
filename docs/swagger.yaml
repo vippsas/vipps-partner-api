@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: '0.9.8'
+  version: '1.1.0'
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -9,8 +9,7 @@ info:
     More information: https://github.com/vippsas/vipps-partner-api
   contact:
     name: Vipps AS
-    email: integration@vipps.no
-    url: 'https://vipps.no/'
+    url: 'https://github.com/vippsas/vipps-developers'
 servers:
   - url: 'https://api.vipps.no/partner-api'
     description: Vipps Partner API
@@ -32,7 +31,7 @@ paths:
         Partners can submit data that pre-fills the order form, so the merchant
         can review the information and submit the product order on portal.vipps.no.
         Please note complianceData and website information are required for VIPPS_PA_NETT product type.
-        Partners can still submit the product orders without them but the merchant will have to fill 
+        Partners can still submit the product orders without them but the merchant will have to fill
         website and complaince data information manually in the merchant portal product order form and submit.
       tags:
         - Vipps Product Orders
@@ -350,7 +349,15 @@ components:
           description: The type of product ordered for the merchant
         mcc:
           type: string
-          description: Merchant category code. See https://www.iso.org/standard/33365.html
+          description: |
+            Merchant category code: Four digits specifying the merchant's line of business.
+            Vipps is required to obtain this for all merchants, and it is unfortunately
+            not possible to automatically set the MCC based on the
+            Norwegian "næringskode" (https://www.ssb.no/klass/klassifikasjoner/6)
+            or the European Union's NACE (https://ec.europa.eu/competition/mergers/cases/index/nace_all.html).
+            See: ISO: https://www.iso.org/standard/33365.html,
+            GitHub: https://github.com/greggles/mcc-codes,
+            Visa: https://usa.visa.com/content/dam/VCOM/download/merchants/visa-merchant-data-standards-manual.pdf
           pattern: '^[0-9]{4}$'
           minLength: 4
           maxLength: 4
@@ -768,4 +775,3 @@ components:
         pattern: ^\d{5,6}$
         type: string
         example: 123456
-        

@@ -3,9 +3,9 @@
 The Vipps Partner API lets partners use their partner keys to retrieve information
 about their merchants and their sale units.
 
-API version: 0.0.2.
+API version: 1.0.0.
 
-Document version 1.5.0.
+Document version 1.5.2.
 
 ## Table of contents
 
@@ -218,6 +218,9 @@ API specification for the details.
 The merchant can not change the information provided by the partner, so if
 something needs to be corrected, the merchant must contact the partner to have
 the partner submit a new product order with the correct details.
+
+This may be useful:
+[Typical reasons for delays](https://github.com/vippsas/vipps-partner/blob/main/README.md#typical-reasons-for-delays).
 
 ### Future improvements
 
