@@ -5,12 +5,11 @@ about their merchants and their sale units.
 
 API version: 0.0.2.
 
-Document version 1.4.1.
+Document version 1.5.0.
 
 ## Table of contents
 
 * [Information for Vipps partners](#information-for-vipps-partners)
-* [About this API: Background and priorities](#about-this-api-background-and-priorities)
 * [Partner keys](#partner-keys)
 * [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
   * [Future improvements](#future-improvements)
@@ -20,6 +19,7 @@ Document version 1.4.1.
   * [In the meantime](#in-the-meantime)
 * [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)  
   * [Future improvements](#future-improvements-2)
+* [Future plans for this API](#future-plans-for-this-api)
 * [Questions?](#questions)
 
 ## Information for Vipps partners
@@ -27,52 +27,6 @@ Document version 1.4.1.
 Please see:
 * [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
 * [Vipps Partners](https://github.com/vippsas/vipps-partner): Technical information for Vipps partners.
-
-## About this API
-
-Vipps wants to provide more self-service for partners.
-
-### Current functionality
-
-1. Functionality to retrieve active MSNs for merchant connected to this partner:
-   [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchantDetails)
-
-2. Functionality for retrieving details about one sale unit based on MSN:
-   [`GET:/salesunits/{msn}`](https://vippsas.github.io/vipps-partner-api/#/Salesunits/getMSN)
-
-3. Functionality to sign up a new merchant and create a new sale unit.
-   Partners can "pre-fill" as much as possible for the merchant
-   [`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product),
-   but the merchant will have to verify the information and sign with BankID on
-   [portal.vipps.no](https://portal.vipps.no).
-   See:
-   [How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
-
-### Future plans
-
-4. Functionality to update an existing sale unit.
-
-   Changes to a sale unit currently requires BankID login to
-   [portal.vipps.no](https://portal.vipps.no)
-   but a partner should be able to make changes to the sale units connected to
-   the partner.
-
-   Some candidates:
-   * Status: Deactivate and activate MSNs
-   * Name: Update
-   * Capture type: Change from "reserve capture" or "direct capture"
-   * Skip landing page: Activate or deactivate
-   * Price: Update
-   * Logo: Update
-
-   In the meantime:
-   Merchants can create a user for their parter on
-   [portal.vipps.no](https://portal.vipps.no),
-   so the partner can do this directly
-   as described here:
-   [Partner keys](https://github.com/vippsas/vipps-partner#partner-keys)
-   and
-   [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
 
 ### Integrating with this API
 
@@ -264,6 +218,30 @@ We may allow the merchant to change some of the data pre-filled by the
 partner, but this is not trivial. If the merchant changes any data, the
 partner must be notified and also get the updated data - then merge&sync that
 with the "old" data that was sent in the first place.
+
+## Future plans for this API
+
+Changes to a sale unit currently requires BankID login to
+[portal.vipps.no](https://portal.vipps.no)
+but a partner should be able to make changes to the sale units connected to
+the partner.
+
+Some candidates:
+* Status: Deactivate and activate MSNs
+* Name: Update
+* Capture type: Change from "reserve capture" or "direct capture"
+* Skip landing page: Activate or deactivate
+* Price: Update
+* Logo: Update
+
+In the meantime:
+Merchants can create a user for their parter on
+[portal.vipps.no](https://portal.vipps.no),
+so the partner can do this directly
+as described here:
+[Partner keys](https://github.com/vippsas/vipps-partner#partner-keys)
+and
+[How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
 
 ## Questions?
 
