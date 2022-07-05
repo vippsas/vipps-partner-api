@@ -11,7 +11,7 @@ Document version 1.5.0.
 
 * [Information for Vipps partners](#information-for-vipps-partners)
   * [Integrating with this API](#integrating-with-this-api)
-* [Partner keys](#partner-keys)
+  * [Partner keys](#partner-keys)
 * [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
   * [Future improvements](#future-improvements)
   * [In the meantime](#in-the-meantime)
@@ -53,7 +53,7 @@ the following priority:
   or
   [which capture type it has](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-do-i-turn-direct-capture-on-or-off).
 
-## Partner keys
+### Partner keys
 
 All partners can use their
 [partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
