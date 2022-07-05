@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 0.0.2.
 
-Document version 1.4.0.
+Document version 1.4.1.
 
 ## Table of contents
 
@@ -116,6 +116,7 @@ indicating this. Please double check your partner keys first, though.
 This endpoint is for retrieving information about the merchant.
 
 Sequence diagram:
+
 ![Get information about a merchant based on organization number](images/sequence-diagram-get-orgno.png)
 
 In the current version of the Partner API only returns a list of MSNs
