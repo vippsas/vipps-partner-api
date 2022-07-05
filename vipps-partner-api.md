@@ -124,6 +124,7 @@ and
 This endpoint is for retrieving details about one sale unit (MSN).
 
 Sequence diagram:
+
 ![Get information about a sale unit based on MSN](images/sequence-diagram-get-msn.png)
 
 The response (see the Swagger spec for details):
