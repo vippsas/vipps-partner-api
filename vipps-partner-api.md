@@ -221,7 +221,7 @@ the partner submit a new product order with the correct details.
 
 Due to how the pricing information for a partner is set up internally, it is important
 for the partner to send in correct information for `pricePakcageKey` in the request. 
-Please note, it is not the PriceId (3 digit) but the name such as standard, price1, etc 
+Please note, it is not the PriceId (3 digit) but the name such as "standard", "price1", etc 
 that is applicable to the partner. If the correct pricePackageKey is not sent in the request, 
 product order form in the merchant portal will not be prefilled when the merchant logs in using the `returnUrl`.
 We are working on simplifying this in the future.
