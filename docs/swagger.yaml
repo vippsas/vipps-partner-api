@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: '1.1.0'
+  version: '1.1.1'
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -112,6 +112,30 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Problem'
+        '405':
+          description: Request method not supported
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '429':
+          description: Too Many Requests
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '500':
+          description: Server Error
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /v0/merchants/{orgno}:
     get:
       tags:
@@ -133,43 +157,49 @@ paths:
             type: string
             example: 987654321
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/GetOrg'
-        400:
+        '400':
           description: Invalid request, check request parameters
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        401:
+        '401':
           description: Unauthorized
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/MiddlewareError'
-        403:
+        '403':
           description: Forbidden
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        404:
+        '404':
           description: Item does not exist
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        405:
+        '405':
           description: Request method not supported
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        500:
+        '429':
+          description: Too Many Requests
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '500':
           description: Internal server error
           content:
             application/json;charset=UTF-8:
