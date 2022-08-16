@@ -25,12 +25,12 @@
 		},
 		{
 			"key": "orgno",
-			"value": "<Use the merchantSerialNumber from getMsn or from registered merchant>",
+			"value": "<Use the organization number which must be minimum 9 digits>",
 			"enabled": true
 		},
 		{
 			"key": "base_url",
-			"value": "https://apitest.vipps.no",
+			"value": "https://api.vipps.no",
 			"enabled": true
 		},
 		{

@@ -3,110 +3,81 @@
 The Vipps Partner API lets partners use their partner keys to retrieve information
 about their merchants and their sale units.
 
-API version: 0.0.2.
+API version: 1.0.0.
 
-Document version 1.1.2.
+Document version 1.5.2.
 
 ## Table of contents
 
 * [Information for Vipps partners](#information-for-vipps-partners)
-* [About this API: Background and priorities](#about-this-api-background-and-priorities)
-  * [Background](#background)
-  * [Priorities: Now](#priorities-now)
-  * [Priorities: Later](#priorities-later)
-  * [Priorities: At some point](#priorities-at-some-point)
-* [Partner keys](#partner-keys)
+  * [Integrating with this API](#integrating-with-this-api)
+  * [Partner keys](#partner-keys)
 * [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
   * [Future improvements](#future-improvements)
   * [In the meantime](#in-the-meantime)
 * [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
-  * [Future improvements](#future-improvements-1)
+  * [Future improvements](#future-improvements)
   * [In the meantime](#in-the-meantime)
-* [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)  
-  * [Future improvements](#future-improvements-2)
+* [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)
+  * [Future improvements](#future-improvements)
+* [Future plans for this API](#future-plans-for-this-api)
 * [Questions?](#questions)
 
 ## Information for Vipps partners
 
-Please see:
 * [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
 * [Vipps Partners](https://github.com/vippsas/vipps-partner): Technical information for Vipps partners.
-
-## About this API: Background and priorities
-
-### Background
-
-Vipps wants to provide more self-service for partners.
-
-### Priorities: Now
-
-1. Functionality to retrieve active MSNs for merchant connected to this partner:
-   [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchantDetails)
-
-2. Functionality for retrieving details about one sale unit based on MSN:
-   [`GET:/salesunits/{msn}`](https://vippsas.github.io/vipps-partner-api/#/Salesunits/getMSN)
-
-3. Functionality to sign up a new merchant and create a new sale unit.
-   Partners can "pre-fill" as much as possible for the merchant
-   [`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product),
-   but the merchant will have to verify the information and sign with BankID on
-   [portal.vipps.no](https://portal.vipps.no).
-   See:
-   [How to sign up new merchants](https://github.com/vippsas/vipps-partner#how-to-sign-up-new-merchants).
-
-### Priorities: At some point
-
-4. Functionality to update an existing sale unit.
-
-   Changes to a sale unit currently requires BankID login to
-   [portal.vipps.no](https://portal.vipps.no)
-   but a partner should be able to make changes to the sale units connected to
-   the partner.
-
-   Some candidates:
-   * Status: Deactivate and activate MSNs
-   * Name: Update
-   * Capture type: Change from "reserve capture" or "direct capture"
-   * Skip landing page: Activate or deactivate
-   * Price: Update
-   * Logo: Update
-
-   In the meantime:
-   Merchants can create a user for their parter on
-   [portal.vipps.no](https://portal.vipps.no),
-   so the partner can do this directly
-   as described here:
-   [Partner keys](https://github.com/vippsas/vipps-partner#partner-keys)
-   and
-   [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
 
 ### Integrating with this API
 
 Integration should be straight-forward.
-Use the partner keys.
+Use the
+[partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
 See the Postman collection and environment, and the
 [Postman guide](vipps-partner-postman.md).
 
 The Postman collection can also be used to manually make API calls,
 even without an integration in place.
 
-## Partner keys
+**Please note:** Vipps has limited capacity to handle partners' requests to
+"just check something", even though it may be trivial. We therefore recommend
+the following priority:
+1. Integrate with the Partner API, so the functionality is made available
+   in the partner's own admin interface.
+2. Use the Partner API manually with the Postman collection provided by Vipps.
+3. Ask the merchant to create a user for the partner on portal.vipps.no,
+   so the partner can check on behalf of the merchant:
+   [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).  
+4. See the eCom FAQ for how to check if a sale unit
+  [has skipLandingPage](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+  or
+  [which capture type it has](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-do-i-turn-direct-capture-on-or-off).
 
-This API requires
+### Partner keys
+
+All partners can use their
 [partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
+to use the Partner API. If you have partner keys, you have access to the
+Partner API.
 
-If you are using partner keys you have access to the Partner API.
-
-**Please note:** Some partners may need an internal Vipps update of their API product package
-to get access. Contact your partner manager if you get errors indicating this.
+**Please note:** Some partners may need an internal Vipps update of their API
+product package to get access. Contact your partner manager if you get errors
+indicating this. Please double check your partner keys first, though.
 
 ## Get information about a merchant based on organization number
 
 [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchant)
 
 This endpoint is for retrieving information about the merchant.
+
+Sequence diagram:
+
+![Get information about a merchant based on organization number](images/sequence-diagram-get-orgno.png)
+
 In the current version of the Partner API only returns a list of MSNs
 connected to the partner making the API request, but we _may_ extend this later.
+
+The response (see the Swagger spec for details):
 
 ```
 {
@@ -153,7 +124,11 @@ and
 
 This endpoint is for retrieving details about one sale unit (MSN).
 
-The current version of the API returns the following information (see the Swagger spec for details):
+Sequence diagram:
+
+![Get information about a sale unit based on MSN](images/sequence-diagram-get-msn.png)
+
+The response (see the Swagger spec for details):
 
 ```
 {
@@ -169,7 +144,8 @@ The current version of the API returns the following information (see the Swagge
 }
 ```
 
-The `orgno` is included to make it posible to find out which merchant a MSN belongs to.
+The `orgno` is included to make it possible to find out which merchant a MSN
+belongs to, which is useful if only the MSN is known.
 
 ### Future improvements
 
@@ -190,10 +166,15 @@ Until more functionality is available in this API, there are some workarounds:
 
 ## Submit a product order for a merchant
 
-**Important:** This endpoint is not yet available.
-This notice will be removed when it is.
-The plan is to make this endpoint available mid June, pending some final tweaks,
-security testing, etc.
+**Important:** This endpoint is available for all partners in the
+production environment, but there may be some minor changes. We will do our
+utmost to avoid breaking changes, but we can not guarantee it.
+As mentioned in the
+[README](https://github.com/vippsas/vipps-partner-api/blob/main/README.md):
+This is a new API, so feedback is welcome!
+Please try to use GitHub's
+[issue](https://github.com/vippsas/vipps-partner-api/issues)
+functionality, so we can avoid multiple parallel discussions in various channels.
 
 [`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product)
 
@@ -202,36 +183,82 @@ This endpoint lets a partner "pre-fill" the product order form on
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
 
-This is some of the information the partner can send (see the API specification
-for more):
+When the submitted order has been processed, Vipps sends an email to both the
+merchant and the partner, as described on
+[Vipps Partners](https://github.com/vippsas/vipps-partner).
+
+Sequence diagram:
+
+![Submit a product order for a merchant](images/sequence-diagram-prefill.png)
+
+Here is a sample request, but as this API is new: Always refer to the
+API specification for the details.
 
 ```
-"orgno": "987654321",
-"salesUnitName": "My point of sale",
-"salesUnitLogo": "VGhlIGltYWdlIGdvZXMgaGVyZQ==",
-"settlementAccountNumber": "86011117947",
-"pricePackageKey": "posstandard",
-"productType": "VIPPS_PA_NETT",
-"mcc": "5200",
-"annualTurnover": "100000",
-"intendedPurpose": "Membership fee for gym",
-"website": {
-  "url": "https://example.com",
-  "termsUrl": "https://example.com/terms-and-conditions",
-  "testWebSiteUrl": "https://test.example.com",
-  "testWebsiteUsername": "test-user",
-  "testWebsitePassword": "test-password"
+{
+  "orgno": "987654321",
+  "salesUnitName": "ACME Fantastic Fitness",
+  "salesUnitLogo": "VGhlIGltYWdlIGdvZXMgaGVyZQ==",
+  "settlementAccountNumber": "86011117947",
+  "pricePackageKey": "posstandard",
+  "productType": "VIPPS_PA_NETT",
+  "mcc": "5200",
+  "annualTurnover": "100000",
+  "intendedPurpose": "Gym membership",
+  "website": {
+    "url": "https://example.com",
+    "termsUrl": "https://example.com/terms-and-conditions",
+    "testWebSiteUrl": "https://test.example.com",
+    "testWebsiteUsername": "test-user",
+    "testWebsitePassword": "test-password"
+  },
+}
 ```
 
 The merchant can not change the information provided by the partner, so if
 something needs to be corrected, the merchant must contact the partner to have
 the partner submit a new product order with the correct details.
 
+Due to how the pricing information for a partner is set up internally, it is important
+for the partner to send in correct information for `pricePackageKey` in the request. 
+Please note, it is not the PriceId (3 digit) but the name such as "standard", "price1", etc 
+that is applicable to the partner. If the correct pricePackageKey is not sent in the request, 
+product order form in the merchant portal will not be prefilled when the merchant logs in using the `returnUrl`.
+We are working on simplifying this in the future.
+
+This may be useful:
+[Typical reasons for delays](https://github.com/vippsas/vipps-partner/blob/main/README.md#typical-reasons-for-delays).
+
 ### Future improvements
 
 We may allow the merchant to change some of the data pre-filled by the
-partner, but this is not trivial. The updated data must also be made available
-for the partner.
+partner, but this is not trivial. If the merchant changes any data, the
+partner must be notified and also get the updated data - then merge&sync that
+with the "old" data that was sent in the first place.
+
+## Future plans for this API
+
+Changes to a sale unit currently requires BankID login to
+[portal.vipps.no](https://portal.vipps.no)
+but a partner should be able to make changes to the sale units connected to
+the partner.
+
+Some candidates:
+* Status: Deactivate and activate MSNs
+* Name: Update
+* Capture type: Change from "reserve capture" or "direct capture"
+* Skip landing page: Activate or deactivate
+* Price: Update
+* Logo: Update
+
+In the meantime:
+Merchants can create a user for their parter on
+[portal.vipps.no](https://portal.vipps.no),
+so the partner can do this directly
+as described here:
+[Partner keys](https://github.com/vippsas/vipps-partner#partner-keys)
+and
+[How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
 
 ## Questions?
 

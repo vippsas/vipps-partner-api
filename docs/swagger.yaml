@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: '0.9.7'
+  version: '1.1.1'
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -9,8 +9,7 @@ info:
     More information: https://github.com/vippsas/vipps-partner-api
   contact:
     name: Vipps AS
-    email: integration@vipps.no
-    url: 'https://vipps.no/'
+    url: 'https://github.com/vippsas/vipps-developers'
 servers:
   - url: 'https://api.vipps.no/partner-api'
     description: Vipps Partner API
@@ -22,16 +21,18 @@ tags:
   - name: Sales units
     description: Manage sales units
 paths:
-  /v0/products/orders:
+  /v1/products/orders:
     parameters: []
     post:
       summary: Order products on behalf of merchants
       operationId: orderProduct
       description: |
-        IMPORTANT: This endpoint is not yet available. This notice will be removed when it is.
         Order products on behalf of merchants:
         Partners can submit data that pre-fills the order form, so the merchant
         can review the information and submit the product order on portal.vipps.no.
+        Please note complianceData and website information are required for VIPPS_PA_NETT product type.
+        Partners can still submit the product orders without them but the merchant will have to fill
+        website and complaince data information manually in the merchant portal product order form and submit.
       tags:
         - Vipps Product Orders
       parameters:
@@ -111,6 +112,30 @@ paths:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Problem'
+        '405':
+          description: Request method not supported
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '429':
+          description: Too Many Requests
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '500':
+          description: Server Error
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /v0/merchants/{orgno}:
     get:
       tags:
@@ -132,43 +157,49 @@ paths:
             type: string
             example: 987654321
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/GetOrg'
-        400:
+        '400':
           description: Invalid request, check request parameters
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        401:
+        '401':
           description: Unauthorized
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/MiddlewareError'
-        403:
+        '403':
           description: Forbidden
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        404:
+        '404':
           description: Item does not exist
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        405:
+        '405':
           description: Request method not supported
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        500:
+        '429':
+          description: Too Many Requests
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+        '500':
           description: Internal server error
           content:
             application/json;charset=UTF-8:
@@ -289,7 +320,6 @@ components:
         - orgno
         - salesUnitName
         - settlementAccountNumber
-        - pricePackageKey
         - productType
         - mcc
         - annualTurnover
@@ -334,14 +364,13 @@ components:
           minLength: 1
           maxLength: 255
           example: posstandard
-          description: One of the price package that is registered for the partner in Vipps system.
+          description: One of the price packages that is registered for the partner in Vipps system. Please note, it is not the PriceId (3 digit) but the name such as "standard", "price1", etc that is applicable to the partner.
         productType:
           type: string
           enum:
             - VIPPS_BEDRIFT
             - VIPPS_PA_NETT
             - VIPPS_LOGG_INN
-            - VIPPS_FAKTURA
             - VIPPS_CHECKOUT
             - VIPPS_SENERE
             - VIPPS_I_KASSA
@@ -349,7 +378,15 @@ components:
           description: The type of product ordered for the merchant
         mcc:
           type: string
-          description: Merchant category code. See https://www.iso.org/standard/33365.html
+          description: |
+            Merchant category code: Four digits specifying the merchant's line of business.
+            Vipps is required to obtain this for all merchants, and it is unfortunately
+            not possible to automatically set the MCC based on the
+            Norwegian "næringskode" (https://www.ssb.no/klass/klassifikasjoner/6)
+            or the European Union's NACE (https://ec.europa.eu/competition/mergers/cases/index/nace_all.html).
+            See: ISO: https://www.iso.org/standard/33365.html,
+            GitHub: https://github.com/greggles/mcc-codes,
+            Visa: https://usa.visa.com/content/dam/VCOM/download/merchants/visa-merchant-data-standards-manual.pdf
           pattern: '^[0-9]{4}$'
           minLength: 4
           maxLength: 4
@@ -357,6 +394,7 @@ components:
         annualTurnover:
           type: integer
           minimum: 0
+          maximum: 9223372036854775807
           format: int64
           description: Annual turnover for the merchant in NOK (without øre).
           example: 100000
