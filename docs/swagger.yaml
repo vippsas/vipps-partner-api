@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: '1.1.1'
+  version: '1.1.2'
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -225,43 +225,43 @@ paths:
             pattern: ^\d{5,6}$
             type: string
       responses:
-        200:
+        '200':
           description: OK
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/SalesUnit'
-        400:
+        '400':
           description: Invalid request, check request parameters
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        401:
+        '401':
           description: Unauthorized
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/MiddlewareError'
-        403:
+        '403':
           description: Forbidden
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        404:
+        '404':
           description: Item does not exist
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        405:
+        '405':
           description: Request method not supported
           content:
             application/json;charset=UTF-8:
               schema:
                 $ref: '#/components/schemas/Error'
-        500:
+        '500':
           description: Internal server error
           content:
             application/json;charset=UTF-8:
@@ -301,7 +301,6 @@ components:
         extraDetails:
           type: array
           items:
-            type: object
             $ref: '#/components/schemas/ExtraDetails'
     ExtraDetails:
       type: object
@@ -334,12 +333,13 @@ components:
           description: Organisation number of the merchant for whom the partner is submitting the product order.
         salesUnitName:
           type: string
-          pattern: '^[a-zA-Z0-9- ]{1,30}$'
+          pattern: '^[\p{L}\p{M}0-9-_\s\.]{1,30}$'
           minLength: 1
           maxLength: 30
           example: ACME Fantastic Fitness
           description: The name of the point of sale that will be shown to the users in Vipps app or Vipps landing page.
         salesUnitLogo:
+          x-nullable: true
           type: string
           format: byte
           example: 'VGhlIGltYWdlIGdvZXMgaGVyZQ=='
@@ -359,15 +359,23 @@ components:
           example: '86011117947'
           description: The bank account number belonging to the organisation that will be used for settlement.
         pricePackageKey:
+          x-nullable: true
           type: string
           pattern: '^[a-zA-Z0-9-]{1,15}$'
           minLength: 1
           maxLength: 255
           example: posstandard
-          description: One of the price packages that is registered for the partner in Vipps system. Please note, it is not the PriceId (3 digit) but the name such as "standard", "price1", etc that is applicable to the partner.
+          description: Optional. One of the price package that is registered for the partner in Vipps system. Please note, it is not the PriceId (3 digit) but the name such as "standard", "price1", etc that is applicable to the partner. If the field is not provided, the merchant has to select it manually in the product order in merchant portal before submitting. 
         productType:
           type: string
           enum:
+            - VIPPS_BEDRIFT
+            - VIPPS_PA_NETT
+            - VIPPS_LOGG_INN
+            - VIPPS_CHECKOUT
+            - VIPPS_SENERE
+            - VIPPS_I_KASSA
+          x-enum-varnames:
             - VIPPS_BEDRIFT
             - VIPPS_PA_NETT
             - VIPPS_LOGG_INN
@@ -403,6 +411,8 @@ components:
           description: Description of the product or products that will be sold
           example: Gym membership
         website:
+          x-nullable: true
+          nullable: true
           type: object
           required:
             - url
@@ -421,23 +431,30 @@ components:
               description: The URL that points to the merchants sales terms
               example: 'https://example.com/terms-and-conditions'
             testWebsiteUrl:
+              x-nullable: true
               type: string
               format: URL
               pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
               description: The URL to the merchants test website
               example: 'https://test.example.com'
             testWebsiteUsername:
+              x-nullable: true
               type: string
               description: Username to log in on the test website
               example: test-user
             testWebsitePassword:
+              x-nullable: true
               type: string
               description: Password to log in on the test website
               example: test-password
         complianceData:
+          x-nullable: true
+          nullable: true
           type: object
           properties:
             giftCard:
+              x-nullable: true
+              nullable: true
               type: object
               required:
                 - isSalesPercentageLessThanTen
@@ -453,6 +470,8 @@ components:
                   description: For how long is the gift card valid after purchase
                   example: 3 years
             membership:
+              x-nullable: true
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -467,6 +486,8 @@ components:
                   description: Distribution of memberships in different periods that is being sold
                   example: 50% yearly 20% monthly
             subscription:
+              x-nullable: true
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -481,6 +502,8 @@ components:
                   description: Distribution of subscriptions in different periods that is being sold
                   example: 50% yearly 20% monthly
             course:
+              x-nullable: true
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -506,10 +529,13 @@ components:
                   default: false
                   example: false
                 onlineAccessibleTime:
+                  x-nullable: true
                   type: string
                   description: How long after purchase does a user have access to the course
                   example: for 3 months
             ticket:
+              x-nullable: true
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -524,6 +550,8 @@ components:
                   description: How long in advance of an event it is common to order and pay for a ticket
                   example: 10 weeks
             rent:
+              x-nullable: true
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -543,6 +571,8 @@ components:
                   description: How long the average rental period is
                   example: 3 weeks
             prepaidServices:
+              x-nullable: true
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -557,6 +587,8 @@ components:
                   description: How long in advance of a service it is common to order and pay
                   example: 10 weeks
             donation:
+              x-nullable: true
+              nullable: true
               type: object
               required:
                 - acceptsDonation
@@ -710,55 +742,6 @@ components:
           example: MSN must be at least five digits
           x-order: 2
       description: Problem details
-  responses:
-    400:
-      description: Invalid request, check request parameters
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    401:
-      description: Unauthorized
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/MiddlewareError'
-    403:
-      description: Forbidden
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    404:
-      description: Item does not exist
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    405:
-      description: Request method not supported
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    409:
-      description: Idempotent conflict
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    422:
-      description: Unprocessable Entity
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    500:
-      description: Internal server error
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     Bearer-Authorization:
       name: Authorization
@@ -773,7 +756,7 @@ components:
       schema:
         type: string
         example: 81b83246-5c19-7b94-875b-ea6d1114f099
-      description: 'Idempotency key for the request, ensures idempotent actions'
+      description: 'Idempotency key for the request, ensures idempotent actions. Not required, but recommended.'
     Ocp-APIM-Subscription-Key:
       name: Ocp-Apim-Subscription-Key
       in: header
