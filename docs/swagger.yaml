@@ -333,7 +333,7 @@ components:
           description: Organisation number of the merchant for whom the partner is submitting the product order.
         salesUnitName:
           type: string
-          pattern: '^[\p{L}\p{M}\d\-_\+\s\.]{1,30}$'
+          pattern: '^[\p{L}\p{M}\d\\(\)-_\+\s\.]+$'
           minLength: 1
           maxLength: 30
           example: ACME Fantastic Fitness
