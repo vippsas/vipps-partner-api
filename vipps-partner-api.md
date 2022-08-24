@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 1.5.2.
+Document version 1.6.0.
 
 ## Table of contents
 
@@ -18,6 +18,7 @@ Document version 1.5.2.
 * [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
   * [Future improvements](#future-improvements)
   * [In the meantime](#in-the-meantime)
+* [Get API keys based on MSN](#get-api-keys-based-on-msn)
 * [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)
   * [Future improvements](#future-improvements)
 * [Future plans for this API](#future-plans-for-this-api)
@@ -163,6 +164,31 @@ Until more functionality is available in this API, there are some workarounds:
 
 * [How can I check if I have "reserve capture" or "direct capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
 * [How can I check if I have skipLandingPage activated?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-skiplandingpage-activated)
+
+## Get API keys based on MSN
+
+Partners can only use the partner keys when the merchant is not able to access them.
+Partners that are not able to hide or protect the partner keys from merchants
+must use the merchant's own API keys. This endpoint lets the partner retrieve
+the merchant's own API keys for a specific MSN.
+
+`GET:/saleunits/{msn}/api-keys`
+
+The response (see the Swagger spec for details):
+
+```
+{
+  "msn": 123456,
+  "client_id": "fb492b5e-7907-4d83-ba20-c7fb60ca35de",
+  "client_secret": "Y8Kteew6GE2ZmeycEt6egg==",
+  "Vipps-Subscription-Key": "0f14ebcab0ec4b29ae0cb90d91b4a84a"
+}
+```
+
+The API only returns the primary API key.
+It is not possible to regenerate keys using the API.
+If the MSN is not registered with the partner making the API call the response
+will be `HTTP 404 Not Found`, as we do not "leak" information.
 
 ## Submit a product order for a merchant
 
