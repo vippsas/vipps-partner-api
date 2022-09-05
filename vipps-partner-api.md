@@ -11,7 +11,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 1.5.3.
+Document version 1.5.4.
 
 <!-- START_TOC -->
 
@@ -208,8 +208,7 @@ Sequence diagram:
 
 ![Submit a product order for a merchant](images/sequence-diagram-prefill.png)
 
-Here is a sample request, but as this API is new: Always refer to the
-API specification for the details.
+Here is a sample request:
 
 ```
 {
@@ -232,15 +231,18 @@ API specification for the details.
 }
 ```
 
-The merchant can not change the information provided by the partner, so if
+**Please note:** The merchant can not change the information provided by the partner, so if
 something needs to be corrected, the merchant must contact the partner to have
 the partner submit a new product order with the correct details.
+For instance: The partner name and the price package name is displayed, but can not be changed.
 
-Due to how the pricing information for a partner is set up internally, it is important
-for the partner to send in correct information for `pricePackageKey` in the request.
-Please note, it is not the PriceId (3 digit) but the name such as "standard", "price1", etc
-that is applicable to the partner. If the correct pricePackageKey is not sent in the request,
-product order form in the merchant portal will not be prefilled when the merchant logs in using the `returnUrl`.
+It is important for the partner to send in correct information for `pricePackageKey` in the request.
+It the price package _name_ name such as "standard", "price1", etc. that must be used,
+not the three-digit `priceId`.
+If the correct `pricePackageKey` is not sent in the request,
+the product order form in the merchant portal will not be prefilled when the
+merchant logs in using the `returnUrl`, and the merchant can the4n select
+from all the partner's prices.
 We are working on simplifying this in the future.
 
 This may be useful:
