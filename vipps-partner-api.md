@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 1.6.0.
+Document version 1.6.1.
 
 ## Table of contents
 
@@ -201,6 +201,13 @@ This is a new API, so feedback is welcome!
 Please try to use GitHub's
 [issue](https://github.com/vippsas/vipps-partner-api/issues)
 functionality, so we can avoid multiple parallel discussions in various channels.
+
+**Please note:** This endpoint can only be used for merchants that already have
+a customer relationship with Vipps. If the merchant does no have this,
+a merchant agreement must first be established by the merchant on
+[portal.vipps.no](https://portal.vipps.no).
+We are aware that this is not ideal, and we are working on simplifying this,
+but we wanted to make this endpoint available sooner rather than later.
 
 [`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product)
 
