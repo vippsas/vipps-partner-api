@@ -1,3 +1,9 @@
+<!-- START_METADATA
+---
+title: API Guide
+sidebar_position: 12
+---
+END_METADATA -->
 # Vipps Partner API
 
 The Vipps Partner API lets partners use their partner keys to retrieve information
@@ -6,6 +12,8 @@ about their merchants and their sale units.
 API version: 1.0.0.
 
 Document version 1.5.3.
+
+<!-- START_TOC -->
 
 ## Table of contents
 
@@ -22,6 +30,8 @@ Document version 1.5.3.
   * [Future improvements](#future-improvements)
 * [Future plans for this API](#future-plans-for-this-api)
 * [Questions?](#questions)
+
+<!-- END_TOC -->
 
 ## Information for Vipps partners
 
