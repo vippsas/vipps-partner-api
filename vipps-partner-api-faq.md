@@ -1,3 +1,10 @@
+<!-- START_METADATA
+---
+title: FAQ
+sidebar_position: 14
+---
+END_METADATA -->
+
 # Vipps Partner API FAQ
 
 The Vipps Partner API lets partners use their partner keys to retrieve information
@@ -18,11 +25,15 @@ API version: 0.0.1.
 
 Document version 0.0.3.
 
+<!-- START_TOC -->
+
 ## Table of contents
 
 * [When will it be possible to create a new merchant?](#when-will-it-be-possible-to-create-a-new-merchant)
 * [When will it be possible to change an existing sale unit?](#when-will-it-be-possible-to-change-an-existing-sale-unit)
 * [Questions?](#questions)
+
+<!-- END_TOC -->
 
 ## When will it be possible to create a new merchant?
 

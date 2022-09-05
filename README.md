@@ -1,3 +1,10 @@
+<!-- START_METADATA
+---
+title: Introduction
+sidebar_position: 1
+---
+END_METADATA -->
+
 # Vipps Partner API
 
 This is a new API, so feedback is very welcome!
