@@ -5,7 +5,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 1.5.2.
+Document version 1.5.3.
 
 ## Table of contents
 
@@ -183,6 +183,13 @@ This endpoint lets a partner "pre-fill" the product order form on
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
 
+**Please note:** This endpoint can only be used for merchants that already have
+a customer relationship with Vipps. If the merchant does no have this,
+a merchant agreement must first be established by the merchant on
+[portal.vipps.no](https://portal.vipps.no).
+We are aware that this is not ideal, and we are working on simplifying this,
+but we wanted to make this endpoint available sooner rather than later.
+
 When the submitted order has been processed, Vipps sends an email to both the
 merchant and the partner, as described on
 [Vipps Partners](https://github.com/vippsas/vipps-partner).
@@ -220,9 +227,9 @@ something needs to be corrected, the merchant must contact the partner to have
 the partner submit a new product order with the correct details.
 
 Due to how the pricing information for a partner is set up internally, it is important
-for the partner to send in correct information for `pricePackageKey` in the request. 
-Please note, it is not the PriceId (3 digit) but the name such as "standard", "price1", etc 
-that is applicable to the partner. If the correct pricePackageKey is not sent in the request, 
+for the partner to send in correct information for `pricePackageKey` in the request.
+Please note, it is not the PriceId (3 digit) but the name such as "standard", "price1", etc
+that is applicable to the partner. If the correct pricePackageKey is not sent in the request,
 product order form in the merchant portal will not be prefilled when the merchant logs in using the `returnUrl`.
 We are working on simplifying this in the future.
 
