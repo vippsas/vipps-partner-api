@@ -51,7 +51,7 @@ The documentation will be updated as soon as we have new information.
 
 We're always happy to help with code or other questions you might have!
 Please create an [issue](https://github.com/vippsas/vipps-api-api/issues),
-a [pull request](https://github.com/vippsas/vipps-part-api/pulls),
+a [pull request](https://github.com/vippsas/vipps-partner-api/pulls),
 or [contact us](https://github.com/vippsas/vipps-developers/blob/master/contact.md).
 
 Sign up for our [Technical newsletter for developers](https://github.com/vippsas/vipps-developers/tree/master/newsletters).
