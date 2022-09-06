@@ -193,7 +193,7 @@ This endpoint lets a partner "pre-fill" the product order form on
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
 
-**Please note:** This endpoint can only be used for merchants that already have
+**Please note:** This "pre-fill" will only be available for the merchant when they have
 a customer relationship with Vipps. If the merchant does no have this,
 a merchant agreement must first be established by the merchant on
 [portal.vipps.no](https://portal.vipps.no).
