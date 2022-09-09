@@ -11,7 +11,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 1.5.4.
+Document version 1.5.5.
 
 <!-- START_TOC -->
 
@@ -194,7 +194,7 @@ on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
 
 **Please note:** This "pre-fill" will only be available for the merchant when they have
-a customer relationship with Vipps. If the merchant does no have this,
+a customer relationship with Vipps. If the merchant does not have this,
 a merchant agreement must first be established by the merchant on
 [portal.vipps.no](https://portal.vipps.no).
 We are aware that this is not ideal, and we are working on simplifying this,
