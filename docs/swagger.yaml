@@ -56,7 +56,6 @@ paths:
                   settlementAccountNumber: "86011117947"
                   pricePackageKey: posstandard
                   productType: VIPPS_PA_NETT
-                  mcc: "5200"
                   annualTurnover: 100000
                   intendedPurpose: Gym membership
                   website:
@@ -381,22 +380,6 @@ components:
             - VIPPS_I_KASSA
           example: VIPPS_PA_NETT
           description: The type of product ordered for the merchant
-        mcc:
-          nullable: true
-          type: string
-          description: |
-            Merchant category code: Four digits specifying the merchant's line of business.
-            Vipps is required to obtain this for all merchants, and it is unfortunately
-            not possible to automatically set the MCC based on the
-            Norwegian "næringskode" (https://www.ssb.no/klass/klassifikasjoner/6)
-            or the European Union's NACE (https://ec.europa.eu/competition/mergers/cases/index/nace_all.html).
-            See: ISO: https://www.iso.org/standard/33365.html,
-            GitHub: https://github.com/greggles/mcc-codes,
-            Visa: https://usa.visa.com/content/dam/VCOM/download/merchants/visa-merchant-data-standards-manual.pdf
-          pattern: "^[0-9]{4}$"
-          minLength: 4
-          maxLength: 4
-          example: "5200"
         annualTurnover:
           type: integer
           minimum: 0
