@@ -23,7 +23,7 @@ We also have a short [getting started guide to Postman](https://github.com/vipps
 Import the collection by following the steps below:
 
 1. Click `Import` in the upper-left corner.
-2. Import the [vipps-partner-api-postman-collection.json](vipps-partner-api-postman-collection.json) file.
+2. Import the [vipps-partner-api-postman-collection.json](tools/vipps-partner-api-postman-collection.json) file.
 
 ### Step 2: Import the Postman Environment
 
