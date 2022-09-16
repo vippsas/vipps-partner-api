@@ -84,7 +84,7 @@ Sequence diagram:
 
 ![Get information about a merchant based on organization number](images/sequence-diagram-get-orgno.png)
 
-In the current version of the Partner API only returns a list of MSNs
+The current version of the Partner API only returns a list of MSNs
 connected to the partner making the API request, but we _may_ extend this later.
 
 The response (see the Swagger spec for details):
