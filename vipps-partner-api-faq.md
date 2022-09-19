@@ -23,7 +23,7 @@ guide.
 
 API version: 0.0.1.
 
-Document version 0.0.3.
+Document version 0.0.4.
 
 <!-- START_TOC -->
 

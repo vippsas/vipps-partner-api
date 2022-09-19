@@ -11,7 +11,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 1.5.5.
+Document version 1.5.6.
 
 <!-- START_TOC -->
 
@@ -52,6 +52,7 @@ even without an integration in place.
 **Please note:** Vipps has limited capacity to handle partners' requests to
 "just check something", even though it may be trivial. We therefore recommend
 the following priority:
+
 1. Integrate with the Partner API, so the functionality is made available
    in the partner's own admin interface.
 2. Use the Partner API manually with the Postman collection provided by Vipps.
@@ -76,7 +77,7 @@ indicating this. Please double check your partner keys first, though.
 
 ## Get information about a merchant based on organization number
 
-[`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-partner-api/#/Merchants/getMerchant)
+[`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant)
 
 This endpoint is for retrieving information about the merchant.
 
@@ -89,7 +90,7 @@ connected to the partner making the API request, but we _may_ extend this later.
 
 The response (see the Swagger spec for details):
 
-```
+```json
 {
   "msn": [
     "123456"
@@ -109,6 +110,7 @@ See:
 Future versions of the API will _probably_ return more information,
 and we will work with our partners to find out what is useful and possible.
 Some candidates:
+
 * Company address
 * Contact information for the main person (depends on GDPR, etc)
 * Contact information for the technical person (depends on GDPR, etc)
@@ -130,7 +132,7 @@ and
 
 ## Get information about a sale unit based on MSN
 
-[`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-partner-api/#/Salesunits/getMSN)
+[`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN)
 
 This endpoint is for retrieving details about one sale unit (MSN).
 
@@ -140,7 +142,7 @@ Sequence diagram:
 
 The response (see the Swagger spec for details):
 
-```
+```json
 {
   "msn": "123456",
   "name": "ACME Fantastic Fitness",
@@ -186,7 +188,7 @@ Please try to use GitHub's
 [issue](https://github.com/vippsas/vipps-partner-api/issues)
 functionality, so we can avoid multiple parallel discussions in various channels.
 
-[`POST:/products/orders`](https://vippsas.github.io/vipps-partner-api/#/Vipps%20Product%20Orders/order-product)
+[`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 
 This endpoint lets a partner "pre-fill" the product order form on
 [portal.vipps.no](https://portal.vipps.no)
@@ -210,7 +212,7 @@ Sequence diagram:
 
 Here is a sample request:
 
-```
+```json
 {
   "orgno": "987654321",
   "salesUnitName": "ACME Fantastic Fitness",
@@ -263,6 +265,7 @@ but a partner should be able to make changes to the sale units connected to
 the partner.
 
 Some candidates:
+
 * Status: Deactivate and activate MSNs
 * Name: Update
 * Capture type: Change from "reserve capture" or "direct capture"
