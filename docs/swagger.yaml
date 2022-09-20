@@ -6,7 +6,7 @@ info:
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
     merchants) and sales units.
-    More information: https://github.com/vippsas/vipps-partner-api
+    See the [API Guide]https://vippsas.github.io/vipps-developer-docs/docs/APIs/partner-api) for more information.
   contact:
     name: Vipps AS
     url: "https://github.com/vippsas/vipps-developers"
