@@ -98,7 +98,10 @@ The response (see the Swagger spec for details):
 
 ```json
 {
-  "msn": ["123456"]
+  "msn": [
+     "123456",
+     "123457"
+   ]
 }
 ```
 
