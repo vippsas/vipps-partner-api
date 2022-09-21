@@ -259,7 +259,7 @@ This may be useful:
 
 ### Scenario where the merchant does not have a Merchant Agreement with Vipps
 
-In order to get approved to have a product (i.e Ecom or Recurring payments) with Vipps the merchant must first have a formal agreement with Vipps. Referred to as a Merchant Agreement. This is the current flow for the Merchant with or without a Merchant agreement when Prefill is used. We are actively looking to improve the user experience in the case where Prefill is used without a Merchant Agreement.
+In order to get approved to have a product (i.e eCom or Recurring payments) with Vipps the merchant must first have a formal agreement with Vipps. Referred to as a Merchant Agreement. This is the current flow for the Merchant with or without a Merchant agreement when Prefill is used. We are actively looking to improve the user experience in the case where Prefill is used without a Merchant Agreement.
 
 The state flow can be described as follows.
 
