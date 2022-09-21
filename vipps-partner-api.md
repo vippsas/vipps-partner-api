@@ -1,9 +1,12 @@
-<!-- START_METADATA
----
+## <!-- START_METADATA
+
 title: API Guide
 sidebar_position: 12
+
 ---
+
 END_METADATA -->
+
 # Vipps Partner API
 
 The Vipps Partner API lets partners use their partner keys to retrieve information
@@ -17,26 +20,27 @@ Document version 1.5.6.
 
 ## Table of contents
 
-* [Information for Vipps partners](#information-for-vipps-partners)
-  * [Integrating with this API](#integrating-with-this-api)
-  * [Partner keys](#partner-keys)
-* [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
-  * [Future improvements](#future-improvements)
-  * [In the meantime](#in-the-meantime)
-* [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
-  * [Future improvements](#future-improvements)
-  * [In the meantime](#in-the-meantime)
-* [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)
-  * [Future improvements](#future-improvements)
-* [Future plans for this API](#future-plans-for-this-api)
-* [Questions?](#questions)
+- [Information for Vipps partners](#information-for-vipps-partners)
+  - [Integrating with this API](#integrating-with-this-api)
+  - [Partner keys](#partner-keys)
+- [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
+  - [Future improvements](#future-improvements)
+  - [In the meantime](#in-the-meantime)
+- [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
+  - [Future improvements](#future-improvements-1)
+  - [In the meantime](#in-the-meantime-1)
+- [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)
+  - [Scenario where Merchant does not have a Merchant Agreement with Vipps](#scenario-where-merchant-does-not-have-a-merchant-agreement-with-vipps)
+  - [Future improvements](#future-improvements-2)
+- [Future plans for this API](#future-plans-for-this-api)
+- [Questions?](#questions)
 
 <!-- END_TOC -->
 
 ## Information for Vipps partners
 
-* [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
-* [Vipps Partners](https://github.com/vippsas/vipps-partner): Technical information for Vipps partners.
+- [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
+- [Vipps Partners](https://github.com/vippsas/vipps-partner): Technical information for Vipps partners.
 
 ### Integrating with this API
 
@@ -58,11 +62,11 @@ the following priority:
 2. Use the Partner API manually with the Postman collection provided by Vipps.
 3. Ask the merchant to create a user for the partner on portal.vipps.no,
    so the partner can check on behalf of the merchant:
-   [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).  
+   [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
 4. See the eCom FAQ for how to check if a sale unit
-  [has skipLandingPage](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
-  or
-  [which capture type it has](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-do-i-turn-direct-capture-on-or-off).
+   [has skipLandingPage](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+   or
+   [which capture type it has](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-do-i-turn-direct-capture-on-or-off).
 
 ### Partner keys
 
@@ -93,8 +97,9 @@ The response (see the Swagger spec for details):
 ```json
 {
   "msn": [
-    "123456"
-  ]
+     "123456",
+     "123457"
+   ]
 }
 ```
 
@@ -111,11 +116,11 @@ Future versions of the API will _probably_ return more information,
 and we will work with our partners to find out what is useful and possible.
 Some candidates:
 
-* Company address
-* Contact information for the main person (depends on GDPR, etc)
-* Contact information for the technical person (depends on GDPR, etc)
-* A list of people with admin rights on portal.vipps.no (depends on GDPR, etc)
-* Changelog: What was changed when by who?
+- Company address
+- Contact information for the main person (depends on GDPR, etc)
+- Contact information for the technical person (depends on GDPR, etc)
+- A list of people with admin rights on portal.vipps.no (depends on GDPR, etc)
+- Changelog: What was changed when by who?
 
 ### In the meantime
 
@@ -165,16 +170,16 @@ Future versions of the API will _probably_ return more information,
 and we will work with our partners to find out what is useful and possible.
 Some candidates:
 
-* Vipps products: Which Vipps products and APIs are available for this MSN ("eCom API", "Recurring API", "Login API", etc).
-* Transaction cost (price package)
-* Status: Active or deactivated
+- Vipps products: Which Vipps products and APIs are available for this MSN ("eCom API", "Recurring API", "Login API", etc).
+- Transaction cost (price package)
+- Status: Active or deactivated
 
 ### In the meantime
 
 Until more functionality is available in this API, there are some workarounds:
 
-* [How can I check if I have "reserve capture" or "direct capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
-* [How can I check if I have skipLandingPage activated?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-skiplandingpage-activated)
+- [How can I check if I have "reserve capture" or "direct capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+- [How can I check if I have skipLandingPage activated?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-skiplandingpage-activated)
 
 ## Submit a product order for a merchant
 
@@ -229,7 +234,7 @@ Here is a sample request:
     "testWebSiteUrl": "https://test.example.com",
     "testWebsiteUsername": "test-user",
     "testWebsitePassword": "test-password"
-  },
+  }
 }
 ```
 
@@ -250,6 +255,20 @@ We are working on simplifying this in the future.
 This may be useful:
 [Typical reasons for delays](https://github.com/vippsas/vipps-partner/blob/main/README.md#typical-reasons-for-delays).
 
+### Scenario where the merchant does not have a Merchant Agreement with Vipps
+
+In order to get approved to have a product (i.e eCom or Recurring payments) with Vipps the merchant must first have a formal agreement with Vipps. Referred to as a Merchant Agreement. This is the current flow for the Merchant with or without a Merchant agreement when Prefill is used. We are actively looking to improve the user experience in the case where Prefill is used without a Merchant Agreement.
+
+The state flow can be described as follows.
+
+![Merchant agreement flow](images/merchant-agreement-flow.png)
+
+The merchant will now see the prefilled product order waiting for them in the portal under "Produktbestillinger klare til innsendelse" in their home screen. (see highlighted area in image)
+
+![example-portal-with-preorder](images/example-portal-with-preorder-waiting.png)
+
+Alternatively the URL created in the initial prefill can be reused for up to 15 days.
+
 ### Future improvements
 
 We may allow the merchant to change some of the data pre-filled by the
@@ -266,12 +285,12 @@ the partner.
 
 Some candidates:
 
-* Status: Deactivate and activate MSNs
-* Name: Update
-* Capture type: Change from "reserve capture" or "direct capture"
-* Skip landing page: Activate or deactivate
-* Price: Update
-* Logo: Update
+- Status: Deactivate and activate MSNs
+- Name: Update
+- Capture type: Change from "reserve capture" or "direct capture"
+- Skip landing page: Activate or deactivate
+- Price: Update
+- Logo: Update
 
 In the meantime:
 Merchants can create a user for their parter on
