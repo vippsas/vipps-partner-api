@@ -20,22 +20,20 @@ Document version 1.5.6.
 
 ## Table of contents
 
-- [Vipps Partner API](#vipps-partner-api)
-  - [Table of contents](#table-of-contents)
-  - [Information for Vipps partners](#information-for-vipps-partners)
-    - [Integrating with this API](#integrating-with-this-api)
-    - [Partner keys](#partner-keys)
-  - [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
-    - [Future improvements](#future-improvements)
-    - [In the meantime](#in-the-meantime)
-  - [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
-    - [Future improvements](#future-improvements-1)
-    - [In the meantime](#in-the-meantime-1)
-  - [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)
-    - [Scenario where Merchant does not have a Merchant Agreement with Vipps](#scenario-where-merchant-does-not-have-a-merchant-agreement-with-vipps)
-    - [Future improvements](#future-improvements-2)
-  - [Future plans for this API](#future-plans-for-this-api)
-  - [Questions?](#questions)
+- [Information for Vipps partners](#information-for-vipps-partners)
+  - [Integrating with this API](#integrating-with-this-api)
+  - [Partner keys](#partner-keys)
+- [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
+  - [Future improvements](#future-improvements)
+  - [In the meantime](#in-the-meantime)
+- [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
+  - [Future improvements](#future-improvements-1)
+  - [In the meantime](#in-the-meantime-1)
+- [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)
+  - [Scenario where Merchant does not have a Merchant Agreement with Vipps](#scenario-where-merchant-does-not-have-a-merchant-agreement-with-vipps)
+  - [Future improvements](#future-improvements-2)
+- [Future plans for this API](#future-plans-for-this-api)
+- [Questions?](#questions)
 
 <!-- END_TOC -->
 
