@@ -28,7 +28,7 @@ Review the [Getting Started](https://github.com/vippsas/vipps-developers/blob/ma
 The API is available for all partners using
 [partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
 
-This repository contains developer resources for the Vipps Partner API PoC.
+This repository contains developer resources for the Vipps Partner API.
 
 * [Vipps Partner API guide](vipps-partner-api.md): Developer guide for Vipps Partner API.
 * API Reference](https://vippsas.github.io/vipps-developer-docs/api/partner): Partner API Specifications.
