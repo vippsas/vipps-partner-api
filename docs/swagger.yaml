@@ -1,12 +1,12 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: "1.1.2"
+  version: "1.2.0"
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
     merchants) and sales units.
-    See the [API Guide]https://vippsas.github.io/vipps-developer-docs/docs/APIs/partner-api) for more information.
+    More information: https://github.com/vippsas/vipps-partner-api
   contact:
     name: Vipps AS
     url: "https://github.com/vippsas/vipps-developers"
@@ -360,8 +360,15 @@ components:
           pattern: "^[a-zA-Z0-9-]{1,15}$"
           minLength: 1
           maxLength: 255
+          deprecated: true
           example: posstandard
-          description: Optional. One of the price packages that are registered for the partner in the Vipps system. Please note, it is not the PriceId (3 digit), but the name, such as "standard", "price1", etc, that is applicable to the partner. If the field is not provided, the merchant must select it manually from the product order section of the merchant portal before submitting.
+          description: (deprecated) Optional. One of the price packages that are registered for the partner in the Vipps system. Please note, it is not the PriceId (3 digit), but the name, such as "standard", "price1", etc, that is applicable to the partner. If the field is not provided, the merchant must select it manually from the product order section of the merchant portal before submitting. 
+        pricePackageId:
+          type: string
+          format: uuid
+          nullable: true
+          example: "8a11afb7-c223-48ed-8ca6-4722b97261aa"
+          description: Optional. One of the price packages that are registered for the partner in the Vipps system. Please note, it is not the PriceId (3 digit) but a new uuid, that is applicable to the partner. If the field is not provided, the merchant must select it manually from the product order section of the merchant portal before submitting. 
         productType:
           type: string
           enum:
