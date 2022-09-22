@@ -1,10 +1,8 @@
-## <!-- START_METADATA
-
+<!-- START_METADATA
+---
 title: API Guide
 sidebar_position: 12
-
 ---
-
 END_METADATA -->
 
 # Vipps Partner API
@@ -14,7 +12,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 1.5.6.
+Document version 1.5.7.
 
 <!-- START_TOC -->
 
