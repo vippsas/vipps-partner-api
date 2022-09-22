@@ -31,7 +31,7 @@ The API is available for all partners using
 This repository contains developer resources for the Vipps Partner API.
 
 * [Vipps Partner API guide](vipps-partner-api.md): Developer guide for Vipps Partner API.
-* API Reference](https://vippsas.github.io/vipps-developer-docs/api/partner): Partner API Specifications.
+* [API Reference](https://vippsas.github.io/vipps-developer-docs/api/partner): Partner API Specifications.
 
 ## Examples
 
