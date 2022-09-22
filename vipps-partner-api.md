@@ -1,7 +1,7 @@
-## <!-- START_METADATA
+<!-- START_METADATA
 
 title: API Guide
-sidebar_position: 12
+sidebar_position: 30
 
 ---
 
@@ -14,7 +14,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 1.5.6.
+Document version 1.5.7.
 
 <!-- START_TOC -->
 
@@ -30,7 +30,7 @@ Document version 1.5.6.
   - [Future improvements](#future-improvements-1)
   - [In the meantime](#in-the-meantime-1)
 - [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)
-  - [Scenario where Merchant does not have a Merchant Agreement with Vipps](#scenario-where-merchant-does-not-have-a-merchant-agreement-with-vipps)
+  - [Scenario where Merchant does not have a Merchant Agreement with Vipps](#scenario-where-the-merchant-does-not-have-a-merchant-agreement-with-vipps)
   - [Future improvements](#future-improvements-2)
 - [Future plans for this API](#future-plans-for-this-api)
 - [Questions?](#questions)
@@ -48,7 +48,7 @@ Integration should be straight-forward.
 Use the
 [partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
 See the Postman collection and environment, and the
-[Postman guide](vipps-partner-api-quick-start.md).
+[Quick start guide](vipps-partner-api-quick-start.md).
 
 The Postman collection can also be used to manually make API calls,
 even without an integration in place.
