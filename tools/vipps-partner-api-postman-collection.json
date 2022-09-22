@@ -1,13 +1,13 @@
 {
   "info": {
-    "_postman_id": "3f1d6b7c-dd03-45a1-a542-9f46b8412b46",
+    "_postman_id": "d17b1ada-d4b2-4c1a-9711-cd4b0a7e7d74",
     "name": "Vipps Partner API - Collection",
     "description": "The Vipps Partner API lets partners, banks and large corporations manage\ntheir merchants (for example, submit product orders on behalf of their\nmerchants) and sales units.\nMore information: https://github.com/vippsas/vipps-partner-api\n\n\nContact Support:\n Name: Vipps AS\n Email: integration@vipps.no",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "v0",
+      "name": "PartnerAPI",
       "item": [
         {
           "name": "Order products on behalf of merchants",
@@ -89,7 +89,7 @@
             "url": {
               "raw": "{{base_url}}/partner-api/v1/products/orders",
               "host": ["{{base_url}}"],
-              "path": ["partner-api", "v0", "products", "orders"]
+              "path": ["partner-api", "v1", "products", "orders"]
             },
             "description": "IMPORTANT: This endpoint is not yet available. This notice will be removed when it is. Order products on behalf of merchants:\nPartners can submit data that pre-fills the order form, so the merchant\ncan review the information and submit the product order on portal.vipps.no.\n"
           },
