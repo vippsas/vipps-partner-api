@@ -21,25 +21,16 @@ See also:
 [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md)
 guide.
 
-API version: 0.0.1.
-
-Document version 0.0.4.
+Document version 1.0.0.
 
 <!-- START_TOC -->
 
 ## Table of contents
 
-* [When will it be possible to create a new merchant?](#when-will-it-be-possible-to-create-a-new-merchant)
 * [When will it be possible to change an existing sale unit?](#when-will-it-be-possible-to-change-an-existing-sale-unit)
 * [Questions?](#questions)
 
 <!-- END_TOC -->
-
-## When will it be possible to create a new merchant?
-
-We are working on this now, as fast as we can!
-We know this is a very important feature, but can't give you a release date yet.
-The documentation will be updated as soon as we have new information.
 
 ## When will it be possible to change an existing sale unit?
 

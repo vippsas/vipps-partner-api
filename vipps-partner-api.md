@@ -1,10 +1,7 @@
 <!-- START_METADATA
-
 title: API Guide
 sidebar_position: 30
-
 ---
-
 END_METADATA -->
 
 # Vipps Partner API
