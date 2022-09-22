@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: '1.1.1'
+  version: "1.2.0"
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -9,9 +9,9 @@ info:
     More information: https://github.com/vippsas/vipps-partner-api
   contact:
     name: Vipps AS
-    url: 'https://github.com/vippsas/vipps-developers'
+    url: "https://github.com/vippsas/vipps-developers"
 servers:
-  - url: 'https://api.vipps.no/partner-api'
+  - url: "https://api.vipps.no/partner-api"
     description: Vipps Partner API
 tags:
   - name: Vipps Product Orders
@@ -36,8 +36,8 @@ paths:
       tags:
         - Vipps Product Orders
       parameters:
-        - $ref: '#/components/parameters/Ocp-APIM-Subscription-Key'
-        - $ref: '#/components/parameters/Idempotency-Key'
+        - $ref: "#/components/parameters/Ocp-APIM-Subscription-Key"
+        - $ref: "#/components/parameters/Idempotency-Key"
       security:
         - Bearer-Authorization: []
       requestBody:
@@ -46,23 +46,22 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductOrderRequest'
+              $ref: "#/components/schemas/ProductOrderRequest"
             examples:
               example-1:
                 value:
-                  orgno: '987654321'
+                  orgno: "987654321"
                   salesUnitName: ACME Fantastic Fitness
                   salesUnitLogo: VGhlIGltYWdlIGdvZXMgaGVyZQ==
-                  settlementAccountNumber: '86011117947'
+                  settlementAccountNumber: "86011117947"
                   pricePackageKey: posstandard
                   productType: VIPPS_PA_NETT
-                  mcc: '5200'
                   annualTurnover: 100000
                   intendedPurpose: Gym membership
                   website:
-                    url: 'https://example.com'
-                    termsUrl: 'https://example.com/terms-and-conditions'
-                    testWebsiteUrl: 'https://test.example.com'
+                    url: "https://example.com"
+                    termsUrl: "https://example.com/terms-and-conditions"
+                    testWebsiteUrl: "https://test.example.com"
                     testWebsiteUsername: test-user
                     testWebsitePassword: test-password
                   complianceData:
@@ -94,58 +93,58 @@ paths:
                     donation:
                       acceptDonations: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProductOrderResponse'
-        '400':
+                $ref: "#/components/schemas/ProductOrderResponse"
+        "400":
           description: Bad Request
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Problem'
-        '401':
+                $ref: "#/components/schemas/Problem"
+        "401":
           description: Unauthorized
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Problem'
-        '405':
+                $ref: "#/components/schemas/Problem"
+        "405":
           description: Request method not supported
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/Error'
-        '422':
+                $ref: "#/components/schemas/Problem"
+        "422":
           description: Unprocessable Entity
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Problem'
-        '429':
+                $ref: "#/components/schemas/Problem"
+        "429":
           description: Too Many Requests
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Problem'
-        '500':
+                $ref: "#/components/schemas/Problem"
+        "500":
           description: Server Error
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Problem'
+                $ref: "#/components/schemas/Problem"
   /v0/merchants/{orgno}:
     get:
       tags:
         - Merchants
       security:
-        - Bearer-Authorization: [ ]
+        - Bearer-Authorization: []
       summary: Get merchant by organization number
       operationId: getMerchant
       parameters:
-        - $ref: '#/components/parameters/Ocp-APIM-Subscription-Key'
+        - $ref: "#/components/parameters/Ocp-APIM-Subscription-Key"
         - name: orgno
           in: path
           description: The Organization number for the merchant
@@ -157,64 +156,64 @@ paths:
             type: string
             example: 987654321
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/GetOrg'
-        '400':
+                $ref: "#/components/schemas/GetOrg"
+        "400":
           description: Invalid request, check request parameters
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/Error'
-        '401':
+                $ref: "#/components/schemas/Error"
+        "401":
           description: Unauthorized
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/MiddlewareError'
-        '403':
+                $ref: "#/components/schemas/MiddlewareError"
+        "403":
           description: Forbidden
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/Error'
-        '404':
+                $ref: "#/components/schemas/Error"
+        "404":
           description: Item does not exist
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/Error'
-        '405':
+                $ref: "#/components/schemas/Error"
+        "405":
           description: Request method not supported
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/Error'
-        '429':
+                $ref: "#/components/schemas/Error"
+        "429":
           description: Too Many Requests
           content:
             application/problem+json:
               schema:
-                $ref: '#/components/schemas/Problem'
-        '500':
+                $ref: "#/components/schemas/Error"
+        "500":
           description: Internal server error
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
   /v0/salesunits/{msn}:
     get:
       tags:
         - Sales units
       security:
-        - Bearer-Authorization: [ ]
+        - Bearer-Authorization: []
       summary: Get sale unit details based on MSN
       operationId: getMSN
       parameters:
-        - $ref: '#/components/parameters/Ocp-APIM-Subscription-Key'
+        - $ref: "#/components/parameters/Ocp-APIM-Subscription-Key"
         - name: msn
           in: path
           description: The Vipps MSN (merchant serial number) for the sale unit.
@@ -225,48 +224,48 @@ paths:
             pattern: ^\d{5,6}$
             type: string
       responses:
-        200:
+        "200":
           description: OK
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/SalesUnit'
-        400:
+                $ref: "#/components/schemas/SalesUnit"
+        "400":
           description: Invalid request, check request parameters
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/Error'
-        401:
+                $ref: "#/components/schemas/Error"
+        "401":
           description: Unauthorized
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/MiddlewareError'
-        403:
+                $ref: "#/components/schemas/MiddlewareError"
+        "403":
           description: Forbidden
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/Error'
-        404:
+                $ref: "#/components/schemas/Error"
+        "404":
           description: Item does not exist
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/Error'
-        405:
+                $ref: "#/components/schemas/Error"
+        "405":
           description: Request method not supported
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/Error'
-        500:
+                $ref: "#/components/schemas/Error"
+        "500":
           description: Internal server error
           content:
             application/json;charset=UTF-8:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
 components:
   schemas:
     Problem:
@@ -276,73 +275,69 @@ components:
         type:
           type: string
           format: uri
-          example: 'https://example.com/problem/unauthorized'
+          example: "https://example.com/problem/unauthorized"
           description: A URI reference that identifies the problem type.
         title:
           type: string
-          example: 'Not authorized to create a product order'
-          description: 'A short, human-readable summary of the problem type.  It will not change from occurrence to occurrence of the problem.'
+          example: "Not authorized to create a product order"
+          description: "A short, human-readable summary of the problem type.  It will not change from occurrence to occurrence of the problem."
         status:
           type: integer
           description: The HTTP response code
           example: 401
         detail:
           type: string
-          example: 'Not authorized to create a product order. Check whether Authorization token and Ocp-Apim-Subscription-Key are correct.'
+          example: "Not authorized to create a product order. Check whether Authorization token and Ocp-Apim-Subscription-Key are correct."
           description: A human-readable explanation specific to this occurrence of the problem.
         instance:
           type: string
-          example: '/products/orders'
+          example: "/products/orders"
           description: A URI reference that identifies the specific occurrence of the problem
         traceId:
           type: string
-          example: '81b83246-5c19-7b94-875b-ea6d1114f099'
+          example: "81b83246-5c19-7b94-875b-ea6d1114f099"
           description: An id that can be used to facilitate in tracing the error.
         extraDetails:
           type: array
           items:
-            type: object
-            $ref: '#/components/schemas/ExtraDetails'
+            $ref: "#/components/schemas/ExtraDetails"
     ExtraDetails:
       type: object
       properties:
         key:
           type: string
-          example: 'CustomErrorCode'
+          example: "CustomErrorCode"
           description: Key
         value:
           type: string
-          example: '9000'
+          example: "9000"
           description: Value
     ProductOrderRequest:
       title: Product Order Request for a merchant
       required:
         - orgno
-        - salesUnitName
-        - settlementAccountNumber
         - productType
-        - mcc
-        - annualTurnover
-        - intendedPurpose
       properties:
         orgno:
           type: string
-          pattern: '^[0-9]{9,9}$'
+          pattern: "^[0-9]{9,9}$"
           minLength: 9
           maxLength: 9
-          example: '987654321'
+          example: "987654321"
           description: Organisation number of the merchant for whom the partner is submitting the product order.
         salesUnitName:
+          nullable: true
           type: string
-          pattern: '^[a-zA-Z0-9- ]{1,30}$'
+          pattern: '^[\p{L}\p{M}\d\\(\)-_\+\s\.]+$'
           minLength: 1
           maxLength: 30
           example: ACME Fantastic Fitness
           description: The name of the point of sale that will be shown to the users in Vipps app or Vipps landing page.
         salesUnitLogo:
+          nullable: true
           type: string
           format: byte
-          example: 'VGhlIGltYWdlIGdvZXMgaGVyZQ=='
+          example: "VGhlIGltYWdlIGdvZXMgaGVyZQ=="
           description: |
             Base64 encoded string of the logo of the merchant.
             The logo will be displayed in the Vipps app, both when paying and on receipts and also in Vipps landing page.
@@ -352,19 +347,28 @@ components:
             The minimum size is 100 x 100 pixels.
             Images not matching the above criteria will not be shown to the merchant in the merchant portal.
         settlementAccountNumber:
+          nullable: true
           type: string
-          pattern: '^[0-9]{11,11}$'
+          pattern: "^[0-9]{11,11}$"
           minLength: 11
           maxLength: 11
-          example: '86011117947'
+          example: "86011117947"
           description: The bank account number belonging to the organisation that will be used for settlement.
         pricePackageKey:
+          nullable: true
           type: string
-          pattern: '^[a-zA-Z0-9-]{1,15}$'
+          pattern: "^[a-zA-Z0-9-]{1,15}$"
           minLength: 1
           maxLength: 255
+          deprecated: true
           example: posstandard
-          description: One of the price packages that is registered for the partner in Vipps system. Please note, it is not the PriceId (3 digit) but the name such as "standard", "price1", etc that is applicable to the partner.
+          description: (deprecated) Optional. One of the price packages that are registered for the partner in the Vipps system. Please note, it is not the PriceId (3 digit), but the name, such as "standard", "price1", etc, that is applicable to the partner. If the field is not provided, the merchant must select it manually from the product order section of the merchant portal before submitting. 
+        pricePackageId:
+          type: string
+          format: uuid
+          nullable: true
+          example: "8a11afb7-c223-48ed-8ca6-4722b97261aa"
+          description: Optional. One of the price packages that are registered for the partner in the Vipps system. Please note, it is not the PriceId (3 digit) but a new uuid, that is applicable to the partner. If the field is not provided, the merchant must select it manually from the product order section of the merchant portal before submitting. 
         productType:
           type: string
           enum:
@@ -374,23 +378,15 @@ components:
             - VIPPS_CHECKOUT
             - VIPPS_SENERE
             - VIPPS_I_KASSA
+          x-enum-varnames:
+            - VIPPS_BEDRIFT
+            - VIPPS_PA_NETT
+            - VIPPS_LOGG_INN
+            - VIPPS_CHECKOUT
+            - VIPPS_SENERE
+            - VIPPS_I_KASSA
           example: VIPPS_PA_NETT
           description: The type of product ordered for the merchant
-        mcc:
-          type: string
-          description: |
-            Merchant category code: Four digits specifying the merchant's line of business.
-            Vipps is required to obtain this for all merchants, and it is unfortunately
-            not possible to automatically set the MCC based on the
-            Norwegian "næringskode" (https://www.ssb.no/klass/klassifikasjoner/6)
-            or the European Union's NACE (https://ec.europa.eu/competition/mergers/cases/index/nace_all.html).
-            See: ISO: https://www.iso.org/standard/33365.html,
-            GitHub: https://github.com/greggles/mcc-codes,
-            Visa: https://usa.visa.com/content/dam/VCOM/download/merchants/visa-merchant-data-standards-manual.pdf
-          pattern: '^[0-9]{4}$'
-          minLength: 4
-          maxLength: 4
-          example: '5200'
         annualTurnover:
           type: integer
           minimum: 0
@@ -402,7 +398,9 @@ components:
           type: string
           description: Description of the product or products that will be sold
           example: Gym membership
+          nullable: true
         website:
+          nullable: true
           type: object
           required:
             - url
@@ -413,31 +411,36 @@ components:
               format: URL
               pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
               description: The URL to the merchant's website
-              example: 'https://example.com'
+              example: "https://example.com"
             termsUrl:
               type: string
               format: URL
               pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
               description: The URL that points to the merchants sales terms
-              example: 'https://example.com/terms-and-conditions'
+              example: "https://example.com/terms-and-conditions"
             testWebsiteUrl:
+              nullable: true
               type: string
               format: URL
               pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
               description: The URL to the merchants test website
-              example: 'https://test.example.com'
+              example: "https://test.example.com"
             testWebsiteUsername:
+              nullable: true
               type: string
               description: Username to log in on the test website
               example: test-user
             testWebsitePassword:
+              nullable: true
               type: string
               description: Password to log in on the test website
               example: test-password
         complianceData:
+          nullable: true
           type: object
           properties:
             giftCard:
+              nullable: true
               type: object
               required:
                 - isSalesPercentageLessThanTen
@@ -453,6 +456,7 @@ components:
                   description: For how long is the gift card valid after purchase
                   example: 3 years
             membership:
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -467,6 +471,7 @@ components:
                   description: Distribution of memberships in different periods that is being sold
                   example: 50% yearly 20% monthly
             subscription:
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -481,6 +486,7 @@ components:
                   description: Distribution of subscriptions in different periods that is being sold
                   example: 50% yearly 20% monthly
             course:
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -506,10 +512,12 @@ components:
                   default: false
                   example: false
                 onlineAccessibleTime:
+                  nullable: true
                   type: string
                   description: How long after purchase does a user have access to the course
                   example: for 3 months
             ticket:
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -524,6 +532,7 @@ components:
                   description: How long in advance of an event it is common to order and pay for a ticket
                   example: 10 weeks
             rent:
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -543,6 +552,7 @@ components:
                   description: How long the average rental period is
                   example: 3 weeks
             prepaidServices:
+              nullable: true
               type: object
               required:
                 - turnoverShare
@@ -557,6 +567,7 @@ components:
                   description: How long in advance of a service it is common to order and pay
                   example: 10 weeks
             donation:
+              nullable: true
               type: object
               required:
                 - acceptsDonation
@@ -579,7 +590,7 @@ components:
           type: string
           format: uri
           description: A URL for the merchant to complete the signup.
-          example: 'https://portal.vipps.no/register/vippspanett/81b83246-5c19-7b94-875b-ea6d1114f099'
+          example: "https://portal.vipps.no/register/vippspanett/81b83246-5c19-7b94-875b-ea6d1114f099"
     SalesUnit:
       required:
         - msn
@@ -598,7 +609,7 @@ components:
         name:
           type: string
           description: "The sale unit's name"
-          example: 'ACME Fantastic Fitness'
+          example: "ACME Fantastic Fitness"
           x-order: 5
         orgno:
           type: string
@@ -710,55 +721,6 @@ components:
           example: MSN must be at least five digits
           x-order: 2
       description: Problem details
-  responses:
-    400:
-      description: Invalid request, check request parameters
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    401:
-      description: Unauthorized
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/MiddlewareError'
-    403:
-      description: Forbidden
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    404:
-      description: Item does not exist
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    405:
-      description: Request method not supported
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    409:
-      description: Idempotent conflict
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    422:
-      description: Unprocessable Entity
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
-    500:
-      description: Internal server error
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     Bearer-Authorization:
       name: Authorization
@@ -773,7 +735,7 @@ components:
       schema:
         type: string
         example: 81b83246-5c19-7b94-875b-ea6d1114f099
-      description: 'Idempotency key for the request, ensures idempotent actions'
+      description: "Idempotency key for the request, ensures idempotent actions. Not required, but recommended."
     Ocp-APIM-Subscription-Key:
       name: Ocp-Apim-Subscription-Key
       in: header
