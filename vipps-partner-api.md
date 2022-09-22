@@ -48,7 +48,7 @@ Integration should be straight-forward.
 Use the
 [partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
 See the Postman collection and environment, and the
-[Postman guide](vipps-partner-postman.md).
+[Postman guide](vipps-partner-api-quick-start.md).
 
 The Postman collection can also be used to manually make API calls,
 even without an integration in place.
