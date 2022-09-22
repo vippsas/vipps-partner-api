@@ -35,7 +35,7 @@ This repository contains developer resources for the Vipps Partner API.
 
 ## Examples
 
-* [Postman guide](vipps-partner-postman.md):  Step-by-step guide for using the Partner API Postman collection of examples of making API calls without the partner-side integration.
+* [Postman guide](vipps-partner-api-quick-start.md):  Step-by-step guide for using the Partner API Postman collection of examples of making API calls without the partner-side integration.
 
 ## Questions?
 
