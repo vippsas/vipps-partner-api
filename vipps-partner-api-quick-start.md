@@ -1,36 +1,42 @@
 <!-- START_METADATA
 ---
-title: Postman
-sidebar_position: 14
+title: Quick start
+sidebar_position: 20
 ---
 END_METADATA -->
 
-# Postman
+# Quick start
 
-[Postman](https://www.getpostman.com/) is a common tool for working with REST APIs.
-We offer a [Postman Collection](https://www.getpostman.com/collection) to make development easier.
-See the [Postman documentation](https://www.getpostman.com/docs/) for more information about using Postman.
+<!-- START_TOC -->
 
-By following the steps below, you can make calls to all the
-endpoints, and see the full `request` and `response` for each call.
+## Table of Contents
 
-We also have a short [getting started guide to Postman](https://github.com/vippsas/vipps-developers/blob/master/vipps-quick-start-guides.md).
+* [Postman](#postman)
+  * [Step 1: Get the Postman collection](#step-1-get-the-postman-collection)
+  * [Step 2: Import the Postman environment](#step-2-import-the-postman-environment)
+  * [Step 3: Set up Postman environment](#step-3-set-up-postman-environment)
+* [Make API calls](#make-api-calls)
+* [Questions?](#questions)
 
-## Setting up Postman
+<!-- END_TOC -->
 
-### Step 1: Get the Postman Collection
+Document version 1.0.1.
+
+## Postman
+
+### Step 1: Get the Postman collection
 
 Import the collection by following the steps below:
 
 1. Click `Import` in the upper-left corner.
 2. Import the [vipps-partner-api-postman-collection.json](tools/vipps-partner-api-postman-collection.json) file.
 
-### Step 2: Import the Postman Environment
+### Step 2: Import the Postman environment
 
 1. Click `Import` in the upper-left corner.
 2. Import the [vipps-partner-api-postman-environment.json](tools/vipps-partner-api-postman-environment.json) file.
 
-### Step 3: Setup Postman Environment
+### Step 3: Set up Postman environment
 
 1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
 2. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
@@ -43,7 +49,7 @@ Import the collection by following the steps below:
 
   The Partner API only works in the production environment, so `base_url` is set to `api.vipps.no`.
 
-### Step 4: Run Tests
+## Make API calls
 
 Be aware that these are running on the production server.
 Here is a proposed order of steps, but you can send most of these requests independently of each other.
@@ -52,6 +58,10 @@ Here is a proposed order of steps, but you can send most of these requests indep
 2. Send request `Get sale unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment. See [`GET:v0/salesunits/:msn/`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN).
 3. Send request `Get merchant by organization number` for details about the transaction. See [`GET:v0/merchants/:orgno`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
 4. Review the `Order products on behalf of merchants` to see an example of ordering products. Since this is running on the production server, you might not want to run it.  See [`POST:v0/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct).
+
+See the
+[API reference](https://vippsas.github.io/vipps-developer-docs/api/partner)
+for details about the calls.
 
 ## Questions?
 
