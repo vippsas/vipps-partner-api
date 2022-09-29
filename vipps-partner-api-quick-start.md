@@ -29,7 +29,7 @@ Be aware that these are running on the production server.
 
 <!-- END_TOC -->
 
-Document version 1.0.3.
+Document version 1.0.4.
 
 ## Postman
 
@@ -61,6 +61,7 @@ Save the following files to your computer:
    * `Ocp-Apim-Subscription-Key` - Partner subscription key is required for all requests.
    * `merchantSerialNumber` - Merchant ID is only required for `Get sale unit details based on MSN`, but can be included in all headers.
    * `orgno` -The Organization number for the merchant. It is only used in `Get merchant by organization number`.
+   * `base_url_production` - Set to: `https://api.vipps.no`.
 
   The Partner API only works in the production environment, so `base_url` is set to `api.vipps.no`.
 
