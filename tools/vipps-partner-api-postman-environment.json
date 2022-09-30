@@ -29,7 +29,7 @@
 			"enabled": true
 		},
 		{
-			"key": "base_url",
+			"key": "base_url_production",
 			"value": "https://api.vipps.no",
 			"enabled": true
 		},

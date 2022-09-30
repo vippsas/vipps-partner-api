@@ -29,14 +29,14 @@ Be aware that these are running on the production server.
 
 <!-- END_TOC -->
 
-Document version 1.0.3.
+Document version 1.0.4.
 
 ## Postman
 
 ### Prerequisites
 
 Review
-[Vipps quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-quick-start-guides) for information about getting your test environment set up.
+[Vipps quick start guides](https://github.com/vippsas/vipps-developers/blob/master/vipps-quick-start-guides.md) for information about getting your test environment set up.
 
 ### Step 1: Get the Vipps Postman collection and environment
 
@@ -61,6 +61,7 @@ Save the following files to your computer:
    * `Ocp-Apim-Subscription-Key` - Partner subscription key is required for all requests.
    * `merchantSerialNumber` - Merchant ID is only required for `Get sale unit details based on MSN`, but can be included in all headers.
    * `orgno` -The Organization number for the merchant. It is only used in `Get merchant by organization number`.
+   * `base_url_production` - Set to: `https://api.vipps.no`.
 
   The Partner API only works in the production environment, so `base_url` is set to `api.vipps.no`.
 

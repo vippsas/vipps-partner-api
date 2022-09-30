@@ -87,8 +87,8 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/partner-api/v1/products/orders",
-              "host": ["{{base_url}}"],
+              "raw": "{{base_url_production}}/partner-api/v1/products/orders",
+              "host": ["{{base_url_production}}"],
               "path": ["partner-api", "v1", "products", "orders"]
             },
             "description": "IMPORTANT: This endpoint is not yet available. This notice will be removed when it is. Order products on behalf of merchants:\nPartners can submit data that pre-fills the order form, so the merchant\ncan review the information and submit the product order on portal.vipps.no.\n"
@@ -146,8 +146,8 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/partner-api/v0/merchants/:orgno",
-              "host": ["{{base_url}}"],
+              "raw": "{{base_url_production}}/partner-api/v0/merchants/:orgno",
+              "host": ["{{base_url_production}}"],
               "path": ["partner-api", "v0", "merchants", ":orgno"],
               "variable": [
                 {
@@ -211,8 +211,8 @@
               }
             ],
             "url": {
-              "raw": "{{base_url}}/partner-api/v0/salesunits/:msn",
-              "host": ["{{base_url}}"],
+              "raw": "{{base_url_production}}/partner-api/v0/salesunits/:msn",
+              "host": ["{{base_url_production}}"],
               "path": ["partner-api", "v0", "salesunits", ":msn"],
               "variable": [
                 {
@@ -286,8 +286,8 @@
           "raw": ""
         },
         "url": {
-          "raw": "{{base_url}}/accessToken/get",
-          "host": ["{{base_url}}"],
+          "raw": "{{base_url_production}}/accessToken/get",
+          "host": ["{{base_url_production}}"],
           "path": ["accessToken", "get"]
         }
       },
