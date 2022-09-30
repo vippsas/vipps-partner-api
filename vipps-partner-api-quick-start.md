@@ -29,7 +29,7 @@ Be aware that these are running on the production server.
 
 <!-- END_TOC -->
 
-Document version 1.0.4.
+Document version 1.1.0.
 
 ## Postman
 
@@ -43,7 +43,7 @@ Review
 Save the following files to your computer:
 
 * [Vipps Partner API Postman collection](tools/vipps-partner-api-postman-collection.json)
-* [Vipps Partner API Postman environment](tools/vipps-partner-api-postman-environment.json)
+* [Vipps API Global Postman environment](https://github.com/vippsas/vipps-developers/blob/master/tools/vipps-api-global-postman-environment.json)
 
 ### Step 2: Import the Vipps Postman files
 
