@@ -2,15 +2,16 @@
 ---
 title: Introduction
 sidebar_position: 1
+hide_table_of_contents: true
 ---
 END_METADATA -->
 
 # Vipps Partner API
 
 This is a new API, so feedback is very welcome!
-Please try to use GitHub's
-[issue](https://github.com/vippsas/vipps-partner-api/issues)
-functionality, so we can avoid multiple parallel discussions in various channels.
+
+For technical information for Vipps partners, see
+[Vipps Partner Guide](https://github.com/vippsas/vipps-partner#vipps-partners).
 
 <!-- START_COMMENT -->
 
@@ -21,7 +22,9 @@ See the disclaimer: <https://vippsas.github.io/vipps-developer-docs/docs/example
 
 ## Getting started
 
-Review the [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md) pages for information about API keys, product activation, contact information, contribution guidelines, etc.
+Review the
+[Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md)
+pages for information about API keys, product activation, contact information, contribution guidelines, etc.
 
 ## Partner API
 
@@ -32,15 +35,10 @@ This repository contains developer resources for the Vipps Partner API.
 
 * [API Quick Start](vipps-partner-api-quick-start.md):  Quick start.
 * [API Guide](vipps-partner-api.md): Developer guide for Vipps Partner API.
+* [API FAQ](vipps-partner-api-faq.md): Questions and answers.
 * [API Reference](https://vippsas.github.io/vipps-developer-docs/api/partner): Partner API Specifications.
 
-
 ## Questions?
-
-For more information, see:
-
-* [Vipps Partner API FAQ](vipps-partner-api-faq.md): Questions and answers.
-* [Vipps Partner Guide](https://github.com/vippsas/vipps-partner#vipps-partners): Technical information for Vipps partners.
 
 We're always happy to help with code or other questions you might have!
 Please create an [issue](https://github.com/vippsas/vipps-partner-api/issues),
