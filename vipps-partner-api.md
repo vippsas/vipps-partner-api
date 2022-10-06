@@ -295,7 +295,11 @@ A merchant may order a Vipps product (submit a PO) with or without a Merchant Ag
 
 ----   
 
-Old text:
+
+
+Old image/text:
+
+![Merchant agreement flow](images/merchant-agreement-flow.png)
 
 >This is the current flow for the Merchant with or without a Merchant agreement
 >when
@@ -306,9 +310,6 @@ Old text:
 >
 >The state flow can be described as follows:
 >
-
-![Merchant agreement flow](images/merchant-agreement-flow.png)
-
 >The merchant will now see the prefilled product order waiting for them in the
 >portal under "Produktbestillinger klare til innsendelse" in their home screen.
 >(see highlighted area in image)
