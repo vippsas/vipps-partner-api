@@ -293,31 +293,6 @@ A merchant may order a Vipps product (submit a PO) with or without a Merchant Ag
    email when done. The partner can also check with the API:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant)
 
-----   
-
-
-
-Old image/text:
-
-![Merchant agreement flow](images/merchant-agreement-flow.png)
-
->This is the current flow for the Merchant with or without a Merchant agreement
->when
->[`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
->(called "prefill")
->is used. We are actively looking to improve the user experience in
->the case where this endpoint is used without a Merchant Agreement.
->
->The state flow can be described as follows:
->
->The merchant will now see the prefilled product order waiting for them in the
->portal under "Produktbestillinger klare til innsendelse" in their home screen.
->(see highlighted area in image)
-
-![example-portal-with-preorder](images/example-portal-with-preorder-waiting.png)
-
-Alternatively the URL created in the initial prefill can be reused for up to 15 days.
-
 #### Scenario 2: The merchant has a Merchant Agreement that is being processed
 
 The merchant has (very) recently submitted a MA, but Vipps has not
@@ -330,6 +305,9 @@ complated processing of it.
    logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no)
    💥 _*the merchant does not see the prefilled PO*_ 💥
+
+**Please note:** Processing a MA can take time. See:
+[Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/#typical-reasons-for-delays).
 
 #### Scenario 3: The merchant has a Merchant Agreement
 
