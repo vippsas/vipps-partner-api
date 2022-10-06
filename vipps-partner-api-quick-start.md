@@ -7,6 +7,13 @@ END_METADATA -->
 
 # Quick start
 
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
+
 Use the Partner API to get details for sale units or merchants.
 In addition, you can order products on behalf of merchants.
 

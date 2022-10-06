@@ -10,6 +10,13 @@ END_METADATA -->
 
 # Vipps Partner API
 
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
+
 This is a new API, so feedback is very welcome!
 
 For technical information for Vipps partners, see

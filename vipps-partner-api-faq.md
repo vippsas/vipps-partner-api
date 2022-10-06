@@ -7,6 +7,13 @@ END_METADATA -->
 
 # Vipps Partner API FAQ
 
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+
+<!-- END_COMMENT -->
+
 The Vipps Partner API lets partners use their partner keys to retrieve information
 about their merchants and their sale units.
 
