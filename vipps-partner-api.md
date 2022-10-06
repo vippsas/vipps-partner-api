@@ -318,6 +318,11 @@ completed processing of it.
    [portal.vipps.no](https://portal.vipps.no).
 3. 💥 WHAT HAPPENS HERE? The URL does not work, and only shows a blank page? 💥
 
+Tip: If the partner does not know if the merchant has recently submitted a MA
+the partner can try searching for the merchant's orgno in the Vips app.
+If there is a hit, the merchant has an approved MA.
+We understand that this is not ideal.
+
 **Please note:** Processing a MA can take time. See:
 [Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/#typical-reasons-for-delays).
 
