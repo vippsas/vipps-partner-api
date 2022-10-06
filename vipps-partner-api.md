@@ -280,6 +280,13 @@ be able to accept Vipps payments:
 
 A merchant may order a Vipps product (submit a PO) with or without a Merchant Agreement (MA).
 
+**Please note:** The only method Vipps has to verify that a user has the right
+to sign a MA for a merchant is by using data from
+[Brønnøysundregistrene](https://brreg.no).
+It is therefore a requirement that the user logging in on
+[portal.vipps.no](https://portal.vipps.no)
+is registered as chairman of the board ("styreleder") or CEO ("daglig leder"). 
+
 #### Scenario 1: The merchant does not have a Merchant Agreement
 
 1. The partner prefills the PO using
