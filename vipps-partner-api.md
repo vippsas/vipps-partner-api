@@ -285,13 +285,13 @@ to sign a MA for a merchant is by using data from
 [Brønnøysundregistrene](https://brreg.no).
 It is therefore a requirement that the user logging in on
 [portal.vipps.no](https://portal.vipps.no)
-is registered as chairman of the board ("styreleder") or CEO ("daglig leder"). 
+is registered as chairman of the board ("styreleder") or CEO ("daglig leder").
 
 #### Scenario 1: The merchant does not have a Merchant Agreement
 
 1. The partner prefills the PO using
    [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and get a link to the prefilled PO on
+   and gets a link to the prefilled PO on
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant user uses the link and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
@@ -311,7 +311,7 @@ completed processing of it.
 
 1. The partner prefills the PO using
    [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and get a link to the prefilled PO on
+   and gets a link to the prefilled PO on
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant uses the link to the prefilled PO,
    logs in with BankID on
@@ -328,7 +328,7 @@ It can be Vippsnummer or a different product.
 
 1. The partner prefills the PO using
    [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and get a link to the prefilled PO on
+   and gets a link to the prefilled PO on
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant is presented with the prefilled PO,
    checks the details in the PO and submits it.
