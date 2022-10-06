@@ -203,12 +203,12 @@ functionality, so we can avoid multiple parallel discussions in various channels
 
 [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 
-This endpoint lets a partner "pre-fill" the product order form on
+This endpoint lets a partner "prefill" the product order form on
 [portal.vipps.no](https://portal.vipps.no)
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
 
-**Please note:** This "pre-fill" will only be available for the merchant when they have
+**Please note:** This "prefill" will only be available for the merchant when they have
 a customer relationship with Vipps. If the merchant does not have this,
 a merchant agreement must first be established by the merchant on
 [portal.vipps.no](https://portal.vipps.no).
@@ -343,7 +343,7 @@ It can be Vippsnummer or a different product.
 
 ### Future improvements
 
-We may allow the merchant to change some of the data pre-filled by the
+We may allow the merchant to change some of the data prefilled by the
 partner, but this is not trivial. If the merchant changes any data, the
 partner must be notified and also get the updated data - then merge&sync that
 with the "old" data that was sent in the first place.
