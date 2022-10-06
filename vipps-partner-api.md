@@ -308,8 +308,8 @@ completed processing of it.
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant uses the link to the prefilled PO,
    logs in with BankID on
-   [portal.vipps.no](https://portal.vipps.no)
-   💥 WHAT HAPPENS HERE? 💥
+   [portal.vipps.no](https://portal.vipps.no).
+3. 💥 WHAT HAPPENS HERE? 💥
 
 **Please note:** Processing a MA can take time. See:
 [Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/#typical-reasons-for-delays).
