@@ -284,27 +284,32 @@ A merchant may order a Vipps product (submit a PO) with or without a Merchant Ag
 
 1. The partner prefills the PO using
    [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and get a link to the prefilled PO.
-2. The merchant uses the link to the prefilled PO,
-   logs in with BankID on
-   [portal.vipps.no](https://portal.vipps.no)
+   and get a link to the prefilled PO on
+   [portal.vipps.no](https://portal.vipps.no).
+2. The merchant user uses the link and logs in with BankID on
+   [portal.vipps.no](https://portal.vipps.no).
+3. Based on the prefilled data and the BankID login,
+   the merchant is presented with the form(s) for the MA.
+4. The merchant completes and submits the MA for processing.   
+5. The merchant is presented with the prefilled PO,
    checks the details in the PO and submits it.
-3. Vipps processes the PO and sends both the merchant and partner an
+6. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
-   [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant)
+   [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
 
 #### Scenario 2: The merchant has a Merchant Agreement that is being processed
 
 The merchant has (very) recently submitted a MA, but Vipps has not
-complated processing of it.
+completed processing of it.
 
 1. The partner prefills the PO using
    [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and get a link to the prefilled PO.
+   and get a link to the prefilled PO on
+   [portal.vipps.no](https://portal.vipps.no).
 2. The merchant uses the link to the prefilled PO,
    logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no)
-   💥 _*the merchant does not see the prefilled PO*_ 💥
+   💥 WHAT HAPPENS HERE? 💥
 
 **Please note:** Processing a MA can take time. See:
 [Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/#typical-reasons-for-delays).
@@ -316,14 +321,13 @@ It can be Vippsnummer or a different product.
 
 1. The partner prefills the PO using
    [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and get a link to the prefilled PO.
-2. The merchant uses the link to the prefilled PO,
-   logs in with BankID on
-   [portal.vipps.no](https://portal.vipps.no)
+   and get a link to the prefilled PO on
+   [portal.vipps.no](https://portal.vipps.no).
+2. The merchant is presented with the prefilled PO,
    checks the details in the PO and submits it.
 3. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
-   [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant)
+  [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
 
 ### Future improvements
 
