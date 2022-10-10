@@ -286,6 +286,7 @@ to sign a MA for a merchant is by using data from
 It is therefore a requirement that the user logging in on
 [portal.vipps.no](https://portal.vipps.no)
 is registered as chairman of the board ("styreleder") or CEO ("daglig leder").
+The user will then automatically be presented with the prefilled PO.
 
 #### Scenario 1: The merchant does not have a Merchant Agreement
 
