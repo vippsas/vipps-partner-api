@@ -266,7 +266,7 @@ This may be useful:
 ### Scenarios
 
 In order to get approved to have a product ("Vipps på nett", "Vipps Login", etc)
-with Vipps the merchant must first have a formal agreement with Vipps, called
+with Vipps, the merchant must first have a formal agreement with Vipps, called
 the Merchant Agreement (MA).
 
 Merchants need both a Merchant Agreement (MA) and a Product Order (PO) to
