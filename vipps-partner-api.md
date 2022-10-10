@@ -19,7 +19,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 2.0.3.
+Document version 2.0.4.
 
 <!-- START_TOC -->
 
@@ -271,8 +271,10 @@ be able to accept Vipps payments:
 * PO: This is an order for "Vipps på nett", "Vipps Login", etc. The merchant
   must provide some information about the use, whether the cardholder is
   present, etc. The PO is not signed with BankID.
+  A merchant may have several Vipps products, each created with a separate PO.
 
-A merchant may order a Vipps product (submit a PO) with or without a Merchant Agreement (MA).
+A merchant may order a Vipps product (submit a PO) with or without an existing
+Merchant Agreement (MA).
 
 **Please note:** The only method Vipps has to verify that a user has the right
 to sign a MA for a merchant is by using data from
