@@ -288,6 +288,8 @@ It is therefore a requirement that the user logging in on
 is registered as chairman of the board ("styreleder") or CEO ("daglig leder").
 The user will then automatically be presented with the prefilled PO.
 
+#### Flowchart
+
 ![Illustration of PO and MA flow](images/merchant-agreement-flow.png)
 
 #### Scenario 1: The merchant does not have a Merchant Agreement
@@ -318,27 +320,11 @@ The user will then automatically be presented with the prefilled PO.
 The merchant has (very) recently submitted a MA, but Vipps has not
 completed processing of it.
 
-1. The partner prefills the PO using
-   [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and gets a link to the prefilled PO on
-   [portal.vipps.no](https://portal.vipps.no).
-2. The merchant uses the link to the prefilled PO,
-   logs in with BankID on
-   [portal.vipps.no](https://portal.vipps.no).
-3. 💥 WHAT HAPPENS HERE? The URL does not work, and only shows a blank page? 💥
-
-Tip: If the partner does not know if the merchant has recently submitted a MA
-the partner can try searching for the merchant's orgno in the Vips app.
-If there is a hit, the merchant has an approved MA.
-We understand that this is not ideal.
-
-**Please note:** Processing a MA can take time. See:
-[Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/#typical-reasons-for-delays).
+This is the same as scenario 1: The merchant is now on step 4.
 
 #### Scenario 3: The merchant has a Merchant Agreement
 
-The merchant has a MA, and probably also a Vipps product form before.
-It can be Vippsnummer or a different product.
+The merchant has a MA, and probably also a Vipps product.
 
 1. The partner prefills the PO using
    [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
