@@ -275,7 +275,7 @@ be able to accept Vipps payments:
   The MA contains information about all direct and indirect owners, any
   politically exposed persons, etc. The MA is signed with BankID.
 * PO: This is an order for "Vipps på nett", "Vipps Login", etc. The merchant
-  must provide some information about thew use, whether the3 cardholder is
+  must provide some information about the use, whether the cardholder is
   present, etc. The PO is not signed with BankID.
 
 A merchant may order a Vipps product (submit a PO) with or without a Merchant Agreement (MA).
