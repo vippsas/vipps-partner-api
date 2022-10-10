@@ -19,7 +19,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 2.0.1.
+Document version 2.0.2.
 
 <!-- START_TOC -->
 
@@ -332,10 +332,14 @@ The merchant has a MA, and probably also a Vipps product.
 
 ### Future improvements
 
-We may allow the merchant to change some of the data prefilled by the
-partner, but this is not trivial. If the merchant changes any data, the
-partner must be notified and also get the updated data - then merge and sync that
-with the "old" data that was sent in the first place.
+* We aim to handle alle the scenarios above in the same way: The partner
+  only uses the
+  [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct),
+  and Vipps handles all the details.
+* We may allow the merchant to change some of the data prefilled by the
+  partner, but this is not trivial. If the merchant changes any data, the
+  partner must be notified and also get the updated data - then merge and sync that
+  with the "old" data that was sent in the first place.
 
 ## Future plans for this API
 
