@@ -19,7 +19,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 1.6.0.
+Document version 2.0.0.
 
 <!-- START_TOC -->
 
@@ -36,6 +36,7 @@ Document version 1.6.0.
   * [In the meantime](#in-the-meantime)
 * [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)
   * [Scenarios](#scenarios)
+    * [Flowchart](#flowchart)
     * [Scenario 1: The merchant does not have a Merchant Agreement](#scenario-1-the-merchant-does-not-have-a-merchant-agreement)
     * [Scenario 2: The merchant has a Merchant Agreement that is being processed](#scenario-2-the-merchant-has-a-merchant-agreement-that-is-being-processed)
     * [Scenario 3: The merchant has a Merchant Agreement](#scenario-3-the-merchant-has-a-merchant-agreement)
@@ -207,13 +208,6 @@ This endpoint lets a partner "prefill" the product order form on
 [portal.vipps.no](https://portal.vipps.no)
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
-
-**Please note:** This "prefill" will only be available for the merchant when they have
-a customer relationship with Vipps. If the merchant does not have this,
-a merchant agreement must first be established by the merchant on
-[portal.vipps.no](https://portal.vipps.no).
-We are aware that this is not ideal, and we are working on simplifying this,
-but we wanted to make this endpoint available sooner rather than later.
 
 When the submitted order has been processed, Vipps sends an email to both the
 merchant and the partner, as described on
