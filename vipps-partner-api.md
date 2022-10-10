@@ -288,6 +288,8 @@ It is therefore a requirement that the user logging in on
 is registered as chairman of the board ("styreleder") or CEO ("daglig leder").
 The user will then automatically be presented with the prefilled PO.
 
+![Illustration of PO and MA flow](images/merchant-agreement-flow.png)
+
 #### Scenario 1: The merchant does not have a Merchant Agreement
 
 1. The partner prefills the PO using
@@ -296,20 +298,18 @@ The user will then automatically be presented with the prefilled PO.
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant user uses the link and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
-3. Based on the prefilled data and the BankID login,
-   the merchant is presented with the form(s) for the MA.
-4. The merchant completes and submits the MA for processing.
-5. Vipps processes the MA.
+3. The merchant is presented with the form for the MA,
+   completes and submits the MA for processing.
+4. Vipps processes the MA.
    **Important:** The merchant must wait until the MA
    is processed before it is possible to
    see the prefilled PO and submit that.
-   This typically takes a few days.
    Vipps sends an email when the MA is processed.
-6. The merchant logs in on
+5. The merchant logs in on
    [portal.vipps.no](https://portal.vipps.no)
    and is presented with the prefilled PO,
    checks the details in the PO and submits it.
-7. Vipps processes the PO and sends both the merchant and partner an
+6. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
 
