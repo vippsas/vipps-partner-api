@@ -19,7 +19,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 2.0.6.
+Document version 2.0.7.
 
 <!-- START_TOC -->
 
@@ -303,10 +303,10 @@ This flowchart shows the current functionality:
 3. The merchant is presented with the form for the MA,
    completes and submits the MA for processing.
 4. Vipps processes the MA.
+   Vipps sends an email to the merchant when the MA is processed.
    **Important:** The merchant must wait until the MA
-   is processed before it is possible to
-   see the prefilled PO and submit that.
-   Vipps sends an email when the MA is processed.
+   is processed and approved before it is possible to
+   use the URL from (1) and see the prefilled PO and submit that.
 5. The merchant logs in on
    [portal.vipps.no](https://portal.vipps.no)
    and is presented with the prefilled PO,
