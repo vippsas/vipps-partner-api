@@ -19,15 +19,8 @@ END_METADATA -->
 
 This is a new API, so feedback is very welcome!
 
-For technical information for Vipps partners, see
-[Vipps Partner Guide](https://github.com/vippsas/vipps-partner#vipps-partners).
-
-<!-- START_COMMENT -->
-
-💥 Preview the new documentation pages here: <https://vippsas.github.io/vipps-developer-docs/>.
-See the disclaimer: <https://vippsas.github.io/vipps-developer-docs/docs/examples/>.
-
-<!-- END_COMMENT -->
+For general information for Vipps partners, see
+[Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/).
 
 ## Getting started
 
