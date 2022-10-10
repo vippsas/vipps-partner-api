@@ -19,7 +19,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 2.0.4.
+Document version 2.0.5.
 
 <!-- START_TOC -->
 
@@ -267,7 +267,7 @@ Merchants need both a Merchant Agreement (MA) and a Product Order (PO) to
 be able to accept Vipps payments:
 * MA: An agreement between the merchant and Vipps, signed with BankID.
   The MA contains information about all direct and indirect owners, any
-  politically exposed persons, etc. The MA is signed with BankID.
+  politically exposed persons, etc.
 * PO: This is an order for "Vipps på nett", "Vipps Login", etc. The merchant
   must provide some information about the use, whether the cardholder is
   present, etc. The PO is not signed with BankID.
