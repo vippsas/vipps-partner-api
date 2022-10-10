@@ -19,26 +19,30 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 1.5.7.
+Document version 2.0.0.
 
 <!-- START_TOC -->
 
 ## Table of contents
 
-- [Information for Vipps partners](#information-for-vipps-partners)
-  - [Integrating with this API](#integrating-with-this-api)
-  - [Partner keys](#partner-keys)
-- [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
-  - [Future improvements](#future-improvements)
-  - [In the meantime](#in-the-meantime)
-- [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
-  - [Future improvements](#future-improvements-1)
-  - [In the meantime](#in-the-meantime-1)
-- [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)
-  - [Scenario where Merchant does not have a Merchant Agreement with Vipps](#scenario-where-the-merchant-does-not-have-a-merchant-agreement-with-vipps)
-  - [Future improvements](#future-improvements-2)
-- [Future plans for this API](#future-plans-for-this-api)
-- [Questions?](#questions)
+* [Information for Vipps partners](#information-for-vipps-partners)
+  * [Integrating with this API](#integrating-with-this-api)
+  * [Partner keys](#partner-keys)
+* [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
+  * [Future improvements](#future-improvements)
+  * [In the meantime](#in-the-meantime)
+* [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
+  * [Future improvements](#future-improvements)
+  * [In the meantime](#in-the-meantime)
+* [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)
+  * [Scenarios](#scenarios)
+    * [Flowchart](#flowchart)
+    * [Scenario 1: The merchant does not have a Merchant Agreement](#scenario-1-the-merchant-does-not-have-a-merchant-agreement)
+    * [Scenario 2: The merchant has a Merchant Agreement that is being processed](#scenario-2-the-merchant-has-a-merchant-agreement-that-is-being-processed)
+    * [Scenario 3: The merchant has a Merchant Agreement](#scenario-3-the-merchant-has-a-merchant-agreement)
+  * [Future improvements](#future-improvements)
+* [Future plans for this API](#future-plans-for-this-api)
+* [Questions?](#questions)
 
 <!-- END_TOC -->
 
@@ -200,17 +204,10 @@ functionality, so we can avoid multiple parallel discussions in various channels
 
 [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 
-This endpoint lets a partner "pre-fill" the product order form on
+This endpoint lets a partner "prefill" the product order form on
 [portal.vipps.no](https://portal.vipps.no)
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
-
-**Please note:** This "pre-fill" will only be available for the merchant when they have
-a customer relationship with Vipps. If the merchant does not have this,
-a merchant agreement must first be established by the merchant on
-[portal.vipps.no](https://portal.vipps.no).
-We are aware that this is not ideal, and we are working on simplifying this,
-but we wanted to make this endpoint available sooner rather than later.
 
 When the submitted order has been processed, Vipps sends an email to both the
 merchant and the partner, as described on
@@ -260,23 +257,82 @@ We are working on simplifying this in the future.
 This may be useful:
 [Typical reasons for delays](https://github.com/vippsas/vipps-partner/blob/main/README.md#typical-reasons-for-delays).
 
-### Scenario where the merchant does not have a Merchant Agreement with Vipps
+### Scenarios
 
-In order to get approved to have a product (i.e eCom or Recurring payments) with Vipps the merchant must first have a formal agreement with Vipps. Referred to as a Merchant Agreement. This is the current flow for the Merchant with or without a Merchant agreement when Prefill is used. We are actively looking to improve the user experience in the case where Prefill is used without a Merchant Agreement.
+In order to get approved to have a product ("Vipps på nett", "Vipps Login", etc)
+with Vipps, the merchant must first have a formal agreement with Vipps, called
+the Merchant Agreement (MA).
 
-The state flow can be described as follows.
+Merchants need both a Merchant Agreement (MA) and a Product Order (PO) to
+be able to accept Vipps payments:
+* MA: An agreement between the merchant and Vipps, signed with BankID.
+  The MA contains information about all direct and indirect owners, any
+  politically exposed persons, etc. The MA is signed with BankID.
+* PO: This is an order for "Vipps på nett", "Vipps Login", etc. The merchant
+  must provide some information about the use, whether the cardholder is
+  present, etc. The PO is not signed with BankID.
 
-![Merchant agreement flow](images/merchant-agreement-flow.png)
+A merchant may order a Vipps product (submit a PO) with or without a Merchant Agreement (MA).
 
-The merchant will now see the prefilled product order waiting for them in the portal under "Produktbestillinger klare til innsendelse" in their home screen. (see highlighted area in image)
+**Please note:** The only method Vipps has to verify that a user has the right
+to sign a MA for a merchant is by using data from
+[Brønnøysundregistrene](https://brreg.no).
+It is therefore a requirement that the user logging in on
+[portal.vipps.no](https://portal.vipps.no)
+is registered as chairman of the board ("styreleder") or CEO ("daglig leder").
+The user will then automatically be presented with the prefilled PO.
 
-![example-portal-with-preorder](images/example-portal-with-preorder-waiting.png)
+#### Flowchart
 
-Alternatively the URL created in the initial prefill can be reused for up to 15 days.
+![Illustration of PO and MA flow](images/merchant-agreement-flow.png)
+
+#### Scenario 1: The merchant does not have a Merchant Agreement
+
+1. The partner prefills the PO using
+   [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+   and gets a link to the prefilled PO on
+   [portal.vipps.no](https://portal.vipps.no).
+2. The merchant user uses the link and logs in with BankID on
+   [portal.vipps.no](https://portal.vipps.no).
+3. The merchant is presented with the form for the MA,
+   completes and submits the MA for processing.
+4. Vipps processes the MA.
+   **Important:** The merchant must wait until the MA
+   is processed before it is possible to
+   see the prefilled PO and submit that.
+   Vipps sends an email when the MA is processed.
+5. The merchant logs in on
+   [portal.vipps.no](https://portal.vipps.no)
+   and is presented with the prefilled PO,
+   checks the details in the PO and submits it.
+6. Vipps processes the PO and sends both the merchant and partner an
+   email when done. The partner can also check with the API:
+   [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
+
+#### Scenario 2: The merchant has a Merchant Agreement that is being processed
+
+The merchant has (very) recently submitted a MA, but Vipps has not
+completed processing of it.
+
+This is the same as scenario 1: The merchant is now on step 4.
+
+#### Scenario 3: The merchant has a Merchant Agreement
+
+The merchant has a MA, and probably also a Vipps product.
+
+1. The partner prefills the PO using
+   [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+   and gets a link to the prefilled PO on
+   [portal.vipps.no](https://portal.vipps.no).
+2. The merchant is presented with the prefilled PO,
+   checks the details in the PO and submits it.
+3. Vipps processes the PO and sends both the merchant and partner an
+   email when done. The partner can also check with the API:
+  [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
 
 ### Future improvements
 
-We may allow the merchant to change some of the data pre-filled by the
+We may allow the merchant to change some of the data prefilled by the
 partner, but this is not trivial. If the merchant changes any data, the
 partner must be notified and also get the updated data - then merge&sync that
 with the "old" data that was sent in the first place.
