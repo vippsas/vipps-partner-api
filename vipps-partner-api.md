@@ -19,7 +19,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 2.0.0.
+Document version 2.0.1.
 
 <!-- START_TOC -->
 
@@ -49,13 +49,13 @@ Document version 2.0.0.
 ## Information for Vipps partners
 
 - [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
-- [Vipps Partners](https://github.com/vippsas/vipps-partner): Technical information for Vipps partners.
+- [Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/): Technical information for Vipps partners.
 
 ### Integrating with this API
 
 Integration should be straight-forward.
 Use the
-[partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
+[partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys).
 See the Postman collection and environment, and the
 [Quick start guide](vipps-partner-api-quick-start.md).
 
@@ -80,7 +80,7 @@ the following priority:
 ### Partner keys
 
 All partners can use their
-[partner keys](https://github.com/vippsas/vipps-partner#partner-keys).
+[partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys).
 to use the Partner API. If you have partner keys, you have access to the
 Partner API.
 
@@ -140,7 +140,7 @@ Merchants can also see which partner (or PSP) a sale unit is connected to, if an
 Merchants can create a user for their parter on
 [portal.vipps.no](https://portal.vipps.no),
 so the partner can do this directly as described here:
-[Partner keys](https://github.com/vippsas/vipps-partner#partner-keys)
+[Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys)
 and
 [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
 
@@ -334,7 +334,7 @@ The merchant has a MA, and probably also a Vipps product.
 
 We may allow the merchant to change some of the data prefilled by the
 partner, but this is not trivial. If the merchant changes any data, the
-partner must be notified and also get the updated data - then merge&sync that
+partner must be notified and also get the updated data - then merge and sync that
 with the "old" data that was sent in the first place.
 
 ## Future plans for this API
