@@ -273,8 +273,10 @@ be able to accept Vipps payments:
   present, etc. The PO is not signed with BankID.
   A merchant may have several Vipps products, each created with a separate PO.
 
-A merchant may order a Vipps product (submit a PO) with or without an existing
-Merchant Agreement (MA).
+A merchant may order a Vipps product (submit a product order, "PO") with or
+without an existing Merchant Agreement ("merchant agreement", "MA").
+Both MA and PO are described in detail in
+[Scenarios](#scenarios).
 
 **Please note:** The only method Vipps has to verify that a user has the right
 to sign a MA for a merchant is by using data from
