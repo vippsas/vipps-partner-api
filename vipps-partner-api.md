@@ -19,11 +19,11 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 2.0.5.
+Document version 2.0.6.
 
 <!-- START_TOC -->
 
-## Table of contents
+## Table of Contents
 
 * [Information for Vipps partners](#information-for-vipps-partners)
   * [Integrating with this API](#integrating-with-this-api)
@@ -287,6 +287,8 @@ is registered as chairman of the board ("styreleder") or CEO ("daglig leder").
 The user will then automatically be presented with the prefilled PO.
 
 #### Flowchart
+
+This flowchart shows the current functionality:
 
 ![Illustration of PO and MA flow](images/merchant-agreement-flow.png)
 
