@@ -298,10 +298,18 @@ The user will then automatically be presented with the prefilled PO.
    [portal.vipps.no](https://portal.vipps.no).
 3. Based on the prefilled data and the BankID login,
    the merchant is presented with the form(s) for the MA.
-4. The merchant completes and submits the MA for processing.   
-5. The merchant is presented with the prefilled PO,
+4. The merchant completes and submits the MA for processing.
+5. Vipps processes the MA.
+   **Important:** The merchant must wait until the MA
+   is processed before it is possible to
+   see the prefilled PO and submit that.
+   This typically takes a few days.
+   Vipps sends an email when the MA is processed.
+6. The merchant logs in on
+   [portal.vipps.no](https://portal.vipps.no)
+   and is presented with the prefilled PO,
    checks the details in the PO and submits it.
-6. Vipps processes the PO and sends both the merchant and partner an
+7. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
 
