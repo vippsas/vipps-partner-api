@@ -5,11 +5,14 @@ Partner->API: GET:/saleunits/{msn}
 API->Partner: MSN details
 
 Partner->API: POST:/products/orders
-API->Signup form: Pre-fill data
 API->Partner: URL to pre-filled form
 Partner->Merchant: "Here's the URL to the pre-filled form"
+Merchant->Signup form: Accesses
+Signup form->API: Get pre-filled information
+API->Signup form: Fills in pre-filled information (if all the provided information is valid)
+Signup form->Merchant: Show pre-filled form
 Merchant->Signup form: Checks and confirms
-API->Vipps: Application to processing
+Signup form->Vipps: Application to processing
 Vipps->Vipps: Processing
 Vipps->Merchant: Sometimes: Additional questions
 Merchant->Vipps: Sometimes: Answers to questions
