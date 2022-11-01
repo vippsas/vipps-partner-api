@@ -22,7 +22,7 @@ See the
 for all the details.
 
 See also:
-[Vipps eCom API FAQ](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md).
+[Vipps API FAQ](https://github.com/vippsas/vipps-developers/tree/master/faqs).
 
 See also:
 [Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md)

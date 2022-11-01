@@ -72,10 +72,10 @@ the following priority:
 3. Ask the merchant to create a user for the partner on portal.vipps.no,
    so the partner can check on behalf of the merchant:
    [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
-4. See the eCom FAQ for how to check if a sale unit
-   [has skipLandingPage](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+4. See the Vipps FAQ for how to check if a sale unit
+   [has skipLandingPage](https://github.com/vippsas/vipps-developers/blob/master/faqs/reserve-and-capture-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
    or
-   [which capture type it has](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-do-i-turn-direct-capture-on-or-off).
+   [which capture type it has](https://github.com/vippsas/vipps-developers/blob/master/faqs/reserve-and-capture-faq.md#how-do-i-turn-direct-capture-on-or-off).
 
 ### Partner keys
 
@@ -187,8 +187,8 @@ Some candidates:
 
 Until more functionality is available in this API, there are some workarounds:
 
-- [How can I check if I have "reserve capture" or "direct capture"?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
-- [How can I check if I have skipLandingPage activated?](https://github.com/vippsas/vipps-ecom-api/blob/master/vipps-ecom-api-faq.md#how-can-i-check-if-i-have-skiplandingpage-activated)
+- [How can I check if I have "reserve capture" or "direct capture"?](https://github.com/vippsas/vipps-developers/blob/master/faqs/reserve-and-capture-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+- [How can I check if I have skipLandingPage activated?](https://github.com/vippsas/vipps-developers/blob/master/faqs/vipps-landing-page-faq.md#how-can-i-check-if-i-have-skiplandingpage-activated)
 
 ## Submit a product order for a merchant
 
@@ -265,6 +265,7 @@ the Merchant Agreement (MA).
 
 Merchants need both a Merchant Agreement (MA) and a Product Order (PO) to
 be able to accept Vipps payments:
+
 * MA: An agreement between the merchant and Vipps, signed with BankID.
   The MA contains information about all direct and indirect owners, any
   politically exposed persons, etc.
@@ -371,7 +372,7 @@ Merchants can create a user for their parter on
 [portal.vipps.no](https://portal.vipps.no),
 so the partner can do this directly
 as described here:
-[Partner keys](https://github.com/vippsas/vipps-partner#partner-keys)
+[Partner keys](https://github.com/vippsas/vipps-partner/blob/main/partner-keys.md)
 and
 [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
 
