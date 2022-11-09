@@ -36,7 +36,7 @@ Be aware that these are running on the production server.
 
 <!-- END_TOC -->
 
-Document version 1.1.1.
+Document version 1.1.2.
 
 ## Postman
 
@@ -59,6 +59,11 @@ Save the following files to your computer:
 1. Select the two files you have just downloaded and click *Import*.
 
 ### Step 3: Set up Postman environment
+
+**Important:** Partner keys must be kept secret. They can be used to act on behalf
+of all the partner's merchant. It is the partner's responsibility to mnage
+the partner keys in a secure way. See
+[Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys).
 
 1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
 2. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
