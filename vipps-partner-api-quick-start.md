@@ -61,7 +61,7 @@ Save the following files to your computer:
 ### Step 3: Set up Postman environment
 
 **Important:** Partner keys must be kept secret. They can be used to act on behalf
-of all the partner's merchant. It is the partner's responsibility to mnage
+of all the partner's merchants. It is the partner's responsibility to mnage
 the partner keys in a secure way. See
 [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys).
 
