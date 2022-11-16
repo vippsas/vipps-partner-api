@@ -30,6 +30,15 @@ guide.
 
 Document version 1.0.1.
 
+<!-- START_TOC -->
+
+## Table of contents
+
+* [When will it be possible to change an existing sale unit?](#when-will-it-be-possible-to-change-an-existing-sale-unit)
+* [Questions?](#questions)
+
+<!-- END_TOC -->
+
 ## When will it be possible to change an existing sale unit?
 
 We are working on this now, as fast as we can!
