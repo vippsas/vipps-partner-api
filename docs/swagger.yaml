@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: "1.2.0"
+  version: "1.2.1"
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -9,7 +9,7 @@ info:
     See the [API Guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/partner-api) for more information.
   contact:
     name: Vipps AS
-    url: "https://github.com/vippsas/vipps-developers"
+    url: "https://vippsas.github.io/vipps-developer-docs/"
 servers:
   - url: "https://api.vipps.no/partner-api"
     description: Vipps Partner API
@@ -32,7 +32,7 @@ paths:
         can review the information and submit the product order on portal.vipps.no.
         Please note complianceData and website information are required for VIPPS_PA_NETT product type.
         Partners can still submit the product orders without them but the merchant will have to fill
-        website and complaince data information manually in the merchant portal product order form and submit.
+        website and compliance data information manually in the merchant portal product order form and submit.
       tags:
         - Vipps Product Orders
       parameters:
@@ -449,7 +449,7 @@ components:
                 isSalesPercentageLessThanTen:
                   type: boolean
                   default: false
-                  description: How much percentage giftcard sales consits of. Either Less than 10% or 10% and more
+                  description: How much percentage gift card sales consists of. Either Less than 10% or 10% and more
                   example: false
                 validityDuration:
                   type: string
