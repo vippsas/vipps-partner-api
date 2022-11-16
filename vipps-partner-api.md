@@ -71,11 +71,11 @@ the following priority:
 2. Use the Partner API manually with the Postman collection provided by Vipps.
 3. Ask the merchant to create a user for the partner on portal.vipps.no,
    so the partner can check on behalf of the merchant:
-   [How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
+   [How to add a user on portal.vipps.no](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/add-portal-user).
 4. See the Vipps FAQ for how to check if a sale unit
-   [has skipLandingPage](https://github.com/vippsas/vipps-developers/blob/master/faqs/reserve-and-capture-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+   [has skipLandingPage](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
    or
-   [which capture type it has](https://github.com/vippsas/vipps-developers/blob/master/faqs/reserve-and-capture-faq.md#how-do-i-turn-direct-capture-on-or-off).
+   [which capture type it has](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
 
 ### Partner keys
 
@@ -101,7 +101,7 @@ Sequence diagram:
 The current version of the Partner API only returns a list of MSNs
 connected to the partner making the API request, but we _may_ extend this later.
 
-The response (see the Swagger spec for details):
+The response (see [getMerchant](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant) for details):
 
 ```json
 {
@@ -142,7 +142,7 @@ Merchants can create a user for their parter on
 so the partner can do this directly as described here:
 [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys)
 and
-[How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
+[How to add a user on portal.vipps.no](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/add-portal-user).
 
 ## Get information about a sale unit based on MSN
 
@@ -154,7 +154,7 @@ Sequence diagram:
 
 ![Get information about a sale unit based on MSN](images/sequence-diagram-get-msn.png)
 
-The response (see the Swagger spec for details):
+The response (see [getMSN](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN) for details):
 
 ```json
 {
@@ -187,16 +187,14 @@ Some candidates:
 
 Until more functionality is available in this API, there are some workarounds:
 
-- [How can I check if I have "reserve capture" or "direct capture"?](https://github.com/vippsas/vipps-developers/blob/master/faqs/reserve-and-capture-faq.md#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
-- [How can I check if I have skipLandingPage activated?](https://github.com/vippsas/vipps-developers/blob/master/faqs/vipps-landing-page-faq.md#how-can-i-check-if-i-have-skiplandingpage-activated)
+- [How can I check if I have "reserve capture" or "direct capture"?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+- [How can I check if I have skipLandingPage activated?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/vipps-landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
 
 ## Submit a product order for a merchant
 
 **Important:** This endpoint is available for all partners in the
 production environment, but there may be some minor changes. We will do our
 utmost to avoid breaking changes, but we can not guarantee it.
-As mentioned in the
-[README](https://github.com/vippsas/vipps-partner-api/blob/main/README.md):
 This is a new API, so feedback is welcome!
 Please try to use GitHub's
 [issue](https://github.com/vippsas/vipps-partner-api/issues)
@@ -211,7 +209,7 @@ the product order.
 
 When the submitted order has been processed, Vipps sends an email to both the
 merchant and the partner, as described on
-[Vipps Partners](https://github.com/vippsas/vipps-partner).
+[Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/).
 
 Sequence diagram:
 
@@ -255,7 +253,7 @@ from all the partner's prices.
 We are working on simplifying this in the future.
 
 This may be useful:
-[Typical reasons for delays](https://github.com/vippsas/vipps-partner/blob/main/README.md#typical-reasons-for-delays).
+[Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/#typical-reasons-for-delays).
 
 ### Scenarios
 
@@ -372,14 +370,14 @@ Merchants can create a user for their parter on
 [portal.vipps.no](https://portal.vipps.no),
 so the partner can do this directly
 as described here:
-[Partner keys](https://github.com/vippsas/vipps-partner/blob/main/partner-keys.md)
+[Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys)
 and
-[How to add a user on portal.vipps.no](https://github.com/vippsas/vipps-partner/blob/main/add-portal-user.md).
+[How to add a user on portal.vipps.no](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/add-portal-user).
 
 ## Questions?
 
 We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-api-api/issues),
+Please create an [issue](https://github.com/vippsas/vipps-partner-api/issues),
 a [pull request](https://github.com/vippsas/vipps-partner-api/pulls),
 or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).
 

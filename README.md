@@ -25,13 +25,13 @@ For general information for Vipps partners, see
 ## Getting started
 
 See
-[Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md)
+[Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
 for information about API keys, product activation, how to make API calls, etc.
 
 ## Partner API
 
 The API is available for all partners using
-[partner keys](https://github.com/vippsas/vipps-partner/blob/main/partner-keys.md).
+[partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys).
 
 This repository contains developer resources for the Vipps Partner API.
 

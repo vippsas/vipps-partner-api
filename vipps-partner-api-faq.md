@@ -22,13 +22,13 @@ See the
 for all the details.
 
 See also:
-[Vipps API FAQ](https://github.com/vippsas/vipps-developers/tree/master/faqs).
+[Vipps API FAQ](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/).
 
 See also:
-[Getting Started](https://github.com/vippsas/vipps-developers/blob/master/vipps-getting-started.md)
+[Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
 guide.
 
-Document version 1.0.0.
+Document version 1.0.1.
 
 <!-- START_TOC -->
 
@@ -48,7 +48,7 @@ The documentation will be updated as soon as we have new information.
 ## Questions?
 
 We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-api-api/issues),
+Please create an [issue](https://github.com/vippsas/vipps-partner-api/issues),
 a [pull request](https://github.com/vippsas/vipps-partner-api/pulls),
 or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).
 
