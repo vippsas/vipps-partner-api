@@ -19,7 +19,7 @@ about their merchants and their sale units.
 
 API version: 1.0.0.
 
-Document version 2.0.7.
+Document version 2.1.0.
 
 <!-- START_TOC -->
 
@@ -208,8 +208,14 @@ on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
 
 When the submitted order has been processed, Vipps sends an email to both the
-merchant and the partner, as described on
-[Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/).
+merchant and the partner
+(as described on
+[Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/))
+with information about:
+* The merchant's organization number
+* The merchant's name
+* The sale unit's MSN
+* The sale unit's name
 
 Sequence diagram:
 
