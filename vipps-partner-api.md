@@ -307,26 +307,17 @@ This flowchart shows the current functionality:
    [portal.vipps.no](https://portal.vipps.no).
 3. The merchant is presented with the form for the MA,
    completes and submits the MA for processing.
-4. Vipps processes the MA.
-   Vipps sends an email to the merchant when the MA is processed.
-   **Important:** The merchant must wait until the MA
-   is processed and approved before it is possible to
-   use the URL from (1) and see the prefilled PO and submit that.
-5. The merchant logs in on
+4. The merchant re-use the link or enter the the prefill from the home page on
    [portal.vipps.no](https://portal.vipps.no)
    and is presented with the prefilled PO,
    checks the details in the PO and submits it.
-6. Vipps processes the PO and sends both the merchant and partner an
+5. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
 
-#### Scenario 2: The merchant has a Merchant Agreement that is being processed
+![Screenshot from using link withouth MA](images/screenshot_withouth_ma.png)
 
-The merchant has (very) recently submitted a MA, but Vipps has not
-completed processing of it.
-This is the same as scenario 1: The merchant is now on step 4.
-
-#### Scenario 3: The merchant has a Merchant Agreement
+#### Scenario 2: The merchant has a active or processing Merchant Agreement
 
 The merchant has a MA, and probably also a Vipps product.
 
@@ -344,7 +335,7 @@ The merchant has a MA, and probably also a Vipps product.
 
 ### Future improvements
 
-* We aim to handle alle the scenarios above in the same way: The partner
+* We aim to handle all the scenarios above in the same way: The partner
   only uses the
   [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct),
   and Vipps handles all the details.
