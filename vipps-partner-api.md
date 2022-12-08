@@ -307,7 +307,7 @@ This flowchart shows the current functionality:
    [portal.vipps.no](https://portal.vipps.no).
 3. The merchant is presented with the form for the MA,
    completes and submits the MA for processing.
-4. The merchant re-use the link or enter the the prefill from the home page on
+4. The merchant re-uses the link or enters the prefill from the home page on
    [portal.vipps.no](https://portal.vipps.no)
    and is presented with the prefilled PO,
    checks the details in the PO and submits it.
