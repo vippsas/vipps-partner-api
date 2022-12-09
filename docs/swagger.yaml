@@ -478,7 +478,7 @@ components:
                   type: boolean
                   default: false
                   description: >
-                    Th poercentage of the sales that is gift cards.
+                    Th percentage of the sales that is gift cards.
                     Either "Less than 10%"" or "10% and more"
                   example: false
                 validityDuration:
