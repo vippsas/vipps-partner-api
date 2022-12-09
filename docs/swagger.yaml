@@ -1,11 +1,11 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: "1.2.1"
+  version: "1.2.2"
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
-    their merchants (for example, submit product orders on behalf of their
-    merchants) and sales units.
+    their merchants. For example: Retrieve information about existing sale units,
+    and submit product orders on behalf of their merchants and sales units.
     See the [API Guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/partner-api) for more information.
   contact:
     name: Vipps AS
@@ -13,9 +13,11 @@ info:
 servers:
   - url: "https://api.vipps.no/partner-api"
     description: Vipps Partner API
+  - url: "https://apitest.vipps.no/partner-api"
+    description: Vipps Partner API (MT)
 tags:
-  - name: Vipps Product Orders
-    description: Submit product orders on behalf of their merchants
+  - name: Product orders
+    description: Submit product orders on behalf of merchants
   - name: Merchants
     description: Manage merchants
   - name: Sales units
@@ -28,13 +30,21 @@ paths:
       operationId: orderProduct
       description: |
         Order products on behalf of merchants:
-        Partners can submit data that pre-fills the order form, so the merchant
-        can review the information and submit the product order on portal.vipps.no.
+        Partners can submit data that pre-fills the order form on portal.vipps.no,
+        so the merchant can review the information and submit the product order.
+
         Please note complianceData and website information are required for VIPPS_PA_NETT product type.
-        Partners can still submit the product orders without them but the merchant will have to fill
+        Partners can still submit the product orders without it but the merchant will have to fill
         website and compliance data information manually in the merchant portal product order form and submit.
+
+        We have made as many of the fields as possible optional, but please
+        try to send as much as you can, to make it easy for the mercvhant.
+
+        IMPORTANT:
+        Please provide enough details that it will not be necessary to ask for
+        more details. This is the most common reason for delays.
       tags:
-        - Vipps Product Orders
+        - Product orders
       parameters:
         - $ref: "#/components/parameters/Ocp-APIM-Subscription-Key"
         - $ref: "#/components/parameters/Idempotency-Key"
@@ -91,7 +101,7 @@ paths:
                       turnoverShare: about 25%
                       prepurchaseTime: 10 weeks
                     donation:
-                      acceptDonations: true
+                      acceptDonations: false
       responses:
         "200":
           description: OK
@@ -210,7 +220,7 @@ paths:
         - Sales units
       security:
         - Bearer-Authorization: []
-      summary: Get sale unit details based on MSN
+      summary: Get sale unit details by MSN
       operationId: getMSN
       parameters:
         - $ref: "#/components/parameters/Ocp-APIM-Subscription-Key"
@@ -223,6 +233,7 @@ paths:
             minLength: 5
             pattern: ^\d{5,6}$
             type: string
+            example: 654321
       responses:
         "200":
           description: OK
@@ -353,7 +364,7 @@ components:
           minLength: 11
           maxLength: 11
           example: "86011117947"
-          description: The bank account number belonging to the organisation that will be used for settlement.
+          description: The bank account number belonging to the organisation that will be used for settlement. BBAN (not IBAN) format.
         pricePackageKey:
           nullable: true
           type: string
@@ -362,13 +373,27 @@ components:
           maxLength: 255
           deprecated: true
           example: posstandard
-          description: (deprecated) Optional. One of the price packages that are registered for the partner in the Vipps system. Please note, it is not the PriceId (3 digit), but the name, such as "standard", "price1", etc, that is applicable to the partner. If the field is not provided, the merchant must select it manually from the product order section of the merchant portal before submitting. 
+          description: >-
+            (deprecated) Optional.
+            One of the price packages that are registered for the partner in the
+            Vipps system. Please note, it is not the PriceId (3 digit), but the
+            name, such as "standard", "price1", etc, that is applicable to the
+            partner. If the field is not provided, the merchant must select it
+            manually from the product order section of the merchant portal before
+            submitting.
         pricePackageId:
           type: string
           format: uuid
           nullable: true
           example: "8a11afb7-c223-48ed-8ca6-4722b97261aa"
-          description: Optional. Currently only valid for 'VIPPS_PA_NETT'. One of the price packages that are registered for the partner in the Vipps system. Please note, it is not the PriceId (3 digit) but a new uuid, that is applicable to the partner. If the field is not provided, the merchant must select it manually from the product order section of the merchant portal before submitting. 
+          description: >-
+            Optional.
+            Currently only valid for 'VIPPS_PA_NETT'.
+            One of the price packages that are registered for the partner in the
+            Vipps system. Please note, it is not the PriceId (3 digit) but a
+            new uuid, that is applicable to the partner. If the field is not
+            provided, the merchant must select it manually from the product
+            order section of the merchant portal before submitting.
         productType:
           type: string
           enum:
@@ -386,7 +411,9 @@ components:
             - VIPPS_SENERE
             - VIPPS_I_KASSA
           example: VIPPS_PA_NETT
-          description: The type of product ordered for the merchant
+          description: >-
+            The type of product ordered for the merchant.
+            Some product types require more data than others.
         annualTurnover:
           type: integer
           minimum: 0
@@ -396,7 +423,8 @@ components:
           example: 100000
         intendedPurpose:
           type: string
-          description: Description of the product or products that will be sold
+          description: >-
+            Description of the product or products that will be sold.
           example: Gym membership
           nullable: true
         website:
@@ -449,11 +477,14 @@ components:
                 isSalesPercentageLessThanTen:
                   type: boolean
                   default: false
-                  description: How much percentage gift card sales consists of. Either Less than 10% or 10% and more
+                  description: >
+                    Th poercentage of the sales that is gift cards.
+                    Either "Less than 10%"" or "10% and more"
                   example: false
                 validityDuration:
                   type: string
-                  description: For how long is the gift card valid after purchase
+                  description: >-
+                    How long is the gift card valid?
                   example: 3 years
             membership:
               nullable: true
@@ -464,11 +495,13 @@ components:
               properties:
                 turnoverShare:
                   type: string
-                  description: Estimated turnover share of membership sales in percentage
+                  description: >-
+                    Estimated turnover share of membership sales in percentage.
                   example: about 25%
                 periodDistribution:
                   type: string
-                  description: Distribution of memberships in different periods that is being sold
+                  description: >-
+                    Distribution of memberships in different periods that is being sold.
                   example: 50% yearly 20% monthly
             subscription:
               nullable: true
@@ -479,11 +512,13 @@ components:
               properties:
                 turnoverShare:
                   type: string
-                  description: Estimated turnover share of subscription sales in percentage
+                  description: >-
+                    Estimated turnover share of subscription sales in percentage.
                   example: about 25%
                 periodDistribution:
                   type: string
-                  description: Distribution of subscriptions in different periods that is being sold
+                  description: ->
+                    Distribution of subscriptions in different periods that is being sold.
                   example: 50% yearly 20% monthly
             course:
               nullable: true
@@ -574,7 +609,7 @@ components:
               properties:
                 acceptsDonation:
                   type: boolean
-                  description: true if merchant will receive donation through Vipps
+                  description: True if merchant will receive donations through Vipps.
                   default: false
                   example: false
     ProductOrderResponse:
@@ -620,21 +655,37 @@ components:
           example: 987654321
         additionalDetails:
           type: object
-          description: "Additional details that might or might not be available. In the case that any of these are not provided, it doesn't mean that those details don't apply."
+          description: >-
+            "Additional details that may or may not be available. In the
+            case that any of these are not provided, it doesn't mean that those
+            details don't apply."
           properties:
             skipLandingPage:
               type: boolean
-              description: "If the merchant has access to sending skipLandingPage for eCommerce requests"
+              description: >-
+                If the sale unit should have access to sending `skipLandingPage`
+                for payments. Usually for scanarios when the customer is
+                physically present and there is no customer-facing display.
+                See the documentation for details:
+                https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/vipps-landing-page
               default: false
               example: false
             isPureLogin:
               type: boolean
-              description: "If the sales unit is only approved for Vipps-Login use"
+              description: >-
+                "If the sale unit will only be used for 'Vipps Log in'
+                (the Vips Login API), and not make any type of payments.
+                Vipps Login API is always available for sale units that are
+                approved to make payments."
               default: false
               example: false
             captureType:
               type: string
-              description: "The capture type of the sales unit"
+              description: >-
+                The capture type of the sales unit.
+                we strongly recommend `ReserveCapture`.
+                See the documentation for the benefits:
+                https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/reserve-and-capture
               enum:
                 - "ReserveCapture"
                 - "DirectCapture"
@@ -643,7 +694,11 @@ components:
               example: "ReserveCapture"
             recurring:
               type: boolean
-              description: "If the sales unit has access to vipps-recurring-api"
+              description: >-
+                Shouyld the sales unit have access to the Vipps Recurring API?
+                This API requires some additional KYC checks required by
+                Finanstilsynet. Vipps is required to perform some extra
+                compliance checks before activating the Vipps Recurring API.
               default: true
               example: false
       description: Details of a sale unit
@@ -654,7 +709,7 @@ components:
       properties:
         msn:
           type: array
-          description: List of Vipps MSNs (merchant serial numbers)
+          description: List of Vipps MSNs (merchant serial numbers).
           items:
             maxLength: 6
             minLength: 5
