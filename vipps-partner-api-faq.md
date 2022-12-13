@@ -28,16 +28,24 @@ See also:
 [Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
 guide.
 
-Document version 1.0.1.
-
 <!-- START_TOC -->
 
 ## Table of contents
 
+* [Why do I get `HTTP 404 Not Found`?](#why-do-i-get-http-404-not found)
 * [When will it be possible to change an existing sale unit?](#when-will-it-be-possible-to-change-an-existing-sale-unit)
 * [Questions?](#questions)
 
 <!-- END_TOC -->
+
+## Why do I get `HTTP 404 Not Found`?]
+
+You will get this error for requests to
+[`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant)
+if the merchant does not yet have an active sale unit with you as partner.
+
+See:
+[How to check if a merchant is signed up with the partner as partner](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner#how-to-check-if-a-merchant-is-signed-up-with-the-partner-as-partner).
 
 ## When will it be possible to change an existing sale unit?
 
