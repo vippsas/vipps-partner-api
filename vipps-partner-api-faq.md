@@ -52,6 +52,8 @@ See:
 We are working on this now, as fast as we can!
 We know this is a very important feature, but can't give you a release date yet.
 The documentation will be updated as soon as we have new information.
+We recommend subscribing to the
+[Technical newsletter for developers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/newsletters).
 
 ## Questions?
 
