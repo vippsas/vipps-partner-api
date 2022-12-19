@@ -137,7 +137,7 @@ All merchants can see and manage their information on
 [portal.vipps.no](https://portal.vipps.no).
 Merchants can also see which partner (or PSP) a sale unit is connected to, if any.
 
-Merchants can create a user for their parter on
+Merchants can create a user for their partner on
 [portal.vipps.no](https://portal.vipps.no),
 so the partner can do this directly as described here:
 [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys)
@@ -315,7 +315,7 @@ This flowchart shows the current functionality:
    email when done. The partner can also check with the API:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
 
-![Screenshot from using link withouth MA](images/screenshot_withouth_ma.png)
+![Screenshot from using link without MA](images/screenshot_without_ma.png)
 
 #### Scenario 2: The merchant has a active or processing Merchant Agreement
 
@@ -363,7 +363,7 @@ Some candidates:
 - Logo: Update
 
 In the meantime:
-Merchants can create a user for their parter on
+Merchants can create a user for their partner on
 [portal.vipps.no](https://portal.vipps.no),
 so the partner can do this directly
 as described here:
