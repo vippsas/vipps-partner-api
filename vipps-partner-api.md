@@ -315,7 +315,7 @@ This flowchart shows the current functionality:
    email when done. The partner can also check with the API:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
 
-![Screenshot from using link withouth MA](images/screenshot_withouth_ma.png)
+![Screenshot from using link without MA](images/screenshot_without_ma.png)
 ![Screenshot from the MA form](images/merchant-agreement-form.png)
 
 #### Scenario 2: The merchant has a active or processing Merchant Agreement
