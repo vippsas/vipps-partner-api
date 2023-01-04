@@ -305,9 +305,9 @@ This flowchart shows the current functionality:
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant user uses the link and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
-3. The merchant is presented with the form for the MA,
-   completes and submits the MA for processing.
-4. The merchant re-uses the link or enters the prefill from the home page on
+3. The merchant is presented with a page informing them that they need to 
+   sign an MA before filling in the PO.
+4. The merchant re-use the link or enter the the prefill from the home page on
    [portal.vipps.no](https://portal.vipps.no)
    and is presented with the prefilled PO,
    checks the details in the PO and submits it.
@@ -316,6 +316,7 @@ This flowchart shows the current functionality:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
 
 ![Screenshot from using link without MA](images/screenshot_without_ma.png)
+![Screenshot from the MA form](images/merchant-agreement-form.png)
 
 #### Scenario 2: The merchant has a active or processing Merchant Agreement
 
