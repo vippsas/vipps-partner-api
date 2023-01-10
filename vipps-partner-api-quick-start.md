@@ -36,8 +36,6 @@ Be aware that these are running on the production server.
 
 <!-- END_TOC -->
 
-Document version 1.1.2.
-
 ## Postman
 
 ### Prerequisites
@@ -89,6 +87,8 @@ for details about the calls.
 ### Get sale unit by Merchant Serial Number
 
 1. Send request `Get Access Token`. This provides you with access to the API.
+   Be sure to use the address to the production server and provide keys for a production sale unit.
+
 1. Send request `Get sale unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment. See [`GET:v0/salesunits/:msn/`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN).
 
 ### Get merchant by organization number
