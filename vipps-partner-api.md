@@ -14,8 +14,7 @@ END_METADATA -->
 
 <!-- END_COMMENT -->
 
-The Vipps Partner API lets partners use their partner keys to retrieve information
-about their merchants and their sale units.
+The Vipps Partner API allows you, as a partner, to retrieve information about your merchants and sale units by using your partner keys.
 
 API version: 1.0.0.
 
@@ -38,8 +37,7 @@ Document version 2.1.0.
   * [Scenarios](#scenarios)
     * [Flowchart](#flowchart)
     * [Scenario 1: The merchant does not have a Merchant Agreement](#scenario-1-the-merchant-does-not-have-a-merchant-agreement)
-    * [Scenario 2: The merchant has a Merchant Agreement that is being processed](#scenario-2-the-merchant-has-a-merchant-agreement-that-is-being-processed)
-    * [Scenario 3: The merchant has a Merchant Agreement](#scenario-3-the-merchant-has-a-merchant-agreement)
+    * [Scenario 2: The merchant has a Merchant Agreement that is being processed](#scenario-2-the-merchant-has-a-active-or-processing-merchant-agreement)
   * [Future improvements](#future-improvements)
 * [Future plans for this API](#future-plans-for-this-api)
 * [Questions?](#questions)
@@ -48,8 +46,8 @@ Document version 2.1.0.
 
 ## Information for Vipps partners
 
-- [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
-- [Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/): Technical information for Vipps partners.
+* [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
+* [Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/): Technical information for Vipps partners.
 
 ### Integrating with this API
 
@@ -125,11 +123,11 @@ Future versions of the API will _probably_ return more information,
 and we will work with our partners to find out what is useful and possible.
 Some candidates:
 
-- Company address
-- Contact information for the main person (depends on GDPR, etc)
-- Contact information for the technical person (depends on GDPR, etc)
-- A list of people with admin rights on portal.vipps.no (depends on GDPR, etc)
-- Changelog: What was changed when by who?
+* Company address
+* Contact information for the main person (depends on GDPR, etc)
+* Contact information for the technical person (depends on GDPR, etc)
+* A list of people with admin rights on portal.vipps.no (depends on GDPR, etc)
+* Changelog: What was changed when by who?
 
 ### In the meantime
 
@@ -179,16 +177,16 @@ Future versions of the API will _probably_ return more information,
 and we will work with our partners to find out what is useful and possible.
 Some candidates:
 
-- Vipps products: Which Vipps products and APIs are available for this MSN ("eCom API", "Recurring API", "Login API", etc).
-- Transaction cost (price package)
-- Status: Active or deactivated
+* Vipps products: Which Vipps products and APIs are available for this MSN ("eCom API", "Recurring API", "Login API", etc).
+* Transaction cost (price package)
+* Status: Active or deactivated
 
 ### In the meantime
 
 Until more functionality is available in this API, there are some workarounds:
 
-- [How can I check if I have "reserve capture" or "direct capture"?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
-- [How can I check if I have skipLandingPage activated?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/vipps-landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
+* [How can I check if I have "reserve capture" or "direct capture"?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+* [How can I check if I have skipLandingPage activated?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/vipps-landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
 
 ## Submit a product order for a merchant
 
@@ -212,6 +210,7 @@ merchant and the partner
 (as described on
 [Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/))
 with information about:
+
 * The merchant's organization number
 * The merchant's name
 * The sale unit's MSN

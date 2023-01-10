@@ -14,8 +14,8 @@ END_METADATA -->
 
 <!-- END_COMMENT -->
 
-Use the Partner API to get details for sale units or merchants.
-In addition, you can order products on behalf of merchants.
+Use the Partner API to get details for their own sale units and merchants.
+In addition, you can order products on behalf of your merchants.
 
 Be aware that these are running on the production server.
 
