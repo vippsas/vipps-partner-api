@@ -7,19 +7,15 @@ END_METADATA -->
 
 # Quick start
 
-<!-- START_COMMENT -->
-
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
-
 Use the Partner API to get details for their own sale units and merchants.
 In addition, you can order products on behalf of your merchants.
 
 Be aware that these are running on the production server.
 
-<!-- START_TOC -->
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
 ## Table of Contents
 
@@ -34,7 +30,7 @@ Be aware that these are running on the production server.
   * [Order products on behalf of merchants](#order-products-on-behalf-of-merchants)
 * [Questions?](#questions)
 
-<!-- END_TOC -->
+<!-- END_COMMENT -->
 
 ## Postman
 

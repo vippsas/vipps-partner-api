@@ -8,13 +8,6 @@ END_METADATA -->
 
 # Vipps Partner API FAQ
 
-<!-- START_COMMENT -->
-
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
-
 The Vipps Partner API lets partners use their partner keys to retrieve information
 about their merchants and their sale units.
 
@@ -29,7 +22,10 @@ See also:
 [Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
 guide.
 
-<!-- START_TOC -->
+<!-- START_COMMENT -->
+
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
 ## Table of contents
 
@@ -37,7 +33,7 @@ guide.
 * [When will it be possible to change an existing sale unit?](#when-will-it-be-possible-to-change-an-existing-sale-unit)
 * [Questions?](#questions)
 
-<!-- END_TOC -->
+<!-- END_COMMENT -->
 
 ## Why do I get `HTTP 404 Not Found`?
 

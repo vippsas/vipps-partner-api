@@ -7,20 +7,14 @@ END_METADATA -->
 
 # Vipps Partner API
 
-<!-- START_COMMENT -->
-
-ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
-
-<!-- END_COMMENT -->
-
 The Vipps Partner API allows you, as a partner, to retrieve information about your merchants and sale units by using your partner keys.
 
 API version: 1.0.0.
 
-Document version 2.1.0.
+<!-- START_COMMENT -->
 
-<!-- START_TOC -->
+ℹ️ Please use the new documentation:
+[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
 ## Table of Contents
 
@@ -42,7 +36,7 @@ Document version 2.1.0.
 * [Future plans for this API](#future-plans-for-this-api)
 * [Questions?](#questions)
 
-<!-- END_TOC -->
+<!-- END_COMMENT -->
 
 ## Information for Vipps partners
 
