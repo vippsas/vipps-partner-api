@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: "1.2.1"
+  version: "1.3.0"
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -362,31 +362,37 @@ components:
           maxLength: 255
           deprecated: true
           example: posstandard
-          description: (deprecated) Optional. One of the price packages that are registered for the partner in the Vipps system. Please note, it is not the PriceId (3 digit), but the name, such as "standard", "price1", etc, that is applicable to the partner. If the field is not provided, the merchant must select it manually from the product order section of the merchant portal before submitting. 
+          description: (deprecated) Optional. One of the price packages that are registered for the partner in the Vipps system. Please note, it is not the PriceId (3 digit), but the name, such as "standard", "price1", etc, that is applicable to the partner. If the field is not provided, the merchant must select it manually from the product order section of the merchant portal before submitting.
         pricePackageId:
           type: string
           format: uuid
           nullable: true
           example: "8a11afb7-c223-48ed-8ca6-4722b97261aa"
-          description: Optional. Currently only valid for 'VIPPS_PA_NETT'. One of the price packages that are registered for the partner in the Vipps system. Please note, it is not the PriceId (3 digit) but a new uuid, that is applicable to the partner. If the field is not provided, the merchant must select it manually from the product order section of the merchant portal before submitting. 
+          description: For 'VIPPS_PA_NETT' and 'VIPPS_I_KASSA'. One of the price packages that are registered for the partner in the Vipps system. Please note, it is not the PriceId (3 digit) but a new uuid, that is applicable to the partner. If the field is not provided, the merchant must select it manually from the product order section of the merchant portal before submitting.
         productType:
           type: string
           enum:
-            - VIPPS_BEDRIFT
             - VIPPS_PA_NETT
             - VIPPS_LOGG_INN
             - VIPPS_CHECKOUT
-            - VIPPS_SENERE
             - VIPPS_I_KASSA
           x-enum-varnames:
-            - VIPPS_BEDRIFT
             - VIPPS_PA_NETT
             - VIPPS_LOGG_INN
             - VIPPS_CHECKOUT
-            - VIPPS_SENERE
             - VIPPS_I_KASSA
           example: VIPPS_PA_NETT
           description: The type of product ordered for the merchant
+        productUseCase:
+          type: string
+          enum:
+            - Website
+            - WebsiteWithTest
+            - App
+            - Unknown
+          example: WebsiteWithTest
+          nullable: true
+          description: Where will sales take place?
         annualTurnover:
           type: integer
           minimum: 0
@@ -410,7 +416,7 @@ components:
               type: string
               format: URL
               pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
-              description: The URL to the merchant's website
+              description: For 'WebsiteWithTest' or 'Website'. The URL to the merchant's website
               example: "https://example.com"
             termsUrl:
               type: string
@@ -423,17 +429,17 @@ components:
               type: string
               format: URL
               pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
-              description: The URL to the merchants test website
+              description: For 'WebsiteWithTest'. The URL to the merchants test website
               example: "https://test.example.com"
             testWebsiteUsername:
               nullable: true
               type: string
-              description: Username to log in on the test website
+              description: For 'WebsiteWithTest'. Username to log in on the test website
               example: test-user
             testWebsitePassword:
               nullable: true
               type: string
-              description: Password to log in on the test website
+              description: For 'WebsiteWithTest'. Password to log in on the test website
               example: test-password
         complianceData:
           nullable: true
@@ -444,17 +450,23 @@ components:
               type: object
               required:
                 - isSalesPercentageLessThanTen
-                - validityDuration
               properties:
                 isSalesPercentageLessThanTen:
                   type: boolean
                   default: false
-                  description: How much percentage gift card sales consists of. Either Less than 10% or 10% and more
+                  description: How much percentage giftcard sales consits of. Either Less than 10% or 10% and more
                   example: false
+                  nullable: true
                 validityDuration:
                   type: string
-                  description: For how long is the gift card valid after purchase
+                  description: If 'isSalesPercentageLessThanTen' is true. For how long is the gift card valid after purchase?
                   example: 3 years
+                  nullable: true
+                giftCardTurnoverShare:
+                  type: string
+                  description: If 'isSalesPercentageLessThanTen' is true. What percentage of total sales are giftcards?
+                  example: about 25%
+                  nullable: true
             membership:
               nullable: true
               type: object
@@ -466,6 +478,14 @@ components:
                   type: string
                   description: Estimated turnover share of membership sales in percentage
                   example: about 25%
+                membershipValidity:
+                  type: string
+                  enum:
+                    - CurrentCalendarYear
+                    - OneYearFromPayment
+                  nullable: true
+                  example: CurrentCalendarYear
+                  description: Is the membership valid from the current calendar year or 1 year from payment?
                 periodDistribution:
                   type: string
                   description: Distribution of memberships in different periods that is being sold
@@ -511,11 +531,12 @@ components:
                   description: True if there are online courses offered
                   default: false
                   example: false
-                onlineAccessibleTime:
                   nullable: true
+                onlineAccessibleTime:
                   type: string
                   description: How long after purchase does a user have access to the course
                   example: for 3 months
+                  nullable: true
             ticket:
               nullable: true
               type: object
@@ -577,6 +598,7 @@ components:
                   description: true if merchant will receive donation through Vipps
                   default: false
                   example: false
+                  nullable: true
     ProductOrderResponse:
       title: Product Order Response
       type: object
