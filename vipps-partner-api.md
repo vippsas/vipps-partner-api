@@ -40,7 +40,7 @@ API version: 1.0.0.
 ## Information for Vipps partners
 
 * [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
-* [Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/): Technical information for Vipps partners.
+* [Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner): Technical information for Vipps partners.
 
 ### Integrating with this API
 
@@ -201,7 +201,7 @@ the product order.
 When the submitted order has been processed, Vipps sends an email to both the
 merchant and the partner
 (as described on
-[Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/))
+[Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner))
 with information about:
 
 * The merchant's organization number

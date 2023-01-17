@@ -20,7 +20,7 @@ END_METADATA -->
 The Vipps Partner API allows partners to retrieve information about their merchants and their sale units by using their partner keys.
 
 For general information for Vipps partners, see
-[Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/).
+[Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner).
 
 ## Getting started
 
