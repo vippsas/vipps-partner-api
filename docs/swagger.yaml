@@ -454,7 +454,7 @@ components:
                 isSalesPercentageLessThanTen:
                   type: boolean
                   default: false
-                  description: How much percentage giftcard sales consits of. Either Less than 10% or 10% and more
+                  description: The percentage the giftcard sales consists of. Either 'Less than 10%' or '10% and more'
                   example: false
                   nullable: true
                 validityDuration:
