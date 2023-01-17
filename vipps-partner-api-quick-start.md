@@ -28,7 +28,6 @@ Be aware that these are running on the production server.
   * [Get sale unit by Merchant Serial Number](#get-sale-unit-by-merchant-serial-number)
   * [Get merchant by organization number](#get-merchant-by-organization-number)
   * [Order products on behalf of merchants](#order-products-on-behalf-of-merchants)
-* [Questions?](#questions)
 
 <!-- END_COMMENT -->
 
@@ -94,12 +93,3 @@ for details about the calls.
 ### Order products on behalf of merchants
 
 1. Review the `Order products on behalf of merchants` to see an example of ordering products. Since this is running on the production server, you might not want to run it.  See [`POST:v0/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct).
-
-## Questions?
-
-We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-partner-api/issues),
-a [pull request](https://github.com/vippsas/vipps-partner-api/pulls),
-or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).
-
-Sign up for our [Technical newsletter for developers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/newsletters).

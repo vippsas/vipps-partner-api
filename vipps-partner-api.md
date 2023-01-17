@@ -34,7 +34,6 @@ API version: 1.0.0.
     * [Scenario 2: The merchant has a Merchant Agreement that is being processed](#scenario-2-the-merchant-has-a-active-or-processing-merchant-agreement)
   * [Future improvements](#future-improvements)
 * [Future plans for this API](#future-plans-for-this-api)
-* [Questions?](#questions)
 
 <!-- END_COMMENT -->
 
@@ -364,12 +363,3 @@ as described here:
 [Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys)
 and
 [How to add a user on portal.vipps.no](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/add-portal-user).
-
-## Questions?
-
-We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-partner-api/issues),
-a [pull request](https://github.com/vippsas/vipps-partner-api/pulls),
-or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).
-
-Sign up for our [Technical newsletter for developers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/newsletters).
