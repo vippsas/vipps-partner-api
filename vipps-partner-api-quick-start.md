@@ -21,8 +21,8 @@ Be aware that these are running on the production server.
 
 * [Postman](#postman)
   * [Prerequisites](#prerequisites)
-  * [Step 1: Get the Vipps Postman collection and environment](#step-1-get-the-vipps-postman-collection-and-environment)
-  * [Step 2: Import the Vipps Postman files](#step-2-import-the-vipps-postman-files)
+  * [Step 1: Get the Postman collection and environment](#step-1-get-the-postman-collection-and-environment)
+  * [Step 2: Import the Postman files](#step-2-import-the-postman-files)
   * [Step 3: Set up Postman environment](#step-3-set-up-postman-environment)
 * [Make API calls](#make-api-calls)
   * [Get sale unit by Merchant Serial Number](#get-sale-unit-by-merchant-serial-number)
