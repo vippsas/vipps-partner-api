@@ -5,7 +5,7 @@ sidebar_position: 30
 ---
 END_METADATA -->
 
-# Vipps Partner API
+# API Guide
 
 The Vipps Partner API allows you, as a partner, to retrieve information about your merchants and sale units by using your partner keys.
 

@@ -6,7 +6,7 @@ pagination_next: null
 ---
 END_METADATA -->
 
-# Vipps Partner API FAQ
+# FAQs
 
 The Vipps Partner API lets partners use their partner keys to retrieve information
 about their merchants and their sale units.

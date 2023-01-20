@@ -17,7 +17,7 @@ Be aware that these are running on the production server.
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
-## Table of Contents
+## Table of contents
 
 * [Postman](#postman)
   * [Prerequisites](#prerequisites)
@@ -38,14 +38,14 @@ Be aware that these are running on the production server.
 Review
 [Vipps quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/quick-start-guides) for information about getting your test environment set up.
 
-### Step 1: Get the Vipps Postman collection and environment
+### Step 1: Get the Postman collection and environment
 
 Save the following files to your computer:
 
 * [Vipps Partner API Postman collection](tools/vipps-partner-api-postman-collection.json)
 * [Vipps API Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
 
-### Step 2: Import the Vipps Postman files
+### Step 2: Import the Postman files
 
 1. In Postman, click *Import* in the upper-left corner.
 1. In the dialog that opens, with *File* selected, click *Upload Files*.
