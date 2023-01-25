@@ -7,36 +7,29 @@ END_METADATA -->
 
 # Quick start
 
+Use the Partner API to get details for their own sale units and merchants.
+In addition, you can order products on behalf of your merchants.
+
+Be aware that these are running on the production server.
+
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
-<!-- END_COMMENT -->
-
-Use the Partner API to get details for sale units or merchants.
-In addition, you can order products on behalf of merchants.
-
-Be aware that these are running on the production server.
-
-<!-- START_TOC -->
-
-## Table of Contents
+## Table of contents
 
 * [Postman](#postman)
   * [Prerequisites](#prerequisites)
-  * [Step 1: Get the Vipps Postman collection and environment](#step-1-get-the-vipps-postman-collection-and-environment)
-  * [Step 2: Import the Vipps Postman files](#step-2-import-the-vipps-postman-files)
+  * [Step 1: Get the Postman collection and environment](#step-1-get-the-postman-collection-and-environment)
+  * [Step 2: Import the Postman files](#step-2-import-the-postman-files)
   * [Step 3: Set up Postman environment](#step-3-set-up-postman-environment)
 * [Make API calls](#make-api-calls)
   * [Get sale unit by Merchant Serial Number](#get-sale-unit-by-merchant-serial-number)
   * [Get merchant by organization number](#get-merchant-by-organization-number)
   * [Order products on behalf of merchants](#order-products-on-behalf-of-merchants)
-* [Questions?](#questions)
 
-<!-- END_TOC -->
-
-Document version 1.1.2.
+<!-- END_COMMENT -->
 
 ## Postman
 
@@ -45,14 +38,14 @@ Document version 1.1.2.
 Review
 [Vipps quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/quick-start-guides) for information about getting your test environment set up.
 
-### Step 1: Get the Vipps Postman collection and environment
+### Step 1: Get the Postman collection and environment
 
 Save the following files to your computer:
 
 * [Vipps Partner API Postman collection](tools/vipps-partner-api-postman-collection.json)
 * [Vipps API Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
 
-### Step 2: Import the Vipps Postman files
+### Step 2: Import the Postman files
 
 1. In Postman, click *Import* in the upper-left corner.
 1. In the dialog that opens, with *File* selected, click *Upload Files*.
@@ -89,6 +82,8 @@ for details about the calls.
 ### Get sale unit by Merchant Serial Number
 
 1. Send request `Get Access Token`. This provides you with access to the API.
+   Be sure to use the address to the production server and provide keys for a production sale unit.
+
 1. Send request `Get sale unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment. See [`GET:v0/salesunits/:msn/`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN).
 
 ### Get merchant by organization number
@@ -98,12 +93,3 @@ for details about the calls.
 ### Order products on behalf of merchants
 
 1. Review the `Order products on behalf of merchants` to see an example of ordering products. Since this is running on the production server, you might not want to run it.  See [`POST:v0/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct).
-
-## Questions?
-
-We're always happy to help with code or other questions you might have!
-Please create an [issue](https://github.com/vippsas/vipps-partner-api/issues),
-a [pull request](https://github.com/vippsas/vipps-partner-api/pulls),
-or [contact us](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/contact).
-
-Sign up for our [Technical newsletter for developers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/newsletters).
