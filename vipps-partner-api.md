@@ -221,7 +221,7 @@ Here is a sample request:
   "salesUnitName": "ACME Fantastic Fitness",
   "salesUnitLogo": "VGhlIGltYWdlIGdvZXMgaGVyZQ==",
   "settlementAccountNumber": "86011117947",
-  "pricePackageKey": "posstandard",
+  "pricePackageId": "8a11afb7-c223-48ed-8ca6-4722b97261aa",
   "productType": "VIPPS_PA_NETT",
   "mcc": "5200",
   "annualTurnover": "100000",
@@ -241,14 +241,12 @@ something needs to be corrected, the merchant must contact the partner to have
 the partner submit a new product order with the correct details.
 For instance: The partner name and the price package name is displayed, but can not be changed.
 
-It is important for the partner to send in correct information for `pricePackageKey` in the request.
-It the price package _name_ name such as "standard", "price1", etc. that must be used,
-not the three-digit `priceId`.
-If the correct `pricePackageKey` is not sent in the request,
-the product order form in the merchant portal will not be prefilled when the
-merchant logs in using the `returnUrl`, and the merchant can the4n select
-from all the partner's prices.
-We are working on simplifying this in the future.
+It is important for the partner to send in correct information for `pricePackageId` in the request.
+It's the UUID price package _id_ (`pricePackageId`) that must be used,
+not the three-digit `priceId` or the alphanumeric key `pricePackageKey`.
+If the `pricePackageId` is included but not correct,
+the `returnUrl` will take the merchant to a page warning them that the prefill
+is not valid.
 
 This may be useful:
 [Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/#typical-reasons-for-delays).
