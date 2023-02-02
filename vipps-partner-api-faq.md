@@ -1,6 +1,6 @@
 <!-- START_METADATA
 ---
-title: FAQ
+title: FAQs
 sidebar_position: 45
 pagination_next: null
 ---
