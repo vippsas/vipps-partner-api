@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: "1.3.0"
+  version: "1.3.1"
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -54,10 +54,13 @@ paths:
                   salesUnitName: ACME Fantastic Fitness
                   salesUnitLogo: VGhlIGltYWdlIGdvZXMgaGVyZQ==
                   settlementAccountNumber: "86011117947"
-                  pricePackageKey: posstandard
+                  pricePackageId: 8a11afb7-c223-48ed-8ca6-4722b97261aa
                   productType: VIPPS_PA_NETT
                   annualTurnover: 100000
-                  intendedPurpose: Gym membership
+                  intendedPurpose: |-
+                    Gym membership for accessing the gym's facilities.
+                    Guest will be not physically present when buying the subscription,
+                    as that is done on the gym's website.
                   website:
                     url: "https://example.com"
                     termsUrl: "https://example.com/terms-and-conditions"
@@ -402,8 +405,16 @@ components:
           example: 100000
         intendedPurpose:
           type: string
-          description: Description of the product or products that will be sold
-          example: Gym membership
+          description: |-
+            Description of the product or products that will be sold.
+            Please include all information relevant to processing the product
+            order, such as including "POS integration" to indicate that the
+            sale unit needs `skipLandingPage`, or that the sale unit needs
+            "direct capture".
+          example: |-
+            Gym membership for accessing the gym's facilities.
+            Guest will be not physically present when buying the subscription,
+            as that is done on the gym's website.
           nullable: true
         website:
           nullable: true
