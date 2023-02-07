@@ -249,7 +249,7 @@ the `returnUrl` will take the merchant to a page warning them that the prefill
 is not valid.
 
 This may be useful:
-[Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/#typical-reasons-for-delays).
+[Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner#typical-reasons-for-delays).
 
 ### Scenarios
 
