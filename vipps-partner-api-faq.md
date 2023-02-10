@@ -35,6 +35,26 @@ guide.
 
 <!-- END_COMMENT -->
 
+## Where do I get the pricePackageId?
+
+The `pricePackageId` is a UUID, and you get it when you are activated as partner.
+If you have lost it, please search in your email.
+
+A UUID has a format like this: 81b83246-5c19-7b94-875b-ea6d1114f099.
+
+## Can I use the Partner API in the test environment?
+
+Nope. We do not have all the required backend systems available in the test
+environment.
+
+## Why is the URL for a pre-filled product order not working?
+
+If you send an invalid request to
+[`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+the pre-fill will fail, and the URL will lead to the standard, empty
+product order form. Although we do _some_ input validation, it is not possible
+to validate all data.
+
 ## Why do I get `HTTP 404 Not Found`?
 
 You will get this error for requests to
