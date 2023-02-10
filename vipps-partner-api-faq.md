@@ -29,9 +29,11 @@ guide.
 
 ## Table of contents
 
+* [Where do I get the pricePackageId?](#where-do-i-get-the-pricepackageid)
+* [Can I use the Partner API in the test environment?](#can-i-use-the-partner-api-in-the-test-environment)
+* [Why is the URL for a pre-filled product order not working?](#why-is-the-url-for-a-pre-filled-product-order-not-working)
 * [Why do I get `HTTP 404 Not Found`?](#why-do-i-get-http-404-not-found)
 * [When will it be possible to change an existing sale unit?](#when-will-it-be-possible-to-change-an-existing-sale-unit)
-* [Questions?](#questions)
 
 <!-- END_COMMENT -->
 
