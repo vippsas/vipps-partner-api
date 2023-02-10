@@ -39,6 +39,10 @@ guide.
 
 The `pricePackageId` is a UUID, and you get it when you are activated as partner.
 If you have lost it, please search in your email.
+If you can not find it, please see
+[Questions](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner#questions)
+at the bottom of
+[Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner).
 
 A UUID has a format like this: 81b83246-5c19-7b94-875b-ea6d1114f099.
 
@@ -69,5 +73,6 @@ See:
 We are working on this now, as fast as we can!
 We know this is a very important feature, but can't give you a release date yet.
 The documentation will be updated as soon as we have new information.
+
 We recommend subscribing to the
 [Technical newsletter for developers](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/newsletters).
