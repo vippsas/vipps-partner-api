@@ -16,25 +16,6 @@ API version: 1.0.0.
 ℹ️ Please use the new documentation:
 [Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
 
-## Table of contents
-
-* [Information for Vipps partners](#information-for-vipps-partners)
-  * [Integrating with this API](#integrating-with-this-api)
-  * [Partner keys](#partner-keys)
-* [Get information about a merchant based on organization number](#get-information-about-a-merchant-based-on-organization-number)
-  * [Future improvements](#future-improvements)
-  * [In the meantime](#in-the-meantime)
-* [Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn)
-  * [Future improvements](#future-improvements)
-  * [In the meantime](#in-the-meantime)
-* [Submit a product order for a merchant](#submit-a-product-order-for-a-merchant)
-  * [Scenarios](#scenarios)
-    * [Flowchart](#flowchart)
-    * [Scenario 1: The merchant does not have a Merchant Agreement](#scenario-1-the-merchant-does-not-have-a-merchant-agreement)
-    * [Scenario 2: The merchant has a Merchant Agreement that is being processed](#scenario-2-the-merchant-has-a-active-or-processing-merchant-agreement)
-  * [Future improvements](#future-improvements)
-* [Future plans for this API](#future-plans-for-this-api)
-
 <!-- END_COMMENT -->
 
 ## Information for Vipps partners
@@ -68,6 +49,16 @@ the following priority:
    or
    [which capture type it has](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
 
+**Important:** Endpoints with `/v0/` (version 0) in the URI _are_ working, and
+will continue to do so, but will be superseded by similar `/v1/` endpoints with
+improved functionality as soon as possible. For example:
+[`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN)
+provides limited information about a sale unit today, but will provide more
+details once the internal Vipps systems are able to provide them.
+The response may then change more than we allow for in the
+[API Lifecycle](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-lifecycle),
+and we will therefore keep `/v0/` until `/v/` is ready.
+
 ### Partner keys
 
 All partners can use their
@@ -87,7 +78,11 @@ This endpoint is for retrieving information about the merchant.
 
 Sequence diagram:
 
-![Get information about a merchant based on organization number](images/sequence-diagram-get-orgno.png)
+```mermaid
+sequenceDiagram
+    Partner->>+API: GET:/merchants/{orgno}
+    API->>+Partner: A list of the merchant's MSNs with the partner as partner
+```
 
 The current version of the Partner API only returns a list of MSNs
 connected to the partner making the API request, but we _may_ extend this later.
@@ -143,7 +138,11 @@ This endpoint is for retrieving details about one sale unit (MSN).
 
 Sequence diagram:
 
-![Get information about a sale unit based on MSN](images/sequence-diagram-get-msn.png)
+```mermaid
+sequenceDiagram
+    Partner->>+API: GET:/saleunits/{msn}
+    API->>+Partner: The details for the MSN (if the MSN has the partner as partner)
+```
 
 The response (see [getMSN](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN) for details):
 
@@ -193,7 +192,7 @@ functionality, so we can avoid multiple parallel discussions in various channels
 
 [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 
-This endpoint lets a partner "prefill" the product order form on
+This endpoint lets a partner "pre-fill" the product order form on
 [portal.vipps.no](https://portal.vipps.no)
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
@@ -211,7 +210,29 @@ with information about:
 
 Sequence diagram:
 
-![Submit a product order for a merchant](images/sequence-diagram-prefill.png)
+```mermaid
+sequenceDiagram
+    participant Partner
+    participant API
+    participant Merchant
+    participant portal.vipps.no
+    participant Vipps
+    Partner->>API: POST:/products/orders
+    API->>Partner: URL to pre-filled signup form
+    Partner->>Merchant: Here is your pre-filled form on portal.vipps.no
+    Merchant->>portal.vipps.no: Logs in with BankID and accesses form
+    portal.vipps.no->>API: Requests pre-filled data
+    API->>portal.vipps.no: Provides pre-filled data
+    Note right of portal.vipps.no: Empty form if pre-fill API request was incorrect
+    portal.vipps.no->>portal.vipps.no: Merchant checks and submits form
+    portal.vipps.no->>Vipps: Application is sent for processing
+    Vipps->>Vipps: Processing
+    Vipps->>Merchant: Sometimes: Ask for additional information
+    Merchant->>Vipps: Sometimes: Provide additional information
+    Vipps->>Merchant: Email with MSN and other details
+    Vipps->>Partner: Email with MSN and other details
+    Note right of Partner: If application declined: No email to partner
+```
 
 Here is a sample request:
 
@@ -245,7 +266,7 @@ It is important for the partner to send in correct information for `pricePackage
 It's the UUID price package _id_ (`pricePackageId`) that must be used,
 not the three-digit `priceId` or the alphanumeric key `pricePackageKey`.
 If the `pricePackageId` is included but not correct,
-the `returnUrl` will take the merchant to a page warning them that the prefill
+the `returnUrl` will take the merchant to a page warning them that the pre-fill
 is not valid.
 
 This may be useful:
@@ -279,7 +300,7 @@ to sign a MA for a merchant is by using data from
 It is therefore a requirement that the user logging in on
 [portal.vipps.no](https://portal.vipps.no)
 is registered as chairman of the board ("styreleder") or CEO ("daglig leder").
-The user will then automatically be presented with the prefilled PO.
+The user will then automatically be presented with the pre-filled PO.
 
 #### Flowchart
 
@@ -289,17 +310,17 @@ This flowchart shows the current functionality:
 
 #### Scenario 1: The merchant does not have a Merchant Agreement
 
-1. The partner prefills the PO using
+1. The partner pre-fills the PO using
    [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and gets a link to the prefilled PO on
+   and gets a link to the pre-filled PO on
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant user uses the link and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
-3. The merchant is presented with a page informing them that they need to 
+3. The merchant is presented with a page informing them that they need to
    sign an MA before filling in the PO.
-4. The merchant re-use the link or enter the the prefill from the home page on
+4. The merchant re-use the link or enter the the pre-fill from the home page on
    [portal.vipps.no](https://portal.vipps.no)
-   and is presented with the prefilled PO,
+   and is presented with the pre-filled PO,
    checks the details in the PO and submits it.
 5. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
@@ -312,13 +333,13 @@ This flowchart shows the current functionality:
 
 The merchant has a MA, and probably also a Vipps product.
 
-1. The partner prefills the PO using
+1. The partner pre-fills the PO using
    [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and gets a link to the prefilled PO on
+   and gets a link to the pre-filled PO on
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant user uses the link and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
-3. The merchant is presented with the prefilled PO,
+3. The merchant is presented with the pre-filled PO,
    checks the details in the PO and submits it.
 4. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
@@ -332,7 +353,7 @@ The merchant has a MA, and probably also a Vipps product.
   and Vipps handles all the details.
 * Depending on legal requirements we want to let the partner know as much as
   possible about "their" merchants and sale units.  
-* We may allow the merchant to change some of the data prefilled by the
+* We may allow the merchant to change some of the data pre-filled by the
   partner, but this is not trivial. If the merchant changes any data, the
   partner must be notified and also get the updated data - then merge and sync that
   with the "old" data that was sent in the first place.
