@@ -180,6 +180,25 @@ Until more functionality is available in this API, there are some workarounds:
 * [How can I check if I have "reserve capture" or "direct capture"?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
 * [How can I check if I have skipLandingPage activated?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/vipps-landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
 
+## Product order (PO) and Merchant agreement (MA)
+
+Merchants must have both a valid Merchant Agreement (MA) and an approved
+Product Order (PO) to be able to use Vipps products.
+
+* MA: An agreement between the merchant and Vipps, signed with BankID.
+  The MA contains information about all direct and indirect owners, any
+  politically exposed persons, etc.
+* PO: This is an order for "Vipps på nett", "Vipps Login", etc. The merchant
+  must provide some information about the use, whether the cardholder is
+  present, etc. The PO is not signed with BankID.
+  A merchant may have several Vipps products, each created with a separate PO.
+
+A merchant may order a Vipps product (submit a product order, "PO") with or
+without an existing Merchant Agreement ("merchant agreement", "MA").
+
+Both MA and PO are described in detail in
+[Scenarios](#scenarios).
+
 ## Submit a product order for a merchant
 
 **Important:** This endpoint is available for all partners in the
@@ -197,7 +216,9 @@ This endpoint lets a partner "pre-fill" the product order form on
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
 
-Sequence diagram:
+### Sequence diagram for pre-fill
+
+PO: Product order. MA: Merchant agreement.
 
 ```mermaid
 sequenceDiagram
@@ -286,26 +307,6 @@ This may be useful:
 
 ### Scenarios
 
-In order to get approved to have a product ("Vipps på nett", "Vipps Login", etc)
-with Vipps, the merchant must first have a formal agreement with Vipps, called
-the Merchant Agreement (MA).
-
-Merchants need both a Merchant Agreement (MA) and a Product Order (PO) to
-be able to accept Vipps payments:
-
-* MA: An agreement between the merchant and Vipps, signed with BankID.
-  The MA contains information about all direct and indirect owners, any
-  politically exposed persons, etc.
-* PO: This is an order for "Vipps på nett", "Vipps Login", etc. The merchant
-  must provide some information about the use, whether the cardholder is
-  present, etc. The PO is not signed with BankID.
-  A merchant may have several Vipps products, each created with a separate PO.
-
-A merchant may order a Vipps product (submit a product order, "PO") with or
-without an existing Merchant Agreement ("merchant agreement", "MA").
-Both MA and PO are described in detail in
-[Scenarios](#scenarios).
-
 **Please note:** The only method Vipps has to verify that a user has the right
 to sign a MA for a merchant is by using data from
 [Brønnøysundregistrene](https://brreg.no).
@@ -324,7 +325,8 @@ The user will then automatically be presented with the pre-filled PO.
    [portal.vipps.no](https://portal.vipps.no).
 3. The merchant is presented with a page informing them that they need to
    sign an MA before filling in the PO.
-4. The merchant re-use the link or enter the the pre-fill from the home page on
+4. The merchant re-uses the link or finds the link to the pre-filled form on the
+   front page on
    [portal.vipps.no](https://portal.vipps.no)
    and is presented with the pre-filled PO,
    checks the details in the PO and submits it.
@@ -332,7 +334,15 @@ The user will then automatically be presented with the pre-filled PO.
    email when done. The partner can also check with the API:
    [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
 
+When using the pre-fill link without a valid MA:
 ![Screenshot from using link without MA](images/screenshot_without_ma.png)
+
+The most important part of the MA form is the "reelle rettighetshavere"
+("real rights holders"), meaning the people with direct or direct ownership or
+rights for the company. This is not something the partner can be expected to
+know, and in any case this is information that must be signed with BankID by a
+person that has signatory rights for the merchant. The form looks like this:
+
 ![Screenshot from the MA form](images/merchant-agreement-form.png)
 
 #### Scenario 2: The merchant has a active or processing Merchant Agreement
