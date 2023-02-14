@@ -197,17 +197,6 @@ This endpoint lets a partner "pre-fill" the product order form on
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order.
 
-When the submitted order has been processed, Vipps sends an email to both the
-merchant and the partner
-(as described on
-[Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner))
-with information about:
-
-* The merchant's organization number
-* The merchant's name
-* The sale unit's MSN
-* The sale unit's name
-
 Sequence diagram:
 
 ```mermaid
@@ -215,23 +204,34 @@ sequenceDiagram
     participant Partner
     participant API
     participant Merchant
-    participant portal.vipps.no
+    participant Portal
     participant Vipps
     Partner->>API: POST:/products/orders
     API->>Partner: URL to pre-filled signup form
-    Partner->>Merchant: Here is your pre-filled form on portal.vipps.no
-    Merchant->>portal.vipps.no: Logs in with BankID and accesses form
-    portal.vipps.no->>API: Requests pre-filled data
-    API->>portal.vipps.no: Provides pre-filled data
-    Note right of portal.vipps.no: Empty form if pre-fill API request was incorrect
-    portal.vipps.no->>portal.vipps.no: Merchant checks and submits form
-    portal.vipps.no->>Vipps: Application is sent for processing
+    Partner->>Merchant: Here is your pre-filled form on Portal
+    Merchant->>Portal: Logs in with BankID and accesses form
+    Portal->>Portal: Does Merchant have a valid MA?
+    opt Merchant does not have a Merchant Agreement (MA)
+        Portal-->>Merchant: Show the MA form
+        Merchant-->>Portal: Fill out MA
+        Portal-->>Vipps: MA is sent for processing
+        Vipps-->>Vipps: Checks: KYC, AML, PEP, etc
+        Merchant-->>Merchant: Wait for MA processing
+        Vipps-->>Merchant: Email: MA is OK, please fill out PO
+        Merchant-->>Portal: Logs in with BankID and accesses form
+    end
+    Portal->>API: Requests pre-filled data
+    API->>Portal: Provides pre-filled data
+    Note right of Portal: Empty form if pre-fill request was incorrect
+    Portal->>Portal: Merchant checks and submits form
+    Portal->>Vipps: PO is sent for processing
     Vipps->>Vipps: Processing
-    Vipps->>Merchant: Sometimes: Ask for additional information
-    Merchant->>Vipps: Sometimes: Provide additional information
+    opt Vipps requires additional information
+        Vipps->>Merchant: Sometimes: Ask for additional information
+        Merchant->>Vipps: Sometimes: Provide additional information
+    end
     Vipps->>Merchant: Email with MSN and other details
     Vipps->>Partner: Email with MSN and other details
-    Note right of Partner: If application declined: No email to partner
 ```
 
 Here is a sample request:
@@ -262,12 +262,24 @@ something needs to be corrected, the merchant must contact the partner to have
 the partner submit a new product order with the correct details.
 For instance: The partner name and the price package name is displayed, but can not be changed.
 
-It is important for the partner to send in correct information for `pricePackageId` in the request.
+**Important:** It is important that the partner sends correct information for
+`pricePackageId` in the request.
 It's the UUID price package _id_ (`pricePackageId`) that must be used,
 not the three-digit `priceId` or the alphanumeric key `pricePackageKey`.
-If the `pricePackageId` is included but not correct,
+If the `pricePackageId` is included but incorrect,
 the `returnUrl` will take the merchant to a page warning them that the pre-fill
 is not valid.
+
+When the submitted order has been processed, Vipps sends an email to both the
+merchant and the partner
+(as described on
+[Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner))
+with information about:
+
+* The merchant's organization number
+* The merchant's name
+* The sale unit's MSN
+* The sale unit's name
 
 This may be useful:
 [Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner#typical-reasons-for-delays).
@@ -301,12 +313,6 @@ It is therefore a requirement that the user logging in on
 [portal.vipps.no](https://portal.vipps.no)
 is registered as chairman of the board ("styreleder") or CEO ("daglig leder").
 The user will then automatically be presented with the pre-filled PO.
-
-#### Flowchart
-
-This flowchart shows the current functionality:
-
-![Illustration of PO and MA flow](images/merchant-agreement-flow.png)
 
 #### Scenario 1: The merchant does not have a Merchant Agreement
 
