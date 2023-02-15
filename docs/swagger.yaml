@@ -513,7 +513,7 @@ components:
                 turnoverShare:
                   type: string
                   description: >-
-                    Estimated turnover share of subscription sales in percentage.
+                    Estimated turnover share of subscription sales, in percentage.
                   example: about 25%
                 periodDistribution:
                   type: string
