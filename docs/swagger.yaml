@@ -501,7 +501,7 @@ components:
                 periodDistribution:
                   type: string
                   description: >-
-                    Distribution of memberships in different periods that is being sold.
+                    Distribution of memberships in different periods than what is being sold.
                   example: 50% yearly 20% monthly
             subscription:
               nullable: true
