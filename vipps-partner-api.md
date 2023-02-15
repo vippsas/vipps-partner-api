@@ -289,7 +289,7 @@ for details):
 something needs to be corrected, the merchant must contact the partner to have
 the partner submit a new product order with the correct details.
 
-**Important:** It is important that the partner sends correct information for
+**Important:** The partner must send the correct
 `pricePackageId` in the request.
 It's the UUID price package _id_ (`pricePackageId`) that must be used,
 not the three-digit `priceId` or the alphanumeric key `pricePackageKey`.
