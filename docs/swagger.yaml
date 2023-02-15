@@ -695,7 +695,7 @@ components:
             recurring:
               type: boolean
               description: >-
-                Shouyld the sales unit have access to the Vipps Recurring API?
+                Should the sales unit have access to the Vipps Recurring API?
                 This API requires some additional KYC checks required by
                 Finanstilsynet. Vipps is required to perform some extra
                 compliance checks before activating the Vipps Recurring API.
