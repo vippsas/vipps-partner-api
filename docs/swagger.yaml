@@ -683,7 +683,7 @@ components:
               type: string
               description: >-
                 The capture type of the sales unit.
-                we strongly recommend `ReserveCapture`.
+                We strongly recommend `ReserveCapture`.
                 See the documentation for the benefits:
                 https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/reserve-and-capture
               enum:
