@@ -28,13 +28,18 @@ paths:
       operationId: orderProduct
       description: |
         Order products on behalf of merchants:
-        Partners can submit data that pre-fills the order form, so the merchant
-        can review the information and submit the product order on portal.vipps.no.
-        Only a few of the fields are required, but the partner should provide
-        as much information as possible, so the processing can be as fast as possible.
-        Please note: `complianceData` and `website` information are required for `VIPPS_PA_NETT` product type.
-        Partners can make requests to this endpoint without them, but the merchant will have to fill
-        `complianceData` and `website` information manually.
+        Partners can submit data that pre-fills the order form on portal.vipps.no,
+        so the merchant can review the information and submit the product order.
+
+        Please note complianceData and website information are required for the `VIPPS_PA_NETT` product type.
+        Partners can still submit the product orders without it, but the merchant will have to fill
+        website and compliance data information manually in the merchant portal product order form and submit.
+
+        We have made as many of the fields as possible optional, but please
+        try to send as much as you can, to make it easy for the merchant.
+
+        IMPORTANT: Please provide all the necessary details, so it will not be necessary for merchants to request
+        more details. This is the most common reason for delays.
       tags:
         - Vipps Product Orders
       parameters:
@@ -367,7 +372,7 @@ components:
           description: |-
             The bank account number belonging to the organisation that will be
             used for settlement. The bank account must be owned by the
-            merchant.
+            merchant. BBAN (not IBAN) format.
         pricePackageKey:
           nullable: true
           type: string
@@ -493,12 +498,12 @@ components:
                   nullable: true
                 validityDuration:
                   type: string
-                  description: If 'isSalesPercentageLessThanTen' is true. For how long is the gift card valid after purchase?
+                  description: If 'isSalesPercentageLessThanTen' is true: For how long is the gift card valid after purchase?
                   example: 3 years
                   nullable: true
                 giftCardTurnoverShare:
                   type: string
-                  description: If 'isSalesPercentageLessThanTen' is true. What percentage of total sales are giftcards?
+                  description: If 'isSalesPercentageLessThanTen' is true: What percentage of total sales are giftcards?
                   example: about 25%
                   nullable: true
             membership:
@@ -705,7 +710,9 @@ components:
             recurring:
               type: boolean
               description: |-
-                If the sales unit has access to the Vipps Recurring API.
+                Should the sales unit have access to the Vipps Recurring API?
+                Vipps is required to perform some extra
+                compliance checks before activating the Vipps Recurring API.
                 See: https://vippsas.github.io/vipps-developer-docs/docs/APIs/recurring-api
               default: true
               example: false
