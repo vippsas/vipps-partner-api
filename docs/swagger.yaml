@@ -498,12 +498,12 @@ components:
                   nullable: true
                 validityDuration:
                   type: string
-                  description: If 'isSalesPercentageLessThanTen' is true: For how long is the gift card valid after purchase?
+                  description: "If 'isSalesPercentageLessThanTen' is true: For how long is the gift card valid after purchase?"
                   example: 3 years
                   nullable: true
                 giftCardTurnoverShare:
                   type: string
-                  description: If 'isSalesPercentageLessThanTen' is true: What percentage of total sales are giftcards?
+                  description: "If 'isSalesPercentageLessThanTen' is true: What percentage of total sales are giftcards?"
                   example: about 25%
                   nullable: true
             membership:
