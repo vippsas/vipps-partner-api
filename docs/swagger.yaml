@@ -664,7 +664,7 @@ components:
               type: boolean
               description: >-
                 If the sale unit should have access to sending `skipLandingPage`
-                for payments. Usually for scanarios when the customer is
+                for payments. Usually for scenarios when the customer is
                 physically present and there is no customer-facing display.
                 See the documentation for details:
                 https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/vipps-landing-page
