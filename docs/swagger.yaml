@@ -674,7 +674,7 @@ components:
               type: boolean
               description: >-
                 "If the sale unit will only be used for 'Vipps Log in'
-                (the Vips Login API), and not make any type of payments.
+                (the Vipps Login API), and not make any type of payments.
                 Vipps Login API is always available for sale units that are
                 approved to make payments."
               default: false
