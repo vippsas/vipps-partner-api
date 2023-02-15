@@ -34,7 +34,7 @@ paths:
         so the merchant can review the information and submit the product order.
 
         Please note complianceData and website information are required for VIPPS_PA_NETT product type.
-        Partners can still submit the product orders without it but the merchant will have to fill
+        Partners can still submit the product orders without it, but the merchant will have to fill
         website and compliance data information manually in the merchant portal product order form and submit.
 
         We have made as many of the fields as possible optional, but please
