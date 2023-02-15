@@ -41,7 +41,7 @@ paths:
         try to send as much as you can, to make it easy for the merchant.
 
         IMPORTANT:
-        Please provide enough details that it will not be necessary to ask for
+        Please provide all the necessary details, so it will not be necessary for merchants to request
         more details. This is the most common reason for delays.
       tags:
         - Product orders
