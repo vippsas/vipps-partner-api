@@ -57,7 +57,7 @@ provides limited information about a sale unit today, but will provide more
 details once the internal Vipps systems are able to provide them.
 The response may then change more than we allow for in the
 [API Lifecycle](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-lifecycle),
-and we will therefore keep `/v0/` until `/v/` is ready.
+and we will therefore keep `/v0/` until `/v1/` is ready.
 
 ### Partner keys
 
@@ -72,22 +72,24 @@ indicating this. Please double check your partner keys first, though.
 
 ## Get information about a merchant based on organization number
 
-[`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant)
+This endpoint is for retrieving information about the merchant:
 
-This endpoint is for retrieving information about the merchant.
+[`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant)
 
 Sequence diagram:
 
 ```mermaid
 sequenceDiagram
     Partner->>+API: GET:/merchants/{orgno}
-    API->>+Partner: A list of the merchant's MSNs with the partner as partner
+    API->>+Partner: A list of the merchant's MSNs connected to the partner
 ```
 
 The current version of the Partner API only returns a list of MSNs
 connected to the partner making the API request, but we _may_ extend this later.
 
-The response (see [getMerchant](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant) for details):
+The response (see
+[`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant)
+for details):
 
 ```json
 {
@@ -132,19 +134,21 @@ and
 
 ## Get information about a sale unit based on MSN
 
-[`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN)
+This endpoint is for retrieving details about one sale unit (MSN):
 
-This endpoint is for retrieving details about one sale unit (MSN).
+[`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN)
 
 Sequence diagram:
 
 ```mermaid
 sequenceDiagram
     Partner->>+API: GET:/saleunits/{msn}
-    API->>+Partner: The details for the MSN (if the MSN has the partner as partner)
+    API->>+Partner: The details for the MSN (if the MSN is connected to the partner)
 ```
 
-The response (see [getMSN](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN) for details):
+The response (see
+[`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN)
+for details):
 
 ```json
 {
@@ -201,6 +205,13 @@ Both MA and PO are described in detail in
 
 ## Submit a product order for a merchant
 
+This endpoint lets a partner "pre-fill" the product order form on
+[portal.vipps.no](https://portal.vipps.no)
+on behalf of a merchant, so the merchant can log in, check the data, and submit
+the product order:
+
+[`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+
 **Important:** This endpoint is available for all partners in the
 production environment, but there may be some minor changes. We will do our
 utmost to avoid breaking changes, but we can not guarantee it.
@@ -208,13 +219,6 @@ This is a new API, so feedback is welcome!
 Please try to use GitHub's
 [issue](https://github.com/vippsas/vipps-partner-api/issues)
 functionality, so we can avoid multiple parallel discussions in various channels.
-
-[`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-
-This endpoint lets a partner "pre-fill" the product order form on
-[portal.vipps.no](https://portal.vipps.no)
-on behalf of a merchant, so the merchant can log in, check the data, and submit
-the product order.
 
 ### Sequence diagram for pre-fill
 
@@ -278,10 +282,20 @@ Here is a sample request:
 }
 ```
 
+The response (see
+[`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+for details):
+
+```json
+{
+  "prefilledOrderId": "81b83246-5c19-7b94-875b-ea6d1114f099",
+  "returnUrl": "https://portal.vipps.no/register/vippspanett/81b83246-5c19-7b94-875b-ea6d1114f099"
+}
+```
+
 **Please note:** The merchant can not change the information provided by the partner, so if
 something needs to be corrected, the merchant must contact the partner to have
 the partner submit a new product order with the correct details.
-For instance: The partner name and the price package name is displayed, but can not be changed.
 
 **Important:** It is important that the partner sends correct information for
 `pricePackageId` in the request.
@@ -292,8 +306,7 @@ the `returnUrl` will take the merchant to a page warning them that the pre-fill
 is not valid.
 
 When the submitted order has been processed, Vipps sends an email to both the
-merchant and the partner
-(as described on
+merchant and the partner (as described on
 [Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner))
 with information about:
 
@@ -377,7 +390,7 @@ The merchant has a MA, and probably also a Vipps product.
 ## Future plans for this API
 
 Changes to a sale unit currently requires BankID login to
-[portal.vipps.no](https://portal.vipps.no)
+[portal.vipps.no](https://portal.vipps.no),
 but a partner should be able to make changes to the sale units connected to
 the partner.
 

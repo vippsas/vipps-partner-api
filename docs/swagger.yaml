@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: "1.3.2"
+  version: "1.3.3"
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -30,9 +30,11 @@ paths:
         Order products on behalf of merchants:
         Partners can submit data that pre-fills the order form, so the merchant
         can review the information and submit the product order on portal.vipps.no.
-        Please note complianceData and website information are required for VIPPS_PA_NETT product type.
-        Partners can still submit the product orders without them but the merchant will have to fill
-        website and compliance data information manually in the merchant portal product order form and submit.
+        Only a few of the fields are required, but the partner should provide
+        as much information as possible, so the processing can be as fast as possible.
+        Please note: `complianceData` and `website` information are required for `VIPPS_PA_NETT` product type.
+        Partners can make requests to this endpoint without them, but the merchant will have to fill
+        `complianceData` and `website` information manually.
       tags:
         - Vipps Product Orders
       parameters:
@@ -150,7 +152,7 @@ paths:
         - $ref: "#/components/parameters/Ocp-APIM-Subscription-Key"
         - name: orgno
           in: path
-          description: The Organization number for the merchant
+          description: The organization number for the merchant
           required: true
           schema:
             maxLength: 9
@@ -327,7 +329,9 @@ components:
           minLength: 9
           maxLength: 9
           example: "987654321"
-          description: Organisation number of the merchant for whom the partner is submitting the product order.
+          description: |-
+            Organisation number of the merchant for whom the partner is submitting the product order.
+            Only Norwegian organization numbers are allowed (for now).
         salesUnitName:
           nullable: true
           type: string
@@ -335,7 +339,10 @@ components:
           minLength: 1
           maxLength: 30
           example: ACME Fantastic Fitness
-          description: The name of the point of sale that will be shown to the users in Vipps app or Vipps landing page.
+          description: |-
+            The name of the point of sale that will be shown to the users in
+            the Vipps app and on the Vipps landing page.
+            The sale unit name can be edited later on portal.vipps.no.
         salesUnitLogo:
           nullable: true
           type: string
@@ -349,6 +356,7 @@ components:
             The longest side can not be more than 1000 pixels.
             The minimum size is 100 x 100 pixels.
             Images not matching the above criteria will not be shown to the merchant in the merchant portal.
+            The logo can be edited later on portal.vipps.no.
         settlementAccountNumber:
           nullable: true
           type: string
@@ -356,7 +364,10 @@ components:
           minLength: 11
           maxLength: 11
           example: "86011117947"
-          description: The bank account number belonging to the organisation that will be used for settlement.
+          description: |-
+            The bank account number belonging to the organisation that will be
+            used for settlement. The bank account must be owned by the
+            merchant.
         pricePackageKey:
           nullable: true
           type: string
@@ -367,7 +378,7 @@ components:
           example: posstandard
           description: |-
             Deprecated.
-            Optional. One of the price packages that are registered for the
+            One of the price packages that are registered for the
             partner in the Vipps system. Please note, it is not the PriceId
             (3 digit), but the name, such as "standard", "price1", etc, that
             is applicable to the partner. If the field is not provided, the
@@ -397,7 +408,7 @@ components:
             - VIPPS_CHECKOUT
             - VIPPS_I_KASSA
           example: VIPPS_PA_NETT
-          description: The type of product ordered for the merchant
+          description: The type of product ordered for the merchant.
         productUseCase:
           type: string
           enum:
@@ -408,6 +419,7 @@ components:
           example: WebsiteWithTest
           nullable: true
           description: Where will sales take place?
+          default: Website
         annualTurnover:
           type: integer
           minimum: 0
@@ -421,8 +433,7 @@ components:
             Description of the product or products that will be sold.
             Please include all information relevant to processing the product
             order, such as including "POS integration" to indicate that the
-            sale unit needs `skipLandingPage`, or that the sale unit needs
-            "direct capture".
+            sale unit needs `skipLandingPage`.
           example: |-
             Gym membership for accessing the gym's facilities.
             Guest will be not physically present when buying the subscription,
@@ -669,17 +680,22 @@ components:
           properties:
             skipLandingPage:
               type: boolean
-              description: "If the merchant has access to sending skipLandingPage for eCommerce requests"
+              description: "If the merchant has access to sending `skipLandingPage` for eCom API requests"
               default: false
               example: false
             isPureLogin:
               type: boolean
-              description: "If the sales unit is only approved for Vipps-Login use"
+              description: |-
+                If the sales unit is only approved for the Vipps Login API (no payments).
+                See: https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api
               default: false
               example: false
             captureType:
               type: string
-              description: "The capture type of the sales unit"
+              description: |-
+                The capture type of the sales unit.
+                We strongly recommend `ReserveCapture`, see the API
+                documentation: https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq
               enum:
                 - "ReserveCapture"
                 - "DirectCapture"
@@ -688,7 +704,9 @@ components:
               example: "ReserveCapture"
             recurring:
               type: boolean
-              description: "If the sales unit has access to vipps-recurring-api"
+              description: |-
+                If the sales unit has access to the Vipps Recurring API.
+                See: https://vippsas.github.io/vipps-developer-docs/docs/APIs/recurring-api
               default: true
               example: false
       description: Details of a sale unit
@@ -716,6 +734,9 @@ components:
         - status
         - title
       type: object
+      description: |-
+        Problem details for errors from the Partner API.
+        See: https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/errors
       properties:
         type:
           type: string
@@ -749,9 +770,10 @@ components:
             "Unique ID for the request which can be used to find related events (logs)"
           example: https://example.net/validation-error/msn
           x-order: 5
-      description: Problem details of HTTP APIs based on RFC 7807
     MiddlewareError:
       type: object
+      description: |-
+        Problem details for errors from other components than the API itself.
       properties:
         code:
           type: integer
@@ -765,13 +787,14 @@ components:
             "A human-readable explanation specific to this occurrence of the problem."
           example: MSN must be at least five digits
           x-order: 2
-      description: Problem details
   securitySchemes:
     Bearer-Authorization:
       name: Authorization
       type: apiKey
       in: header
-      description: Access bearer token (JWT)
+      description: |-
+        Access bearer token (JWT).
+        See: https://vippsas.github.io/vipps-developer-docs/docs/APIs/access-token-api
   parameters:
     Idempotency-Key:
       name: Idempotency-Key
