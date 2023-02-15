@@ -212,14 +212,6 @@ the product order:
 
 [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 
-**Important:** This endpoint is available for all partners in the
-production environment, but there may be some minor changes. We will do our
-utmost to avoid breaking changes, but we can not guarantee it.
-This is a new API, so feedback is welcome!
-Please try to use GitHub's
-[issue](https://github.com/vippsas/vipps-partner-api/issues)
-functionality, so we can avoid multiple parallel discussions in various channels.
-
 ### Sequence diagram for pre-fill
 
 PO: Product order. MA: Merchant agreement.
