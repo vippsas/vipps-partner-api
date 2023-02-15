@@ -223,28 +223,28 @@ PO: Product order. MA: Merchant agreement.
 ```mermaid
 sequenceDiagram
     participant Partner
-    participant API
     participant Merchant
     participant Portal
+    participant API
     participant Vipps
     Partner->>API: POST:/products/orders
     API->>Partner: URL to pre-filled signup form
     Partner->>Merchant: Here is your pre-filled form on Portal
     Merchant->>Portal: Logs in with BankID and accesses form
-    Portal->>Portal: Does Merchant have a valid MA?
+    Portal->>API: Requests pre-filled data
+    Portal->>Portal: Validate MA and pre-fill request?
+    opt Invalid pre-fill request
+        Portal-->>Merchant: Show warning
+    end
     opt Merchant does not have a Merchant Agreement (MA)
-        Portal-->>Merchant: Show the MA form
+        Portal-->>Merchant: Show information and navigation to the MA form
         Merchant-->>Portal: Fill out MA
         Portal-->>Vipps: MA is sent for processing
-        Vipps-->>Vipps: Checks: KYC, AML, PEP, etc
-        Merchant-->>Merchant: Wait for MA processing
-        Vipps-->>Merchant: Email: MA is OK, please fill out PO
-        Merchant-->>Portal: Logs in with BankID and accesses form
+        Merchant->>Portal: Re-access pre-filled form
     end
-    Portal->>API: Requests pre-filled data
     API->>Portal: Provides pre-filled data
-    Note right of Portal: Empty form if pre-fill request was incorrect
-    Portal->>Portal: Merchant checks and submits form
+    Portal->>Merchant: Show pre-filled form
+    Merchant->>Portal: Submit form
     Portal->>Vipps: PO is sent for processing
     Vipps->>Vipps: Processing
     opt Vipps requires additional information
