@@ -368,12 +368,6 @@ The merchant has a MA, and probably also a Vipps product.
 
 ### Future improvements
 
-* We aim to handle all the scenarios above in the same way: The partner
-  only uses the
-  [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct),
-  and Vipps handles all the details.
-* Depending on legal requirements we want to let the partner know as much as
-  possible about "their" merchants and sale units.  
 * We may allow the merchant to change some of the data pre-filled by the
   partner, but this is not trivial. If the merchant changes any data, the
   partner must be notified and also get the updated data - then merge and sync that
