@@ -11,8 +11,10 @@ info:
     name: Vipps AS
     url: "https://vippsas.github.io/vipps-developer-docs/"
 servers:
-  - url: "https://api.vipps.no/partner-api"
-    description: Vipps Partner API
+  - url: https://api.vipps.no/partner-api
+    description: Production environment (uses the production API keys, the official app and live data)
+  - url: https://apitest.vipps.no/partner-api
+    description: Test environment (uses the test API keys, the test app and test data)
 tags:
   - name: Vipps Product Orders
     description: Submit product orders on behalf of their merchants
