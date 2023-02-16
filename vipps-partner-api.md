@@ -289,14 +289,6 @@ for details):
 something needs to be corrected, the merchant must contact the partner to have
 the partner submit a new product order with the correct details.
 
-**Important:** The partner must send the correct
-`pricePackageId` in the request.
-It's the UUID price package _id_ (`pricePackageId`) that must be used,
-not the three-digit `priceId` or the alphanumeric key `pricePackageKey`.
-If the `pricePackageId` is included but incorrect,
-the `returnUrl` will take the merchant to a page warning them that the pre-fill
-is not valid.
-
 When the submitted order has been processed, Vipps sends an email to both the
 merchant and the partner (as described on
 [Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner))
