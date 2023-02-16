@@ -11,9 +11,9 @@ info:
     name: Vipps AS
     url: "https://vippsas.github.io/vipps-developer-docs/"
 servers:
-  - url: https://api.vipps.no/partner-api
+  - url: https://api.vipps.no
     description: Production environment (uses the production API keys, the official app and live data)
-  - url: https://apitest.vipps.no/partner-api
+  - url: https://apitest.vipps.no
     description: Test environment (uses the test API keys, the test app and test data)
 tags:
   - name: Vipps Product Orders
@@ -23,7 +23,7 @@ tags:
   - name: Sales units
     description: Manage sales units
 paths:
-  /v1/products/orders:
+  /partner-api/v1/products/orders:
     parameters: []
     post:
       summary: Order products on behalf of merchants
@@ -147,7 +147,7 @@ paths:
             application/problem+json:
               schema:
                 $ref: "#/components/schemas/Problem"
-  /v0/merchants/{orgno}:
+  /partner-api/v0/merchants/{orgno}:
     get:
       tags:
         - Merchants
@@ -216,7 +216,7 @@ paths:
             application/json;charset=UTF-8:
               schema:
                 $ref: "#/components/schemas/Error"
-  /v0/salesunits/{msn}:
+  /partner-api/v0/salesunits/{msn}:
     get:
       tags:
         - Sales units
