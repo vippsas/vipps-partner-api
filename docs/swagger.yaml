@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Vipps Partner API
-  version: "1.3.3"
+  version: "1.3.4"
   description: |
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
@@ -425,7 +425,12 @@ components:
             - Unknown
           example: WebsiteWithTest
           nullable: true
-          description: Where will sales take place?
+          description: |-
+            Where will sales take place?
+            A website?
+            A website that is not yet launched, so a test website must be used?
+            A native app?
+            Something else?
           default: Website
         annualTurnover:
           type: integer
