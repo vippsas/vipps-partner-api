@@ -73,7 +73,7 @@ paths:
                   website:
                     url: "https://example.com"
                     termsUrl: "https://example.com/terms-and-conditions"
-                    testWebsiteUrl: "https://test.example.com"
+                    testWebsiteUrl: "https://example.com/test "
                     testWebsiteUsername: test-user
                     testWebsitePassword: test-password
                   complianceData:
@@ -476,7 +476,7 @@ components:
               format: URL
               pattern: '^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'
               description: For 'WebsiteWithTest'. The URL to the merchants test website
-              example: "https://test.example.com"
+              example: "https://example.com/test "
             testWebsiteUsername:
               nullable: true
               type: string
