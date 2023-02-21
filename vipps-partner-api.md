@@ -267,7 +267,7 @@ Here is a sample request:
   "website": {
     "url": "https://example.com",
     "termsUrl": "https://example.com/terms-and-conditions",
-    "testWebSiteUrl": "https://test.example.com",
+    "testWebSiteUrl": "https://example.com/test ",
     "testWebsiteUsername": "test-user",
     "testWebsitePassword": "test-password"
   }
