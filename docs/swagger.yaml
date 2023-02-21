@@ -756,7 +756,7 @@ components:
           type: string
           description: |
             "A URI reference that identifies the problem type"
-          example: https://example.net/validation-error
+          example: https://example.com/validation-error
           x-order: 1
         title:
           type: string
@@ -782,7 +782,7 @@ components:
           type: string
           description: |
             "Unique ID for the request which can be used to find related events (logs)"
-          example: https://example.net/validation-error/msn
+          example: https://example.com/validation-error/msn
           x-order: 5
     MiddlewareError:
       type: object
