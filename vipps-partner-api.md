@@ -7,7 +7,7 @@ END_METADATA -->
 
 # API guide
 
-The Vipps Partner API allows you, as a partner, to retrieve information about your merchants and sale units by using your partner keys.
+The Vipps Partner API allows you, as a partner, to retrieve information about your merchants and sales units by using your partner keys.
 
 API version: 1.0.0.
 
@@ -44,7 +44,7 @@ the following priority:
 3. Ask the merchant to create a user for the partner on portal.vipps.no,
    so the partner can check on behalf of the merchant:
    [How to add a user on portal.vipps.no](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/add-portal-user).
-4. See the Vipps FAQ for how to check if a sale unit
+4. See the Vipps FAQ for how to check if a sales unit
    [has skipLandingPage](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
    or
    [which capture type it has](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
@@ -53,7 +53,7 @@ the following priority:
 will continue to do so, but will be superseded by similar `/v1/` endpoints with
 improved functionality as soon as possible. For example:
 [`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN)
-provides limited information about a sale unit today, but will provide more
+provides limited information about a sales unit today, but will provide more
 details once the internal Vipps systems are able to provide them.
 The response may then change more than we allow for in the
 [API Lifecycle](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-lifecycle),
@@ -103,9 +103,9 @@ for details):
 This is an endpoint for getting information about the _merchant_, not all the
 merchant's MSNs.
 Since the response only contains a list of MSNs, an additional API request is
-required to get more details about the sale unit.
+required to get more details about the sales unit.
 See:
-[Get information about a sale unit based on MSN](#get-information-about-a-sale-unit-based-on-msn).
+[Get information about a sales unit based on MSN](#get-information-about-a-sales-unit-based-on-msn).
 
 ### Future improvements
 
@@ -123,7 +123,7 @@ Some candidates:
 
 All merchants can see and manage their information on
 [portal.vipps.no](https://portal.vipps.no).
-Merchants can also see which partner (or PSP) a sale unit is connected to, if any.
+Merchants can also see which partner (or PSP) a sales unit is connected to, if any.
 
 Merchants can create a user for their partner on
 [portal.vipps.no](https://portal.vipps.no),
@@ -132,9 +132,9 @@ so the partner can do this directly as described here:
 and
 [How to add a user on portal.vipps.no](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/add-portal-user).
 
-## Get information about a sale unit based on MSN
+## Get information about a sales unit based on MSN
 
-This endpoint is for retrieving details about one sale unit (MSN):
+This endpoint is for retrieving details about one sales unit (MSN):
 
 [`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN)
 
@@ -296,8 +296,8 @@ with information about:
 
 * The merchant's organization number
 * The merchant's name
-* The sale unit's MSN
-* The sale unit's name
+* The sales unit's MSN
+* The sales unit's name
 
 This may be useful:
 [Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner#typical-reasons-for-delays).
@@ -367,9 +367,9 @@ The merchant has a MA, and probably also a Vipps product.
 
 ## Future plans for this API
 
-Changes to a sale unit currently requires BankID login to
+Changes to a sales unit currently requires BankID login to
 [portal.vipps.no](https://portal.vipps.no),
-but a partner should be able to make changes to the sale units connected to
+but a partner should be able to make changes to the sales units connected to
 the partner.
 
 Some candidates:

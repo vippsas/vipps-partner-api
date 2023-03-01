@@ -17,7 +17,7 @@ END_METADATA -->
 
 <!-- END_COMMENT -->
 
-The Vipps Partner API allows partners to retrieve information about their merchants and their sale units by using their partner keys.
+The Vipps Partner API allows partners to retrieve information about their merchants and their sales units by using their partner keys.
 
 For general information for Vipps partners, see
 [Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner).

@@ -161,7 +161,7 @@
           "response": []
         },
         {
-          "name": "Get sale unit details based on MSN",
+          "name": "Get sales unit details based on MSN",
           "request": {
             "auth": {
               "type": "bearer",
@@ -218,7 +218,7 @@
                 {
                   "key": "msn",
                   "value": "{{merchantSerialNumber}}",
-                  "description": "(Required) The Vipps MSN (merchant serial number) for the sale unit."
+                  "description": "(Required) The Vipps MSN (merchant serial number) for the sales unit."
                 }
               ]
             }
