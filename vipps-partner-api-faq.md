@@ -9,7 +9,7 @@ END_METADATA -->
 # FAQs
 
 The Vipps Partner API lets partners use their partner keys to retrieve information
-about their merchants and their sale units.
+about their merchants and their sales units.
 
 See the
 [Vipps Partner API](vipps-partner-api.md)
@@ -33,7 +33,7 @@ guide.
 * [Can I use the Partner API in the test environment?](#can-i-use-the-partner-api-in-the-test-environment)
 * [Why is the URL for a pre-filled product order not working?](#why-is-the-url-for-a-pre-filled-product-order-not-working)
 * [Why do I get `HTTP 404 Not Found`?](#why-do-i-get-http-404-not-found)
-* [When will it be possible to change an existing sale unit?](#when-will-it-be-possible-to-change-an-existing-sale-unit)
+* [When will it be possible to change an existing sales unit?](#when-will-it-be-possible-to-change-an-existing-sales-unit)
 
 <!-- END_COMMENT -->
 
@@ -65,12 +65,12 @@ to validate all data.
 
 You will get this error for requests to
 [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant)
-if the merchant does not yet have an active sale unit with you as partner.
+if the merchant does not yet have an active sales unit with you as partner.
 
 See:
 [How to check if a merchant is signed up with the partner as partner](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner#how-to-check-if-a-merchant-is-signed-up-with-the-partner-as-partner).
 
-## When will it be possible to change an existing sale unit?
+## When will it be possible to change an existing sales unit?
 
 We are working on this now, as fast as we can!
 We know this is a very important feature, but can't give you a release date yet.

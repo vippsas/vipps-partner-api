@@ -7,7 +7,7 @@ END_METADATA -->
 
 # Quick start
 
-Use the Partner API to get details for their own sale units and merchants.
+Use the Partner API to get details for their own sales units and merchants.
 In addition, you can order products on behalf of your merchants.
 
 Be aware that these are running on the production server.
@@ -25,7 +25,7 @@ Be aware that these are running on the production server.
   * [Step 2: Import the Postman files](#step-2-import-the-postman-files)
   * [Step 3: Set up Postman environment](#step-3-set-up-postman-environment)
 * [Make API calls](#make-api-calls)
-  * [Get sale unit by Merchant Serial Number](#get-sale-unit-by-merchant-serial-number)
+  * [Get sales unit by Merchant Serial Number](#get-sales-unit-by-merchant-serial-number)
   * [Get merchant by organization number](#get-merchant-by-organization-number)
   * [Order products on behalf of merchants](#order-products-on-behalf-of-merchants)
 
@@ -64,7 +64,7 @@ the partner keys in a secure way. See
    * `client-id` - Partner key is required for getting the access token.
    * `client-secret` - Partner key is required for getting the access token.
    * `Ocp-Apim-Subscription-Key` - Partner subscription key is required for all requests.
-   * `merchantSerialNumber` - Merchant ID is only required for `Get sale unit details based on MSN`, but can be included in all headers.
+   * `merchantSerialNumber` - Merchant ID is only required for `Get sales unit details based on MSN`, but can be included in all headers.
    * `orgno` -The Organization number for the merchant. It is only used in `Get merchant by organization number`.
    * `base_url_production` - Set to: `https://api.vipps.no`.
 
@@ -79,12 +79,12 @@ See the
 [API reference](https://vippsas.github.io/vipps-developer-docs/api/partner)
 for details about the calls.
 
-### Get sale unit by Merchant Serial Number
+### Get sales unit by Merchant Serial Number
 
 1. Send request `Get Access Token`. This provides you with access to the API.
-   Be sure to use the address to the production server and provide keys for a production sale unit.
+   Be sure to use the address to the production server and provide keys for a production sales unit.
 
-1. Send request `Get sale unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment. See [`GET:v0/salesunits/:msn/`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN).
+1. Send request `Get sales unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment. See [`GET:v0/salesunits/:msn/`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN).
 
 ### Get merchant by organization number
 

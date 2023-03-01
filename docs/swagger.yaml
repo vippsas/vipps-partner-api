@@ -222,13 +222,13 @@ paths:
         - Sales units
       security:
         - Bearer-Authorization: []
-      summary: Get sale unit details based on MSN
+      summary: Get sales unit details based on MSN
       operationId: getMSN
       parameters:
         - $ref: "#/components/parameters/Ocp-APIM-Subscription-Key"
         - name: msn
           in: path
-          description: The Vipps MSN (merchant serial number) for the sale unit.
+          description: The Vipps MSN (merchant serial number) for the sales unit.
           required: true
           schema:
             maxLength: 6
@@ -349,7 +349,7 @@ components:
           description: |-
             The name of the point of sale that will be shown to the users in
             the Vipps app and on the Vipps landing page.
-            The sale unit name can be edited later on portal.vipps.no.
+            The sales unit name can be edited later on portal.vipps.no.
         salesUnitLogo:
           nullable: true
           type: string
@@ -445,7 +445,7 @@ components:
             Description of the product or products that will be sold.
             Please include all information relevant to processing the product
             order, such as including "POS integration" to indicate that the
-            sale unit needs `skipLandingPage`.
+            sales unit needs `skipLandingPage`.
           example: |-
             Gym membership for accessing the gym's facilities.
             Guest will be not physically present when buying the subscription,
@@ -676,7 +676,7 @@ components:
           x-order: 4
         name:
           type: string
-          description: "The sale unit's name"
+          description: "The sales unit's name"
           example: "ACME Fantastic Fitness"
           x-order: 5
         orgno:
@@ -723,7 +723,7 @@ components:
                 See: https://vippsas.github.io/vipps-developer-docs/docs/APIs/recurring-api
               default: true
               example: false
-      description: Details of a sale unit
+      description: Details of a sales unit
     GetOrg:
       required:
         - msn
