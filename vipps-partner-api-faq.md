@@ -1,6 +1,5 @@
 <!-- START_METADATA
 ---
-pagination_next: null
 title: Partner API Frequently Asked Questions
 sidebar_label: FAQ
 sidebar_position: 45
