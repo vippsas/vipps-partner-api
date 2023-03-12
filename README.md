@@ -1,14 +1,16 @@
 <!-- START_METADATA
 ---
-title: Introduction
+title: Introduction to the Partner API
+sidebar_label: Introduction
 sidebar_position: 1
 hide_table_of_contents: true
+description: The Partner API allows partners to retrieve information about their merchants and their sales units by using their partner keys.
 pagination_next: null
 pagination_prev: null
 ---
 END_METADATA -->
 
-# Vipps Partner API
+# Partner API
 
 <!-- START_COMMENT -->
 
@@ -17,7 +19,7 @@ END_METADATA -->
 
 <!-- END_COMMENT -->
 
-The Vipps Partner API allows partners to retrieve information about their merchants and their sales units by using their partner keys.
+The Partner API allows partners to retrieve information about their merchants and their sales units by using their partner keys.
 
 For general information for Vipps partners, see
 [Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner).
@@ -28,7 +30,7 @@ See
 [Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
 for information about API keys, product activation, how to make API calls, etc.
 
-## Partner API
+## Next steps
 
 The API is available for all partners using
 [partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys).

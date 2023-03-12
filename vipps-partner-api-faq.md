@@ -1,25 +1,29 @@
 <!-- START_METADATA
 ---
-title: FAQs
-sidebar_position: 45
 pagination_next: null
+title: Partner API Frequently Asked Questions
+sidebar_label: FAQ
+sidebar_position: 45
+description: Frequently asked questions for the Partner API.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 
-# FAQs
+# Frequently asked questions
 
-The Vipps Partner API lets partners use their partner keys to retrieve information
+The Partner API lets partners use their partner keys to retrieve information
 about their merchants and their sales units.
 
 See the
-[Vipps Partner API](vipps-partner-api.md)
-for all the details.
+[Partner API Guide](vipps-partner-api.md)
+for all the technical details.
 
 See also:
-[Vipps API FAQ](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs).
+[Common API FAQ](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs).
 
 See also:
-[Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
+[Vipps MobilePay Getting Started guide](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
 guide.
 
 <!-- START_COMMENT -->

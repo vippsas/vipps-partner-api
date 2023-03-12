@@ -1,7 +1,11 @@
 <!-- START_METADATA
 ---
-title: Quick start
+title: Quick start for the Partner API
+sidebar_label: Quick start
 sidebar_position: 20
+description: Quick start guide for the using the Partner API with Postman.
+pagination_next: null
+pagination_prev: null
 ---
 END_METADATA -->
 
@@ -36,14 +40,14 @@ Be aware that these are running on the production server.
 ### Prerequisites
 
 Review
-[Vipps quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/quick-start-guides) for information about getting your test environment set up.
+[Quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/quick-start-guides) for information about getting your test environment set up.
 
 ### Step 1: Get the Postman collection and environment
 
 Save the following files to your computer:
 
-* [Vipps Partner API Postman collection](tools/vipps-partner-api-postman-collection.json)
-* [Vipps API Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
+* [Partner API Postman collection](tools/vipps-partner-api-postman-collection.json)
+* [Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
 
 ### Step 2: Import the Postman files
 
