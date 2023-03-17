@@ -22,7 +22,7 @@ See also:
 [Common API FAQ](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs).
 
 See also:
-[Vipps MobilePay Getting Started guide](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
+[Vipps MobilePay Getting Started guide](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/getting-started)
 guide.
 
 <!-- START_COMMENT -->
