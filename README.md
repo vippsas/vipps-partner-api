@@ -27,7 +27,7 @@ For general information for Vipps partners, see
 ## Getting started
 
 See
-[Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/vipps-getting-started)
+[Getting Started](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/getting-started)
 for information about API keys, product activation, how to make API calls, etc.
 
 ## Next steps
