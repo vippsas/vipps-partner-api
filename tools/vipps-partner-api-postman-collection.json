@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "d17b1ada-d4b2-4c1a-9711-cd4b0a7e7d74",
     "name": "Vipps Partner API - Collection",
-    "description": "The Vipps Partner API lets partners, banks and large corporations manage\ntheir merchants (for example, submit product orders on behalf of their\nmerchants) and sales units.\nMore information: https://github.com/vippsas/vipps-partner-api\n\n\nContact Support:\n Name: Vipps AS\n Email: integration@vipps.no",
+    "description": "The Vipps Partner API lets partners, banks and large corporations manage\ntheir merchants (for example, submit product orders on behalf of their\nmerchants) and sales units.\nMore information: https://developer.vippsmobilepay.com/docs/APIs/partner-api/vipps-partner-api\n\n\nContact Support:\n Name: Vipps AS\n Email: integration@vipps.no",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
