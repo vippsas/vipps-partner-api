@@ -6,10 +6,10 @@ info:
     The Vipps Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
     merchants) and sales units.
-    See the [API Guide](https://vippsas.github.io/vipps-developer-docs/docs/APIs/partner-api) for more information.
+    See the [API Guide](https://developer.vippsmobilepay.com/docs/APIs/partner-api) for more information.
   contact:
     name: Vipps AS
-    url: "https://vippsas.github.io/vipps-developer-docs/"
+    url: "https://developer.vippsmobilepay.com/"
 servers:
   - url: https://api.vipps.no
     description: Production environment (uses the production API keys, the official app and live data)
@@ -699,7 +699,7 @@ components:
               type: boolean
               description: |-
                 If the sales unit is only approved for the Vipps Login API (no payments).
-                See: https://vippsas.github.io/vipps-developer-docs/docs/APIs/login-api
+                See: https://developer.vippsmobilepay.com/docs/APIs/login-api
               default: false
               example: false
             captureType:
@@ -707,7 +707,7 @@ components:
               description: |-
                 The capture type of the sales unit.
                 We strongly recommend `ReserveCapture`, see the API
-                documentation: https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq
+                documentation: https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq
               enum:
                 - "ReserveCapture"
                 - "DirectCapture"
@@ -720,7 +720,7 @@ components:
                 Should the sales unit have access to the Vipps Recurring API?
                 Vipps is required to perform some extra
                 compliance checks before activating the Vipps Recurring API.
-                See: https://vippsas.github.io/vipps-developer-docs/docs/APIs/recurring-api
+                See: https://developer.vippsmobilepay.com/docs/APIs/recurring-api
               default: true
               example: false
       description: Details of a sale unit
@@ -750,7 +750,7 @@ components:
       type: object
       description: |-
         Problem details for errors from the Partner API.
-        See: https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/errors
+        See: https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/errors
       properties:
         type:
           type: string
@@ -808,7 +808,7 @@ components:
       in: header
       description: |-
         Access bearer token (JWT).
-        See: https://vippsas.github.io/vipps-developer-docs/docs/APIs/access-token-api
+        See: https://developer.vippsmobilepay.com/docs/APIs/access-token-api
   parameters:
     Idempotency-Key:
       name: Idempotency-Key

@@ -15,7 +15,7 @@ Be aware that these are running on the production server.
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+[Vipps Technical Documentation](https://developer.vippsmobilepay.com/).
 
 ## Table of contents
 
@@ -36,7 +36,7 @@ Be aware that these are running on the production server.
 ### Prerequisites
 
 Review
-[Vipps quick start guides](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/quick-start-guides) for information about getting your test environment set up.
+[Vipps quick start guides](https://developer.vippsmobilepay.com/docs/vipps-developers/quick-start-guides) for information about getting your test environment set up.
 
 ### Step 1: Get the Postman collection and environment
 
@@ -56,7 +56,7 @@ Save the following files to your computer:
 **Important:** Partner keys must be kept secret. They can be used to act on behalf
 of all the partner's merchants. It is the partner's responsibility to manage
 the partner keys in a secure way. See
-[Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys).
+[Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys).
 
 1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.
 2. Click the "eye" icon and, in the dropdown window, click `Edit` in the top-right corner.
@@ -76,7 +76,7 @@ Be aware that these are running on the production server.
 
 Here is a proposed order of steps, but you can send most of these requests independently of each other.
 See the
-[API reference](https://vippsas.github.io/vipps-developer-docs/api/partner)
+[API reference](https://developer.vippsmobilepay.com/api/partner)
 for details about the calls.
 
 ### Get sale unit by Merchant Serial Number
@@ -84,12 +84,12 @@ for details about the calls.
 1. Send request `Get Access Token`. This provides you with access to the API.
    Be sure to use the address to the production server and provide keys for a production sale unit.
 
-1. Send request `Get sale unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment. See [`GET:v0/salesunits/:msn/`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN).
+1. Send request `Get sale unit details based on MSN`. This returns a JSON structure with the details, including the org number. If necessary, update `orgno` in the environment. See [`GET:v0/salesunits/:msn/`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN).
 
 ### Get merchant by organization number
 
-1. Send request `Get merchant by organization number` for details about the merchant. See [`GET:v0/merchants/:orgno`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
+1. Send request `Get merchant by organization number` for details about the merchant. See [`GET:v0/merchants/:orgno`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
 
 ### Order products on behalf of merchants
 
-1. Review the `Order products on behalf of merchants` to see an example of ordering products. Since this is running on the production server, you might not want to run it.  See [`POST:v0/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct).
+1. Review the `Order products on behalf of merchants` to see an example of ordering products. Since this is running on the production server, you might not want to run it.  See [`POST:v0/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct).

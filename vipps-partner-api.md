@@ -14,20 +14,20 @@ API version: 1.0.0.
 <!-- START_COMMENT -->
 
 ℹ️ Please use the new documentation:
-[Vipps Technical Documentation](https://vippsas.github.io/vipps-developer-docs/).
+[Vipps Technical Documentation](https://developer.vippsmobilepay.com/).
 
 <!-- END_COMMENT -->
 
 ## Information for Vipps partners
 
 * [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
-* [Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner): Technical information for Vipps partners.
+* [Vipps Partners](https://developer.vippsmobilepay.com/docs/vipps-partner): Technical information for Vipps partners.
 
 ### Integrating with this API
 
 Integration should be straight-forward.
 Use the
-[partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys).
+[partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys).
 See the Postman collection and environment, and the
 [Quick start guide](vipps-partner-api-quick-start.md).
 
@@ -43,26 +43,26 @@ the following priority:
 2. Use the Partner API manually with the Postman collection provided by Vipps.
 3. Ask the merchant to create a user for the partner on portal.vipps.no,
    so the partner can check on behalf of the merchant:
-   [How to add a user on portal.vipps.no](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/add-portal-user).
+   [How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/vipps-partner/add-portal-user).
 4. See the Vipps FAQ for how to check if a sale unit
-   [has skipLandingPage](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+   [has skipLandingPage](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
    or
-   [which capture type it has](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
+   [which capture type it has](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
 
 **Important:** Endpoints with `/v0/` (version 0) in the URI _are_ working, and
 will continue to do so, but will be superseded by similar `/v1/` endpoints with
 improved functionality as soon as possible. For example:
-[`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN)
+[`GET:/saleunits/{msn}`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN)
 provides limited information about a sale unit today, but will provide more
 details once the internal Vipps systems are able to provide them.
 The response may then change more than we allow for in the
-[API Lifecycle](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/common-topics/api-lifecycle),
+[API Lifecycle](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-lifecycle),
 and we will therefore keep `/v0/` until `/v1/` is ready.
 
 ### Partner keys
 
 All partners can use their
-[partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys).
+[partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys).
 to use the Partner API. If you have partner keys, you have access to the
 Partner API.
 
@@ -74,7 +74,7 @@ indicating this. Please double check your partner keys first, though.
 
 This endpoint is for retrieving information about the merchant:
 
-[`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant)
+[`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
 
 Sequence diagram:
 
@@ -88,7 +88,7 @@ The current version of the Partner API only returns a list of MSNs
 connected to the partner making the API request, but we _may_ extend this later.
 
 The response (see
-[`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant)
+[`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
 for details):
 
 ```json
@@ -128,15 +128,15 @@ Merchants can also see which partner (or PSP) a sale unit is connected to, if an
 Merchants can create a user for their partner on
 [portal.vipps.no](https://portal.vipps.no),
 so the partner can do this directly as described here:
-[Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys)
+[Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys)
 and
-[How to add a user on portal.vipps.no](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/add-portal-user).
+[How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/vipps-partner/add-portal-user).
 
 ## Get information about a sale unit based on MSN
 
 This endpoint is for retrieving details about one sale unit (MSN):
 
-[`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN)
+[`GET:/saleunits/{msn}`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN)
 
 Sequence diagram:
 
@@ -147,7 +147,7 @@ sequenceDiagram
 ```
 
 The response (see
-[`GET:/saleunits/{msn}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Sales-units/operation/getMSN)
+[`GET:/saleunits/{msn}`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN)
 for details):
 
 ```json
@@ -181,8 +181,8 @@ Some candidates:
 
 Until more functionality is available in this API, there are some workarounds:
 
-* [How can I check if I have "reserve capture" or "direct capture"?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
-* [How can I check if I have skipLandingPage activated?](https://vippsas.github.io/vipps-developer-docs/docs/vipps-developers/faqs/vipps-landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
+* [How can I check if I have "reserve capture" or "direct capture"?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+* [How can I check if I have skipLandingPage activated?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/vipps-landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
 
 ## Product order (PO) and Merchant agreement (MA)
 
@@ -210,7 +210,7 @@ This endpoint lets a partner "pre-fill" the product order form on
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order:
 
-[`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+[`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 
 ### Sequence diagram for pre-fill
 
@@ -275,7 +275,7 @@ Here is a sample request:
 ```
 
 The response (see
-[`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+[`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 for details):
 
 ```json
@@ -291,7 +291,7 @@ the partner submit a new product order with the correct details.
 
 When the submitted order has been processed, Vipps sends an email to both the
 merchant and the partner (as described on
-[Vipps Partners](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner))
+[Vipps Partners](https://developer.vippsmobilepay.com/docs/vipps-partner))
 with information about:
 
 * The merchant's organization number
@@ -300,7 +300,7 @@ with information about:
 * The sale unit's name
 
 This may be useful:
-[Typical reasons for delays](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner#typical-reasons-for-delays).
+[Typical reasons for delays](https://developer.vippsmobilepay.com/docs/vipps-partner#typical-reasons-for-delays).
 
 ### Scenarios
 
@@ -315,7 +315,7 @@ The user will then automatically be presented with the pre-filled PO.
 #### Scenario 1: The merchant does not have a Merchant Agreement
 
 1. The partner pre-fills the PO using
-   [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+   [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
    and gets a link to the pre-filled PO on
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant uses the link and logs in with BankID on
@@ -329,7 +329,7 @@ The user will then automatically be presented with the pre-filled PO.
    checks the details in the PO and submits it.
 5. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
-   [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
+   [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
 
 When using the pre-fill link without a valid MA:
 ![Screenshot from using link without MA](images/screenshot_without_ma.png)
@@ -347,7 +347,7 @@ person that has signatory rights for the merchant. The form looks like this:
 The merchant has a MA, and probably also a Vipps product.
 
 1. The partner pre-fills the PO using
-   [`POST:/products/orders`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+   [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
    and gets a link to the pre-filled PO on
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant uses the link and logs in with BankID on
@@ -356,7 +356,7 @@ The merchant has a MA, and probably also a Vipps product.
    checks the details in the PO and submits it.
 4. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
-  [`GET:/merchants/{orgno}`](https://vippsas.github.io/vipps-developer-docs/api/partner#tag/Merchants/operation/getMerchant).
+  [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
 
 ### Future improvements
 
@@ -386,6 +386,6 @@ Merchants can create a user for their partner on
 [portal.vipps.no](https://portal.vipps.no),
 so the partner can do this directly
 as described here:
-[Partner keys](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/partner-keys)
+[Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys)
 and
-[How to add a user on portal.vipps.no](https://vippsas.github.io/vipps-developer-docs/docs/vipps-partner/add-portal-user).
+[How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/vipps-partner/add-portal-user).
