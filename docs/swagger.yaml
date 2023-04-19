@@ -47,10 +47,10 @@ paths:
       parameters:
         - $ref: "#/components/parameters/Ocp-APIM-Subscription-Key"
         - $ref: "#/components/parameters/Idempotency-Key"
-        - $ref: '#/components/parameters/Vipps-System-Name'
-        - $ref: '#/components/parameters/Vipps-System-Version'
-        - $ref: '#/components/parameters/Vipps-System-Plugin-Name'
-        - $ref: '#/components/parameters/Vipps-System-Plugin-Version'
+        - $ref: "#/components/parameters/Vipps-System-Name"
+        - $ref: "#/components/parameters/Vipps-System-Version"
+        - $ref: "#/components/parameters/Vipps-System-Plugin-Name"
+        - $ref: "#/components/parameters/Vipps-System-Plugin-Version"
       security:
         - Bearer-Authorization: []
       requestBody:
@@ -171,10 +171,10 @@ paths:
             type: string
             example: 987654321
         - $ref: "#/components/parameters/Ocp-APIM-Subscription-Key"
-        - $ref: '#/components/parameters/Vipps-System-Name'
-        - $ref: '#/components/parameters/Vipps-System-Version'
-        - $ref: '#/components/parameters/Vipps-System-Plugin-Name'
-        - $ref: '#/components/parameters/Vipps-System-Plugin-Version'
+        - $ref: "#/components/parameters/Vipps-System-Name"
+        - $ref: "#/components/parameters/Vipps-System-Version"
+        - $ref: "#/components/parameters/Vipps-System-Plugin-Name"
+        - $ref: "#/components/parameters/Vipps-System-Plugin-Version"
       responses:
         "200":
           description: OK
@@ -243,10 +243,10 @@ paths:
             pattern: ^\d{5,6}$
             type: string
         - $ref: "#/components/parameters/Ocp-APIM-Subscription-Key"
-        - $ref: '#/components/parameters/Vipps-System-Name'
-        - $ref: '#/components/parameters/Vipps-System-Version'
-        - $ref: '#/components/parameters/Vipps-System-Plugin-Name'
-        - $ref: '#/components/parameters/Vipps-System-Plugin-Version'
+        - $ref: "#/components/parameters/Vipps-System-Name"
+        - $ref: "#/components/parameters/Vipps-System-Version"
+        - $ref: "#/components/parameters/Vipps-System-Plugin-Name"
+        - $ref: "#/components/parameters/Vipps-System-Plugin-Version"
       responses:
         "200":
           description: OK
@@ -383,26 +383,7 @@ components:
           minLength: 11
           maxLength: 11
           example: "86011117947"
-          description: |-
-            The bank account number belonging to the organisation that will be
-            used for settlement. The bank account must be owned by the
-            merchant. BBAN (not IBAN) format.
-        pricePackageKey:
-          nullable: true
-          type: string
-          pattern: "^[a-zA-Z0-9-]{1,15}$"
-          minLength: 1
-          maxLength: 255
-          deprecated: true
-          example: posstandard
-          description: |-
-            Deprecated.
-            One of the price packages that are registered for the
-            partner in the Vipps system. Please note, it is not the PriceId
-            (3 digit), but the name, such as "standard", "price1", etc, that
-            is applicable to the partner. If the field is not provided, the
-            merchant must select it manually from the product order section
-            of the merchant portal before submitting.
+          description: The bank account number belonging to the organisation that will be used for settlement.
         pricePackageId:
           type: string
           format: uuid
@@ -864,7 +845,7 @@ components:
         pattern: ^\d{5,6}$
         type: string
         example: 123456
-    
+
     Vipps-System-Name:
       name: Vipps-System-Name
       in: header
@@ -885,7 +866,7 @@ components:
       schema:
         type: string
         maxLength: 30
-        example: '5.4.0'
+        example: "5.4.0"
     Vipps-System-Plugin-Name:
       name: Vipps-System-Plugin-Name
       in: header
