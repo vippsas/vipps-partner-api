@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: Introduction to the Partner API
 sidebar_label: Introduction
@@ -8,16 +7,10 @@ description: The Partner API allows partners to retrieve information about their
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # Partner API
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/).
-
-<!-- END_COMMENT -->
 
 The Partner API allows partners to retrieve information about their merchants and their sales units by using their partner keys.
 
