@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: Introduction to the Partner API
 sidebar_label: Introduction
@@ -8,7 +7,6 @@ description: The Partner API allows partners to retrieve information about their
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # Partner API
 

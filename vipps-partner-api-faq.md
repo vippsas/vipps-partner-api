@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: Partner API Frequently Asked Questions
 sidebar_label: FAQ
@@ -7,7 +6,6 @@ description: Frequently asked questions for the Partner API.
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # Frequently asked questions
 
@@ -22,23 +20,7 @@ See also:
 [Common API FAQ](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs).
 
 See also:
-[Vipps MobilePay Getting Started guide](https://developer.vippsmobilepay.com/docs/vipps-developers/getting-started)
-guide.
-
-<!-- START_COMMENT -->
-
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/).
-
-## Table of contents
-
-* [Where do I get the pricePackageId?](#where-do-i-get-the-pricepackageid)
-* [Can I use the Partner API in the test environment?](#can-i-use-the-partner-api-in-the-test-environment)
-* [Why is the URL for a pre-filled product order not working?](#why-is-the-url-for-a-pre-filled-product-order-not-working)
-* [Why do I get `HTTP 404 Not Found`?](#why-do-i-get-http-404-not-found)
-* [When will it be possible to change an existing sales unit?](#when-will-it-be-possible-to-change-an-existing-sales-unit)
-
-<!-- END_COMMENT -->
+[Vipps MobilePay Getting Started guide](https://developer.vippsmobilepay.com/docs/vipps-developers/getting-started).
 
 ## Where do I get the pricePackageId?
 
@@ -59,8 +41,8 @@ environment.
 ## Why is the URL for a pre-filled product order not working?
 
 If you send an invalid request to
-[`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-the pre-fill will fail, and the URL will lead to the standard, empty
+[`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct),
+the pre-fill operation will fail, and the URL will lead to the standard, empty
 product order form. Although we do _some_ input validation, it is not possible
 to validate all data.
 

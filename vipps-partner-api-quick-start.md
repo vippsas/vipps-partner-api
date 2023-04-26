@@ -1,4 +1,3 @@
-<!-- START_METADATA
 ---
 title: Quick start for the Partner API
 sidebar_label: Quick start
@@ -7,7 +6,6 @@ description: Quick start guide for the using the Partner API with Postman.
 pagination_next: null
 pagination_prev: null
 ---
-END_METADATA -->
 
 # Quick start
 
@@ -15,25 +13,6 @@ Use the Partner API to get details for their own sales units and merchants.
 In addition, you can order products on behalf of your merchants.
 
 Be aware that these are running on the production server.
-
-<!-- START_COMMENT -->
-
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/).
-
-## Table of contents
-
-* [Postman](#postman)
-  * [Prerequisites](#prerequisites)
-  * [Step 1: Get the Postman collection and environment](#step-1-get-the-postman-collection-and-environment)
-  * [Step 2: Import the Postman files](#step-2-import-the-postman-files)
-  * [Step 3: Set up Postman environment](#step-3-set-up-postman-environment)
-* [Make API calls](#make-api-calls)
-  * [Get sales unit by Merchant Serial Number](#get-sales-unit-by-merchant-serial-number)
-  * [Get merchant by organization number](#get-merchant-by-organization-number)
-  * [Order products on behalf of merchants](#order-products-on-behalf-of-merchants)
-
-<!-- END_COMMENT -->
 
 ## Postman
 
@@ -46,7 +25,7 @@ Review
 
 Save the following files to your computer:
 
-* [Partner API Postman collection](tools/vipps-partner-api-postman-collection.json)
+* [Partner API Postman collection](/tools/vipps-partner-api-postman-collection.json)
 * [Global Postman environment](https://raw.githubusercontent.com/vippsas/vipps-developers/master/tools/vipps-api-global-postman-environment.json)
 
 ### Step 2: Import the Postman files
@@ -59,7 +38,7 @@ Save the following files to your computer:
 
 **Important:** Partner keys must be kept secret. They can be used to act on behalf
 of all the partner's merchants. It is the partner's responsibility to manage
-the partner keys in a secure way. See
+the partner keys securely. See
 [Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys).
 
 1. Click the down arrow, next to the "eye" icon in the top-right corner, and select the environment you have imported.

@@ -1,9 +1,7 @@
-<!-- START_METADATA
 ---
 title: API guide
 sidebar_position: 30
 ---
-END_METADATA -->
 
 # API guide
 
@@ -11,12 +9,7 @@ The Vipps Partner API allows you, as a partner, to retrieve information about yo
 
 API version: 1.0.0.
 
-<!-- START_COMMENT -->
 
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/).
-
-<!-- END_COMMENT -->
 
 ## Information for Vipps partners
 
