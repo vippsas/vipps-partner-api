@@ -19,7 +19,7 @@ For general information for Vipps partners, see
 
 **Please note:** The Management API, currently in development, will replace the Partner API.
 The Management API is for both partners and merchants, and will offer all the functionality
-in the Parnter API plus additional functionality. See:
+in the Partner API plus additional functionality. See:
 [Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/).
 
 ## Getting started
