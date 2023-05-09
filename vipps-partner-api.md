@@ -319,12 +319,10 @@ The user will then automatically be presented with the pre-filled PO.
    [portal.vipps.no](https://portal.vipps.no).
 3. The merchant is presented with a text informing them that they need to
    sign an MA before filling in the PO.
-   The merchant is provided with a link to the MA form, and the merchant must complete that
+   The merchant is provided with a URL to the MA form, and the merchant must complete that
    to be able to continue with the PO.
 4. After completing the MA form and submitting it,
-   the merchant re-uses the link to the pre-filled PO
-   (or finds the link to the pre-filled form on the front page on
-   [portal.vipps.no](https://portal.vipps.no)).
+   the merchant re-uses the URL to the pre-filled PO.
    The merchant sees the pre-filled PO with all details provided by the partner,
    checks the details in the PO, and submits it.
 5. Vipps processes both the MA and PO and sends both the merchant and partner an
@@ -351,7 +349,7 @@ The merchant has a MA, and probably also a Vipps product.
    and gets a URL to the pre-filled PO on
    [portal.vipps.no](https://portal.vipps.no).
    The partner provides the URL to the merchant.
-2. The merchant uses the link and logs in with BankID on
+2. The merchant uses the URL and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
 3. The merchant sees the pre-filled PO with all details provided by the partner,
    checks the details in the PO, and submits it.
