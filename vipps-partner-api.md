@@ -267,6 +267,9 @@ Here is a sample request:
 }
 ```
 
+We have made as many of the fields as possible optional, but please try to send as much as you can,
+to make it easy for the merchant.
+
 The response (see
 [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 for details):
@@ -313,11 +316,14 @@ The user will then automatically be presented with the pre-filled PO.
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant uses the link and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
-3. The merchant is presented with a page informing them that they need to
+3. The merchant is presented with a text informing them that they need to
    sign an MA before filling in the PO.
-4. The merchant re-uses the link or finds the link to the pre-filled form on the
-   front page on
-   [portal.vipps.no](https://portal.vipps.no)
+   The merchant is provided with a link to the MA form, and the merchant must complete that
+   to be able to continue with the PO.
+4. After completing the MA form and submitting it,
+   the merchant re-uses the link to the pre-filled PO
+   (or finds the link to the pre-filled form on the front page on
+   [portal.vipps.no](https://portal.vipps.no))
    and is presented with the pre-filled PO,
    checks the details in the PO and submits it.
 5. Vipps processes the PO and sends both the merchant and partner an
