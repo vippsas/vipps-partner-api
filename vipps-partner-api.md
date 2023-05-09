@@ -326,7 +326,7 @@ The user will then automatically be presented with the pre-filled PO.
    [portal.vipps.no](https://portal.vipps.no)).
    The merchant sees the pre-filled PO with all details provided by the partner,
    checks the details in the PO, and submits it.
-5. Vipps processes the PO and sends both the merchant and partner an
+5. Vipps processes both the MA and PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
    [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
 
