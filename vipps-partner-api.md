@@ -351,8 +351,8 @@ The merchant has a MA, and probably also a Vipps product.
    [portal.vipps.no](https://portal.vipps.no).
 2. The merchant uses the link and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
-3. The merchant is presented with the pre-filled PO,
-   checks the details in the PO and submits it.
+3. The merchant sees the pre-filled PO with all details provided by the partner,
+   checks the details in the PO, and submits it.
 4. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
   [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
