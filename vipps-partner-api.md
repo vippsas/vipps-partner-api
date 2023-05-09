@@ -312,9 +312,10 @@ The user will then automatically be presented with the pre-filled PO.
 
 1. The partner pre-fills the PO using
    [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and gets a link to the pre-filled PO on
+   and gets a URL to the pre-filled PO on
    [portal.vipps.no](https://portal.vipps.no).
-2. The merchant uses the link and logs in with BankID on
+   The partner provides the URL to the merchant.
+2. The merchant uses the URL and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
 3. The merchant is presented with a text informing them that they need to
    sign an MA before filling in the PO.
@@ -347,8 +348,9 @@ The merchant has a MA, and probably also a Vipps product.
 
 1. The partner pre-fills the PO using
    [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and gets a link to the pre-filled PO on
+   and gets a URL to the pre-filled PO on
    [portal.vipps.no](https://portal.vipps.no).
+   The partner provides the URL to the merchant.
 2. The merchant uses the link and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
 3. The merchant sees the pre-filled PO with all details provided by the partner,
