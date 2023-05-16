@@ -10,10 +10,9 @@ The Vipps Partner API allows you, as a partner, to retrieve information about yo
 API version: 1.0.0.
 
 
-
 ## Information for Vipps partners
 
-* [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
+* [How to become a Vipps partner](https://www.vipps.no/developer/become-a-partner/).
 * [Vipps Partners](https://developer.vippsmobilepay.com/docs/vipps-partner): Technical information for Vipps partners.
 
 ### Integrating with this API
