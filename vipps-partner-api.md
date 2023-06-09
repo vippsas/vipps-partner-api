@@ -273,7 +273,7 @@ merchants to request more details. This is the most
 [typical reason for delays](https://developer.vippsmobilepay.com/docs/vipps-partner/#typical-reasons-for-delays).
 
 We have made as many of the fields as possible optional, but please
-try to send as much as you can, to make it easy for the merchant.
+try to send as much as possible, to make it easy for the merchant.
 
 **Please note:** The merchant can not change the information provided by the partner, so if
 something needs to be corrected, the merchant must contact the partner to have
