@@ -243,6 +243,8 @@ sequenceDiagram
     Vipps->>Partner: Email with MSN and other details
 ```
 
+### Request
+
 Here is a sample request:
 
 ```json
@@ -266,6 +268,19 @@ Here is a sample request:
 }
 ```
 
+**Improtant:** Please provide all the required fields, so it will not be necessary for
+merchants to request more details. This is the most
+[typical reason for delays](https://developer.vippsmobilepay.com/docs/vipps-partner/#typical-reasons-for-delays).
+
+We have made as many of the fields as possible optional, but please
+try to send as much as you can, to make it easy for the merchant.
+
+**Please note:** The merchant can not change the information provided by the partner, so if
+something needs to be corrected, the merchant must contact the partner to have
+the partner submit a new pre-fill product order with the correct details.
+
+### Response
+
 The response (see
 [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 for details):
@@ -277,9 +292,7 @@ for details):
 }
 ```
 
-**Please note:** The merchant can not change the information provided by the partner, so if
-something needs to be corrected, the merchant must contact the partner to have
-the partner submit a new product order with the correct details.
+### Processing of the product order
 
 When the submitted order has been processed, Vipps sends an email to both the
 merchant and the partner (as described on
