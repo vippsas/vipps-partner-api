@@ -268,7 +268,7 @@ Here is a sample request:
 }
 ```
 
-**Improtant:** Please provide all the required fields, so it will not be necessary for
+**Important:** Please provide all the required fields, so it will not be necessary for
 merchants to request more details. This is the most
 [typical reason for delays](https://developer.vippsmobilepay.com/docs/vipps-partner/#typical-reasons-for-delays).
 
