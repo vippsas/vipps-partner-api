@@ -366,12 +366,12 @@ the partner.
 
 Some candidates:
 
-- Status: Deactivate and activate MSNs
-- Name: Update
-- Capture type: Change from "reserve capture" or "direct capture"
-- Skip landing page: Activate or deactivate
-- Price: Update
-- Logo: Update
+* Status: Deactivate and activate MSNs
+* Name: Update
+* Capture type: Change from "reserve capture" or "direct capture"
+* Skip landing page: Activate or deactivate
+* Price: Update
+* Logo: Update
 
 In the meantime:
 Merchants can create a user for their partner on
