@@ -1,11 +1,17 @@
+<!-- START_METADATA
 ---
 title: API guide
 sidebar_position: 30
 ---
+END_METADATA -->
 
 # API guide
 
-The Vipps Partner API allows you, as a partner, to retrieve information about your merchants and sales units by using your partner keys.
+<!-- START_COMMENT -->
+💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/partner-api>. 💥
+<!-- END_COMMENT -->
+
+The Partner API allows partners to retrieve information about their merchants and sales units by using partner keys.
 
 API version: 1.0.0.
 
@@ -59,7 +65,7 @@ Partner API.
 
 **Please note:** Some partners may need an internal Vipps update of their API
 product package to get access. Contact your partner manager if you get errors
-indicating this. Please double check your partner keys first, though.
+indicating this. Please double-check your partner keys first, though.
 
 ## Get information about a merchant based on organization number
 
@@ -105,10 +111,10 @@ and we will work with our partners to find out what is useful and possible.
 Some candidates:
 
 * Company address
-* Contact information for the main person (depends on GDPR, etc)
-* Contact information for the technical person (depends on GDPR, etc)
-* A list of people with admin rights on portal.vipps.no (depends on GDPR, etc)
-* Changelog: What was changed when by who?
+* Contact information for the main person (depends on GDPR, etc.)
+* Contact information for the technical person (depends on GDPR, etc.)
+* A list of people with admin rights on portal.vipps.no (depends on GDPR, etc.)
+* Changelog: What was changed when by whom?
 
 ### In the meantime
 
@@ -164,7 +170,7 @@ Future versions of the API will *probably* return more information,
 and we will work with our partners to find out what is useful and possible.
 Some candidates:
 
-* Vipps products: Which Vipps products and APIs are available for this MSN ("eCom API", "Recurring API", "Login API", etc).
+* Vipps products: Which Vipps products and APIs are available for this MSN ("eCom API", "Recurring API", "Login API", etc.).
 * Transaction cost (price package)
 * Status: Active or deactivated
 
@@ -296,7 +302,7 @@ This may be useful:
 ### Scenarios
 
 **Please note:** The only method Vipps has to verify that a user has the right
-to sign a MA for a merchant is by using data from
+to sign a merchant agreement for a merchant is by using data from
 [Brønnøysundregistrene](https://brreg.no).
 It is therefore a requirement that the user logging in on
 [portal.vipps.no](https://portal.vipps.no)
@@ -333,9 +339,9 @@ person that has signatory rights for the merchant. The form looks like this:
 
 ![Screenshot from the MA form](images/merchant-agreement-form.png)
 
-#### Scenario 2: The merchant has a active or processing Merchant Agreement
+#### Scenario 2: The merchant has an active or processing Merchant Agreement
 
-The merchant has a MA, and probably also a Vipps product.
+The merchant has a merchant agreement, and probably also a Vipps product.
 
 1. The partner pre-fills the PO using
    [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
@@ -351,7 +357,7 @@ The merchant has a MA, and probably also a Vipps product.
 
 ### Future improvements
 
-* We may allow the merchant to change some of the data pre-filled by the
+* We may allow the merchant to change some data pre-filled by the
   partner, but this is not trivial. If the merchant changes any data, the
   partner must be notified and also get the updated data - then merge and sync that
   with the "old" data that was sent in the first place.

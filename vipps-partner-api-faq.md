@@ -1,3 +1,4 @@
+<!-- START_METADATA
 ---
 title: Partner API Frequently Asked Questions
 sidebar_label: FAQ
@@ -6,8 +7,13 @@ description: Frequently asked questions for the Partner API.
 pagination_next: null
 pagination_prev: null
 ---
+END_METADATA -->
 
 # Frequently asked questions
+
+<!-- START_COMMENT -->
+💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/partner-api>. 💥
+<!-- END_COMMENT -->
 
 The Partner API lets partners use their partner keys to retrieve information
 about their merchants and their sales units.
