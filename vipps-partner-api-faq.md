@@ -43,7 +43,7 @@ environment.
 If you send an invalid request to
 [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct),
 the pre-fill operation will fail, and the URL will lead to the standard, empty
-product order form. Although we do _some_ input validation, it is not possible
+product order form. Although we do *some* input validation, it is not possible
 to validate all data.
 
 ## Why do I get `HTTP 404 Not Found`?

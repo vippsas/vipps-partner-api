@@ -9,7 +9,6 @@ The Vipps Partner API allows you, as a partner, to retrieve information about yo
 
 API version: 1.0.0.
 
-
 ## Information for Vipps partners
 
 * [How to become a Vipps partner](https://www.vipps.no/developer/become-a-partner/).
@@ -41,7 +40,7 @@ the following priority:
    or
    [which capture type it has](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
 
-**Important:** Endpoints with `/v0/` (version 0) in the URI _are_ working, and
+**Important:** Endpoints with `/v0/` (version 0) in the URI *are* working, and
 will continue to do so, but will be superseded by similar `/v1/` endpoints with
 improved functionality as soon as possible. For example:
 [`GET:/saleunits/{msn}`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN)
@@ -77,7 +76,7 @@ sequenceDiagram
 ```
 
 The current version of the Partner API only returns a list of MSNs
-connected to the partner making the API request, but we _may_ extend this later.
+connected to the partner making the API request, but we *may* extend this later.
 
 The response (see
 [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
@@ -92,7 +91,7 @@ for details):
 }
 ```
 
-This is an endpoint for getting information about the _merchant_, not all the
+This is an endpoint for getting information about the *merchant*, not all the
 merchant's MSNs.
 Since the response only contains a list of MSNs, an additional API request is
 required to get more details about the sales unit.
@@ -101,7 +100,7 @@ See:
 
 ### Future improvements
 
-Future versions of the API will _probably_ return more information,
+Future versions of the API will *probably* return more information,
 and we will work with our partners to find out what is useful and possible.
 Some candidates:
 
@@ -161,7 +160,7 @@ belongs to, which is useful if only the MSN is known.
 
 ### Future improvements
 
-Future versions of the API will _probably_ return more information,
+Future versions of the API will *probably* return more information,
 and we will work with our partners to find out what is useful and possible.
 Some candidates:
 
