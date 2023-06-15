@@ -275,9 +275,9 @@ merchants to request more details. This is the most
 We have made as many of the fields as possible optional, but please
 try to send as much as possible, to make it easy for the merchant.
 
-**Please note:** The merchant can not change the information provided by the partner, so if
-something needs to be corrected, the merchant must contact the partner to have
-the partner submit a new pre-fill product order with the correct details.
+**Please note:** The merchant cannot change the partner name or price package. If
+something needs to be corrected, they must contact the partner to have
+them submit a new pre-fill product order with the correct details.
 
 ### Response
 
