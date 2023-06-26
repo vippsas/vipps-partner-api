@@ -284,8 +284,6 @@ try to send as much as possible, to make it easy for the merchant.
 something needs to be corrected, they must contact the partner to have
 them submit a new pre-fill product order with the correct details.
 
-### Response
-
 The response (see
 [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 for details):
@@ -326,18 +324,20 @@ The user will then automatically be presented with the pre-filled PO.
 
 1. The partner pre-fills the PO using
    [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and gets a link to the pre-filled PO on
+   and gets a URL to the pre-filled PO on
    [portal.vipps.no](https://portal.vipps.no).
-2. The merchant uses the link and logs in with BankID on
+   The partner provides the URL to the merchant.
+2. The merchant uses the URL and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
-3. The merchant is presented with a page informing them that they need to
+3. The merchant is presented with a text informing them that they need to
    sign an MA before filling in the PO.
-4. The merchant re-uses the link or finds the link to the pre-filled form on the
-   front page on
-   [portal.vipps.no](https://portal.vipps.no)
-   and is presented with the pre-filled PO,
-   checks the details in the PO and submits it.
-5. Vipps processes the PO and sends both the merchant and partner an
+   The merchant is provided with a URL to the MA form, and the merchant must complete that
+   to be able to continue with the PO.
+4. After completing the MA form and submitting it,
+   the merchant re-uses the URL to the pre-filled PO.
+   The merchant sees the pre-filled PO with all details provided by the partner,
+   checks the details in the PO, and submits it.
+5. Vipps processes both the MA and PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
    [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
 
@@ -358,12 +358,13 @@ The merchant has a merchant agreement, and probably also a Vipps product.
 
 1. The partner pre-fills the PO using
    [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
-   and gets a link to the pre-filled PO on
+   and gets a URL to the pre-filled PO on
    [portal.vipps.no](https://portal.vipps.no).
-2. The merchant uses the link and logs in with BankID on
+   The partner provides the URL to the merchant.
+2. The merchant uses the URL and logs in with BankID on
    [portal.vipps.no](https://portal.vipps.no).
-3. The merchant is presented with the pre-filled PO,
-   checks the details in the PO and submits it.
+3. The merchant sees the pre-filled PO with all details provided by the partner,
+   checks the details in the PO, and submits it.
 4. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
   [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
