@@ -1,19 +1,23 @@
+<!-- START_METADATA
 ---
 title: API guide
 sidebar_position: 30
 ---
+END_METADATA -->
 
 # API guide
 
-The Vipps Partner API allows you, as a partner, to retrieve information about your merchants and sales units by using your partner keys.
+<!-- START_COMMENT -->
+💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/partner-api>. 💥
+<!-- END_COMMENT -->
+
+The Partner API allows partners to retrieve information about their merchants and sales units by using partner keys.
 
 API version: 1.0.0.
 
-
-
 ## Information for Vipps partners
 
-* [How to become a Vipps partner](https://vipps.no/developer/bli-partner/) (in Norwegian).
+* [How to become a Vipps partner](https://www.vipps.no/developer/become-a-partner/).
 * [Vipps Partners](https://developer.vippsmobilepay.com/docs/vipps-partner): Technical information for Vipps partners.
 
 ### Integrating with this API
@@ -42,7 +46,7 @@ the following priority:
    or
    [which capture type it has](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
 
-**Important:** Endpoints with `/v0/` (version 0) in the URI _are_ working, and
+**Important:** Endpoints with `/v0/` (version 0) in the URI *are* working, and
 will continue to do so, but will be superseded by similar `/v1/` endpoints with
 improved functionality as soon as possible. For example:
 [`GET:/saleunits/{msn}`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN)
@@ -54,14 +58,14 @@ and we will therefore keep `/v0/` until `/v1/` is ready.
 
 ### Partner keys
 
-All partners can use their
+All Partner Plus and Partner Premium partners can use their
 [partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys).
 to use the Partner API. If you have partner keys, you have access to the
 Partner API.
 
 **Please note:** Some partners may need an internal Vipps update of their API
 product package to get access. Contact your partner manager if you get errors
-indicating this. Please double check your partner keys first, though.
+indicating this. Please double-check your partner keys first, though.
 
 ## Get information about a merchant based on organization number
 
@@ -78,7 +82,7 @@ sequenceDiagram
 ```
 
 The current version of the Partner API only returns a list of MSNs
-connected to the partner making the API request, but we _may_ extend this later.
+connected to the partner making the API request, but we *may* extend this later.
 
 The response (see
 [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
@@ -93,7 +97,7 @@ for details):
 }
 ```
 
-This is an endpoint for getting information about the _merchant_, not all the
+This is an endpoint for getting information about the *merchant*, not all the
 merchant's MSNs.
 Since the response only contains a list of MSNs, an additional API request is
 required to get more details about the sales unit.
@@ -102,15 +106,15 @@ See:
 
 ### Future improvements
 
-Future versions of the API will _probably_ return more information,
+Future versions of the API will *probably* return more information,
 and we will work with our partners to find out what is useful and possible.
 Some candidates:
 
 * Company address
-* Contact information for the main person (depends on GDPR, etc)
-* Contact information for the technical person (depends on GDPR, etc)
-* A list of people with admin rights on portal.vipps.no (depends on GDPR, etc)
-* Changelog: What was changed when by who?
+* Contact information for the main person (depends on GDPR, etc.)
+* Contact information for the technical person (depends on GDPR, etc.)
+* A list of people with admin rights on portal.vipps.no (depends on GDPR, etc.)
+* Changelog: What was changed when by whom?
 
 ### In the meantime
 
@@ -162,11 +166,11 @@ belongs to, which is useful if only the MSN is known.
 
 ### Future improvements
 
-Future versions of the API will _probably_ return more information,
+Future versions of the API will *probably* return more information,
 and we will work with our partners to find out what is useful and possible.
 Some candidates:
 
-* Vipps products: Which Vipps products and APIs are available for this MSN ("eCom API", "Recurring API", "Login API", etc).
+* Vipps products: Which Vipps products and APIs are available for this MSN ("eCom API", "Recurring API", "Login API", etc.).
 * Transaction cost (price package)
 * Status: Active or deactivated
 
@@ -244,6 +248,8 @@ sequenceDiagram
     Vipps->>Partner: Email with MSN and other details
 ```
 
+### Request
+
 Here is a sample request:
 
 ```json
@@ -267,8 +273,16 @@ Here is a sample request:
 }
 ```
 
-We have made as many of the fields as possible optional, but please try to send as much as you can,
-to make it easy for the merchant.
+**Important:** Please provide all the required fields, so it will not be necessary for
+merchants to request more details. This is the most
+[typical reason for delays](https://developer.vippsmobilepay.com/docs/vipps-partner/#typical-reasons-for-delays).
+
+We have made as many of the fields as possible optional, but please
+try to send as much as possible, to make it easy for the merchant.
+
+**Please note:** The merchant cannot change the partner name or price package. If
+something needs to be corrected, they must contact the partner to have
+them submit a new pre-fill product order with the correct details.
 
 The response (see
 [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
@@ -281,9 +295,7 @@ for details):
 }
 ```
 
-**Please note:** The merchant can not change the information provided by the partner, so if
-something needs to be corrected, the merchant must contact the partner to have
-the partner submit a new product order with the correct details.
+### Processing of the product order
 
 When the submitted order has been processed, Vipps sends an email to both the
 merchant and the partner (as described on
@@ -301,7 +313,7 @@ This may be useful:
 ### Scenarios
 
 **Please note:** The only method Vipps has to verify that a user has the right
-to sign a MA for a merchant is by using data from
+to sign a merchant agreement for a merchant is by using data from
 [Brønnøysundregistrene](https://brreg.no).
 It is therefore a requirement that the user logging in on
 [portal.vipps.no](https://portal.vipps.no)
@@ -340,9 +352,9 @@ person that has signatory rights for the merchant. The form looks like this:
 
 ![Screenshot from the MA form](images/merchant-agreement-form.png)
 
-#### Scenario 2: The merchant has a active or processing Merchant Agreement
+#### Scenario 2: The merchant has an active or processing Merchant Agreement
 
-The merchant has a MA, and probably also a Vipps product.
+The merchant has a merchant agreement, and probably also a Vipps product.
 
 1. The partner pre-fills the PO using
    [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
@@ -359,7 +371,7 @@ The merchant has a MA, and probably also a Vipps product.
 
 ### Future improvements
 
-* We may allow the merchant to change some of the data pre-filled by the
+* We may allow the merchant to change some data pre-filled by the
   partner, but this is not trivial. If the merchant changes any data, the
   partner must be notified and also get the updated data - then merge and sync that
   with the "old" data that was sent in the first place.
@@ -373,12 +385,12 @@ the partner.
 
 Some candidates:
 
-- Status: Deactivate and activate MSNs
-- Name: Update
-- Capture type: Change from "reserve capture" or "direct capture"
-- Skip landing page: Activate or deactivate
-- Price: Update
-- Logo: Update
+* Status: Deactivate and activate MSNs
+* Name: Update
+* Capture type: Change from "reserve capture" or "direct capture"
+* Skip landing page: Activate or deactivate
+* Price: Update
+* Logo: Update
 
 In the meantime:
 Merchants can create a user for their partner on
