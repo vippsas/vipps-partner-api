@@ -260,6 +260,7 @@ Here is a sample request:
   "settlementAccountNumber": "86011117947",
   "pricePackageId": "8a11afb7-c223-48ed-8ca6-4722b97261aa",
   "productType": "VIPPS_PA_NETT",
+  "productUseCase": "WebsiteWithTest",
   "annualTurnover": 100000,
   "intendedPurpose": "Gym membership for accessing the gym's facilities.\nGuest will be not physically present when buying the subscription,\nas that is done on the gym's website.",
   "website": {
@@ -272,10 +273,12 @@ Here is a sample request:
   "complianceData": {
     "giftCard": {
       "isSalesPercentageLessThanTen": false,
-      "validityDuration": "3 years"
+      "validityDuration": "3 years",
+      "giftCardTurnoverShare": "about 25%"
     },
     "membership": {
       "turnoverShare": "about 25%",
+      "membershipValidity": "CurrentCalendarYear",
       "periodDistribution": "50% yearly 20% monthly"
     },
     "subscription": {
@@ -285,8 +288,8 @@ Here is a sample request:
     "course": {
       "turnoverShare": "about 25%",
       "timeBeforeOrder": "10 days",
-      "period": "once every 6 week",
-      "isOnlineCourseOffered": true,
+      "period": "once every 6. week",
+      "isOnlineCourseOffered": false,
       "onlineAccessibleTime": "for 3 months"
     },
     "ticket": {
@@ -303,7 +306,7 @@ Here is a sample request:
       "prepurchaseTime": "10 weeks"
     },
     "donation": {
-      "acceptDonations": true
+      "acceptsDonation": false
     }
   }
 }
