@@ -260,15 +260,51 @@ Here is a sample request:
   "settlementAccountNumber": "86011117947",
   "pricePackageId": "8a11afb7-c223-48ed-8ca6-4722b97261aa",
   "productType": "VIPPS_PA_NETT",
-  "mcc": "5200",
-  "annualTurnover": "100000",
-  "intendedPurpose": "Gym membership",
+  "annualTurnover": 100000,
+  "intendedPurpose": "Gym membership for accessing the gym's facilities.\nGuest will be not physically present when buying the subscription,\nas that is done on the gym's website.",
   "website": {
     "url": "https://example.com",
     "termsUrl": "https://example.com/terms-and-conditions",
-    "testWebSiteUrl": "https://example.com/test ",
+    "testWebsiteUrl": "https://example.com/test ",
     "testWebsiteUsername": "test-user",
     "testWebsitePassword": "test-password"
+  },
+  "complianceData": {
+    "giftCard": {
+      "isSalesPercentageLessThanTen": false,
+      "validityDuration": "3 years"
+    },
+    "membership": {
+      "turnoverShare": "about 25%",
+      "periodDistribution": "50% yearly 20% monthly"
+    },
+    "subscription": {
+      "turnoverShare": "about 25%",
+      "periodDistribution": "50% yearly 20% monthly"
+    },
+    "course": {
+      "turnoverShare": "about 25%",
+      "timeBeforeOrder": "10 days",
+      "period": "once every 6 week",
+      "isOnlineCourseOffered": true,
+      "onlineAccessibleTime": "for 3 months"
+    },
+    "ticket": {
+      "turnoverShare": "about 25%",
+      "prepurchaseTime": "10 weeks"
+    },
+    "rent": {
+      "turnoverShare": "about 25%",
+      "prepurchaseTime": "15 days",
+      "averageRentalDuration": "3 weeks"
+    },
+    "prepaidServices": {
+      "turnoverShare": "about 25%",
+      "prepurchaseTime": "10 weeks"
+    },
+    "donation": {
+      "acceptDonations": true
+    }
   }
 }
 ```
