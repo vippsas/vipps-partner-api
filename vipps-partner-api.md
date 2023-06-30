@@ -11,6 +11,14 @@ END_METADATA -->
 💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/partner-api>. 💥
 <!-- END_COMMENT -->
 
+**Important:** The
+[Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/),
+has replaced the Partner API: All the functionality in the Partner API is available in the Management API.
+The upgrade effort will be minimal: The API keys are the same, and the endpoints,
+requests and responses are _almost_ identical.
+The Management API is for both partners and merchants.
+The Partner API will be phased out in Q4 2023.
+
 The Partner API allows partners to retrieve information about their merchants and sales units by using partner keys.
 
 API version: 1.0.0.
@@ -68,6 +76,10 @@ product package to get access. Contact your partner manager if you get errors
 indicating this. Please double-check your partner keys first, though.
 
 ## Get information about a merchant based on organization number
+
+**Important:** This endpoint is deprecated. Please use the Management API:
+[`GET:/management/v1/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/management/#tag/Merchants/operation/getMerchantByOrgno)
+The Management API uses the same API keys as the Partner API.
 
 This endpoint is for retrieving information about the merchant:
 
@@ -130,6 +142,10 @@ and
 [How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/vipps-partner/add-portal-user).
 
 ## Get information about a sales unit based on MSN
+
+**Important:** This endpoint is deprecated. Please use the Management API:
+[`GET:/management/v1/sales-units/{msn}`](https://developer.vippsmobilepay.com/api/management/#tag/Sales-units/operation/getMsn)
+The Management API uses the same API keys as the Partner API.
 
 This endpoint is for retrieving details about one sales unit (MSN):
 
@@ -201,6 +217,10 @@ Both MA and PO are described in detail in
 [Scenarios](#scenarios).
 
 ## Submit a product order for a merchant
+
+**Important:** This endpoint is deprecated. Please use the Management API:
+[`POST:/management/v1/product-orders`](https://developer.vippsmobilepay.com/api/management/#tag/Product-orders/operation/orderProduct)
+The Management API uses the same API keys as the Partner API.
 
 This endpoint lets a partner "pre-fill" the product order form on
 [portal.vipps.no](https://portal.vipps.no)

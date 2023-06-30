@@ -21,12 +21,13 @@ The Partner API allows partners to retrieve information about their merchants an
 For general information for Vipps partners, see
 [Vipps Partners](https://developer.vippsmobilepay.com/docs/vipps-partner).
 
-**Please note:** The
+**Important:** The
 [Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/),
-currently in development, will replace the Partner API.
-The Management API is for both partners and merchants, and will offer all the functionality
-in the Partner API plus additional functionality.
-The upgrade effort will be minimal, as the endpoints are almost identical.
+has replaced the Partner API: All the functionality in the Partner API is available in the Management API.
+The upgrade effort will be minimal: The API keys are the same, and the endpoints,
+requests and responses are _almost_ identical.
+The Management API is for both partners and merchants.
+The Partner API will be phased out in Q4 2023.
 
 ## Getting started
 
