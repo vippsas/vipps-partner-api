@@ -28,7 +28,14 @@ paths:
     post:
       summary: Order products on behalf of merchants
       operationId: orderProduct
+      deprecated: true
       description: |
+        This endpoint is deprecated. Please use the Management API:
+        [`POST:/management/v1/product-orders`](https://developer.vippsmobilepay.com/api/management/#tag/Product-orders/operation/orderProduct)
+        The Management API uses the same API keys as the Partner API.
+
+        ---
+        
         Order products on behalf of merchants:
         Partners can submit data that pre-fills the order form on portal.vipps.no,
         so the merchant can review the information and submit the product order.
@@ -112,10 +119,16 @@ paths:
         - Bearer-Authorization: []
       summary: Get merchant by organization number
       operationId: getMerchant
+      deprecated: true
+      description: |-
+        This endpoint is deprecated. Please use the Management API:
+        [`GET:/management/v1/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/management/#tag/Merchants/operation/getMerchantByOrgno)
+        The Management API uses the same API keys as the Partner API.
       parameters:
         - name: orgno
           in: path
-          description: The organization number for the merchant
+          description: |-
+            The organization number for the merchant.
           required: true
           schema:
             maxLength: 9
@@ -185,6 +198,11 @@ paths:
         - Bearer-Authorization: []
       summary: Get sales unit details based on MSN
       operationId: getMSN
+      deprecated: true
+      description: |-
+        This endpoint is deprecated. Please use the Management API:
+        [`GET:/management/v1/sales-units/{msn}`](https://developer.vippsmobilepay.com/api/management/#tag/Sales-units/operation/getMsn)
+        The Management API uses the same API keys as the Partner API.
       parameters:
         - name: msn
           in: path
