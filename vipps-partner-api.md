@@ -15,7 +15,7 @@ END_METADATA -->
 [Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/),
 has replaced the Partner API: All the functionality in the Partner API is available in the Management API.
 The upgrade effort will be minimal: The API keys are the same, and the endpoints,
-requests and responses are _almost_ identical.
+requests and responses are *almost* identical.
 The Management API is for both partners and merchants.
 The Partner API will be phased out in Q4 2023.
 
@@ -46,7 +46,7 @@ the following priority:
 1. Integrate with the Partner API, so the functionality is made available
    in the partner's own admin interface.
 2. Use the Partner API manually with the Postman collection provided by Vipps.
-3. Ask the merchant to create a user for the partner on portal.vipps.no,
+3. Ask the merchant to create a user for the partner on [portal.vipps.no](https://portal.vipps.no),
    so the partner can check on behalf of the merchant:
    [How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/vipps-partner/add-portal-user).
 4. See the Vipps FAQ for how to check if a sales unit
