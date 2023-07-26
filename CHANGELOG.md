@@ -17,7 +17,7 @@ To learn about API versioning, see
 ## October 2022
 
 * Partners can now use the Partner API to pre-fill applications and
-[submit a product order for a merchant](./vipps-partner-api#submit-a-product-order-for-a-merchant).
+[submit a product order for a merchant](./vipps-partner-api.md#submit-a-product-order-for-a-merchant).
 
 ## June 2022
 
