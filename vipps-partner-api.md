@@ -195,7 +195,7 @@ Some candidates:
 Until more functionality is available in this API, there are some workarounds:
 
 * [How can I check if I have "reserve capture" or "direct capture"?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
-* [How can I check if I have skipLandingPage activated?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/vipps-landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
+* [How can I check if I have skipLandingPage activated?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
 
 ## Product order (PO) and Merchant agreement (MA)
 
