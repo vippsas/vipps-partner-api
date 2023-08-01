@@ -19,7 +19,7 @@ END_METADATA -->
 The Partner API allows partners to retrieve information about their merchants and their sales units by using their partner keys.
 
 For general information for Vipps partners, see
-[Vipps Partners](https://developer.vippsmobilepay.com/docs/vipps-partner).
+[Vipps Partners](https://developer.vippsmobilepay.com/docs/partner).
 
 **Important:** The
 [Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/),
@@ -38,7 +38,7 @@ for information about API keys, product activation, how to make API calls, etc.
 ## Next steps
 
 The API is available for all partners using
-[partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys).
+[partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys).
 
 This repository contains developer resources for the Vipps Partner API.
 
