@@ -50,9 +50,9 @@ the following priority:
    so the partner can check on behalf of the merchant:
    [How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/partner/add-portal-user).
 4. See the Vipps FAQ for how to check if a sales unit
-   [has skipLandingPage](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+   [has skipLandingPage](https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
    or
-   [which capture type it has](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
+   [which capture type it has](https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
 
 **Important:** Endpoints with `/v0/` (version 0) in the URI *are* working, and
 will continue to do so, but will be superseded by similar `/v1/` endpoints with
@@ -61,7 +61,7 @@ improved functionality as soon as possible. For example:
 provides limited information about a sales unit today, but will provide more
 details once the internal Vipps systems are able to provide them.
 The response may then change more than we allow for in the
-[API Lifecycle](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-lifecycle),
+[API Lifecycle](https://developer.vippsmobilepay.com/docs/common-topics/api-lifecycle),
 and we will therefore keep `/v0/` until `/v1/` is ready.
 
 ### Partner keys
@@ -194,8 +194,8 @@ Some candidates:
 
 Until more functionality is available in this API, there are some workarounds:
 
-* [How can I check if I have "reserve capture" or "direct capture"?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
-* [How can I check if I have skipLandingPage activated?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
+* [How can I check if I have "reserve capture" or "direct capture"?](https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+* [How can I check if I have skipLandingPage activated?](https://developer.vippsmobilepay.com/docs/faqs/landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
 
 ## Product order (PO) and Merchant agreement (MA)
 

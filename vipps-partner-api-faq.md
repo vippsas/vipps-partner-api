@@ -23,10 +23,10 @@ See the
 for all the technical details.
 
 See also:
-[Common API FAQ](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs).
+[Common API FAQ](https://developer.vippsmobilepay.com/docs/faqs).
 
 See also:
-[Vipps MobilePay Getting Started guide](https://developer.vippsmobilepay.com/docs/vipps-developers/getting-started).
+[Vipps MobilePay Getting Started guide](https://developer.vippsmobilepay.com/docs/getting-started).
 
 ## Where do I get the pricePackageId?
 
@@ -68,4 +68,4 @@ We know this is a very important feature, but can't give you a release date yet.
 The documentation will be updated as soon as we have new information.
 
 We recommend subscribing to the
-[Technical newsletter for developers](https://developer.vippsmobilepay.com/docs/vipps-developers/newsletters).
+[Technical newsletter for developers](https://developer.vippsmobilepay.com/docs/newsletters).

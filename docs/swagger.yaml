@@ -679,7 +679,7 @@ components:
               description: |-
                 The capture type of the sales unit.
                 We strongly recommend `ReserveCapture`, see the API
-                documentation: https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq
+                documentation: https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq
               enum:
                 - "ReserveCapture"
                 - "DirectCapture"
@@ -722,7 +722,7 @@ components:
       type: object
       description: |-
         Problem details for errors from the Partner API.
-        See: https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/errors
+        See: https://developer.vippsmobilepay.com/docs/common-topics/errors
       properties:
         type:
           type: string
@@ -831,7 +831,7 @@ components:
       description: |-
         The name of the ecommerce solution.
         One word in lowercase letters is good.
-        See [http-headers](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/http-headers).
+        See [http-headers](https://developer.vippsmobilepay.com/docs/common-topics/http-headers).
       schema:
         type: string
         maxLength: 30
@@ -841,7 +841,7 @@ components:
       in: header
       description: |-
         The version number of the ecommerce solution.
-        See [http-headers](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/http-headers).
+        See [http-headers](https://developer.vippsmobilepay.com/docs/common-topics/http-headers).
       schema:
         type: string
         maxLength: 30
@@ -852,7 +852,7 @@ components:
       description: |-
         The name of the ecommerce plugin (if applicable).
         One word in lowercase letters is good.
-        See [http-headers](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/http-headers).
+        See [http-headers](https://developer.vippsmobilepay.com/docs/common-topics/http-headers).
       schema:
         type: string
         maxLength: 30
@@ -862,7 +862,7 @@ components:
       in: header
       description: |-
         The version number of the ecommerce plugin (if applicable).
-        See [http-headers](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/http-headers).
+        See [http-headers](https://developer.vippsmobilepay.com/docs/common-topics/http-headers).
       schema:
         type: string
         maxLength: 30
