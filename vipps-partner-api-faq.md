@@ -23,19 +23,19 @@ See the
 for all the technical details.
 
 See also:
-[Common API FAQ](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs).
+[Common API FAQ](https://developer.vippsmobilepay.com/docs/faqs).
 
 See also:
-[Vipps MobilePay Getting Started guide](https://developer.vippsmobilepay.com/docs/vipps-developers/getting-started).
+[Vipps MobilePay Getting Started guide](https://developer.vippsmobilepay.com/docs/getting-started).
 
 ## Where do I get the pricePackageId?
 
 The `pricePackageId` is a UUID, and you get it when you are activated as partner.
 If you have lost it, please search in your email.
 If you can not find it, please see
-[Questions](https://developer.vippsmobilepay.com/docs/vipps-partner#questions)
+[Questions](https://developer.vippsmobilepay.com/docs/partner#questions)
 at the bottom of
-[Partners](https://developer.vippsmobilepay.com/docs/vipps-partner).
+[Partners](https://developer.vippsmobilepay.com/docs/partner).
 
 A UUID has a format like this: 81b83246-5c19-7b94-875b-ea6d1114f099.
 
@@ -59,7 +59,7 @@ You will get this error for requests to
 if the merchant does not yet have an active sales unit with you as partner.
 
 See:
-[How to check if a merchant is signed up with the partner as partner](https://developer.vippsmobilepay.com/docs/vipps-partner#how-to-check-if-a-merchant-is-signed-up-with-the-partner-as-partner).
+[How to check if a merchant is signed up with the partner as partner](https://developer.vippsmobilepay.com/docs/partner#how-to-check-if-a-merchant-is-signed-up-with-the-partner-as-partner).
 
 ## When will it be possible to change an existing sales unit?
 
@@ -68,4 +68,4 @@ We know this is a very important feature, but can't give you a release date yet.
 The documentation will be updated as soon as we have new information.
 
 We recommend subscribing to the
-[Technical newsletter for developers](https://developer.vippsmobilepay.com/docs/vipps-developers/newsletters).
+[Technical newsletter for developers](https://developer.vippsmobilepay.com/docs/newsletters).

@@ -26,13 +26,13 @@ API version: 1.0.0.
 ## Information for Vipps partners
 
 * [How to become a Vipps partner](https://www.vipps.no/developer/become-a-partner/).
-* [Vipps Partners](https://developer.vippsmobilepay.com/docs/vipps-partner): Technical information for Vipps partners.
+* [Vipps Partners](https://developer.vippsmobilepay.com/docs/partner): Technical information for Vipps partners.
 
 ### Integrating with this API
 
 Integration should be straight-forward.
 Use the
-[partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys).
+[partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys).
 See the Postman collection and environment, and the
 [Quick start guide](vipps-partner-api-quick-start.md).
 
@@ -48,11 +48,11 @@ the following priority:
 2. Use the Partner API manually with the Postman collection provided by Vipps.
 3. Ask the merchant to create a user for the partner on [portal.vipps.no](https://portal.vipps.no),
    so the partner can check on behalf of the merchant:
-   [How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/vipps-partner/add-portal-user).
+   [How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/partner/add-portal-user).
 4. See the Vipps FAQ for how to check if a sales unit
-   [has skipLandingPage](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+   [has skipLandingPage](https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
    or
-   [which capture type it has](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
+   [which capture type it has](https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
 
 **Important:** Endpoints with `/v0/` (version 0) in the URI *are* working, and
 will continue to do so, but will be superseded by similar `/v1/` endpoints with
@@ -61,13 +61,13 @@ improved functionality as soon as possible. For example:
 provides limited information about a sales unit today, but will provide more
 details once the internal Vipps systems are able to provide them.
 The response may then change more than we allow for in the
-[API Lifecycle](https://developer.vippsmobilepay.com/docs/vipps-developers/common-topics/api-lifecycle),
+[API Lifecycle](https://developer.vippsmobilepay.com/docs/common-topics/api-lifecycle),
 and we will therefore keep `/v0/` until `/v1/` is ready.
 
 ### Partner keys
 
 All Partner Plus and Partner Premium partners can use their
-[partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys).
+[partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys).
 to use the Partner API. If you have partner keys, you have access to the
 Partner API.
 
@@ -137,9 +137,9 @@ Merchants can also see which partner (or PSP) a sales unit is connected to, if a
 Merchants can create a user for their partner on
 [portal.vipps.no](https://portal.vipps.no),
 so the partner can do this directly as described here:
-[Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys)
+[Partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys)
 and
-[How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/vipps-partner/add-portal-user).
+[How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/partner/add-portal-user).
 
 ## Get information about a sales unit based on MSN
 
@@ -194,8 +194,8 @@ Some candidates:
 
 Until more functionality is available in this API, there are some workarounds:
 
-* [How can I check if I have "reserve capture" or "direct capture"?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
-* [How can I check if I have skipLandingPage activated?](https://developer.vippsmobilepay.com/docs/vipps-developers/faqs/landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
+* [How can I check if I have "reserve capture" or "direct capture"?](https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+* [How can I check if I have skipLandingPage activated?](https://developer.vippsmobilepay.com/docs/faqs/landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
 
 ## Product order (PO) and Merchant agreement (MA)
 
@@ -334,7 +334,7 @@ Here is a sample request:
 
 **Important:** Please provide all the required fields, so it will not be necessary for
 merchants to request more details. This is the most
-[typical reason for delays](https://developer.vippsmobilepay.com/docs/vipps-partner/#typical-reasons-for-delays).
+[typical reason for delays](https://developer.vippsmobilepay.com/docs/partner/#typical-reasons-for-delays).
 
 We have made as many of the fields as possible optional, but please
 try to send as much as possible, to make it easy for the merchant.
@@ -358,7 +358,7 @@ for details):
 
 When the submitted order has been processed, Vipps sends an email to both the
 merchant and the partner (as described on
-[Vipps Partners](https://developer.vippsmobilepay.com/docs/vipps-partner))
+[Vipps Partners](https://developer.vippsmobilepay.com/docs/partner))
 with information about:
 
 * The merchant's organization number
@@ -367,7 +367,7 @@ with information about:
 * The sales unit's name
 
 This may be useful:
-[Typical reasons for delays](https://developer.vippsmobilepay.com/docs/vipps-partner#typical-reasons-for-delays).
+[Typical reasons for delays](https://developer.vippsmobilepay.com/docs/partner#typical-reasons-for-delays).
 
 ### Scenarios
 
@@ -456,6 +456,6 @@ Merchants can create a user for their partner on
 [portal.vipps.no](https://portal.vipps.no),
 so the partner can do this directly
 as described here:
-[Partner keys](https://developer.vippsmobilepay.com/docs/vipps-partner/partner-keys)
+[Partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys)
 and
-[How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/vipps-partner/add-portal-user).
+[How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/partner/add-portal-user).
