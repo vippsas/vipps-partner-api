@@ -18,8 +18,8 @@ END_METADATA -->
 
 The Partner API allows partners to retrieve information about their merchants and their sales units by using their partner keys.
 
-For general information for Vipps partners, see
-[Vipps Partners](https://developer.vippsmobilepay.com/docs/partner).
+For general information for Vipps MobilePay partners, see
+[Partners](https://developer.vippsmobilepay.com/docs/partner).
 
 **Important:** The
 [Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/),
@@ -29,20 +29,13 @@ requests and responses are _almost_ identical.
 The Management API is for both partners and merchants.
 The Partner API will be phased out in Q4 2023.
 
-## Getting started
-
-See
-[Getting Started](https://developer.vippsmobilepay.com/docs/getting-started)
-for information about API keys, product activation, how to make API calls, etc.
-
 ## Next steps
 
-The API is available for all partners using
-[partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys).
+* [API quick start](vipps-partner-api-quick-start.md):  Run the basic examples in Postman.
+* [API guide](vipps-partner-api.md): Learn about the Partner API features.
+* [API FAQ](vipps-partner-api-faq.md): Look for your question among those people have asked before.
+* [API reference](https://developer.vippsmobilepay.com/api/partner): Go straight to the endpoint specifications.
 
-This repository contains developer resources for the Vipps Partner API.
-
-* [API Quick Start](vipps-partner-api-quick-start.md):  Quick start.
-* [API Guide](vipps-partner-api.md): Developer guide for Vipps Partner API.
-* [API FAQ](vipps-partner-api-faq.md): Questions and answers.
-* [API Reference](https://developer.vippsmobilepay.com/api/partner): Partner API Specifications.
+If you're new to the platform, see
+[Getting started](https://developer.vippsmobilepay.com/docs/getting-started/)
+for information about API keys, product activation, and the test environment.
