@@ -31,7 +31,7 @@ The Partner API will be phased out in Q4 2023.
 
 ## Next steps
 
-* [API quick start](vipps-partner-api-quick-start.md):  Run the basic examples in Postman.
+* [API quick start](vipps-partner-api-quick-start.md):  Run the basic examples in curl and Postman.
 * [API guide](vipps-partner-api.md): Learn about the Partner API features.
 * [API FAQ](vipps-partner-api-faq.md): Look for your question among those people have asked before.
 * [API reference](https://developer.vippsmobilepay.com/api/partner): Go straight to the endpoint specifications.
