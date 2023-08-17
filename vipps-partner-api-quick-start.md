@@ -20,8 +20,7 @@ END_METADATA -->
 💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/partner-api>. 💥
 <!-- END_COMMENT -->
 
-Use the Partner API to get details for their own sales units and merchants.
-In addition, you can order products on behalf of your merchants.
+This API is deprecated. Please see the [Management API Quick start](https://developer.vippsmobilepay.com/docs/APIs/management-api/management-api-quick-start/).
 
 ## Before you begin
 
@@ -278,4 +277,3 @@ curl --location 'https://api.vipps.no/partner-api/v1/products/orders' \
 ## Next steps
 
 See the [Partner API guide](vipps-partner-api.md) to read about the concepts and details.
-
