@@ -254,7 +254,7 @@ curl --location 'https://api.vipps.no/partner-api/v1/products/orders' \
       "timeBeforeOrder": "10 days",
       "period": "once every 6 week",
       "online": "YES",
-      "onlineAccessableTime": "for 3 months"
+      "onlineAccessibleTime": "for 3 months"
     },
     "ticket": {
       "turnoverShare": "about 25%",
