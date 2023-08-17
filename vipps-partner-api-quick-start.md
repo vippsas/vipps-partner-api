@@ -20,8 +20,6 @@ END_METADATA -->
 💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/partner-api>. 💥
 <!-- END_COMMENT -->
 
-This API is deprecated. Please see the [Management API Quick start](https://developer.vippsmobilepay.com/docs/APIs/management-api/management-api-quick-start/).
-
 ## Before you begin
 
 This document covers the quick steps for getting started with the Partner API.
