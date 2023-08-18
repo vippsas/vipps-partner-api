@@ -120,7 +120,8 @@ The property `access_token` should be used for all other API requests in the `Au
 ### Step 3 - Get sales unit by Merchant Serial Number
 
 Send request
-[`GET:v0/salesunits/{{msn}}/`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN), where `{{msn}}` is the Merchant Serial Number.
+[`GET:v0/salesunits/{msn}/`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN),
+where `msn` is the Merchant Serial Number.
 
 This returns a JSON structure with the details, including the org number.
 
@@ -143,7 +144,7 @@ If necessary, update `orgno` in the environment.
 <TabItem value="curl">
 
 ```bash
-curl https://api.vipps.no/partner-api/v0/salesunits/{{msn}} \
+curl https://api.vipps.no/partner-api/v0/salesunits/{msn} \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni <truncated>" \
 -H "Ocp-Apim-Subscription-Key: 0f14ebcab0ec4b29ae0cb90d91b4a84a" \
@@ -158,7 +159,8 @@ curl https://api.vipps.no/partner-api/v0/salesunits/{{msn}} \
 ### Step 4 - Get merchant by organization number
 
 Send request
-[`GET:v0/merchants/{{orgno}}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant), where `{{orgno}}` is the organization number of the sales unit.
+[`GET:v0/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant),
+where `orgno` is the organization number of the sales unit.
 Details about the merchant will be provided.
 
 <Tabs
