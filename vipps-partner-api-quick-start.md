@@ -117,7 +117,42 @@ curl https://api.vipps.no/accessToken/get \
 
 The property `access_token` should be used for all other API requests in the `Authorization` header as the Bearer token.
 
-### Step 3 - Get sales unit by Merchant Serial Number
+### Step 3 - Get merchant by organization number
+
+Send request
+[`GET:v0/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant),
+where `orgno` is the organization number of the sales unit.
+
+<Tabs
+defaultValue="curl"
+groupId="sdk-choice"
+values={[
+{label: 'curl', value: 'curl'},
+{label: 'Postman', value: 'postman'},
+]}>
+<TabItem value="postman">
+
+```bash
+Send request Get merchant by organization number
+```
+
+</TabItem>
+<TabItem value="curl">
+
+```bash
+curl https://api.vipps.no/partner-api/v0/merchants/{orgno} \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni <truncated>" \
+-H "Ocp-Apim-Subscription-Key: 0f14ebcab0ec4b29ae0cb90d91b4a84a" \
+-H "Vipps-System-Name: acme" \
+-H "Vipps-System-Version: 3.1.2" \
+-X GET
+```
+
+</TabItem>
+</Tabs>
+
+### Step 4 - Get sales unit by Merchant Serial Number
 
 Send request
 [`GET:v0/salesunits/{msn}/`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN),
@@ -138,7 +173,7 @@ values={[
 Send request Get sales unit details based on MSN
 ```
 
-If necessary, update `orgno` in the environment.
+If necessary, update `msn` in the environment.
 
 </TabItem>
 <TabItem value="curl">
@@ -156,43 +191,7 @@ curl https://api.vipps.no/partner-api/v0/salesunits/{msn} \
 </TabItem>
 </Tabs>
 
-### Step 4 - Get merchant by organization number
-
-Send request
-[`GET:v0/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant),
-where `orgno` is the organization number of the sales unit.
-Details about the merchant will be provided.
-
-<Tabs
-defaultValue="curl"
-groupId="sdk-choice"
-values={[
-{label: 'curl', value: 'curl'},
-{label: 'Postman', value: 'postman'},
-]}>
-<TabItem value="postman">
-
-```bash
-Send request Get merchant by organization number
-```
-
-</TabItem>
-<TabItem value="curl">
-
-```bash
-curl https://api.vipps.no/partner-api/v0/merchants/{{orgno}} \
--H "Content-Type: application/json" \
--H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni <truncated>" \
--H "Ocp-Apim-Subscription-Key: 0f14ebcab0ec4b29ae0cb90d91b4a84a" \
--H "Vipps-System-Name: acme" \
--H "Vipps-System-Version: 3.1.2" \
--X GET
-```
-
-</TabItem>
-</Tabs>
-
-### Step 5 - Order products on behalf of merchants
+### Step 5 - (Example only) Order products on behalf of merchants
 
 See [`POST:v0/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct).
 
