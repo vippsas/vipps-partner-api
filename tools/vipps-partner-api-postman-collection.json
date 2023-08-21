@@ -15,7 +15,9 @@
             {
               "listen": "prerequest",
               "script": {
-                "exec": [""],
+                "exec": [
+                  ""
+                ],
                 "type": "text/javascript"
               }
             }
@@ -88,8 +90,15 @@
             },
             "url": {
               "raw": "{{base_url_production}}/partner-api/v1/products/orders",
-              "host": ["{{base_url_production}}"],
-              "path": ["partner-api", "v1", "products", "orders"]
+              "host": [
+                "{{base_url_production}}"
+              ],
+              "path": [
+                "partner-api",
+                "v1",
+                "products",
+                "orders"
+              ]
             },
             "description": "IMPORTANT: This endpoint is not yet available. This notice will be removed when it is. Order products on behalf of merchants:\nPartners can submit data that pre-fills the order form, so the merchant\ncan review the information and submit the product order on portal.vipps.no.\n"
           },
@@ -97,6 +106,23 @@
         },
         {
           "name": "Get merchant by organization number",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if(pm.response.code === 200) { \r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    var jsonArray = jsonData.msn;\r",
+                  "    if (jsonArray.length)\r",
+                  "        pm.environment.set(\"msn\", jsonArray[0]);\r",
+                  "}\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
           "request": {
             "auth": {
               "type": "bearer",
@@ -118,37 +144,19 @@
               {
                 "key": "Accept",
                 "value": "application/json;charset=UTF-8"
-              },
-              {
-                "key": "Merchant-Serial-Number",
-                "value": "{{merchantSerialNumber}}",
-                "type": "default"
-              },
-              {
-                "key": "Vipps-System-Name",
-                "value": "{{vipps_system_name}}",
-                "type": "default"
-              },
-              {
-                "key": "Vipps-System-Version",
-                "value": "{{vipps_system_version}}",
-                "type": "default"
-              },
-              {
-                "key": "Vipps-System-Plugin-Name",
-                "value": "{{vipps_system_plugin_name}}",
-                "type": "default"
-              },
-              {
-                "key": "Vipps-System-Plugin-Version",
-                "value": "{{vipps_system_plugin_version}}",
-                "type": "default"
               }
             ],
             "url": {
               "raw": "{{base_url_production}}/partner-api/v0/merchants/:orgno",
-              "host": ["{{base_url_production}}"],
-              "path": ["partner-api", "v0", "merchants", ":orgno"],
+              "host": [
+                "{{base_url_production}}"
+              ],
+              "path": [
+                "partner-api",
+                "v0",
+                "merchants",
+                ":orgno"
+              ],
               "variable": [
                 {
                   "key": "orgno",
@@ -183,41 +191,23 @@
               {
                 "key": "Accept",
                 "value": "application/json;charset=UTF-8"
-              },
-              {
-                "key": "Merchant-Serial-Number",
-                "value": "{{merchantSerialNumber}}",
-                "type": "default"
-              },
-              {
-                "key": "Vipps-System-Name",
-                "value": "{{vipps_system_name}}",
-                "type": "default"
-              },
-              {
-                "key": "Vipps-System-Version",
-                "value": "{{vipps_system_version}}",
-                "type": "default"
-              },
-              {
-                "key": "Vipps-System-Plugin-Name",
-                "value": "{{vipps_system_plugin_name}}",
-                "type": "default"
-              },
-              {
-                "key": "Vipps-System-Plugin-Version",
-                "value": "{{vipps_system_plugin_version}}",
-                "type": "default"
               }
             ],
             "url": {
               "raw": "{{base_url_production}}/partner-api/v0/salesunits/:msn",
-              "host": ["{{base_url_production}}"],
-              "path": ["partner-api", "v0", "salesunits", ":msn"],
+              "host": [
+                "{{base_url_production}}"
+              ],
+              "path": [
+                "partner-api",
+                "v0",
+                "salesunits",
+                ":msn"
+              ],
               "variable": [
                 {
                   "key": "msn",
-                  "value": "{{merchantSerialNumber}}",
+                  "value": "{{msn}}",
                   "description": "(Required) The Vipps MSN (merchant serial number) for the sales unit."
                 }
               ]
@@ -287,8 +277,13 @@
         },
         "url": {
           "raw": "{{base_url_production}}/accessToken/get",
-          "host": ["{{base_url_production}}"],
-          "path": ["accessToken", "get"]
+          "host": [
+            "{{base_url_production}}"
+          ],
+          "path": [
+            "accessToken",
+            "get"
+          ]
         }
       },
       "response": []
