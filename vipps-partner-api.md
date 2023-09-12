@@ -180,23 +180,6 @@ for details):
 The `orgno` is included to make it possible to find out which merchant a MSN
 belongs to, which is useful if only the MSN is known.
 
-### Future improvements
-
-Future versions of the API will *probably* return more information,
-and we will work with our partners to find out what is useful and possible.
-Some candidates:
-
-* Vipps products: Which Vipps products and APIs are available for this MSN ("eCom API", "Recurring API", "Login API", etc.).
-* Transaction cost (price package)
-* Status: Active or deactivated
-
-### In the meantime
-
-Until more functionality is available in this API, there are some workarounds:
-
-* [How can I check if I have "reserve capture" or "direct capture"?](https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
-* [How can I check if I have skipLandingPage activated?](https://developer.vippsmobilepay.com/docs/faqs/landing-page-faq#how-can-i-check-if-i-have-skiplandingpage-activated)
-
 ## Product order (PO) and Merchant agreement (MA)
 
 Merchants must have both a valid Merchant Agreement (MA) and an approved
@@ -428,34 +411,4 @@ The merchant has a merchant agreement, and probably also a Vipps product.
    email when done. The partner can also check with the API:
   [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
 
-### Future improvements
 
-* We may allow the merchant to change some data pre-filled by the
-  partner, but this is not trivial. If the merchant changes any data, the
-  partner must be notified and also get the updated data - then merge and sync that
-  with the "old" data that was sent in the first place.
-
-## Future plans for this API
-
-Changes to a sales unit currently requires BankID login to
-[portal.vipps.no](https://portal.vipps.no),
-but a partner should be able to make changes to the sales units connected to
-the partner.
-
-Some candidates:
-
-* Status: Deactivate and activate MSNs
-* Name: Update
-* Capture type: Change from "reserve capture" or "direct capture"
-* Skip landing page: Activate or deactivate
-* Price: Update
-* Logo: Update
-
-In the meantime:
-Merchants can create a user for their partner on
-[portal.vipps.no](https://portal.vipps.no),
-so the partner can do this directly
-as described here:
-[Partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys)
-and
-[How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/partner/add-portal-user).
