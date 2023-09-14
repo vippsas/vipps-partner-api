@@ -12,7 +12,8 @@ END_METADATA -->
 # Frequently asked questions
 
 <!-- START_COMMENT -->
-💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/partner-api>. 💥
+ℹ️ Please use the website:
+[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/partner-api).
 <!-- END_COMMENT -->
 
 The Partner API lets partners use their partner keys to retrieve information

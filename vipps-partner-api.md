@@ -8,7 +8,8 @@ END_METADATA -->
 # API guide
 
 <!-- START_COMMENT -->
-💥 Please use the documentation pages here: <https://developer.vippsmobilepay.com/docs/APIs/partner-api>. 💥
+ℹ️ Please use the website:
+[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/partner-api).
 <!-- END_COMMENT -->
 
 **Important:** The
