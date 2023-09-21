@@ -11,62 +11,7 @@ END_METADATA -->
 
 # Frequently asked questions
 
-<!-- START_COMMENT -->
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/partner-api).
-<!-- END_COMMENT -->
+![Vipps](./images/vipps.png) *Partner API is deprecated and will be phased out in Q4 2023.
+Please use the
+[Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/).*
 
-The Partner API lets partners use their partner keys to retrieve information
-about their merchants and their sales units.
-
-See the
-[Partner API Guide](vipps-partner-api.md)
-for all the technical details.
-
-See also:
-[Common API FAQ](https://developer.vippsmobilepay.com/docs/faqs).
-
-See also:
-[Vipps MobilePay Getting Started guide](https://developer.vippsmobilepay.com/docs/getting-started).
-
-## Where do I get the pricePackageId?
-
-The `pricePackageId` is a UUID, and you get it when you are activated as partner.
-If you have lost it, please search in your email.
-If you can not find it, please see
-[Questions](https://developer.vippsmobilepay.com/docs/partner#questions)
-at the bottom of
-[Partners](https://developer.vippsmobilepay.com/docs/partner).
-
-A UUID has a format like this: 81b83246-5c19-7b94-875b-ea6d1114f099.
-
-## Can I use the Partner API in the test environment?
-
-Nope. We do not have all the required backend systems available in the test
-environment.
-
-## Why is the URL for a pre-filled product order not working?
-
-If you send an invalid request to
-[`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct),
-the pre-fill operation will fail, and the URL will lead to the standard, empty
-product order form. Although we do *some* input validation, it is not possible
-to validate all data.
-
-## Why do I get `HTTP 404 Not Found`?
-
-You will get this error for requests to
-[`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
-if the merchant does not yet have an active sales unit with you as partner.
-
-See:
-[How to check if a merchant is signed up with the partner as partner](https://developer.vippsmobilepay.com/docs/partner#how-to-check-if-a-merchant-is-signed-up-with-the-partner-as-partner).
-
-## When will it be possible to change an existing sales unit?
-
-We are working on this now, as fast as we can!
-We know this is a very important feature, but can't give you a release date yet.
-The documentation will be updated as soon as we have new information.
-
-We recommend subscribing to the
-[Technical newsletter for developers](https://developer.vippsmobilepay.com/docs/newsletters).

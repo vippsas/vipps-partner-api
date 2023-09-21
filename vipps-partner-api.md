@@ -7,27 +7,9 @@ END_METADATA -->
 
 # API guide
 
-<!-- START_COMMENT -->
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/partner-api).
-<!-- END_COMMENT -->
-
-
-![Vipps](./images/vipps.png) *Only available for Vipps. Please use the
+![Vipps](./images/vipps.png) *Partner API is deprecated and will be phased out in Q4 2023.
+Please use the
 [Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/).*
-
-
-**Important:** The
-[Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/),
-has replaced the Partner API: All the functionality in the Partner API is available in the Management API.
-The upgrade effort will be minimal: The API keys are the same, and the endpoints,
-requests and responses are *almost* identical.
-The Management API is for both partners and merchants.
-The Partner API will be phased out in Q4 2023.
-
-The Partner API allows partners to retrieve information about their merchants and sales units by using partner keys.
-
-API version: 1.0.0.
 
 ## Information for Vipps partners
 
@@ -35,6 +17,10 @@ API version: 1.0.0.
 * [Vipps Partners](https://developer.vippsmobilepay.com/docs/partner): Technical information for Vipps partners.
 
 ### Integrating with this API
+
+
+The Partner API allows partners to retrieve information about their merchants and sales units by using partner keys.
+
 
 Integration should be straight-forward.
 Use the
@@ -121,31 +107,6 @@ Since the response only contains a list of MSNs, an additional API request is
 required to get more details about the sales unit.
 See:
 [Get information about a sales unit based on MSN](#get-information-about-a-sales-unit-based-on-msn).
-
-### Future improvements
-
-Future versions of the API will *probably* return more information,
-and we will work with our partners to find out what is useful and possible.
-Some candidates:
-
-* Company address
-* Contact information for the main person (depends on GDPR, etc.)
-* Contact information for the technical person (depends on GDPR, etc.)
-* A list of people with admin rights on portal.vipps.no (depends on GDPR, etc.)
-* Changelog: What was changed when by whom?
-
-### In the meantime
-
-All merchants can see and manage their information on
-[portal.vipps.no](https://portal.vipps.no).
-Merchants can also see which partner (or PSP) a sales unit is connected to, if any.
-
-Merchants can create a user for their partner on
-[portal.vipps.no](https://portal.vipps.no),
-so the partner can do this directly as described here:
-[Partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys)
-and
-[How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/partner/add-portal-user).
 
 ## Get information about a sales unit based on MSN
 

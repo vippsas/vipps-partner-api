@@ -6,16 +6,18 @@ sidebar_position: 20
 description: Quick steps for getting started with the Partner API.
 pagination_next: null
 pagination_prev: null
+draft: true
 ---
 
 END_METADATA -->
 
 # Quick start
 
-<!-- START_COMMENT -->
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/partner-api).
-<!-- END_COMMENT -->
+
+![Vipps](./images/vipps.png) *Partner API is deprecated and will be phased out in Q4 2023.
+Please use the
+[Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/).*
+
 
 ## Before you begin
 
@@ -74,7 +76,7 @@ The property `access_token` should be used for all other API requests in the `Au
 ### Step 3 - Get merchant by organization number
 
 Send request
-[`GET:v0/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant),
+[`GET:partner-api/v0/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant),
 where `orgno` is the organization number of the sales unit.
 
 ```bash
@@ -92,7 +94,7 @@ Take note of the merchant serial numbers returned and use one of these in the ne
 ### Step 4 - Get sales unit by Merchant Serial Number
 
 Send request
-[`GET:v0/salesunits/{msn}/`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN),
+[`GET:partner-api/v0/salesunits/{msn}/`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN),
 where `msn` is the Merchant Serial Number.
 
 This returns a JSON structure with the details, including the org number.
@@ -109,7 +111,7 @@ curl https://api.vipps.no/partner-api/v0/salesunits/{msn} \
 
 ### Step 5 - (Example only) Order products on behalf of merchants
 
-See [`POST:v0/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct).
+See [`POST:partner-api/v1/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct).
 
 Here is an example using curl. Since this is running on the production server, you might not want to run it.
 

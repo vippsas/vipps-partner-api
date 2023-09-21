@@ -10,9 +10,20 @@ END_METADATA -->
 
 # Changelog
 
+![Vipps](./images/vipps.png) *Partner API is deprecated and will be phased out in Q4 2023.
+Please use the
+[Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/).*
+
+
 All notable changes to the current API will be documented in this file.
 To learn about API versioning, see
 [Common topics: API Lifecycle](https://developer.vippsmobilepay.com/docs/common-topics/api-lifecycle/).
+
+## July 2023
+
+* Deprecated the Management API. The Partner API will be phased out in Q4 2023. Please use the
+[Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/).
+See [Migration to the Management API from Partner API](https://developer.vippsmobilepay.com/docs/APIs/management-api/migration-guide/).
 
 ## October 2022
 
