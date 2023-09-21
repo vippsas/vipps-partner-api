@@ -68,7 +68,7 @@ and we will therefore keep `/v0/` until `/v1/` is ready.
 ### Partner keys
 
 All Partner Plus and Partner Premium partners can use their
-[partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys).
+[partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys)
 to use the Partner API. If you have partner keys, you have access to the
 Partner API.
 
