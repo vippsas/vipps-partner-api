@@ -29,6 +29,7 @@ The upgrade effort will be minimal: The API keys are the same, and the endpoints
 requests and responses are _almost_ identical.
 The Management API is for both partners and merchants.
 The Partner API will be phased out in Q4 2023.
+See: [Migration to the Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/migration-guide/).
 
 For general information for Vipps MobilePay partners, see
 [Partners](https://developer.vippsmobilepay.com/docs/partner).
