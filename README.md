@@ -21,7 +21,7 @@ END_METADATA -->
 [Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/).*
 
 **Important:** The
-[Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/),
+[Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/)
 replaces this API.
 
 All the functionality in the Partner API is available in the Management API.
