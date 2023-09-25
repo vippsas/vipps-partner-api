@@ -99,8 +99,7 @@ sequenceDiagram
     API->>+Partner: A list of the merchant's MSNs connected to the partner
 ```
 
-The current version of the Partner API only returns a list of MSNs
-connected to the partner making the API request, but we *may* extend this later.
+The Partner API only returns a list of the MSNs that are connected to the partner making the request.
 
 The response (see
 [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
@@ -121,20 +120,6 @@ Since the response only contains a list of MSNs, an additional API request is
 required to get more details about the sales unit.
 See:
 [Get information about a sales unit based on MSN](#get-information-about-a-sales-unit-based-on-msn).
-
-### Future improvements
-
-Future versions of the API will *probably* return more information,
-and we will work with our partners to find out what is useful and possible.
-Some candidates:
-
-* Company address
-* Contact information for the main person (depends on GDPR, etc.)
-* Contact information for the technical person (depends on GDPR, etc.)
-* A list of people with admin rights on portal.vipps.no (depends on GDPR, etc.)
-* Changelog: What was changed when by whom?
-
-### In the meantime
 
 All merchants can see and manage their information on
 [portal.vipps.no](https://portal.vipps.no).
