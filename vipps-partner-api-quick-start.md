@@ -21,7 +21,7 @@ END_METADATA -->
 
 Be aware that these are running on the production server, <https://api.vipps.no>.
 
-🔥 **Don't store production keys in the cloud version of Postman, because this introduces a risk of exposure.** 🔥
+🔥 **To reduce risk of exposure, never store production keys in Postman or any similar tools.** 🔥
 
 **Important:** Partner keys must be kept secret. They can be used to act on behalf
 of all the partner's merchants. It is the partner's responsibility to manage
