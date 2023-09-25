@@ -28,8 +28,8 @@ of all the partner's merchants. It is the partner's responsibility to manage
 the partner keys securely. See
 [Partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys).
 
-The examples use standard example values that you must change to
-use *your* values. This includes API keys, HTTP headers, reference, etc.
+The provided example values in this guide must be changed with the values for your test sales unit and user.
+This applies for API keys, HTTP headers, reference, phone number, etc.
 
 ## Get information about your merchant sales units
 
