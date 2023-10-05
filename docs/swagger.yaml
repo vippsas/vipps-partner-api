@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Vipps Partner API
+  title: Partner API
   version: "2.0.0"
   description: |
     **Important:** The
@@ -11,7 +11,7 @@ info:
     The Management API is for both partners and merchants.
     The Partner API will be phased out in Q4 2023.
 
-    The Vipps Partner API lets partners, banks and large corporations manage
+    The Partner API lets partners, banks and large corporations manage
     their merchants (for example, submit product orders on behalf of their
     merchants) and sales units.
     See the [API Guide](https://developer.vippsmobilepay.com/docs/APIs/partner-api) for more information.
@@ -670,7 +670,7 @@ components:
             isPureLogin:
               type: boolean
               description: |-
-                If the sales unit is only approved for the Vipps Login API (no payments).
+                If the sales unit is only approved for the Login API (no payments).
                 See: https://developer.vippsmobilepay.com/docs/APIs/login-api
               default: false
               example: false
@@ -689,9 +689,9 @@ components:
             recurring:
               type: boolean
               description: |-
-                Should the sales unit have access to the Vipps Recurring API?
+                Should the sales unit have access to the Recurring API?
                 Vipps is required to perform some extra
-                compliance checks before activating the Vipps Recurring API.
+                compliance checks before activating the Recurring API.
                 See: https://developer.vippsmobilepay.com/docs/APIs/recurring-api
               default: true
               example: false
