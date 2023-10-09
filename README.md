@@ -36,7 +36,7 @@ For general information for Vipps MobilePay partners, see
 
 ## Contents
 
-* [API quick start](vipps-partner-api-quick-start.md):  Run the basic examples in curl and Postman.
+* [API quick start](vipps-partner-api-quick-start.md):  Run the basic examples in curl.
 * [API guide](vipps-partner-api.md): Learn about the Partner API features.
 * [API FAQ](vipps-partner-api-faq.md): Look for your question among those people have asked before.
 * [API reference](https://developer.vippsmobilepay.com/api/partner): Go straight to the endpoint specifications.

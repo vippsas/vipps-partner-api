@@ -36,14 +36,10 @@ API version: 1.0.0.
 
 ### Integrating with this API
 
-Integration should be straight-forward.
-Use the
+See the [Quick start guide](vipps-partner-api-quick-start.md) for help getting started.
+Remember to use your
 [partner keys](https://developer.vippsmobilepay.com/docs/partner/partner-keys).
-See the Postman collection and environment, and the
-[Quick start guide](vipps-partner-api-quick-start.md).
 
-The Postman collection can also be used to manually make API calls,
-even without an integration in place.
 
 **Please note:** Vipps has limited capacity to handle partners' requests to
 "just check something", even though it may be trivial. We therefore recommend
@@ -51,7 +47,7 @@ the following priority:
 
 1. Integrate with the Partner API, so the functionality is made available
    in the partner's own admin interface.
-2. Use the Partner API manually with the Postman collection provided by Vipps.
+2. Use the Partner API manually.
 3. Ask the merchant to create a user for the partner on [portal.vipps.no](https://portal.vipps.no),
    so the partner can check on behalf of the merchant:
    [How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/partner/add-portal-user).
