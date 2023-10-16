@@ -375,7 +375,7 @@ When using the pre-fill link without a valid MA:
 
 The most important part of the MA form is the "reelle rettighetshavere"
 ("real rights holders"), meaning the people with direct or direct ownership or
-rights for the company. This is not something the partner can be expected to
+rights for the business. This is not something the partner can be expected to
 know, and in any case this is information that must be signed with BankID by a
 person that has signatory rights for the merchant. The form looks like this:
 
