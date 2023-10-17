@@ -11,10 +11,8 @@ END_METADATA -->
 
 # Frequently asked questions
 
-<!-- START_COMMENT -->
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/partner-api).
-<!-- END_COMMENT -->
+
+🔥 The Partner API is deprecated. Please use the [Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/). 🔥
 
 The Partner API lets partners use their partner keys to retrieve information
 about their merchants and their sales units.

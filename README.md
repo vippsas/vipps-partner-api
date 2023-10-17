@@ -17,12 +17,9 @@ END_METADATA -->
 [Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/partner-api).
 <!-- END_COMMENT -->
 
-![Vipps](./images/vipps.png) *Only available for Vipps. Please use the
-[Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/).*
+🔥 The Partner API is deprecated. Please use the [Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/). 🔥
 
-**Important:** The
-[Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/)
-replaces this API.
+
 
 All the functionality in the Partner API is available in the Management API.
 The upgrade effort will be minimal: The API keys are the same, and the endpoints,

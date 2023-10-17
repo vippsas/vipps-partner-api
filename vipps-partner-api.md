@@ -7,14 +7,8 @@ END_METADATA -->
 
 # API guide
 
-<!-- START_COMMENT -->
-ℹ️ Please use the website:
-[Vipps MobilePay Technical Documentation](https://developer.vippsmobilepay.com/docs/APIs/partner-api).
-<!-- END_COMMENT -->
 
-
-![Vipps](./images/vipps.png) *Only available for Vipps. Please use the
-[Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/).*
+🔥 The Partner API is deprecated. Please use the [Management API](https://developer.vippsmobilepay.com/docs/APIs/management-api/). 🔥
 
 
 **Important:** The
