@@ -45,20 +45,10 @@ the following priority:
 3. Ask the merchant to create a user for the partner on [portal.vipps.no](https://portal.vipps.no),
    so the partner can check on behalf of the merchant:
    [How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/partner/add-portal-user).
-4. See the FAQ for how to check if a sales unit
-   [has skipLandingPage](https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+4. See the FAQ for how to check if a sales unit has
+   [skipLandingPage](https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
    or
    [which capture type it has](https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq#how-do-i-turn-direct-capture-on-or-off).
-
-**Important:** Endpoints with `/v0/` (version 0) in the URI *are* working, and
-will continue to do so, but will be superseded by similar `/v1/` endpoints with
-improved functionality as soon as possible. For example:
-[`GET:/saleunits/{msn}`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN)
-provides limited information about a sales unit today, but will provide more
-details once the internal Vipps systems are able to provide them.
-The response may then change more than we allow for in the
-[API Lifecycle](https://developer.vippsmobilepay.com/docs/common-topics/api-lifecycle),
-and we will therefore keep `/v0/` until `/v1/` is ready.
 
 ### Partner keys
 
@@ -79,20 +69,20 @@ The Management API uses the same API keys as the Partner API.
 
 This endpoint is for retrieving information about the merchant:
 
-[`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
+[`GET:/partner-api/v0/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
 
 Sequence diagram:
 
 ```mermaid
 sequenceDiagram
-    Partner->>+API: GET:/merchants/{orgno}
+    Partner->>+API: GET:/partner-api/v0/merchants/{orgno}
     API->>+Partner: A list of the merchant's MSNs connected to the partner
 ```
 
 The Partner API only returns a list of the MSNs that are connected to the partner making the request.
 
 The response (see
-[`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
+[`GET:/partner-api/v0/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
 for details):
 
 ```json
@@ -130,18 +120,18 @@ The Management API uses the same API keys as the Partner API.
 
 This endpoint is for retrieving details about one sales unit (MSN):
 
-[`GET:/saleunits/{msn}`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN)
+[`GET:/partner-api/v0/saleunits/{msn}`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN)
 
 Sequence diagram:
 
 ```mermaid
 sequenceDiagram
-    Partner->>+API: GET:/saleunits/{msn}
+    Partner->>+API: GET:/partner-api/v0/saleunits/{msn}
     API->>+Partner: The details for the MSN (if the MSN is connected to the partner)
 ```
 
 The response (see
-[`GET:/saleunits/{msn}`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN)
+[`GET:/partner-api/v0/saleunits/{msn}`](https://developer.vippsmobilepay.com/api/partner#tag/Sales-units/operation/getMSN)
 for details):
 
 ```json
@@ -191,7 +181,7 @@ This endpoint lets a partner "pre-fill" the product order form on
 on behalf of a merchant, so the merchant can log in, check the data, and submit
 the product order:
 
-[`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+[`POST:/partner-api/v1/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 
 ### Sequence diagram for pre-fill
 
@@ -204,7 +194,7 @@ sequenceDiagram
     participant Portal
     participant API
     participant Vipps
-    Partner->>API: POST:/products/orders
+    Partner->>API: POST:/partner-api/v1/products/orders
     API->>Partner: URL to pre-filled signup form
     Partner->>Merchant: Here is your pre-filled form on Portal
     Merchant->>Portal: Logs in with BankID and accesses form
@@ -308,7 +298,7 @@ something needs to be corrected, they must contact the partner to have
 them submit a new pre-fill product order with the correct details.
 
 The response (see
-[`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+[`POST:/partner-api/v1/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
 for details):
 
 ```json
@@ -346,7 +336,7 @@ The user will then automatically be presented with the pre-filled PO.
 #### Scenario 1: The merchant does not have a Merchant Agreement
 
 1. The partner pre-fills the PO using
-   [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+   [`POST:/partner-api/v1/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
    and gets a URL to the pre-filled PO on
    [portal.vipps.no](https://portal.vipps.no).
    The partner provides the URL to the merchant.
@@ -362,7 +352,7 @@ The user will then automatically be presented with the pre-filled PO.
    checks the details in the PO, and submits it.
 5. Vipps processes both the MA and PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
-   [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
+   [`GET:/partner-api/v0/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
 
 When using the pre-fill link without a valid MA:
 ![Screenshot from using link without MA](images/screenshot_without_ma.png)
@@ -380,7 +370,7 @@ person that has signatory rights for the merchant. The form looks like this:
 The merchant has a merchant agreement, and probably also a Vipps product.
 
 1. The partner pre-fills the PO using
-   [`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
+   [`POST:/partner-api/v1/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct)
    and gets a URL to the pre-filled PO on
    [portal.vipps.no](https://portal.vipps.no).
    The partner provides the URL to the merchant.
@@ -390,6 +380,6 @@ The merchant has a merchant agreement, and probably also a Vipps product.
    checks the details in the PO, and submits it.
 4. Vipps processes the PO and sends both the merchant and partner an
    email when done. The partner can also check with the API:
-  [`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
+  [`GET:/partner-api/v0/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant).
 
 

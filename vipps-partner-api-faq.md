@@ -46,7 +46,7 @@ environment.
 ## Why is the URL for a pre-filled product order not working?
 
 If you send an invalid request to
-[`POST:/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct),
+[`POST:/partner-api/v1/products/orders`](https://developer.vippsmobilepay.com/api/partner#tag/Vipps-Product-Orders/operation/orderProduct),
 the pre-fill operation will fail, and the URL will lead to the standard, empty
 product order form. Although we do *some* input validation, it is not possible
 to validate all data.
@@ -54,7 +54,7 @@ to validate all data.
 ## Why do I get `HTTP 404 Not Found`?
 
 You will get this error for requests to
-[`GET:/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
+[`GET:/partner-api/v0/merchants/{orgno}`](https://developer.vippsmobilepay.com/api/partner#tag/Merchants/operation/getMerchant)
 if the merchant does not yet have an active sales unit with you as partner.
 
 See:
