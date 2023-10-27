@@ -21,11 +21,9 @@ See the
 [Partner API Guide](vipps-partner-api.md)
 for all the technical details.
 
-See also:
-[Common API FAQ](https://developer.vippsmobilepay.com/docs/faqs).
 
-See also:
-[Vipps MobilePay Getting Started guide](https://developer.vippsmobilepay.com/docs/getting-started).
+For general information and questions, please check in the
+[Knowledge base](https://developer.vippsmobilepay.com/docs/common-topics/).
 
 ## Where do I get the pricePackageId?
 
