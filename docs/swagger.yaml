@@ -679,7 +679,7 @@ components:
               description: |-
                 The capture type of the sales unit.
                 We strongly recommend `ReserveCapture`, see the API
-                documentation: https://developer.vippsmobilepay.com/docs/faqs/reserve-and-capture-faq
+                documentation: https://developer.vippsmobilepay.com/docs/common-topics/reserve-and-capture/
               enum:
                 - "ReserveCapture"
                 - "DirectCapture"
