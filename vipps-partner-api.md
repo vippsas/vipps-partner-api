@@ -46,9 +46,9 @@ the following priority:
    so the partner can check on behalf of the merchant:
    [How to add a user on portal.vipps.no](https://developer.vippsmobilepay.com/docs/partner/add-portal-user).
 4. See the FAQ for how to check if a sales unit has
-   [skipLandingPage](https://developer.vippsmobilepay.com/docs/common-topics/reserve-and-capture/#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
+   [skipLandingPage](https://developer.vippsmobilepay.com/docs/knowledge-base/reserve-and-capture/#how-can-i-check-if-i-have-reserve-capture-or-direct-capture)
    or
-   [which capture type it has](https://developer.vippsmobilepay.com/docs/common-topics/reserve-and-capture/#how-do-i-turn-direct-capture-on-or-off).
+   [which capture type it has](https://developer.vippsmobilepay.com/docs/knowledge-base/reserve-and-capture/#how-do-i-turn-direct-capture-on-or-off).
 
 ### Partner keys
 

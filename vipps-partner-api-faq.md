@@ -23,7 +23,7 @@ for all the technical details.
 
 
 For general information and questions, please check in the
-[Knowledge base](https://developer.vippsmobilepay.com/docs/common-topics/).
+[Knowledge base](https://developer.vippsmobilepay.com/docs/knowledge-base/).
 
 ## Where do I get the pricePackageId?
 
