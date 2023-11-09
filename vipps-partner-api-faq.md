@@ -58,11 +58,3 @@ if the merchant does not yet have an active sales unit with you as partner.
 See:
 [How to check if a merchant is signed up with the partner as partner](https://developer.vippsmobilepay.com/docs/partner#how-to-check-if-a-merchant-is-signed-up-with-the-partner-as-partner).
 
-## When will it be possible to change an existing sales unit?
-
-We are working on this now, as fast as we can!
-We know this is a very important feature, but can't give you a release date yet.
-The documentation will be updated as soon as we have new information.
-
-We recommend subscribing to the
-[Technical newsletter for developers](https://developer.vippsmobilepay.com/docs/newsletters).
