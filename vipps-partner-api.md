@@ -327,7 +327,7 @@ This may be useful:
 
 **Please note:** The only method Vipps has to verify that a user has the right
 to sign a merchant agreement for a merchant is by using data from the
-[Brønnøysund Register](https://brreg.no).
+[Norwegian business registry](https://brreg.no).
 It is therefore a requirement that the user logging in on
 [portal.vipps.no](https://portal.vipps.no)
 is registered as chairman of the board ("styreleder") or CEO ("daglig leder").
